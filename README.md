@@ -27,4 +27,6 @@ php artisan key:generate
 
 ```
 
-## Happy Coding
+## Happy Coding <3
+
+This Documentation will updated as per requirements
