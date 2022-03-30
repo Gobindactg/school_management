@@ -21,9 +21,9 @@ Use this terminal command to clone the project.
 git clone https://github.com/Gobindactg/school_management.git
 cd ./school_management
 php .env.copy
-php artisan key:generate
 composer install
 npm i
+php artisan key:generate
 
 ```
 
