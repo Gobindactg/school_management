@@ -19,6 +19,7 @@ class CustomEnv
         $request->env = [
             "PROJECT_NAME" => env('PROJECT_NAME'),
             "INSTITUTION_NAME" => env('INSTITUTION_NAME'),
+            "INSTITUTION_LOGO" => env('INSTITUTION_LOGO'),
             "EIIN" => env('EIIN'),
             "ESTD" => env('ESTD'),
         ];
