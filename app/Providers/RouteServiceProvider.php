@@ -7,6 +7,8 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\CustomEnv;
+
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -34,8 +36,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
+                ->middleware('CustomEnv')
                 ->group(base_path('routes/main/backend.php'));
+                
             Route::middleware('web')
+                ->middleware('CustomEnv')
                 ->group(base_path('routes/main/fontend.php'));
         });
     }
