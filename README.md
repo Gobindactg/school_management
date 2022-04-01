@@ -5,9 +5,10 @@ This is a internship project for [Serve Human Foundation](https://servehumanfoun
   - [Mahbub Rashid Tonoy](https://github.com/MahbubTonoy)
   - [Gobinda Chandra Das](https://github.com/Gobindactg)
 
-### Languages used to this project
+### Languages, Tools and Frameworks used to this project
   - Laravel 9
   - Node.js
+  - Git
 
 ### Things should be installed before using this application
   - Apache Server (PHP v8.x+) (use XAMPP for development)
