@@ -38,7 +38,7 @@ nav {
       div {
         display: inline-block;
         padding-left: 20px;
-        width: 80%;
+        width: 89%;
         span {
           display: block;
         }
@@ -320,9 +320,12 @@ footer {
     background: $primary-color-lighter;
     color: $bright;
     .footer_name_logo {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
+      text-align: center;
       img {
-        width: 15%;
+        width: 100px;
+        display: block;
+        margin: 10px auto;
       }
     }
     .footer_social {
@@ -330,10 +333,12 @@ footer {
         list-style-type: none;
         li {
           padding: 0;
-          width: auto;
           a {
-            font-size: 1.4rem;
+            font-size: 1rem;
             padding: 10px;
+            i {
+              width: 30px;
+            }
           }
         }
         li::before {
