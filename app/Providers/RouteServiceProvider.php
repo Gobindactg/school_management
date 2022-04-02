@@ -36,12 +36,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
-                ->middleware('CustomEnv')
                 ->group(base_path('routes/main/backend.php'));
                 
             Route::middleware('web')
-                ->middleware('CustomEnv')
-                ->group(base_path('routes/main/fontend.php'));
+                ->group(base_path('routes/main/frontend.php'));
         });
     }
 
