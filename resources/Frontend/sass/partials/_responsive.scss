@@ -1,0 +1,76 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  body,
+  html {
+    font-size: 13px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  body,
+  html {
+    font-size: 13px;
+  }
+  .institution_name {
+    font-size: 2.5rem !important;
+  }
+  .main_nav .container {
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  body,
+  html {
+    font-size: 14px;
+  }
+  .board {
+    .card-date-time {
+      margin: 0;
+    }
+  }
+}
+/* small devices (phones, 900px and down) */
+@media only screen and (max-width: 900px) {
+  nav {
+    .toggle {
+      display: block !important;
+    }
+    .bottom_nav {  
+      max-height: 0 !important;
+      overflow: hidden;
+      li {
+        display: block !important;
+        text-align: left;
+        a {
+          display: block;
+          padding: 5px !important;
+        }
+        > ul {
+          position: static !important;
+          max-height: 999px !important;
+          width: 100%;
+          background: $bright !important;
+          li {
+            a {
+              padding-left: 40px !important;
+              color: $primary-color-lighter !important;
+            }
+          }
+          li::before {
+            background: transparent !important;
+          }
+        }
+      }
+    }
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  body,
+  html {
+    font-size: 16px;
+  }
+}
