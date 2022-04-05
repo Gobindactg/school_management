@@ -1,4 +1,5 @@
 @extends('Frontend.layouts.master')
+@section('title', 'Marks')
 @section('content')
     <div class="container" style="padding: 0; margin:0;">
         <div class="row bg-info" style="margin-bottom: 15px">

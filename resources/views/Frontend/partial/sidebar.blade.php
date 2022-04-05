@@ -11,7 +11,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#instution" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Instutition Management</span><i
+                <i class='bx bxs-school'></i><span>Instutition Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="instution" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -30,7 +30,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#teacher" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Teacher Management</span><i
+                <i class='bx bxs-graduation'></i><span>Teacher Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="teacher" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -49,7 +49,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#student" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>School Management</span><i
+                <i class='bx bxs-school'></i><span>School Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="student" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -73,7 +73,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#result" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Result Management</span><i
+                <i class='bx bxs-badge-check'></i><span>Result Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="result" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -123,7 +123,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#school_management" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Student Management</span><i
+                <i class='bx bx-book-reader'></i><span>Student Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="school_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -156,7 +156,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#user_management" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>User Management</span><i
+                <i class='bx bx-user'></i><span>User Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="user_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">

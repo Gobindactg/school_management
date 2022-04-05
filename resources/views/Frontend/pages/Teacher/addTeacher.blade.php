@@ -1,4 +1,5 @@
 @extends('Frontend.layouts.master')
+@section('title', 'Add Teacher')
 @section('content')
     <div class="pagetitle">
         <h1>Dashboard</h1>
