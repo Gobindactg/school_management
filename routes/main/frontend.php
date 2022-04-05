@@ -14,7 +14,31 @@ use App\Http\Controllers\Frontend\RouteController;
 |
 */
 
-Route::get('/', [RouteController::class, 'index'])->name('index');
 
-Route::get('/login', [RouteController::class, 'login'])->name('login');
 
+
+
+//institution
+Route::group(['prefix'=>'institute'], function(){
+  Route::get('/', [RouteController::class, 'index'])->name('index');
+  Route::get('/add_institution', [RouteController::class, 'add_institution']);
+  Route::get('/manage_institution', [RouteController::class, 'manage_institution']);
+});
+
+
+//student
+Route::group(['prefix'=>'student'], function(){
+  Route::get('/add_student', [RouteController::class, 'add_student']);
+  Route::get('/admit', [RouteController::class, 'admit']);
+  Route::get('/manageStudent', [RouteController::class, 'manageStudent']);
+  Route::get('/marks', [RouteController::class, 'marks']);
+  Route::get('/seatPlan', [RouteController::class, 'seatPlan']);
+});
+
+
+
+//teacher
+Route::group(['prefix'=>'teacher'], function(){
+  Route::get('/addTeacher', [RouteController::class, 'addTeacher']);
+  Route::get('/manageTeacher', [RouteController::class, 'manageTeacher']);
+});
