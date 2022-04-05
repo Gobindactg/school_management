@@ -1,4 +1,5 @@
 @extends('Frontend.layouts.master')
+@section('title', 'Seat Plan')
 @section('content')
     <div class="container" style="padding: 0; margin:0;">
         <div class="row bg-info" style="margin-bottom: 15px">

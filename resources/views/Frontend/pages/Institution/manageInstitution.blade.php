@@ -1,4 +1,5 @@
 @extends('Frontend.layouts.master')
+@section('title', 'Manage Institute Information')
 @section('content')
     <div class="pagetitle">
         <h1>Dashboard</h1>
@@ -20,56 +21,24 @@
                <th>Institution EMIS</th>
                <th>Action</th>
            </tr>
+
+
+           @foreach ($institution as $institution)
            <tr>
-               <td>1</td>
-               <td>SHAHEBDINOGORNOGOR GOVT PRIMARY SCHOOL </td>
-               <td>Aburhat, Jorargonj, Mirsarai, Chattogram </td>
-               <td>91411130606 </td>
+               <td>#</td>
+               <td>{{$institution->name}}</td>
+               <td>{{$institution->address}}</td>
+               <td>{{$institution->emis_number}} </td>
+               <td class="text-center">
+                <img src="{{ asset('institutionImage/' . $institution->image) }}" class="card-img-top "
+                alt="{{ $institution->name }}" style="width:80px;">
+               </td>
                <td>
-                   <a href="#" class="btn btn-primary">Edit</a>
+                   <a href="{{route('edit.institution', $institution->id)}}" class="btn btn-primary">Edit</a>
                    <a href="#" class="btn btn-danger">Delete</a>
                </td>
            </tr>
-           <tr>
-               <td>1</td>
-               <td>SHAHEBDINOGORNOGOR GOVT PRIMARY SCHOOL </td>
-               <td>Aburhat, Jorargonj, Mirsarai, Chattogram </td>
-               <td>91411130606 </td>
-               <td>
-                   <a href="#" class="btn btn-primary">Edit</a>
-                   <a href="#" class="btn btn-danger">Delete</a>
-               </td>
-           </tr>
-           <tr>
-               <td>1</td>
-               <td>SHAHEBDINOGORNOGOR GOVT PRIMARY SCHOOL </td>
-               <td>Aburhat, Jorargonj, Mirsarai, Chattogram </td>
-               <td>91411130606 </td>
-               <td>
-                   <a href="#" class="btn btn-primary">Edit</a>
-                   <a href="#" class="btn btn-danger">Delete</a>
-               </td>
-           </tr>
-           <tr>
-               <td>1</td>
-               <td>SHAHEBDINOGORNOGOR GOVT PRIMARY SCHOOL </td>
-               <td>Aburhat, Jorargonj, Mirsarai, Chattogram </td>
-               <td>91411130606 </td>
-               <td>
-                   <a href="#" class="btn btn-primary">Edit</a>
-                   <a href="#" class="btn btn-danger">Delete</a>
-               </td>
-           </tr>
-           <tr>
-               <td>1</td>
-               <td>SHAHEBDINOGORNOGOR GOVT PRIMARY SCHOOL </td>
-               <td>Aburhat, Jorargonj, Mirsarai, Chattogram </td>
-               <td>91411130606 </td>
-               <td>
-                   <a href="#" class="btn btn-primary">Edit</a>
-                   <a href="#" class="btn btn-danger">Delete</a>
-               </td>
-           </tr>
+           @endforeach
        </table>
     </section>
 @endsection
