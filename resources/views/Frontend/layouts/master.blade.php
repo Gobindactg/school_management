@@ -31,9 +31,10 @@
 
     </main><!-- End #main -->
     <!-- End All Section-->
-    <!-- =======Start Footer ======= -->
+    
+    <!-- Start Footer  -->
     @include('Frontend.partial.footer')
-    <!-- ======= End Footer ======= -->
+    <!--  End Footer  -->
 
     <!-- Start Js -->
     @include('Frontend.partial.js')

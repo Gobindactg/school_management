@@ -21,24 +21,24 @@ use App\Http\Controllers\Frontend\RouteController;
 //institution
 Route::group(['prefix'=>'institute'], function(){
   Route::get('/', [RouteController::class, 'index'])->name('index');
-  Route::get('/add_institution', [RouteController::class, 'add_institution']);
-  Route::get('/manage_institution', [RouteController::class, 'manage_institution']);
+  Route::get('/add_institution', [RouteController::class, 'add_institution'])->name('add_institution');
+  Route::get('/manage_institution', [RouteController::class, 'manage_institution'])->name('manage_institution');
 });
 
 
 //student
 Route::group(['prefix'=>'student'], function(){
-  Route::get('/add_student', [RouteController::class, 'add_student']);
-  Route::get('/admit', [RouteController::class, 'admit']);
-  Route::get('/manageStudent', [RouteController::class, 'manageStudent']);
-  Route::get('/marks', [RouteController::class, 'marks']);
-  Route::get('/seatPlan', [RouteController::class, 'seatPlan']);
+  Route::get('/add_student', [RouteController::class, 'add_student'])->name('add_student');
+  Route::get('/admit', [RouteController::class, 'admit'])->name('admit');
+  Route::get('/manageStudent', [RouteController::class, 'manageStudent'])->name('manageStudent');
+  Route::get('/marks', [RouteController::class, 'marks'])->name('marks');
+  Route::get('/seatPlan', [RouteController::class, 'seatPlan'])->name('seatPlan');
 });
 
 
 
 //teacher
 Route::group(['prefix'=>'teacher'], function(){
-  Route::get('/addTeacher', [RouteController::class, 'addTeacher']);
-  Route::get('/manageTeacher', [RouteController::class, 'manageTeacher']);
+  Route::get('/addTeacher', [RouteController::class, 'addTeacher'])->name('addTeacher');
+  Route::get('/manageTeacher', [RouteController::class, 'manageTeacher'])->name('manageTeacher');
 });

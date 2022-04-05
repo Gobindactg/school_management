@@ -16,12 +16,12 @@
             </a>
             <ul id="instution" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{--route('institution')--}}">
+                    <a href="{{route('add_institution')}}">
                         <i class="bi bi-circle"></i><span>Add Instutition</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{--route('manage.institution')--}}">
+                    <a href="{{route('manage_institution')}}">
                         <i class="bi bi-circle"></i><span>Management Instutition</span>
                     </a>
                 </li>
@@ -35,12 +35,12 @@
             </a>
             <ul id="teacher" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{--route('teacher')--}}">
+                    <a href="{{route('addTeacher')}}">
                         <i class="bi bi-circle"></i><span>Add Teacher</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{--route('manage.teacher')--}}">
+                    <a href="{{route('manageTeacher')}}">
                         <i class="bi bi-circle"></i><span>Management Teacher</span>
                     </a>
                 </li>
@@ -54,17 +54,17 @@
             </a>
             <ul id="student" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{--route('student')--}}">
+                    <a href="{{route('add_student')}}">
                         <i class="bi bi-circle"></i><span>Add Student</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{--route('manage.student')--}}">
+                    <a href="{{route('manageStudent')}}">
                         <i class="bi bi-circle"></i><span>Promotion Student</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{--route('manage.student')--}}">
+                    <a href="{{route('manageStudent')}}">
                         <i class="bi bi-circle"></i><span>Management Student</span>
                     </a>
                 </li>
@@ -78,17 +78,17 @@
             </a>
             <ul id="result" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{--route('manage.admit')--}}">
+                    <a href="{{route('admit')}}">
                         <i class="bi bi-circle"></i><span>Manage Admit Card</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{--route('manage.seat')--}}">
+                    <a href="{{route('seatPlan')}}">
                         <i class="bi bi-circle"></i><span>Manage Seat Plan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{--route('manage.mark')--}}">
+                    <a href="{{route('marks')}}">
                         <i class="bi bi-circle"></i><span>Manage Mark Entry</span>
                     </a>
                 </li>

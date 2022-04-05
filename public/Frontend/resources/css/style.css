@@ -345,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
 .logo span {
   font-size: 26px;
   font-weight: 700;
-  color: #012970;
+  color: #fff;
   font-family: "Nunito", sans-serif;
 }
 
@@ -354,7 +354,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 997;
   height: 60px;
   box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  background-color: #041C32;
   padding-left: 20px;
   /* Toggle Sidebar Button */
   /* Search Bar */
@@ -363,7 +363,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 32px;
   padding-left: 10px;
   cursor: pointer;
-  color: #012970;
+  color: #fff;
 }
 .header .search-bar {
   min-width: 360px;
@@ -395,12 +395,13 @@ h1, h2, h3, h4, h5, h6 {
 .header .search-form input {
   border: 0;
   font-size: 14px;
-  color: #012970;
+  color: #ddd;
   border: 1px solid rgba(1, 41, 112, 0.2);
   padding: 7px 38px 7px 8px;
   border-radius: 3px;
   transition: 0.3s;
   width: 100%;
+  background-color: #032744;
 }
 .header .search-form input:focus, .header .search-form input:hover {
   outline: none;
@@ -414,7 +415,7 @@ h1, h2, h3, h4, h5, h6 {
   background: none;
 }
 .header .search-form button i {
-  color: #012970;
+  color: #ddd;
 }
 
 /*--------------------------------------------------------------
@@ -429,10 +430,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 .header-nav .nav-icon {
   font-size: 20px;
-  color: #012970;
+  color: #fff;
 }
 .header-nav .nav-profile {
-  color: #012970;
+  color: #fff;
 }
 .header-nav .nav-profile img {
   max-height: 36px;
@@ -537,9 +538,9 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #aab7cf transparent;
+  scrollbar-color: #626c7e transparent;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
+  background-color: #04293A;
 }
 @media (max-width: 1199px) {
   .sidebar {
@@ -587,10 +588,13 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar-nav .nav-item {
   margin-bottom: 5px;
 }
+.sidebar-nav .nav-item a:hover {
+  color: #aaa;
+}
 .sidebar-nav .nav-heading {
   font-size: 11px;
   text-transform: uppercase;
-  color: #899bbd;
+  color: #fff;
   font-weight: 600;
   margin: 10px 0 5px 15px;
 }
@@ -599,30 +603,30 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   font-size: 15px;
   font-weight: 600;
-  color: #4154f1;
+  color: #fff;
   transition: 0.3;
-  background: #f6f9ff;
+  background: #04293a;
   padding: 10px 15px;
   border-radius: 4px;
 }
 .sidebar-nav .nav-link i {
   font-size: 16px;
   margin-right: 10px;
-  color: #4154f1;
+  color: #fff;
 }
 .sidebar-nav .nav-link.collapsed {
-  color: #012970;
-  background: #fff;
+  color: #fff;
+  background: #04293a;
 }
 .sidebar-nav .nav-link.collapsed i {
-  color: #899bbd;
+  color: #fff;
 }
 .sidebar-nav .nav-link:hover {
-  color: #4154f1;
-  background: #f6f9ff;
+  color: #fff;
+  background: #04293a;
 }
 .sidebar-nav .nav-link:hover i {
-  color: #4154f1;
+  color: #fff;
 }
 .sidebar-nav .nav-link .bi-chevron-down {
   margin-right: 0;
@@ -641,7 +645,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   font-size: 14px;
   font-weight: 600;
-  color: #012970;
+  color: #fff;
   transition: 0.3;
   padding: 10px 0 10px 40px;
   transition: 0.3s;
@@ -653,10 +657,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
 }
 .sidebar-nav .nav-content a:hover, .sidebar-nav .nav-content a.active {
-  color: #4154f1;
+  color: #aaa;
 }
 .sidebar-nav .nav-content a.active i {
-  background-color: #4154f1;
+  background-color: #fff;
 }
 
 /*--------------------------------------------------------------

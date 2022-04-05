@@ -1,6 +1,13 @@
-.messenger img{
+.messenger{
     position: fixed;
     bottom: 30px;
     right: 50px;
     width: 60px;
+    background: #fff;
+    padding: 7px;
+    border-radius: 20%;
+    border: 1px solid #ddd;
+}
+.messenger img {
+    width: 100%;
 }
