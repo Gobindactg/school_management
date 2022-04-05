@@ -25,11 +25,11 @@
 
     <!-- custom css -->
     <link rel="stylesheet" href="{{ asset('Frontend/css/styles.css') }} " type="text/css" />
+
+    @stack('css')
   </head>
   <body>
     @include('Frontend.partials.nav')
-
-    @include('Frontend.partials.carousel')
 
     @yield('content')
 
@@ -51,5 +51,6 @@
 
     <!-- custom js -->
     <script type="text/javascript" src="{{asset('Frontend/js/app.js')}}"></script>
+    @stack('css')
   </body>
 </html>

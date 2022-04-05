@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class RouteController extends Controller
 {
-    public function index(Request $request) {
-        return view('Frontend.pages.index'
-        // , [
-        //     "env"=>$request->env
-        // ]
-    );
+    public function index() {
+        return view('Frontend.pages.index');
+    }
+
+    public function login() {
+        return view('Frontend.pages.login');
     }
 }

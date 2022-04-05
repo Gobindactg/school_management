@@ -15,3 +15,6 @@ use App\Http\Controllers\Frontend\RouteController;
 */
 
 Route::get('/', [RouteController::class, 'index'])->name('index');
+
+Route::get('/login', [RouteController::class, 'login'])->name('login');
+

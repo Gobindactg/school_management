@@ -20,11 +20,11 @@
             </a>
           </div>
           <div class="top_nav_right pe-5">
-            <a href="#">
+            <a href="{{ route('login') }}">
               <i class="fa-solid fa-right-to-bracket"></i>
               Log In
             </a>
-            <a href="#">
+            <a href="{{ route('login') }}">
               <i class="fa-solid fa-user-plus"></i>
               Register
             </a>
@@ -42,7 +42,7 @@
               {{-- Welcome To --}}
               <span>{{env('INSTITUTION_NAME')}}</span>
             </span>
-            <span class="institution_motto">Know Thyself</span>
+            <span class="institution_motto">{{env('INSTITUTION_MOTTO')}}</span>
           </div>
           <div style="clear: both"></div>
         </div>
@@ -54,7 +54,7 @@
       </div>
       <input type="checkbox" id="toggleTrigger"/>
       <ul class="bottom_nav">
-        <li><a href="#">Home</a></li>
+        <li><a href="{{ route('index') }}">Home</a></li>
         <li>
           <a href="#">College</a>
           <ul>

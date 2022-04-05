@@ -2,6 +2,7 @@
 @section('title', env('INSTITUTION_NAME'))
 
 @section('content')
+    @include('Frontend.partials.carousel')
     <!-- Welcome -->
     <div class="welcome container">
       <span class="welcome_to">Welcome To</span>
