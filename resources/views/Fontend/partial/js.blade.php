@@ -9,3 +9,5 @@
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+<script src="{{asset('codeEditor/summernote-bs4.min.js')}}"></script>
+<script src="{{asset('codeEditor/jquery.min.js')}}"></script>

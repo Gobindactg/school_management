@@ -35,12 +35,12 @@
             </a>
             <ul id="teacher" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="components-alerts.html">
+                    <a href="{{route('teacher')}}">
                         <i class="bi bi-circle"></i><span>Add Teacher</span>
                     </a>
                 </li>
                 <li>
-                    <a href="components-accordion.html">
+                    <a href="{{route('manage.teacher')}}">
                         <i class="bi bi-circle"></i><span>Management Teacher</span>
                     </a>
                 </li>
@@ -54,17 +54,17 @@
             </a>
             <ul id="student" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="components-alerts.html">
+                    <a href="{{route('student')}}">
                         <i class="bi bi-circle"></i><span>Add Student</span>
                     </a>
                 </li>
                 <li>
-                    <a href="components-alerts.html">
+                    <a href="{{route('manage.student')}}">
                         <i class="bi bi-circle"></i><span>Promotion Student</span>
                     </a>
                 </li>
                 <li>
-                    <a href="components-accordion.html">
+                    <a href="{{route('manage.student')}}">
                         <i class="bi bi-circle"></i><span>Management Student</span>
                     </a>
                 </li>
@@ -78,17 +78,17 @@
             </a>
             <ul id="result" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="components-alerts.html">
+                    <a href="{{route('manage.admit')}}">
                         <i class="bi bi-circle"></i><span>Manage Admit Card</span>
                     </a>
                 </li>
                 <li>
-                    <a href="components-alerts.html">
+                    <a href="{{route('manage.seat')}}">
                         <i class="bi bi-circle"></i><span>Manage Seat Plan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="components-alerts.html">
+                    <a href="{{route('manage.mark')}}">
                         <i class="bi bi-circle"></i><span>Manage Mark Entry</span>
                     </a>
                 </li>

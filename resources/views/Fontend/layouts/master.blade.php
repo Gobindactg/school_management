@@ -36,9 +36,10 @@
     <!-- ======= End Footer ======= -->
 
     <!-- Start Js -->
+    @yield('script')
     @include('Fontend.partial.js')
     <!-- End Js -->
-
+    @include('Fontend.partial.scripts')
 </body>
 
 </html>
