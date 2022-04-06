@@ -11,8 +11,8 @@
 
     <!-- =======Start Css ======= -->
     @include('Frontend.partial.css')
+    @stack('css')
     <!-- =======End Css ======= -->
-
 </head>
 
 <body>

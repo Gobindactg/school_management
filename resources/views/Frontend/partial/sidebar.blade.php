@@ -173,6 +173,44 @@
 
             </ul>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#library_management" data-bs-toggle="collapse" href="#">
+                <i class='bx bx-library'></i><span>Library Management</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="library_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('library')}}">
+                        <i class="bi bi-circle"></i><span>Overview</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('add_book')}}">
+                        <i class="bi bi-circle"></i><span>Add New Book(s)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('add_category')}}">
+                        <i class="bi bi-circle"></i><span>Add Book Category</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('manage_borrowed_books')}}">
+                        <i class="bi bi-circle"></i><span>Manage Borrowed Books</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('create_library_card')}}">
+                        <i class="bi bi-circle"></i><span>Create Library Card</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('manage_library_card')}}">
+                        <i class="bi bi-circle"></i><span>Manage Library Card</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
         {{-- <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>

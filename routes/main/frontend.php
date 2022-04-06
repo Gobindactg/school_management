@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\PagesController;
 use App\Http\Controllers\Frontend\InstitutionController;
 use App\Http\Controllers\Frontend\TeacherController;
 use App\Http\Controllers\Frontend\StudentController;
+use App\Http\Controllers\Frontend\LibraryController;
 use App\Http\Controllers\Frontend\DivisionController;
 use App\Http\Controllers\Frontend\DistrictController;
 
@@ -60,3 +61,12 @@ Route::get('get-upazilas/{id}', function($id){
 });
 
 
+// Library
+Route::group(['prefix'=>'library'], function() {
+  Route::get('/', [LibraryController::class, 'index'])->name('library');
+  Route::get('/add_book', [LibraryController::class, 'add_book'])->name('add_book');
+  Route::get('/add_category', [LibraryController::class, 'add_category'])->name('add_category');
+  Route::get('/manage_borrowed_books', [LibraryController::class, 'manage_borrowed_books'])->name('manage_borrowed_books');
+  Route::get('/create_library_card', [LibraryController::class, 'create_library_card'])->name('create_library_card');
+  Route::get('/manage_library_card', [LibraryController::class, 'manage_library_card'])->name('manage_library_card');
+});
