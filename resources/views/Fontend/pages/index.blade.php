@@ -23,6 +23,8 @@
                     {{ $institution->name }}</strong></h2>
                     <h4 class="text-center " style=" text-transform: uppercase"><strong>
                             {{ $institution->address }}</strong></h4>
+                    <p class="text-center " style=" text-transform: uppercase"><strong>
+                            {{ $institution->upazila->name }} , {{ $institution->district->name }} , {{ $institution->division->name }} </strong></p>
                     <h4 class="text-center " style=" text-transform: uppercase"><strong> EMIS :
                             {{ $institution->emis_number }}</strong></h4>
                            

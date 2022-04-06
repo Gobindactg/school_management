@@ -20,8 +20,6 @@
                 
                 });
         })
-
-      
    
           $("#district-area").change(function(){
             var district = $("#district-area").val();
@@ -37,6 +35,23 @@
                 })
                 upazila = option2+option
                 $("#upazila-area").html(upazila);
+                });
+        })
+        
+        $("#upazila-area").change(function(){
+            var upazila = $("#upazila-area").val();
+            $("#institution-area").html("");
+            var option = "";
+            // send an ajax request to server with this division
+            $.get( "http://localhost/School_Management/School_Management/public/get-institution/"+upazila, 
+            function( data ) {
+                data1 = JSON.parse(data);
+                option2 = "<option>-- Select Your Institution--</option>"
+                data1.forEach(function(element){
+                   option += "<option value='"+ element.id +"'>"+ element.name +"</option>";
+                })
+                institution = option2+option
+                $("#institution-area").html(institution);
                 });
         })
     </script>

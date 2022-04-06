@@ -45,6 +45,10 @@ class InstitutionController extends Controller
           $institution->name = $request->instution_name;
           $institution->address = $request->institution_address;
           $institution->emis_number = $request->institution_emis;
+          $institution->division_id = $request->division_id;
+          $institution->district_id = $request->district_id;
+          $institution->upazila_id = $request->upazila_id;
+
           $institution->user_id = Auth::id();
           
           // productImage model insert single image
@@ -68,4 +72,6 @@ class InstitutionController extends Controller
         $district= District::orderBy('id', 'asc')->get();
         return view('Fontend.pages.Institution.edit')->with('institution', $institution)->with('division', $division)->with('district', $district);
     }
+
+  
 }

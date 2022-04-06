@@ -7,6 +7,7 @@ use App\Http\Controllers\Fontend\TeacherController;
 use App\Http\Controllers\Fontend\StudentController;
 use App\Http\Controllers\Fontend\DivisionController;
 use App\Http\Controllers\Fontend\DistrictController;
+use App\Http\Controllers\Fontend\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,10 +40,18 @@ Route::get('/admit', [StudentController::class, 'admit'])->name('manage.admit');
 Route::get('/seat-plan', [StudentController::class, 'seat_plan'])->name('manage.seat');
 Route::get('/mark', [StudentController::class, 'mark'])->name('manage.mark');
 
+// search result
+Route::get('/search-result', [SearchController::class, 'search_result'])->name('search.result');
+Route::get('/search-result-show', [SearchController::class, 'search_result_show'])->name('search.result.show');
+
+
 // API Route
 Route::get('get-districts/{id}', function($id){
     return json_encode(App\Models\District::where('division_id', $id)->get());
 });
 Route::get('get-upazilas/{id}', function($id){
     return json_encode(App\Models\Upazila::where('district_id', $id)->get());
+});
+Route::get('get-institution/{id}', function($id){
+    return json_encode(App\Models\Institution_info::where('upazila_id', $id)->get());
 });

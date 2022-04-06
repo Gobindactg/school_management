@@ -78,18 +78,6 @@
                     @enderror
                 </div>
             </div>
-            {{-- <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Division</label>
-              <input type="number" class="form-control" id="institution_emis" name="institution_emis" placeholder="Write Your Institution EMIS">
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">District</label>
-              <input type="number" class="form-control" id="institution_emis" name="institution_emis" placeholder="Write Your Institution EMIS">
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Upazila</label>
-              <input type="number" class="form-control" id="institution_emis" name="institution_emis" placeholder="Write Your Institution EMIS">
-            </div> --}}
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Institution Logo</label>
                 <input type="file" class="form-control" id="institution_logo" name="institution_logo"
@@ -99,8 +87,4 @@
             <button type="submit" class="btn btn-primary">Add Info</button>
         </form>
     </section>
-   
 @endsection
-
-
-

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Fontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Auth;
 
 class StudentController extends Controller
 {
@@ -22,4 +23,5 @@ class StudentController extends Controller
     public function mark(){
         return view('Fontend.pages.Student.mark');
     }
+  
 }

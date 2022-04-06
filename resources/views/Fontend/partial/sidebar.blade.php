@@ -173,6 +173,25 @@
 
             </ul>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#search_result" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Search Result</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="search_result" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('search.result')}}">
+                        <i class="bi bi-circle"></i><span>Search Result</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-accordion.html">
+                        <i class="bi bi-circle"></i><span>User Profile Update</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
         {{-- <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
