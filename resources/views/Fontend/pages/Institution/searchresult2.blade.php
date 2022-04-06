@@ -3,7 +3,7 @@
     <section class="section dashboard">
         <div class="py-2">
            
-            <h3 class="text-info">Search Result By <span class="text-success"> School ID {{$search}} </span></h3>
+            <h3 class="text-info">Search Result By <span class="text-success"> {{$search}} </span></h3>
          
         </div>
         <table class="table table-bordered">

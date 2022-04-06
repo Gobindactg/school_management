@@ -48,7 +48,7 @@
                 data1 = JSON.parse(data);
                 option2 = "<option>-- Select Your Institution--</option>"
                 data1.forEach(function(element){
-                   option += "<option value='"+ element.id +"'>"+ element.name +"</option>";
+                   option += "<option value='"+ element.name +"'>"+ element.name +"</option>";
                 })
                 institution = option2+option
                 $("#institution-area").html(institution);
