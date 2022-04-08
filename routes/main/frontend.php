@@ -70,3 +70,7 @@ Route::group(['prefix'=>'library'], function() {
   Route::get('/create_library_card', [LibraryController::class, 'create_library_card'])->name('create_library_card');
   Route::get('/manage_library_card', [LibraryController::class, 'manage_library_card'])->name('manage_library_card');
 });
+
+
+// Authentication
+Auth::routes();

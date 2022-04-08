@@ -38,6 +38,7 @@
 
     <!-- Start Js -->
     @include('Frontend.partial.js')
+    @stack('js')
     <!-- End Js -->
 
 </body>
