@@ -1,5 +1,8 @@
 @extends('Frontend.layouts.master')
+{{-- <<<<<<< HEAD --}}
 @section('title', 'Manage Institute Information')
+{{-- =======
+>>>>>>> gobinda --}}
 @section('content')
     <div class="pagetitle">
         <h1>Dashboard</h1>
@@ -19,10 +22,16 @@
                <th>Institution Name</th>
                <th>Institution Address</th>
                <th>Institution EMIS</th>
+<<<<<<< HEAD
                <th>Action</th>
            </tr>
 
 
+=======
+               <th>Institution Logo</th>
+               <th>Action</th>
+           </tr>
+>>>>>>> gobinda
            @foreach ($institution as $institution)
            <tr>
                <td>#</td>

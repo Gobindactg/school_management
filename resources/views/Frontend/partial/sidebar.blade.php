@@ -16,7 +16,11 @@
             </a>
             <ul id="instution" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
+{{-- <<<<<<< HEAD
                     <a href="{{route('add_institution')}}">
+======= --}}
+                    <a href="{{route('addInstitution')}}">
+{{-- >>>>>>> gobinda --}}
                         <i class="bi bi-circle"></i><span>Add Instutition</span>
                     </a>
                 </li>
@@ -35,12 +39,20 @@
             </a>
             <ul id="teacher" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
+<<<<<<< HEAD
                     <a href="{{route('addTeacher')}}">
+=======
+                    <a href="{{route('teacher')}}">
+>>>>>>> gobinda
                         <i class="bi bi-circle"></i><span>Add Teacher</span>
                     </a>
                 </li>
                 <li>
+<<<<<<< HEAD
                     <a href="{{route('manageTeacher')}}">
+=======
+                    <a href="{{route('manage.teacher')}}">
+>>>>>>> gobinda
                         <i class="bi bi-circle"></i><span>Management Teacher</span>
                     </a>
                 </li>
@@ -174,6 +186,28 @@
             </ul>
         </li>
         <li class="nav-item">
+<<<<<<< HEAD
+=======
+            <a class="nav-link collapsed" data-bs-target="#search_result" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Search Result</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="search_result" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('search.result')}}">
+                        <i class="bi bi-circle"></i><span>Search Result</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-accordion.html">
+                        <i class="bi bi-circle"></i><span>User Profile Update</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="nav-item">
+>>>>>>> gobinda
             <a class="nav-link collapsed" data-bs-target="#library_management" data-bs-toggle="collapse" href="#">
                 <i class='bx bx-library'></i><span>Library Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>

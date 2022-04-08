@@ -21,7 +21,11 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->integer('user_id')->nullable();
             $table->timestamps();
-            return redirect()->route('institution_store');
+//<<<<<<< HEAD
+//             return redirect()->route('institution_store');
+// =======
+            return redirect()->route('admin/create');
+// >>>>>>> gobinda
         });
     }
 

@@ -7,12 +7,20 @@ use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
-    public function addTeacher()
-    {
-        return view('Frontend.pages.Teacher.addTeacher');
+// <<<<<<< HEAD
+//     public function addTeacher()
+//     {
+//         return view('Frontend.pages.Teacher.addTeacher');
+//     }
+//     public function manageTeacher()
+//     {
+//         return view('Frontend.pages.Teacher.manageTeacher');
+// =======
+    public function addTeacher(){
+        return view('Frontend.pages.Teacher.addteacher');
     }
-    public function manageTeacher()
-    {
-        return view('Frontend.pages.Teacher.manageTeacher');
+    public function manageTeacher(){
+        return view('Frontend.pages.Teacher.manageteacher');
+// >>>>>>> gobinda
     }
 }

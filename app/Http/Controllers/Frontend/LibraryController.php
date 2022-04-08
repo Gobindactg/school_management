@@ -27,4 +27,8 @@ class LibraryController extends Controller
     public function manage_library_card() {
         return view('Frontend.pages.library.manageLibraryCard');
     }
+// <<<<<<< HEAD
+// }
+// =======
 }
+// >>>>>>> gobinda

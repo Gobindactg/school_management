@@ -3,10 +3,24 @@
         &copy; Copyright <strong><span>Noipunno Digital School</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
+<<<<<<< HEAD
         Designed by <a href="#">Gobinda Das & Mahabub Rashid Tonoy</a>
     </div>
     <div class="messenger" data-bs-toggle="modal" data-bs-target="#myModal" type='button'>
         <img src="{{ asset('Global/images/messenger.png') }}" alt="message" >
+=======
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">Gobinda Das & Mahabub Rashid Tonoy</a>
+    </div>
+    <div class="messenger">
+
+            <img src="{{ asset('images/messenger.png') }}" alt=" " type="button"  data-bs-toggle="modal" data-bs-target="#myModal">
+    
+
+>>>>>>> gobinda
     </div>
 </footer><!-- End Footer -->
 @include('Frontend.partial.modal')

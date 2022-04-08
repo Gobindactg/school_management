@@ -45,8 +45,9 @@
                     <i class="fa fa-whatsapp text-primary" style="font-size: 35px"></i>
                 </a>
             </li>
+          
             <!-- End Social Media Icon-->
-
+       
             <li class="nav-item dropdown">
 
                 <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
@@ -188,8 +189,6 @@
 
             </li><!-- End Messages Nav -->
 
-
-
                <!-- start user Login section-->
                @guest
                @if (Route::has('login'))
@@ -203,8 +202,12 @@
                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                    </li>
                @endif
+<<<<<<< HEAD
 
                @else
+=======
+           @else
+>>>>>>> gobinda
                <li class="nav-item dropdown">
                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                        {{ Auth::user()->name }}
@@ -227,6 +230,7 @@
                    </div>
                </li>
            @endguest
+<<<<<<< HEAD
 
 
 
@@ -287,6 +291,9 @@
                         </a>
                     </li>
 
+=======
+             <!-- end user Login section-->
+>>>>>>> gobinda
                 </ul><!-- End Profile Dropdown Items -->
             </li><!-- End Profile Nav --> --}}
 

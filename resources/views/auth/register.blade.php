@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 @extends('Frontend.layouts.master')
 @include('Frontend.partial.css')
+=======
+@extends('Fontend.layouts.master')
+@include('Fontend.partial.css')
+>>>>>>> gobinda
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -31,6 +31,7 @@
 
     </main><!-- End #main -->
     <!-- End All Section-->
+{{-- <<<<<<< HEAD
     
     <!-- Start Footer  -->
     @include('Frontend.partial.footer')
@@ -39,8 +40,17 @@
     <!-- Start Js -->
     @include('Frontend.partial.js')
     @stack('js')
+======= --}}
+    <!-- =======Start Footer ======= -->
+    @include('Frontend.partial.footer')
+    <!-- ======= End Footer ======= -->
+    @include('Frontend.partial.js')
+    <!-- Start Js -->
+    @yield('script')
+    
+{{-- >>>>>>> gobinda --}}
     <!-- End Js -->
-
+    @include('Frontend.partial.scripts')
 </body>
 
 </html>
