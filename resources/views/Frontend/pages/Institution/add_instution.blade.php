@@ -1,6 +1,7 @@
 @extends('Frontend.layouts.master')
 @section('title', 'Add Institute')
 @section('content')
+{{-- {{$errors}} --}}
 <div class="pagetitle">
     <h1>Dashboard</h1>
     <nav>
@@ -101,7 +102,7 @@
 
     $("#division_id").change(function() {
         let division = $("#division_id").val();
-        $("#district-area").html("<option>-- Select Your Upazila--</option>");
+        $("#district-area").html("<option>-- Select Your Division--</option>");
         var districts = "";
         // send an ajax request to server with this division
         for (let key in divisionsData[division].district) {

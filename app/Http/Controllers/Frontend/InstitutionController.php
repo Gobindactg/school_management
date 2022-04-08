@@ -36,6 +36,7 @@ class InstitutionController extends Controller
           $user_id = Auth::id();
           $users = Institution_info::where('user_id', $user_id)->get();
           if (count($users) > 0 ) {
+
             session()->flash('fail', 'Your Institution Already Add !! Please Update Your Institution Information...');
             return back();
           }else{
@@ -44,9 +45,8 @@ class InstitutionController extends Controller
           $institution->address = $request->institution_address;
           $institution->emis_number = $request->institution_emis;
           $institution->user_id = Auth::id();
-          
           // productImage model insert single image
-            if ($request->hasFile('institution_logo')) {
+          if ($request->hasFile('institution_logo')) {
             //   //insert that image
             $image = $request->file('institution_logo');
             $img = time() . '.' . $image->getClientOriginalExtension();
@@ -55,9 +55,9 @@ class InstitutionController extends Controller
             
             $institution->image = $img;
             $institution->save();
-            }
+          }
           session()->flash('success', 'Institution Information Updated Succesfully !!');
-          return redirect()->route('institution');
+          return redirect()->route('add_institution');
         }
     }
 
