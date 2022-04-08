@@ -45,6 +45,11 @@ Route::get('/search-result', [SearchController::class, 'search_result'])->name('
 Route::get('/search-result-show', [SearchController::class, 'search_result_show'])->name('search.result.show');
 
 
+// visitor route
+
+Route::get('/visitor/{id}', [SearchController::class, 'visitor'])->name('visitor');
+
+
 // API Route
 Route::get('get-districts/{id}', function($id){
     return json_encode(App\Models\District::where('division_id', $id)->get());
