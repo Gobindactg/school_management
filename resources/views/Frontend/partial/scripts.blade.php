@@ -1,5 +1,3 @@
-
-<script src="{{asset('assets/js/jquery-3.6.0.js')}}"></script>
     <script>
         $("#division_id").change(function(){
             var division = $("#division_id").val();

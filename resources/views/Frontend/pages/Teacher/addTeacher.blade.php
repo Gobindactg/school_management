@@ -1,8 +1,5 @@
 @extends('Frontend.layouts.master')
-<<<<<<<< HEAD:resources/views/Frontend/pages/Teacher/addTeacher.blade.php
 @section('title', 'Add Teacher')
-========
->>>>>>>> gobinda:resources/views/Frontend/pages/Teacher/addteacher.blade.php
 @section('content')
     <div class="pagetitle">
         <h1>Dashboard</h1>

@@ -22,16 +22,9 @@
                <th>Institution Name</th>
                <th>Institution Address</th>
                <th>Institution EMIS</th>
-<<<<<<< HEAD
-               <th>Action</th>
-           </tr>
-
-
-=======
                <th>Institution Logo</th>
                <th>Action</th>
            </tr>
->>>>>>> gobinda
            @foreach ($institution as $institution)
            <tr>
                <td>#</td>

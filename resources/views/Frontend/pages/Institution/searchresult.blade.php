@@ -1,4 +1,5 @@
-@extends('Frontend.Pages.Institution.searchlayout')
+@extends('Frontend.pages.Institution.searchlayout')
+@section('title', 'Search School')
 @section('search')
     <section class="section dashboard">
         <h2 class="text-primary">Manage Institution Information</h2>
