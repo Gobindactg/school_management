@@ -13,10 +13,18 @@
     @include('Frontend.partial.css')
     @stack('css')
     <!-- =======End Css ======= -->
+    <style>
+        body{
+            background-image: url("{{ asset('sliderImage/background.png') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
 
 </head>
 
-<body>
+<body class="body_img">
 
     <!-- Start Header -->
     @include('Frontend.partial.header')

@@ -1,6 +1,15 @@
-<aside id="sidebar" class="sidebar">
+  <style>
+   
+        .ul_hover li a:hover{ 
+            background-color:#D6EAF8 ;
+            margin: 0px 10px;
+            color:black;
+        }
+      
+    </style>
+<aside id="sidebar" class="sidebar sidebar_img ">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav ul_hover " id="sidebar-nav">
 
         <li class="nav-item">
             <a class="nav-link " href="{{route('index')}}">
@@ -9,15 +18,15 @@
             </a>
         </li><!-- End Dashboard Nav -->
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#instution" data-bs-toggle="collapse" href="#">
+        <li class="nav-item ">
+            <a class="nav-link collapsed " data-bs-target="#instution" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-menu-button-wide"></i><span>Instutition Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="instution" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="instution" class="nav-content collapse button_color " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{route('addInstitution')}}">
-                        <i class="bi bi-circle"></i><span>Add Instutition</span>
+                    <a href="{{route('addInstitution')}}" >
+                        <i class="bi bi-circle"></i><span >Add Instutition</span>
                     </a>
                 </li>
                 <li>
