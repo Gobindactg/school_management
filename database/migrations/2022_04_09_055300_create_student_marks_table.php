@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('class');
             $table->string('group');
-            $table->integer('user_id');
             $table->integer('bangla')->default(0);
             $table->integer('english')->default(0);
             $table->integer('math')->default(0);
@@ -29,6 +28,8 @@ return new class extends Migration
             $table->integer('music')->default(0);
             $table->integer('expressive_art')->default(0);
             $table->integer('physical')->default(0);
+             $table->integer('user_id')->unique();
+            $table->integer('student_info_id');
             $table->timestamps();
         });
     }

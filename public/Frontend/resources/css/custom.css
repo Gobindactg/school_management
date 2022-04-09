@@ -1,4 +1,4 @@
-.messenger{
+.messenger {
     position: fixed;
     bottom: 30px;
     right: 50px;
@@ -8,6 +8,23 @@
     border-radius: 20%;
     border: 1px solid #ddd;
 }
-.messenger img {
-    width: 100%;
+
+
+
+.news_style {
+    background-color: #04293A;
+}
+
+.news_style h5 button {
+    color: white;
+}
+
+.news_style h5 button:hover {
+    color: #FFC107
+}
+
+.Developer {
+    background-color: #04293A;
+    color: white;
+    text-align: center;
 }
