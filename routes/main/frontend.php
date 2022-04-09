@@ -83,6 +83,7 @@ Route::get('/visitor/{id}', [SearchController::class, 'visitor'])->name('visitor
 Route::group(['prefix'=>'library'], function() {
   Route::get('/', [LibraryController::class, 'index'])->name('library');
   Route::get('/add_book', [LibraryController::class, 'add_book'])->name('add_book');
+  Route::get('/manage_books', [LibraryController::class, 'manage_books'])->name('manage_books');
   Route::get('/add_category', [LibraryController::class, 'add_category'])->name('add_category');
   Route::get('/issue_book', [LibraryController::class, 'issue_book'])->name('issue_book');
   Route::get('/manage_issued_books', [LibraryController::class, 'manage_issued_books'])->name('manage_issued_books');

@@ -14,6 +14,10 @@ class LibraryController extends Controller
         return view('Frontend.pages.library.addBooks');
         
     }
+    public function manage_books() {
+        return view('Frontend.pages.library.manageBooks');
+        
+    }
     public function add_category() {
         return view('Frontend.pages.library.addCategory');
         

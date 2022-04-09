@@ -211,6 +211,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('manage_books')}}">
+                        <i class="bi bi-circle"></i><span>Manage All Books</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('add_category')}}">
                         <i class="bi bi-circle"></i><span>Add Book Category</span>
                     </a>
