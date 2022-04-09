@@ -43,3 +43,17 @@
     height: 150px;
 
 }
+.text_color li a{
+    color:green;
+    font-family: tahoma;
+    font-style: italic;
+    font-size: 20px;
+}
+.text_color li a:hover{
+    color:white;
+    font-family: tahoma;
+    font-style: italic;
+    font-size: 20px;
+    background-color:rgb(126, 113, 113);
+    border-radius:40px;
+}
