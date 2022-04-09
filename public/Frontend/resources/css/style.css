@@ -39,7 +39,17 @@ h5,
 h6 {
   font-family: "Nunito", sans-serif;
 }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 /*--------------------------------------------------------------
   # Main
   --------------------------------------------------------------*/
@@ -473,6 +483,7 @@ h6 {
 .header .search-form button i {
   color: #ddd;
 }
+
 
 /*--------------------------------------------------------------
   # Header Nav
