@@ -215,7 +215,7 @@
                        
                 </div>
                 <div class="col-md-6 position_dev ">
-                         <img src="{{asset('developerImage/gobinda.jpg')}}" alt="" >
+                         <img src="{{asset('developerImage/tonoy.jpg')}}" alt="" >
                         <h3>Mahabub Tonoy</h3>
                          <div class="card card-body">
                         <h4>Developer & Co-Founder</h4>
