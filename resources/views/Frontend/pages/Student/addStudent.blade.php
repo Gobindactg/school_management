@@ -1,4 +1,5 @@
 @extends('Frontend.layouts.master')
+@section('title', 'Add Student')
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <div class="pagetitle">
@@ -122,32 +123,32 @@
            
         </form>
     </section>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    
+    $(document).ready(function(){
+      $("#G_info").click(function(){
+        $("#section2").css("display", "block");
+        $("#P_info").css("background-color", "rgb(212 212 216)");
+        $("#G_info").css("background-color", "rgb(34 197 94)");
+        $("#section1").css("display", "none");
+       
+      });
+      $("#P_info").click(function(){
+        $("#section1").css("display", "block");
+        $("#section2").css("display", "none");
+        $("#P_info").css("background-color", "rgb(34 197 94)");
+        $("#G_info").css("background-color", "rgb(212 212 216)");
+      });
+      $("#section3").click(function(){
+        $("#section2").css("display", "block");
+        $("#section1").css("display", "none");
+        $("#P_info").css("background-color", "rgb(212 212 216)");
+        $("#G_info").css("background-color", "rgb(34 197 94)");
+      });
+    });
+     
+    </script>
 @endsection
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-crossorigin="anonymous"></script>
-<script type="text/javascript">
-
-$(document).ready(function(){
-  $("#G_info").click(function(){
-    $("#section2").css("display", "block");
-    $("#P_info").css("background-color", "rgb(212 212 216)");
-    $("#G_info").css("background-color", "rgb(34 197 94)");
-    $("#section1").css("display", "none");
-   
-  });
-  $("#P_info").click(function(){
-    $("#section1").css("display", "block");
-    $("#section2").css("display", "none");
-    $("#P_info").css("background-color", "rgb(34 197 94)");
-    $("#G_info").css("background-color", "rgb(212 212 216)");
-  });
-  $("#section3").click(function(){
-    $("#section2").css("display", "block");
-    $("#section1").css("display", "none");
-    $("#P_info").css("background-color", "rgb(212 212 216)");
-    $("#G_info").css("background-color", "rgb(34 197 94)");
-  });
-});
- 
-</script>
 

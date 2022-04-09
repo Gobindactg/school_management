@@ -1,4 +1,5 @@
 @extends('Frontend.layouts.master')
+@section('title', 'Seat Plan')
 @section('content')
     <div class="container" style="padding: 0; margin:0;">
         <div class="row bg-info" style="margin-bottom: 15px">
@@ -49,7 +50,7 @@
                     <p style="font-size: 12px"><strong>Class :</strong> Five</p>
                 </div>
                 <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('images/testimonials-2.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
+                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
                 </div>
             </div>
         </div>
@@ -66,7 +67,7 @@
                     <p style="font-size: 12px"><strong>Class :</strong> Five</p>
                 </div>
                 <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('images/testimonials-2.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
+                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
                 </div>
             </div>
         </div>
@@ -83,7 +84,7 @@
                     <p style="font-size: 12px"><strong>Class :</strong> Five</p>
                 </div>
                 <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('images/testimonials-2.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
+                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
                 </div>
             </div>
         </div>
@@ -100,7 +101,7 @@
                     <p style="font-size: 12px"><strong>Class :</strong> Five</p>
                 </div>
                 <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('images/testimonials-2.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
+                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
                 </div>
             </div>
         </div>
@@ -117,7 +118,7 @@
                     <p style="font-size: 12px"><strong>Class :</strong> Five</p>
                 </div>
                 <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('images/testimonials-2.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
+                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
                 </div>
             </div>
         </div>
@@ -134,7 +135,7 @@
                     <p style="font-size: 12px"><strong>Class :</strong> Five</p>
                 </div>
                 <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('images/testimonials-2.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
+                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
                 </div>
             </div>
         </div>

@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class TeacherController extends Controller
 {
     public function addTeacher(){
-        return view('Frontend.pages.Teacher.addteacher');
+        return view('Frontend.pages.Teacher.addTeacher');
     }
     public function manageTeacher(){
-        return view('Frontend.pages.Teacher.manageteacher');
+        return view('Frontend.pages.Teacher.manageTeacher');
     }
 }

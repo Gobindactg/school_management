@@ -1,4 +1,5 @@
 @extends('Frontend.layouts.master')
+@section('title', 'Admit')
 @section('content')
 <div class="container">
     <div class="row">
@@ -47,7 +48,7 @@
                     <p style="font-size: 18px"><strong>Year :</strong> 2022</p>
                 </div>
                 <div class="col-md-3 text-center">
-                    <img src="{{asset('images/testimonials-1.jpg')}}" alt="" style="width: 100px; padding-top:10px">
+                    <img src="{{asset('Frontend/resources/img/profile-img.jpg')}}" alt="" style="width: 100px; padding-top:10px">
                 </div>
             </div>
             <h2 class="text-primary text-center border"><strong>EXAM SCHEDULE</strong></h2>

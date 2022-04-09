@@ -1,4 +1,8 @@
 @extends('Frontend.layouts.master')
+{{-- <<<<<<< HEAD --}}
+@section('title', 'Manage Institute Information')
+{{-- =======
+>>>>>>> gobinda --}}
 @section('content')
     <div class="pagetitle">
         <h1>Dashboard</h1>

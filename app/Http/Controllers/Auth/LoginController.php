@@ -4,12 +4,16 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+// <<<<<<< HEAD
+// use Illuminate\Foundation\Auth\AuthenticatesUsers;
+// =======
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use App\Models\User;
 use App\Models\VerifyRegistation;
 
+// >>>>>>> gobinda
 
 class LoginController extends Controller
 {
@@ -31,7 +35,11 @@ class LoginController extends Controller
      *
      * @var string
      */
+// <<<<<<< HEAD
+//     protected $redirectTo = RouteServiceProvider::HOME;
+// =======
     // protected $redirectTo = RouteServiceProvider::HOME;
+// >>>>>>> gobinda
 
     /**
      * Create a new controller instance.
@@ -42,6 +50,8 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+// <<<<<<< HEAD
+// =======
 
     // login stystem
 
@@ -77,4 +87,5 @@ class LoginController extends Controller
             Auth::guard('web')->logout();
             return redirect()->route('login');
         }
+// >>>>>>> gobinda
 }

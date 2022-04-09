@@ -1,7 +1,8 @@
-<?php
 
-use Illuminate\Support\Facades\Route;
+Auth::routes();
 
+<<<<<<< HEAD
+=======
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +20,5 @@ Route::get('/', function () {
 
 Auth::routes();
 
+>>>>>>> gobinda
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
