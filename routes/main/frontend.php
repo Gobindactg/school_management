@@ -42,6 +42,7 @@ Route::group(['prefix'=>'student'], function(){
   Route::get('/admit', [StudentController::class, 'admit'])->name('admit');
   Route::get('/manageStudent', [StudentController::class, 'manageStudent'])->name('manageStudent');
   Route::get('/marks', [StudentController::class, 'marks'])->name('marks');
+  Route::post('/marks-store', [StudentController::class, 'marks_store'])->name('marks_store');
   Route::get('/seatPlan', [StudentController::class, 'seatPlan'])->name('seatPlan');
 });
 
