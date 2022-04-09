@@ -1,20 +1,12 @@
-  <style>
-   
-        .ul_hover li a:hover{ 
-            background-color:#D6EAF8 ;
-            margin: 0px 10px;
-            color:black;
-        }
-      
-    </style>
+ 
 <aside id="sidebar" class="sidebar sidebar_img ">
 
     <ul class="sidebar-nav ul_hover " id="sidebar-nav">
 
-        <li class="nav-item">
-            <a class="nav-link " href="{{route('index')}}">
-                <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
+        <li class="nav-item active">
+            <a class="nav-link active" href="{{route('index')}}">
+                <i class="bi bi-grid "></i>
+                <span >Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
 

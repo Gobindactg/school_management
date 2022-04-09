@@ -19,4 +19,5 @@
 <link href="{{asset('codeEditor/summernote-bs4.min.css')}}" rel="stylesheet">
 <link href="{{asset('codeEditor/adminlte.min.css')}}" rel="stylesheet">
 <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">
+<link href="{{asset('Frontend/resources/css/style.css')}}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
