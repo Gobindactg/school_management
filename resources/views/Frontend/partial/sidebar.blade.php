@@ -216,8 +216,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('manage_borrowed_books')}}">
-                        <i class="bi bi-circle"></i><span>Manage Borrowed Books</span>
+                    <a href="{{route('issue_book')}}">
+                        <i class="bi bi-circle"></i><span>Issue a Book</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('manage_issued_books')}}">
+                        <i class="bi bi-circle"></i><span>Manage Issued Books</span>
                     </a>
                 </li>
                 <li>
