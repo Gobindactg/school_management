@@ -177,7 +177,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#search_result" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Search Result</span><i
+                <i class='bx bx-search-alt-2'></i><span>Search Result</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="search_result" class="nav-content collapse " data-bs-parent="#sidebar-nav">

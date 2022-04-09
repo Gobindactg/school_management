@@ -51,7 +51,6 @@ Route::group(['prefix'=>'student'], function(){
 Route::group(['prefix'=>'teacher'], function(){
   Route::get('/addTeacher', [TeacherController::class, 'addTeacher'])->name('addTeacher');
   Route::get('/manageTeacher', [TeacherController::class, 'manageTeacher'])->name('manageTeacher');
-// =======
 });
 // search result
 Route::group(['prefix'=>'search'], function(){

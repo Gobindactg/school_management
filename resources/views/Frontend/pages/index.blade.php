@@ -213,7 +213,7 @@
                 </div>
                 <div class="col-md-6 position_dev ">
                          <img src="{{asset('developerImage/gobinda.jpg')}}" alt="" >
-                        <h3>Mahabub Tonny</h3>
+                        <h3>Mahabub Tonoy</h3>
                         <h4>Developer & Co-Founder</h4>
                 </div>
                
