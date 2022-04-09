@@ -4,7 +4,16 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+// <<<<<<< HEAD
+// use Illuminate\Foundation\Auth\AuthenticatesUsers;
+// =======
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
+use App\Models\User;
+use App\Models\VerifyRegistation;
+
+// >>>>>>> gobinda
 
 class LoginController extends Controller
 {
@@ -26,7 +35,11 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+// <<<<<<< HEAD
+//     protected $redirectTo = RouteServiceProvider::HOME;
+// =======
+    // protected $redirectTo = RouteServiceProvider::HOME;
+// >>>>>>> gobinda
 
     /**
      * Create a new controller instance.
@@ -37,4 +50,42 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+// <<<<<<< HEAD
+// =======
+
+    // login stystem
+
+    public function showLoginForm()
+    {
+        return view('Fontend.auth.login');
+    }
+    public function login(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required', 
+        ]);
+        // find user by this email
+        $user = User::where('email', $request->email)->first();
+            if(!is_null($user)){
+                    //user login
+                    if(Auth::guard('web')->attempt(['email'=>$request->email, 'password' => $request->password], $request->remember))
+                    {
+                        //login now
+                        return redirect()->route('index');
+                    }else{
+                            session()->flash('NotRegistered', 'Your Email Address or Password is not correct!! Please Try Again With Correct Information !! Or Reset Password');
+                                    return redirect('/login');
+                        }
+                    }else{
+                    session()->flash('NotRegistered', 'Your are Not Complete Registation; Please Registation First');
+                    return redirect('/register');
+                }
+        }
+
+        public function user_logout(){
+            Auth::guard('web')->logout();
+            return redirect()->route('login');
+        }
+// >>>>>>> gobinda
 }

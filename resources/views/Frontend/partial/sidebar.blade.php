@@ -1,11 +1,12 @@
-<aside id="sidebar" class="sidebar">
+ 
+<aside id="sidebar" class="sidebar sidebar_img ">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav ul_hover " id="sidebar-nav">
 
-        <li class="nav-item">
-            <a class="nav-link " href="{{route('index')}}">
-                <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
+        <li class="nav-item active">
+            <a class="nav-link active" href="{{route('index')}}">
+                <i class="bi bi-grid "></i>
+                <span >Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
@@ -14,10 +15,11 @@
                 <i class='bx bxs-school'></i><span>Instutition Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="instution" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="instution" class="nav-content collapse button_color " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{route('add_institution')}}">
+                    <a href="{{route('addInstitution')}}">
                         <i class="bi bi-circle"></i><span>Add Instutition</span>
+
                     </a>
                 </li>
                 <li>
@@ -163,6 +165,25 @@
                 <li>
                     <a href="components-alerts.html">
                         <i class="bi bi-circle"></i><span>User Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-accordion.html">
+                        <i class="bi bi-circle"></i><span>User Profile Update</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#search_result" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>Search Result</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="search_result" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('search.result')}}">
+                        <i class="bi bi-circle"></i><span>Search Result</span>
                     </a>
                 </li>
                 <li>

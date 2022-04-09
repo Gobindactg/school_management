@@ -7,3 +7,4 @@
 <script src="{{ asset('Frontend/vendor/simple-datatables/simple-datatables.js')}}"></script>
 <script src="{{ asset('Frontend/vendor/tinymce/tinymce.min.js')}}"></script>
 <script src="{{ asset('Frontend/vendor/php-email-form/validate.js')}}"></script>
+
