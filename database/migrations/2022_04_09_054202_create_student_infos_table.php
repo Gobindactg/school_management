@@ -29,7 +29,7 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->integer('status')->default(0);
             $table->string('image')->nullable();
-            $table->integer('user_id');
+            $table->integer('user_id')->unique();
             $table->timestamps();
         });
     }

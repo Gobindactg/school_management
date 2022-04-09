@@ -51,8 +51,9 @@ Route::group(['prefix'=>'student'], function(){
 Route::group(['prefix'=>'teacher'], function(){
   Route::get('/addTeacher', [TeacherController::class, 'addTeacher'])->name('addTeacher');
   Route::get('/manageTeacher', [TeacherController::class, 'manageTeacher'])->name('manageTeacher');
-// =======
 });
+
+
 // search result
 Route::group(['prefix'=>'search'], function(){
 Route::get('/result', [SearchController::class, 'search_result'])->name('search.result');
@@ -77,7 +78,6 @@ Route::get('get-institution/{id}', function($id){
 // visitor route
 
 Route::get('/visitor/{id}', [SearchController::class, 'visitor'])->name('visitor');
-// >>>>>>> gobinda
 
 
 // Library
