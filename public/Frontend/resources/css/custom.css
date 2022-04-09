@@ -28,3 +28,14 @@
     color: white;
     text-align: center;
 }
+
+.position_dev {
+    text-align: center;
+}
+
+.position_dev img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+
+}

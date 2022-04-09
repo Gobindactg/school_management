@@ -201,20 +201,20 @@
                 </div>
             </div>
         </div>
-           <div class="row card card-body">
+           <div class="row ">
                <h2 class="Developer">Developer And Co-Founder</h2>
-                <div class="col-md-2">
-                    
+               
+                <div class="col-md-6 position_dev center">
+                        <img src="{{asset('developerImage/gobinda.jpg')}}" alt="" >
+                        <h3>Gobinda Chandra Das</h3>
+                        <h4>Developer & Co-Founder</h4>
                 </div>
-                <div class="col-md-4">
-                        <h1>hellow</h1>
+                <div class="col-md-6 position_dev ">
+                         <img src="{{asset('developerImage/gobinda.jpg')}}" alt="" >
+                        <h3>Mahabub Tonny</h3>
+                        <h4>Developer & Co-Founder</h4>
                 </div>
-                <div class="col-md-4">
-                        <h1>hellow</h1>
-                </div>
-                <div class="col-md-2">
-
-                </div>
+               
             </div>
     </section>
    
