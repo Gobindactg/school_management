@@ -1,5 +1,4 @@
 @extends('Frontend.layouts.master')
-@include('Frontend.partial.css')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -66,6 +65,13 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <div class="mt-3">
+                                    @if (Route::has('login'))
+                                        Already Have an Account? <a class="m-0 p-0" href="{{ route('login') }}">
+                                            {{ __('Log In') }}
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </form>
