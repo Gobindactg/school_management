@@ -1,4 +1,5 @@
 @extends('Frontend.layouts.master')
+@section('title', "Register To Noipunno")
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
