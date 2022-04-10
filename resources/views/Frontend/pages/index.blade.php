@@ -203,26 +203,61 @@
                 </div>
             </div>
         </div>
-           <div class="row ">
-               <h2 class="Developer">Developer And Co-Founder</h2>
-               
-                <div class="col-md-6 position_dev center">
-                        <img src="{{asset('developerImage/gobinda.jpg')}}" alt="" >
-                        <div class="card card-body">
-                            <h3>Gobinda Chandra Das</h3>
-                            <h4>Developer & Co-Founder</h4>
-                        </div>
-                       
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active " style="text-align: center; background-color:skyblue" data-bs-interval="10000">
+                <div >
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis illum velit ea enim autem aperiam inventore eius quo! Architecto quisquam voluptas beatae. Ipsam officiis debitis deleniti odit reiciendis enim quos.
+                    Eveniet blanditiis sit vel, quod recusandae in tempore necessitatibus nulla sequi nostrum, molestias laboriosam doloremque nam natus rem, tempora aut possimus quidem consectetur obcaecati. Harum fugiat itaque ullam fuga deleniti.
+                    Illo cumque consectetur architecto, beatae accusamus est! Culpa soluta exercitationem iste in quia modi dolor at dolore optio error! Totam beatae libero commodi nisi consequatur dolorum sunt quo suscipit praesentium.</p>
                 </div>
-                <div class="col-md-6 position_dev ">
-                         <img src="{{asset('developerImage/gobinda.jpg')}}" alt="" >
-                         <div class="card card-body">
-                         <h3>Mahabub Tonny</h3>
+                <div >
+                    <img src="{{asset('developerImage/gobinda.jpg')}}" alt="" style="border-radius: 50%; width: 150px; height: 150px;">
+                </div>
+                    <div >
+                        <h3>Gobinda Chandra Das</h3>
                         <h4>Developer & Co-Founder</h4>
-                         </div>
+                    </div>
+              </div>
+              <div class="carousel-item  " style="text-align: center; background-color:rgb(121, 233, 233)" data-bs-interval="10000">
+                <div >
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis illum velit ea enim autem aperiam inventore eius quo! Architecto quisquam voluptas beatae. Ipsam officiis debitis deleniti odit reiciendis enim quos.
+                    Eveniet blanditiis sit vel, quod recusandae in tempore necessitatibus nulla sequi nostrum, molestias laboriosam doloremque nam natus rem, tempora aut possimus quidem consectetur obcaecati. Harum fugiat itaque ullam fuga deleniti.
+                    Illo cumque consectetur architecto, beatae accusamus est! Culpa soluta exercitationem iste in quia modi dolor at dolore optio error! Totam beatae libero commodi nisi consequatur dolorum sunt quo suscipit praesentium.</p>
                 </div>
-               
+                <div >
+                    <img src="{{asset('developerImage/gobinda.jpg')}}" alt="" style="border-radius: 50%; width: 150px; height: 150px;">
+                </div>
+                <div >
+                    <h3>Mahabub Tonny</h3>
+                    <h4>Developer & Co-Founder</h4>
+                </div>
+          </div>
+          <div class="carousel-item  " style="text-align: center; background-color:rgb(153, 150, 238)" data-bs-interval="10000">
+            <div >
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis illum velit ea enim autem aperiam inventore eius quo! Architecto quisquam voluptas beatae. Ipsam officiis debitis deleniti odit reiciendis enim quos.
+                Eveniet blanditiis sit vel, quod recusandae in tempore necessitatibus nulla sequi nostrum, molestias laboriosam doloremque nam natus rem, tempora aut possimus quidem consectetur obcaecati. Harum fugiat itaque ullam fuga deleniti.
+                Illo cumque consectetur architecto, beatae accusamus est! Culpa soluta exercitationem iste in quia modi dolor at dolore optio error! Totam beatae libero commodi nisi consequatur dolorum sunt quo suscipit praesentium.</p>
             </div>
+            <div >
+                <img src="{{asset('developerImage/gobinda.jpg')}}" alt="" style="border-radius: 50%; width: 150px; height: 150px;">
+            </div>
+                <div >
+                    <h3>Gobinda Chandra Das</h3>
+                    <h4>Developer & Co-Founder</h4>
+                </div>
+      </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
     </section>
    
 @endsection
