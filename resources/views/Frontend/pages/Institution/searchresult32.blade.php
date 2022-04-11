@@ -1,8 +1,11 @@
-@extends('Frontend.pages.Institution.searchlayout')
-@section('title', 'Search School')
+@extends('Frontend.Pages.Institution.searchlayout')
 @section('search')
     <section class="section dashboard">
-        <h2 class="text-primary">Manage Institution Information</h2>
+        <div class="py-2">
+           
+            <h3 class="text-info">Search Result By <span class="text-success"> {{$search}} </span></h3>
+         
+        </div>
         <table class="table table-bordered">
             <tr>
                 <th>#</th>
@@ -22,7 +25,7 @@
                     <td>{{ $institution->district->name }}</td>
                     <td>{{ $institution->division->name }}</td>
                     <td>
-                        <a href="{{ route('visitor', $institution->emis_number) }}" class="btn btn-primary" target="_blank" >Go</a>
+                        <a href="{{ route('visitor', $institution->emis_number) }}" target="_blank" class="btn btn-primary">Go</a>
 
                     </td>
                 </tr>

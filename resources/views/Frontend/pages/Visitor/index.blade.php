@@ -1,5 +1,4 @@
 @extends('Frontend.layouts.visitorMaster')
-
 @section('content')
     <div class="card card-body  my-2"  style="padding-top: 100px; height:98%">
         @foreach ($institution as $institution)

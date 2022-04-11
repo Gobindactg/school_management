@@ -1,6 +1,6 @@
 @extends('Frontend.layouts.master')
 @section('content')
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-md-3">
             <form action="">
                 <label for="division_id" class="form-label">{{ __('Division') }}</label>
@@ -68,7 +68,7 @@
 
         </div>
         
-    </div>
+    </div> --}}
 
     <div class="pagetitle">
         <h1>Dashboard</h1>
@@ -80,5 +80,6 @@
         </nav>
     </div><!-- End Page Title -->
     @yield('search')
-   
+  
 @endsection
+

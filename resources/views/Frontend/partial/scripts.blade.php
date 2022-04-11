@@ -53,7 +53,6 @@
                 });
         })
 
-
     
       //doughnut
         var ctxD = document.getElementById("doughnutChart").getContext('2d');
@@ -95,10 +94,6 @@
             responsive: true
         }
         });
-
-
-    // chart
-    //line
 
 
     </script>
