@@ -13,7 +13,6 @@ use Auth;
 use App\Models\User;
 use App\Models\VerifyRegistation;
 
-// >>>>>>> gobinda
 
 class LoginController extends Controller
 {
@@ -35,11 +34,6 @@ class LoginController extends Controller
      *
      * @var string
      */
-// <<<<<<< HEAD
-//     protected $redirectTo = RouteServiceProvider::HOME;
-// =======
-    // protected $redirectTo = RouteServiceProvider::HOME;
-// >>>>>>> gobinda
 
     /**
      * Create a new controller instance.
@@ -50,8 +44,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-// <<<<<<< HEAD
-// =======
 
     // login stystem
 

@@ -22,7 +22,7 @@ use App\Http\Controllers\Frontend\SearchController;
 
 
 
-Route::get('/', [PagesController::class, 'index']);
+Route::get('/', [PagesController::class, 'index'])->name('landing');
 Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
 
 //institution
@@ -77,7 +77,6 @@ Route::get('get-institution/{id}', function($id){
 // visitor route
 
 Route::get('/visitor/{id}', [SearchController::class, 'visitor'])->name('visitor');
-// >>>>>>> gobinda
 
 
 // Library
