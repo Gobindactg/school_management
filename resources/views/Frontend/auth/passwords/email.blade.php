@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+@extends('Frontend.layouts.auth')
+@section('title', "Email Varification")
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
