@@ -8,7 +8,7 @@
             <th>Upazila</th>
             <th>District</th>
             <th>Division</th>
-            <th>Action</th>
+            <th class="text-center">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +18,7 @@
             <td>{{ $institution->upazila->name }}</td>
             <td>{{ $institution->district->name }}</td>
             <td>{{ $institution->division->name }}</td>
-            <td> <a href="{{ route('visitor', $institution->emis_number) }}" target="_blank" class="btn btn-primary">Go</a></td>
+            <td class="text-center hover"> <a href="{{ route('visitor', $institution->emis_number) }}" target="_blank" class="btn btn-primary btn-lg w-100 ">Go</a></td>
         </tr>
         @endforeach
     </tbody>
