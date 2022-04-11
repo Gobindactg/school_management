@@ -3,8 +3,7 @@
         &copy; Copyright <strong><span>Noipunno Digital School</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-{{-- <<<<<<< HEAD --}}
-        Designed by <a href="#">Gobinda Das & Mahabub Rashid Tonoy</a>
+        Designed & Developed by <a href="#">Gobinda Das & Mahabub Rashid Tonoy</a>
     </div>
     <div class="messenger" data-bs-toggle="modal" data-bs-target="#myModal" type='button'>
         <img src="{{ asset('Global/images/messenger.png') }}" alt="message" >

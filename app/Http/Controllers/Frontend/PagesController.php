@@ -19,6 +19,6 @@ class PagesController extends Controller
     public function index(){
         $id = Auth::id();
         $institution2 = Institution_info::orderBy('id', 'desc')->where('user_id', $id)->get();
-        return view('Frontend.pages.index')->with('institution', $institution2);
+        return view('Frontend.landing.pages.index')->with('institution', $institution2);
     }
 }

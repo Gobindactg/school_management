@@ -47,3 +47,27 @@
   text-decoration: none;
   z-index: 10;
 }
+
+.book_category_list {
+  overflow-y: scroll;
+}
+.book_category_list ul {
+  width: 100%;
+  padding: 0;
+}
+.book_category_list ul li{
+  list-style-type: none;
+  padding: 7px;
+}
+.book_category_list ul li:hover {
+  background: rgba(0,0,0,.1);
+}
+.book_category_list ul li .trash_btn{
+  opacity: 0;
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+.book_category_list ul li:hover .trash_btn{
+  opacity: 1;
+}

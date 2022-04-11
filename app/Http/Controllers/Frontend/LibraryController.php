@@ -14,12 +14,19 @@ class LibraryController extends Controller
         return view('Frontend.pages.library.addBooks');
         
     }
+    public function manage_books() {
+        return view('Frontend.pages.library.manageBooks');
+        
+    }
     public function add_category() {
         return view('Frontend.pages.library.addCategory');
         
     }
-    public function manage_borrowed_books() {
-        return view('Frontend.pages.library.manageBorrowedBooks');
+    public function issue_book() {
+        return view('Frontend.pages.library.issueBook');
+    }
+    public function manage_issued_books() {
+        return view('Frontend.pages.library.manageIssuedBooks');
     }
     public function create_library_card() {
         return view('Frontend.pages.library.createLibraryCard');

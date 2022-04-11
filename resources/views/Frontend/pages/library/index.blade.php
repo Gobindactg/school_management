@@ -2,6 +2,15 @@
 @section('title', "Library Dashboard")
 
 @section('content')
+<div class="pagetitle">
+  <h1 class='mb-4'>Library</h1>
+  <nav>
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Library</a></li>
+          <li class="breadcrumb-item active">Add New Book</li>
+      </ol>
+  </nav>
+</div><!-- End Page Title -->
 <div class="row mb-4">
   <div class="col-lg-3 col-6">
 
@@ -111,10 +120,8 @@
             </tr>
           </tbody>
         </table>
-      </div>
-      <div class="card-footer clearfix ms-auto p-0 pb-3 pe-4">
         <button type="button" class="btn btn-primary"><i style="font-size: 20px" class='bx bx-plus'></i>Add item</button>
-        </div>
+      </div>
     </div>
     <div class="card">
       <div class="card-header">
@@ -131,10 +138,8 @@
           <li class="list-group-item">A fourth item</li>
           <li class="list-group-item">And a fifth one</li>
         </ul>
-      </div>
-      <div class="card-footer clearfix ms-auto p-0 pb-3 pe-4">
         <button type="button" class="btn btn-primary"><i style="font-size: 20px" class='bx bx-plus'></i>Add Library Card</button>
-        </div>
+      </div>
     </div>
   </div>
   <div class="col-md-5">
@@ -151,10 +156,8 @@
           <li class="list-group-item">A second item</li>
           <li class="list-group-item">A third item</li>
         </ul>
-      </div>
-      <div class="card-footer clearfix ms-auto p-0 pb-3 pe-4">
         <button type="button" class="btn btn-primary"><i style="font-size: 20px" class='bx bx-plus'></i>Add Categories</button>
-        </div>
+      </div>
     </div>
     <div class="card">
       <div class="card-header">
@@ -171,10 +174,8 @@
           <li class="list-group-item">A fourth item</li>
           <li class="list-group-item">And a fifth one</li>
         </ul>
-      </div>
-      <div class="card-footer clearfix ms-auto p-0 pb-3 pe-4">
         <button type="button" class="btn btn-primary"><i style="font-size: 20px" class='bx bx-plus'></i>Add Item</button>
-        </div>
+      </div>
     </div>
   </div>
 </div>

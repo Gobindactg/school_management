@@ -177,7 +177,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#search_result" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Search Result</span><i
+                <i class='bx bx-search-alt-2'></i><span>Search Result</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="search_result" class="nav-content collapse " data-bs-parent="#sidebar-nav">
@@ -211,13 +211,23 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('manage_books')}}">
+                        <i class="bi bi-circle"></i><span>Manage All Books</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('add_category')}}">
                         <i class="bi bi-circle"></i><span>Add Book Category</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('manage_borrowed_books')}}">
-                        <i class="bi bi-circle"></i><span>Manage Borrowed Books</span>
+                    <a href="{{route('issue_book')}}">
+                        <i class="bi bi-circle"></i><span>Issue a Book</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('manage_issued_books')}}">
+                        <i class="bi bi-circle"></i><span>Manage Issued Books</span>
                     </a>
                 </li>
                 <li>
