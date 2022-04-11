@@ -25,7 +25,7 @@
         @endforeach
     </tbody>
     <tfoot>
-        <tr style="font-weight: 900;" class="text-primary">
+        <tr style="font-weight: 600;" class="text-primary">
             <th>Institution Name</th>
             <th>Institution Address</th>
             <th>Upazila</th>
