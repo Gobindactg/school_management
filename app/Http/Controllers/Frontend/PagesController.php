@@ -3,16 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-// <<<<<<< HEAD
-// use App\Models\Institution_info;
-// use Illuminate\Http\Request;
-// use Auth;
-
-// =======
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\Institution_info;
-// >>>>>>> gobinda
 
 class PagesController extends Controller
 {
