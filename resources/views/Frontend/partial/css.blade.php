@@ -15,7 +15,6 @@
 <link href="{{asset('Frontend/vendor/simple-datatables/style.css')}}" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
 <link href="{{asset('codeEditor/summernote-bs4.min.css')}}" rel="stylesheet">
 <link href="{{asset('codeEditor/adminlte.min.css')}}" rel="stylesheet">
 <link href="{{asset('assets/css/custom.css')}}" rel="stylesheet">

@@ -1,5 +1,5 @@
 @extends('Frontend.layouts.master')
-
+@section('title', 'Noipunno Digital School')
 @section('content')
     <section class="section dashboard">
         <div class="row">
@@ -171,7 +171,7 @@
                             <h5 class="mb-0">
                                 <button class="btn btn-link collapsed " data-toggle="collapse" data-target="#collapseThree"
                                     aria-expanded="false" aria-controls="collapseThree">
-                                    Collapsible Group Item #3
+                                    Collapsible Group Item #2
                                 </button>
                             </h5>
                         </div>
@@ -273,33 +273,11 @@
                             quo suscipit praesentium.</p>
                     </div>
                     <div>
-                        <img src="{{ asset('developerImage/gobinda.jpg') }}" alt=""
+                        <img src="{{ asset('developerImage/tonoy.jpg') }}" alt=""
                             style="border-radius: 50%; width: 150px; height: 150px;">
                     </div>
                     <div>
-                        <h3>Mahabub Tonny</h3>
-                        <h4>Developer & Co-Founder</h4>
-                    </div>
-                </div>
-                <div class="carousel-item  " style="text-align: center; background-color:rgb(153, 150, 238)"
-                    data-bs-interval="10000">
-                    <div>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis illum velit ea enim autem
-                            aperiam inventore eius quo! Architecto quisquam voluptas beatae. Ipsam officiis debitis deleniti
-                            odit reiciendis enim quos.
-                            Eveniet blanditiis sit vel, quod recusandae in tempore necessitatibus nulla sequi nostrum,
-                            molestias laboriosam doloremque nam natus rem, tempora aut possimus quidem consectetur
-                            obcaecati. Harum fugiat itaque ullam fuga deleniti.
-                            Illo cumque consectetur architecto, beatae accusamus est! Culpa soluta exercitationem iste in
-                            quia modi dolor at dolore optio error! Totam beatae libero commodi nisi consequatur dolorum sunt
-                            quo suscipit praesentium.</p>
-                    </div>
-                    <div>
-                        <img src="{{ asset('developerImage/gobinda.jpg') }}" alt=""
-                            style="border-radius: 50%; width: 150px; height: 150px;">
-                    </div>
-                    <div>
-                        <h3>Gobinda Chandra Das</h3>
+                        <h3>Mahabub Tonoy</h3>
                         <h4>Developer & Co-Founder</h4>
                     </div>
                 </div>
@@ -317,5 +295,5 @@
         </div>
 
     </section>
+    <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 @endsection
-<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
