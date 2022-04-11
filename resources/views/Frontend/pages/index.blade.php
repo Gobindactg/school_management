@@ -208,17 +208,20 @@
                
                 <div class="col-md-6 position_dev center">
                         <img src="{{asset('developerImage/gobinda.jpg')}}" alt="" >
-                        <h3>Gobinda Chandra Das</h3>
-                        <h4>Developer & Co-Founder</h4>
+                        <div class="card card-body">
+                            <h3>Gobinda Chandra Das</h3>
+                            <h4>Developer & Co-Founder</h4>
+                        </div>
+                       
                 </div>
                 <div class="col-md-6 position_dev ">
-                         <img src="{{asset('developerImage/gobinda.jpg')}}" alt="" >
+                         <img src="{{asset('developerImage/tonoy.jpg')}}" alt="" >
                         <h3>Mahabub Tonoy</h3>
+                         <div class="card card-body">
                         <h4>Developer & Co-Founder</h4>
+                         </div>
                 </div>
                
             </div>
     </section>
-   
 @endsection
-<script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

@@ -2,13 +2,17 @@
     position: fixed;
     bottom: 30px;
     right: 50px;
+    height: 60px;
     width: 60px;
-    background: #fff;
-    padding: 7px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 3px;
     border-radius: 20%;
     border: 1px solid #ddd;
 }
-
+.messenger img{
+    height: 100%;
+    width: 100%;
+}
 
 
 .news_style {
@@ -38,4 +42,18 @@
     width: 150px;
     height: 150px;
 
+}
+.text_color li a{
+    color:green;
+    font-family: tahoma;
+    font-style: italic;
+    font-size: 20px;
+}
+.text_color li a:hover{
+    color:white;
+    font-family: tahoma;
+    font-style: italic;
+    font-size: 20px;
+    background-color:rgb(126, 113, 113);
+    border-radius:40px;
 }
