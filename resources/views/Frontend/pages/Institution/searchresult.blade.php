@@ -1,38 +1,39 @@
-@extends('Frontend.Pages.Institution.searchlayout')
+@extends('Frontend.pages.Institution.searchlayout')
 
 @section('search')
-<table id="example" class="display table table-borderd " >
-    <thead>
-        <tr style="font-weight: 900;" class="text-primary">
-            <th >Institution Name</th>
-            <th>Upazila</th>
-            <th>District</th>
-            <th>Division</th>
-            <th class="text-center">Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($institution as $institution)
-        <tr>
-            <td>{{ $institution->name }}</td>
-            <td>{{ $institution->upazila->name }}</td>
-            <td>{{ $institution->district->name }}</td>
-            <td>{{ $institution->division->name }}</td>
-            <td class="text-center hover"> <a href="{{ route('visitor', $institution->emis_number) }}" target="_blank" class="btn btn-primary btn-lg w-100 ">Go</a></td>
-        </tr>
-        @endforeach
-    </tbody>
-    <tfoot>
-        <tr style="font-weight: 600;" class="text-primary">
-            <th>Institution Name</th>
-            <th>Upazila</th>
-            <th>District</th>
-            <th>Division</th>
-            <th>Action</th>
-        </tr>
-    </tfoot>
-</table>
-@endsection
+<div style="width: 100%;overflow: scroll">
+    <table id="example" class="display table table-borderd" >
+        <thead>
+            <tr style="font-weight: 900;" class="text-primary">
+                <th >Institution Name</th>
+                <th>Upazila</th>
+                <th>District</th>
+                <th>Division</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($institution as $institution)
+            <tr>
+                <td>{{ $institution->name }}</td>
+                <td>{{ $institution->upazila }}</td>
+                <td>{{ $institution->district }}</td>
+                <td>{{ $institution->division }}</td>
+                <td class="text-center hover"> <a href="{{ route('visitor', $institution->emis_number) }}" target="_blank" class="btn btn-primary btn-lg w-100 ">Go</a></td>
+            </tr>
+            @endforeach
+        </tbody>
+        <tfoot>
+            <tr style="font-weight: 600;" class="text-primary">
+                <th>Institution Name</th>
+                <th>Upazila</th>
+                <th>District</th>
+                <th>Division</th>
+                <th>Action</th>
+            </tr>
+        </tfoot>
+    </table>
+</div >
 @include('Frontend/partial/js')
 <script>
     
@@ -99,3 +100,5 @@
 });
 
 </script>
+@endsection
+
