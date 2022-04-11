@@ -5,7 +5,6 @@
     <thead>
         <tr style="font-weight: 900;" class="text-primary">
             <th >Institution Name</th>
-            <th>Institution Address</th>
             <th>Upazila</th>
             <th>District</th>
             <th>Division</th>
@@ -16,7 +15,6 @@
         @foreach ($institution as $institution)
         <tr>
             <td>{{ $institution->name }}</td>
-            <td>{{ $institution->address }}</td>
             <td>{{ $institution->upazila->name }}</td>
             <td>{{ $institution->district->name }}</td>
             <td>{{ $institution->division->name }}</td>
@@ -27,7 +25,6 @@
     <tfoot>
         <tr style="font-weight: 600;" class="text-primary">
             <th>Institution Name</th>
-            <th>Institution Address</th>
             <th>Upazila</th>
             <th>District</th>
             <th>Division</th>
