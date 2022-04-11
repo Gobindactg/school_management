@@ -7,6 +7,7 @@
     </div>
     <div class="messenger" data-bs-toggle="modal" data-bs-target="#myModal" type='button'>
         <img src="{{ asset('Global/images/messenger.png') }}" alt="message" >
+
     </div>
 </footer><!-- End Footer -->
 @include('Frontend.partial.modal')

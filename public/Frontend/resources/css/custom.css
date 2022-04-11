@@ -9,10 +9,7 @@
     border-radius: 20%;
     border: 1px solid #ddd;
 }
-.messenger img{
-    height: 100%;
-    width: 100%;
-}
+
 
 
 .news_style {
@@ -56,4 +53,7 @@
     font-size: 20px;
     background-color:rgb(126, 113, 113);
     border-radius:40px;
+}
+.hover a:hover{
+    background-color: green;
 }

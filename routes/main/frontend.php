@@ -23,6 +23,7 @@ use App\Http\Controllers\Frontend\SearchController;
 
 
 Route::get('/', [PagesController::class, 'index']);
+Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
 
 //institution
 Route::group(['prefix'=>'institute'], function(){

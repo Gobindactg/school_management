@@ -4,7 +4,7 @@
     <ul class="sidebar-nav ul_hover " id="sidebar-nav">
 
         <li class="nav-item active">
-            <a class="nav-link active" href="{{route('index')}}">
+            <a class="nav-link active" href="{{route('noipunno')}}">
                 <i class="bi bi-grid "></i>
                 <span >Dashboard</span>
             </a>
