@@ -50,19 +50,11 @@
                         <th>#</th>
                         <th>Roll</th>
                         <th>Name</th>
+                        <th>Class</th>
                         <th>Bangla Mark</th>
                         <th>Action</th>
                     </tr>
-                    <tr class="text-center">
-                        <td>#01</td>
-                        <td>01</td>
-                        <td>Noipunno</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
+              
                     <tr class="text-center">
                         <td>#02</td>
                         <td>02</td>
