@@ -31,14 +31,15 @@ Route::group(['prefix'=>'institute'], function(){
   Route::post('/institution-store', [InstitutionController::class, 'addInstution_store'])->name('institution_store');
   Route::get('/add_institution', [InstitutionController::class, 'add_institution'])->name('addInstitution');
   Route::get('/manage_institution', [InstitutionController::class, 'manageInstitution'])->name('manage_institution');
-    Route::post('/update-institution/{id}', [InstitutionController::class, 'update'])->name('update.institution');
-      Route::get('/manage-edit/{id}', [InstitutionController::class, 'editInstitution'])->name('edit.institution');
+  Route::post('/update-institution/{id}', [InstitutionController::class, 'update'])->name('update.institution');
+  Route::get('/manage-edit/{id}', [InstitutionController::class, 'editInstitution'])->name('edit.institution');
 });
 
 
 //student
 Route::group(['prefix'=>'student'], function(){
   Route::get('/add_student', [StudentController::class, 'add_student'])->name('add_student');
+  Route::post('/student_store', [StudentController::class, 'studentAdd'])->name('student_info_store');
   Route::get('/admit', [StudentController::class, 'admit'])->name('admit');
   Route::get('/manageStudent', [StudentController::class, 'manageStudent'])->name('manageStudent');
   Route::get('/marks', [StudentController::class, 'marks'])->name('marks');
