@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('class');
             $table->string('st_group');
+            $table->string('st_year');
             $table->string('gender');
             $table->date('date_of_birth');
             $table->integer('birth_reg_number')->nullable();
