@@ -1,0 +1,18 @@
+.show th{
+    text-align: center;
+}
+.thead-light tr td{
+    text-align: center;
+}
+.container2{
+    margin: 0 auto;
+}
+.search{
+    background-color: seagreen;
+    color: yellow;
+}
+.search:hover{
+    background-color: rgb(9, 62, 238);
+    color: yellow;
+    
+}

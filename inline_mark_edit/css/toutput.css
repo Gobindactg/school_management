@@ -1,0 +1,17 @@
+.toutput td{
+    text-align: center;
+}
+.show th{
+    text-align: center;
+   
+}
+.show th{
+    
+    background-color:tan;
+}
+.search:hover{
+    background-color: green;
+    color: yellow;
+    font-weight: 900;
+    font-style: italic;
+}

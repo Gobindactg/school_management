@@ -85,6 +85,7 @@ class StudentController extends Controller
             $student_mark->name = $request->student_name;
             $student_mark->class = $request->class;
             $student_mark->st_group = $request->group;
+            $student_mark->st_year = $request->st_year;
             $student_mark->save();
 
             session()->flash('success', 'New Student Information Updated Succesfully !!');
