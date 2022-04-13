@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Frontend\PagesController;
 use App\Http\Controllers\Frontend\InstitutionController;
 use App\Http\Controllers\Frontend\TeacherController;
