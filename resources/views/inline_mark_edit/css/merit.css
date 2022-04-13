@@ -1,0 +1,25 @@
+.body{
+    background-color: dimgrey;
+}
+.heading h2{
+    text-align: center;
+    color: teal;
+    font-family: tahoma;
+    font-style: italic;
+}
+.heading h4{
+    text-align: center;
+    color:slategray;
+    font-family: tahoma;
+    font-style: italic;
+}
+.table-sm tr th{
+
+ padding-top: 5px;
+}
+.col-sm-12 select{
+    width: 35%;
+}
+.head{
+    background-color: darkgrey;
+}

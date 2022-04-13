@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('class');
             $table->string('st_group');
+            $table->string('st_year');
             $table->integer('bangla')->default(0);
             $table->integer('english')->default(0);
             $table->integer('math')->default(0);

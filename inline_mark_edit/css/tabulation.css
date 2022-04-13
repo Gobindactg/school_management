@@ -1,0 +1,48 @@
+.body{
+    background-color: dimgrey;
+}
+.heading h2{
+    text-align: center;
+    color: teal;
+    font-family: tahoma;
+    font-style: italic;
+}
+.heading h4{
+    text-align: center;
+    color: black;
+    font-family: tahoma;
+    font-style: italic;
+}
+.table-sm tr th{
+
+ padding-top: 5px;
+}
+.col-sm-12 select{
+    width: 35%;
+}
+.head{
+    background-color: darkgrey;
+}
+.heading h1{
+    text-align: center;
+    color: rgb(3, 7, 71);
+    font-family: tahoma;
+    font-style: italic;
+    text-transform: uppercase;
+}
+.table-sm{
+    text-align: center;
+    padding: 15px 0px;
+}
+.headding-table{
+    text-align: left;
+}
+.table-data tr th{
+    padding: 15px 0px; 
+}
+.table-data tr td{
+    padding: 15px 0px; 
+}
+.table-bordered th{
+    padding-top: 20px;
+}

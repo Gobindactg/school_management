@@ -1,0 +1,12 @@
+.edit td input {
+    width: 90%;
+    text-align: center;
+}
+.thead-light tr th{
+    text-align: center;
+}
+.edit td a{
+    width: 180%;
+    padding: 0;
+    margin: 0;
+}

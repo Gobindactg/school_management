@@ -1,0 +1,28 @@
+.container{
+    background-color:pink;
+   
+}
+.container h2{
+    text-align: center;
+    color: green;
+    font-family: tahoma;
+    font-size: 40px;
+    font-style: italic;
+    font-weight: 400;
+}
+.col-sm-2{
+  padding-left: 3%;  
+  
+}
+.select{
+    width: 150%;
+}
+.submit input:hover{
+    
+    color: yellow;
+    background-color: green;
+    
+}
+body{
+    background-color: slategrey;
+}
