@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student_info;
-use App\Models\Student_mark;
+use App\Models\student_mark;
 use App\Models\User;
 use File;
 use Image;
@@ -31,6 +31,18 @@ class StudentController extends Controller
         $marks = student_mark::orderBy('id', 'desc')->where('user_id', $id)->get();
         return view('Frontend.pages.Student.marks')->with('marks', $marks);
     }
+    public function marks_store(Request $request) {
+        $validation = $request->validate([
+            'id'=>'required',
+            'column'=>'required',
+            'value'=>'required'
+        ]);
+        $student_mark = student_mark::find($request->id);
+        $student_mark->{$request->column} = $request->value;
+        $student_mark->update();
+        return 'Successfully Updated.';
+    }
+
     public function seatPlan()
     {
         return view('Frontend.pages.Student.seatPlan');

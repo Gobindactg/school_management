@@ -29,7 +29,7 @@ return new class extends Migration
             $table->integer('music')->default(0);
             $table->integer('expressive_art')->default(0);
             $table->integer('physical')->default(0);
-             $table->integer('user_id');
+            $table->integer('user_id');
             $table->integer('student_info_id');
             $table->timestamps();
         });

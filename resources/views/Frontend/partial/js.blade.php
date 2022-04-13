@@ -16,6 +16,10 @@
 <script src="{{ asset('Frontend/resources/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('Frontend/resources/js/main.js')}}"></script>
 
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+  toastr.options.escapeHtml = true;
+  toastr.options.progressBar = true;
+  toastr.options.closeButton = true;
+</script>
 

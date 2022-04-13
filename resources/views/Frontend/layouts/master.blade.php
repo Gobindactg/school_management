@@ -3,7 +3,7 @@
 
 <head>
     @include('Frontend.partial.meta')
-
+    @yield('meta')
     <title>@yield('title')</title>
     
     <!-- =======Start Css ======= -->
