@@ -4,13 +4,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 @section('content')
-    <?php
-    // try {
-    //     $db = new PDO('mysql:host=localhost;dbname=school_management;charse=utf8', 'root', '');
-    // } catch (PDOException $e) {
-    //     die($e->getMessage());
-    // }
-    ?>
 
     <div class="container" style="padding: 0; margin:0;">
         <div class="row bg-info" style="margin-bottom: 15px">
@@ -43,7 +36,7 @@
 
         </div>
         <div class="container" style="width: 100%; overflow-x: scroll;">
-            <table class="table">
+            <table class="table table-bordered">
 
                 <thead class="thead-dark">
                     <tr class="show">
@@ -63,58 +56,28 @@
                         <th>Physical</th>
                     </tr>
                 </thead>
-                <?php
-                
-                // $connection = mysqli_connect('localhost','root','','school_management');
-                
-                // if(!$connection){
-                //     die("Not connected". mysqli_error());
-                // }
-                
-                // $query = "SELECT * FROM student_marks";
-                // $result = mysqli_query($connection,$query);
-                // $count = mysqli_num_rows($result);
-                // while ($row = mysqli_fetch_assoc($result)){
-                
-                //        $roll = $row['st_roll'];
-                //        $name = $row['name'];
-                //        $class = $row['class'];
-                //        $group = $row['st_group'];
-                //        $year = $row['st_year'];
-                //        $bangla = $row['bangla'];
-                //        $english = $row['english'];
-                //        $math = $row['math'];
-                //        $science = $row['science'];
-                //        $bob = $row['bob'];
-                //        $religion = $row['religion'];
-                //        $music = $row['music'];
-                //        $expressive = $row['expressive_art'];
-                //        $physical = $row['physical'];
-                
-                //         $id = $row['id'];
-                ?>
-
+              
                 <tbody class="thead-light">
                     @foreach ($marks as $mark)
-                        <tr class="toutput">
+                        <tr class="toutput text-center table-info">
                             <td>
-                                <div contenteditable="true" onBlur="updateValue(this,'st_roll','{{ $mark->id }}')"
+                                <div  onBlur="updateValue(this,'st_roll','{{ $mark->id }}')"
                                     onClick="activate(this)">{{ $mark->st_roll }}</div>
                             </td>
-                            <td>
-                                <div contenteditable="true" onBlur="updateValue(this,'name','{{ $mark->id }}')"
+                            <td class="text-left">
+                                <div onBlur="updateValue(this,'name','{{ $mark->id }}')"
                                     onClick="activate(this)">{{ $mark->name }}</div>
                             </td>
                             <td>
-                                <div contenteditable="true" onBlur="updateValue(this,'class','{{ $mark->id }}')"
+                                <div  onBlur="updateValue(this,'class','{{ $mark->id }}')"
                                     onClick="activate(this)">{{ $mark->class }}</div>
                             </td>
                             <td>
-                                <div contenteditable="true" onBlur="updateValue(this,'st_group','{{ $mark->id }}')"
+                                <div  onBlur="updateValue(this,'st_group','{{ $mark->id }}')"
                                     onClick="activate(this)">{{ $mark->st_group }}</div>
                             </td>
                             <td>
-                                <div contenteditable="true" onBlur="updateValue(this,'st_year','{{ $mark->id }}')"
+                                <div  onBlur="updateValue(this,'st_year','{{ $mark->id }}')"
                                     onClick="activate(this)">{{ $mark->st_year }}</div>
                             </td>
                             <td>
@@ -157,10 +120,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-                <?php
-                
-                // }
-                ?>
+           
             </table>
 
         </div>
@@ -191,7 +151,7 @@
                     },
                     error: function(xhr, ajaxOptions, error_message) {
                         // console.log(error_message);
-                        toastr.error('Invalid Action');
+                        toastr.error('Please Insert Correct Information');
                     }
                 })
             }
