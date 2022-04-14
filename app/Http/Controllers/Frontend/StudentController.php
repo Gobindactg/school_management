@@ -35,7 +35,9 @@ class StudentController extends Controller
         $validation = $request->validate([
             'id'=>'required',
             'column'=>'required',
-            'value'=>'required'
+            'value'=>'required|numeric|max:100|min:0',
+            // 'bangla'=>'required|max:100|min:0',
+            // 'english'=>'required|max:100|min:0'
         ]);
         $student_mark = student_mark::find($request->id);
         $student_mark->{$request->column} = $request->value;
