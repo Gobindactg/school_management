@@ -59,6 +59,10 @@
 .hover a:hover{
     background-color: green;
 }
+.scrollbar-x {
+    width: 100%;
+    overflow-x: scroll;
+}
 .scrollbar-thin {
     scrollbar-width: none;
     scrollbar-color: #bccff3 transparent;
@@ -67,4 +71,13 @@
 .scrollbar-thin:hover {
     scrollbar-width: thin;
     scrollbar-color: #394150 transparent;
+}
+
+.book_action {
+    display: flex;
+    justify-content: space-around;
+}
+.book_action a{
+    color: #04293A;
+    cursor: pointer;
 }

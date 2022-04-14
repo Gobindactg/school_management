@@ -35,7 +35,7 @@
             </div>
 
         </div>
-        <div class="container scrollbar-thin" style="width: 100%; overflow-x: scroll;">
+        <div class="container scrollbar-thin scrollbar-x">
             <table class="table table-bordered">
 
                 <thead class="thead-dark">
