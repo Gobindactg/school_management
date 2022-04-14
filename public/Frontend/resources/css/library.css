@@ -48,9 +48,6 @@
   z-index: 10;
 }
 
-.book_category_list {
-  overflow-y: scroll;
-}
 .book_category_list ul {
   width: 100%;
   padding: 0;

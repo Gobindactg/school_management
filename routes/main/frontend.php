@@ -86,7 +86,7 @@ Route::group(['prefix'=>'library'], function() {
   Route::get('/', [LibraryController::class, 'index'])->name('library');
   Route::get('/add_book', [LibraryController::class, 'add_book'])->name('add_book');
   Route::get('/manage_books', [LibraryController::class, 'manage_books'])->name('manage_books');
-  Route::get('/add_category', [LibraryController::class, 'add_category'])->name('add_category');
+  Route::get('/manage_category', [LibraryController::class, 'manage_category'])->name('manage_category');
   Route::get('/issue_book', [LibraryController::class, 'issue_book'])->name('issue_book');
   Route::get('/manage_issued_books', [LibraryController::class, 'manage_issued_books'])->name('manage_issued_books');
   Route::get('/create_library_card', [LibraryController::class, 'create_library_card'])->name('create_library_card');
