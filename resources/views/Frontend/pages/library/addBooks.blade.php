@@ -11,7 +11,7 @@
       </ol>
   </nav>
 </div><!-- End Page Title -->
-<div class="">
+<div>
   <form>
     <div class="mb-3">
       <label for="book_name" class="form-label">Book Name</label>
