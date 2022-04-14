@@ -216,8 +216,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('add_category')}}">
-                        <i class="bi bi-circle"></i><span>Add Book Category</span>
+                    <a href="{{route('manage_category')}}">
+                        <i class="bi bi-circle"></i><span>Manage Book Category</span>
                     </a>
                 </li>
                 <li>
