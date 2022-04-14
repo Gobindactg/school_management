@@ -59,3 +59,12 @@
 .hover a:hover{
     background-color: green;
 }
+.scrollbar-thin {
+    scrollbar-width: none;
+    scrollbar-color: #bccff3 transparent;
+    transition: all 0.3s linear;
+}
+.scrollbar-thin:hover {
+    scrollbar-width: thin;
+    scrollbar-color: #394150 transparent;
+}

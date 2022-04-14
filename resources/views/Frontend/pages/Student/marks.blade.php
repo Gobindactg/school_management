@@ -35,7 +35,7 @@
             </div>
 
         </div>
-        <div class="container" style="width: 100%; overflow-x: scroll;">
+        <div class="container scrollbar-thin" style="width: 100%; overflow-x: scroll;">
             <table class="table table-bordered">
 
                 <thead class="thead-dark">
@@ -146,11 +146,9 @@
                         id
                     },
                     success: function(success_message) {
-                        // console.log(success_message);
                         toastr.success(success_message);
                     },
                     error: function(xhr, ajaxOptions, error_message) {
-                        // console.log(error_message);
                         toastr.error('Please Insert Correct Information');
                     }
                 })
