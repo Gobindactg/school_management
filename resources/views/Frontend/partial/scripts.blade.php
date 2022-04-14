@@ -1,43 +1,59 @@
+
+<script src="{{asset('Frontend/resources/js/jquery-3.6.0.js')}}"></script>
 <script>
-    let divisionsData = [];
-    $(document).ready(function() {
-        let divisions = "";
-        $.get("{{asset("api/division.json")}}",
-            function(data) {
-                divisionsData = data;
-                for (let key in data) {
-                    divisions += `<option value='${key}'>${data[key].en}</option>`;
-                }
-                $("#division_id").append(divisions);
+    $("#division_id").change(function(){
+        var division = $("#division_id").val();
+        $("#district-area").html("");
+        var option = "";
+    // send an ajax request to server with this division
+        $.get( "http://localhost/School_Management/School_Management/public/get-districts/"+division, 
+        
+        function( data ) {
+            data = JSON.parse(data);
+            option2 = "<option>-- Select Your District--</option>"
+            data.forEach(function(element){
+                
+                option += "<option value='"+ element.id +"'>"+ element.name +"</option>";
+            })
+            all =  option2+option
+            $("#district-area").html(all);
+            
             });
-    });
-
-
-
-    $("#division_id").change(function() {
-        let division = $("#division_id").val();
-        $("#district-area").html("<option>-- Select Your District--</option>");
-        var districts = "";
-        // send an ajax request to server with this division
-        for (let key in divisionsData[division].district) {
-            districts += `<option value='${key}'>${divisionsData[division].district[key].en}</option>`;
-        }
-        $("#district-area").append(districts);
     })
 
-    $("#district-area").change(function() {
-        let division = $("#division_id").val();
+      $("#district-area").change(function(){
         var district = $("#district-area").val();
-        $("#upazila-area").html("<option>-- Select Your Upazila--</option>");
-        var subdistricts = "";
+        $("#upazila-area").html("");
+        var option = "";
         // send an ajax request to server with this division
-        divisionsData[division].district[district].upazilla.forEach(element => {
-            subdistricts += `<option value='${element.toLowerCase()}'>${element}</option>`;
-        });
-        $("#upazila-area").append(subdistricts);
+        $.get( "http://localhost/School_Management/School_Management/public/get-upazilas/"+district, 
+        function( data ) {
+            data1 = JSON.parse(data);
+            option2 = "<option>-- Select Your Upazila--</option>"
+            data1.forEach(function(element){
+               option += "<option value='"+ element.id +"'>"+ element.name +"</option>";
+            })
+            upazila = option2+option
+            $("#upazila-area").html(upazila);
+            });
     })
-
-
+    
+    $("#upazila-area").change(function(){
+        var upazila = $("#upazila-area").val();
+        $("#institution-area").html("");
+        var option = "";
+        // send an ajax request to server with this division
+        $.get( "http://localhost/School_Management/School_Management/public/get-institution/"+upazila, 
+        function( data ) {
+            data1 = JSON.parse(data);
+            option2 = "<option>-- Select Your Institution--</option>"
+            data1.forEach(function(element){
+               option += "<option value='"+ element.name +"'>"+ element.name +"</option>";
+            })
+            institution = option2+option
+            $("#institution-area").html(institution);
+            });
+    })
 
   //doughnut
   if ($("#doughnutChart")[0]){
