@@ -242,22 +242,22 @@
                 </li>
             </ul>
         </li>
-        {{-- <li class="nav-item">
+    <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-menu-button-wide"></i><span>Social Media</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="components-alerts.html">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                    <a href="{{route('social_media')}}">
+                        <i class="bi bi-circle"></i><span>Add Social Media</span>
                     </a>
                 </li>
                 <li>
                     <a href="components-accordion.html">
-                        <i class="bi bi-circle"></i><span>Accordion</span>
+                        <i class="bi bi-circle"></i><span>Manage Social Media</span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="components-badges.html">
                         <i class="bi bi-circle"></i><span>Badges</span>
                     </a>
@@ -316,11 +316,11 @@
                     <a href="components-tooltips.html">
                         <i class="bi bi-circle"></i><span>Tooltips</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </li><!-- End Components Nav -->
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -365,9 +365,9 @@
                     </a>
                 </li>
             </ul>
-        </li><!-- End Tables Nav -->
+        </li><!-- End Tables Nav --> --}}
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
@@ -464,6 +464,6 @@
             </a>
         </li><!-- End Blank Page Nav --> --}}
 
-    </ul>
+    </ul> 
 
 </aside>

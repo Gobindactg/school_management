@@ -1,3 +1,10 @@
+<style>
+    .icon_hover a:hover{
+        color: rgb(1, 196, 18);
+        transform: scale(1.5);
+       
+    }
+</style>
 
 <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -24,14 +31,16 @@
                     <i class="bi bi-search"></i>
                 </a>
             </li><!-- End Search Icon-->
-
+      
+            @foreach ( App\Models\social::social_media() as $social)
             <!-- Start Social Media Icon-->
-            <li class="nav-item dropdown">
-                <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-                    <i class="fa fa-facebook" style="font-size: 30px"></i>
+            <li class="nav-item dropdown icon_hover">
+                <a class="nav-link nav-icon" href="{{$social->media_link}}" data-bs-toggle="dropdown">
+                    <i class="fa fa-{{$social->name}}" style="font-size: 30px"></i>
                 </a>
             </li>
-            <li class="nav-item dropdown">
+            @endforeach
+            {{-- <li class="nav-item dropdown">
                 <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
                     <i class="fa fa-instagram text-danger" style="font-size: 30px"></i>
                 </a>
@@ -45,7 +54,7 @@
                 <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
                     <i class="fa fa-whatsapp text-primary" style="font-size: 35px"></i>
                 </a>
-            </li>
+            </li> --}}
           
             <!-- End Social Media Icon-->
        

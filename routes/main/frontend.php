@@ -10,6 +10,7 @@ use App\Http\Controllers\Frontend\LibraryController;
 use App\Http\Controllers\Frontend\DivisionController;
 use App\Http\Controllers\Frontend\DistrictController;
 use App\Http\Controllers\Frontend\SearchController;
+use App\Http\Controllers\Frontend\PartialController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -93,6 +94,10 @@ Route::group(['prefix'=>'library'], function() {
   Route::get('/manage_library_card', [LibraryController::class, 'manage_library_card'])->name('manage_library_card');
 });
 
+// social, academy year, group controller
+
+Route::get('/social-media', [PartialController::class, 'add_social'])->name('social_media');
+Route::post('/add-social-media', [PartialController::class, 'add_social_icon'])->name('add_social_media');
 
 // Authentication
 Auth::routes();
