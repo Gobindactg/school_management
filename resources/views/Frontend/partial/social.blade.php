@@ -1,5 +1,5 @@
 @extends('Frontend.layouts.master')
-@section('title', 'Add Institute')
+@section('title', 'Add Social Media')
 @section('content')
 <div class="pagetitle">
     <h1>Dashboard</h1>
