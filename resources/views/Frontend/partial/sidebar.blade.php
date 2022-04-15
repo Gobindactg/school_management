@@ -11,11 +11,11 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#instution" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::is('institute/*') ? '' : 'collapsed' }}" data-bs-target="#instution" data-bs-toggle="collapse" href="#">
                 <i class='bx bxs-school'></i><span>Instutition Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="instution" class="nav-content collapse button_color " data-bs-parent="#sidebar-nav">
+            <ul id="instution" class="nav-content collapse {{ Request::is('institute/*') ? 'show' : '' }} button_color " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{route('addInstitution')}}">
                         <i class="bi bi-circle"></i><span>Add Instutition</span>
@@ -31,11 +31,11 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#teacher" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::is('teacher/*') ? '' : 'collapsed' }}" data-bs-target="#teacher" data-bs-toggle="collapse" href="#">
                 <i class='bx bxs-graduation'></i><span>Teacher Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="teacher" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="teacher" class="nav-content collapse {{ Request::is('teacher/*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{route('addTeacher')}}">
                         <i class="bi bi-circle"></i><span>Add Teacher</span>
@@ -50,11 +50,11 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#student" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::is('student/*') ? '' : 'collapsed' }}" data-bs-target="#student" data-bs-toggle="collapse" href="#">
                 <i class='bx bxs-school'></i><span>School Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="student" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="student" class="nav-content collapse {{ Request::is('student/*') ? 'show' : '' }} " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{route('add_student')}}">
                         <i class="bi bi-circle"></i><span>Add Student</span>
@@ -79,11 +79,11 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#result" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::is('student/*') ? '' : 'collapsed' }}" data-bs-target="#result" data-bs-toggle="collapse" href="#">
                 <i class='bx bxs-badge-check'></i><span>Result Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="result" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="result" class="nav-content collapse {{ Request::is('student/*') ? 'show' : '' }} " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{route('admit')}}">
                         <i class="bi bi-circle"></i><span>Manage Admit Card</span>
@@ -181,11 +181,11 @@
             </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#search_result" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::is('search/*') ? '' : 'collapsed' }}" data-bs-target="#search_result" data-bs-toggle="collapse" href="#">
                 <i class='bx bx-search-alt-2'></i><span>Search Result</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="search_result" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="search_result" class="nav-content collapse {{ Request::is('search/*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{route('search.result')}}">
                         <i class="bi bi-circle"></i><span>Search Result</span>
@@ -200,11 +200,11 @@
             </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#library_management" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::is('library/*') || Request::is('library') ? '' : 'collapsed' }}" data-bs-target="#library_management" data-bs-toggle="collapse" href="#">
                 <i class='bx bx-library'></i><span>Library Management</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="library_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="library_management" class="nav-content collapse {{ Request::is('library/*') || Request::is('library') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{route('library')}}">
                         <i class="bi bi-circle"></i><span>Overview</span>
@@ -248,10 +248,10 @@
             </ul>
         </li>
     <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+            <a class="nav-link {{ Request::is('social-media/*') || Request::is('social-media') ? '' : 'collapsed' }}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                 <i class='bx bxs-group'></i><span>Social Media</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="components-nav" class="nav-content collapse {{ Request::is('social-media/*') || Request::is('social-media') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="{{route('social_media')}}">
                         <i class="bi bi-circle"></i><span>Add Social Media</span>

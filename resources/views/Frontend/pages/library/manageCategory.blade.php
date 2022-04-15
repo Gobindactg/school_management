@@ -39,7 +39,9 @@
         <td>poem</td>
         <td>10</td>
         <td class="book_action">
-          <a href="#" onclick="removeCategory()" title="Delete Book"><i class="fa-solid fa-trash-can"></i></a>
+          <a href="#" title="Show All Books"><i class="fa fa-folder-open-o"></i></a>
+          <a href="#" title="Edit Book"><i class="fa-solid fa-pencil"></i></a>
+          <a href="#" onclick="removeCategory()" title="Delete Book"><i class="fa fa-trash"></i></a>
         </td>
       </tr>
       <tr>
@@ -47,7 +49,9 @@
         <td>novel</td>
         <td>10</td>
         <td class="book_action">
-          <a href="#" onclick="removeCategory()" title="Delete Book"><i class="fa-solid fa-trash-can"></i></a>
+          <a href="#" title="Show All Books"><i class="fa fa-folder-open-o"></i></a>
+          <a href="#" title="Edit Book"><i class="fa-solid fa-pencil"></i></a>
+          <a href="#" onclick="removeCategory()" title="Delete Book"><i class="fa fa-trash"></i></a>
         </td>
       </tr>
       <tr>
@@ -55,7 +59,9 @@
         <td>technology</td>
         <td>10</td>
         <td class="book_action">
-          <a href="#" onclick="removeCategory()" title="Delete Book"><i class="fa-solid fa-trash-can"></i></a>
+          <a href="#" title="Show All Books"><i class="fa fa-folder-open-o"></i></a>
+          <a href="#" title="Edit Book"><i class="fa-solid fa-pencil"></i></a>
+          <a href="#" onclick="removeCategory()" title="Delete Book"><i class="fa fa-trash"></i></a>
         </td>
       </tr>
       <tr>
@@ -63,7 +69,9 @@
         <td>story</td>
         <td>10</td>
         <td class="book_action">
-          <a href="#" onclick="removeCategory()" title="Delete Book"><i class="fa-solid fa-trash-can"></i></a>
+          <a href="#" title="Show All Books"><i class="fa fa-folder-open-o"></i></a>
+          <a href="#" title="Edit Book"><i class="fa-solid fa-pencil"></i></a>
+          <a href="#" onclick="removeCategory()" title="Delete Book"><i class="fa fa-trash"></i></a>
         </td>
       </tr>
       <tr>
@@ -71,7 +79,9 @@
         <td>text_book</td>
         <td>10</td>
         <td class="book_action">
-          <a href="#" onclick="removeCategory()" title="Delete Book"><i class="fa-solid fa-trash-can"></i></a>
+          <a href="#" title="Show All Books"><i class="fa fa-folder-open-o"></i></a>
+          <a href="#" title="Edit Book"><i class="fa-solid fa-pencil"></i></a>
+          <a href="#" onclick="removeCategory()" title="Delete Book"><i class="fa fa-trash"></i></a>
         </td>
       </tr>
     </table>

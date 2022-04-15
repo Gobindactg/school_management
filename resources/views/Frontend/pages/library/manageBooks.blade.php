@@ -20,7 +20,7 @@
       <th class="text-white">Book Author</th>
       <th class="text-white">Book Category</th>
       <th class="text-white">Quantity</th>
-      <th class="text-white">Actions</th>
+      <th class="text-white text-center">Actions</th>
     </tr>
     <tr>
       <td>1</td>
@@ -29,9 +29,8 @@
       <td>কাব্যগ্রন্থ</td>
       <td>10</td>
       <td class="book_action">
-        <a href="#" title="Show Details"><i class="fa-solid fa-book-open"></i></a>
         <a href="#" title="Edit Book"><i class="fa-solid fa-pencil"></i></a>
-        <a href="#" title="Delete Book"><i class="fa-solid fa-trash-can"></i></a>
+        <a href="#" title="Delete Book"><i class="fa fa-trash"></i></a>
       </td>
     </tr>
     <tr>
@@ -41,9 +40,8 @@
       <td>কাব্যগ্রন্থ</td>
       <td>7</td>
       <td class="book_action">
-        <a href="#" title="Show Details"><i class="fa-solid fa-book-open"></i></a>
         <a href="#" title="Edit Book"><i class="fa-solid fa-pencil"></i></a>
-        <a href="#" title="Delete Book"><i class="fa-solid fa-trash-can"></i></a>
+        <a href="#" title="Delete Book"><i class="fa fa-trash"></i></a>
       </td>
     </tr>
     <tr>
@@ -53,9 +51,8 @@
       <td>কাব্যগ্রন্থ</td>
       <td>9</td>
       <td class="book_action">
-        <a href="#" title="Show Details"><i class="fa-solid fa-book-open"></i></a>
         <a href="#" title="Edit Book"><i class="fa-solid fa-pencil"></i></a>
-        <a href="#" title="Delete Book"><i class="fa-solid fa-trash-can"></i></a>
+        <a href="#" title="Delete Book"><i class="fa fa-trash"></i></a>
       </td>
     </tr>
   </table>
