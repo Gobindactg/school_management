@@ -41,6 +41,8 @@ Route::group(['prefix'=>'institute'], function(){
 //student
 Route::group(['prefix'=>'student'], function(){
   Route::get('/add_student', [StudentController::class, 'add_student'])->name('add_student');
+  Route::get('/add_group', [StudentController::class, 'add_group'])->name('add_group');
+  Route::post('/add-group-store', [StudentController::class, 'group_store'])->name('group_store');
   Route::post('/student_store', [StudentController::class, 'studentAdd'])->name('student_info_store');
   Route::get('/admit', [StudentController::class, 'admit'])->name('admit');
   Route::get('/manageStudent', [StudentController::class, 'manageStudent'])->name('manageStudent');
@@ -95,9 +97,12 @@ Route::group(['prefix'=>'library'], function() {
 });
 
 // social, academy year, group controller
-
-Route::get('/social-media', [PartialController::class, 'add_social'])->name('social_media');
-Route::post('/add-social-media', [PartialController::class, 'add_social_icon'])->name('add_social_media');
+Route::group(['prefix'=>'social-media'], function(){
+  Route::get('/', [PartialController::class, 'add_social'])->name('social_media');
+  Route::post('/add-new', [PartialController::class, 'add_social_icon'])->name('add_social_media');
+  
+  Route::get('/manage', [PartialController::class, 'manage_social'])->name('manage_social_media');
+});
 
 // Authentication
 Auth::routes();
