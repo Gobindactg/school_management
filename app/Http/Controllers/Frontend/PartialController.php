@@ -28,7 +28,11 @@ class PartialController extends Controller
         session()->flash('success', 'Your Social Media Link Added Succesfully !!');
         return redirect()->route('social_media');
     }
-    public function manage_social() {
+    
+    public function social_manage(){
+        $id = Auth::id();
+        $social = social::orderBy('id', 'asc')->where('user_id', $id)->get();
+        return view('Frontend.partial.socialManage')->with('social', $social);
 
     }
 }
