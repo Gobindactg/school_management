@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Social;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class PartialController extends Controller
 {
@@ -15,6 +15,10 @@ class PartialController extends Controller
         return view('Frontend.partial.social')->with('social', $social);
     }
     public function add_social_icon(Request $request){
+        $request->validate([
+            'social_media'=>'required',
+            'social_media_link'=>'required',
+        ]);
         $user_id = Auth::id();
         $social = new social;
         $social->name = $request->social_media;
@@ -24,5 +28,7 @@ class PartialController extends Controller
         session()->flash('success', 'Your Social Media Link Added Succesfully !!');
         return redirect()->route('social_media');
     }
-    
+    public function manage_social() {
+
+    }
 }

@@ -2,11 +2,11 @@
 @section('title', 'Add Institute')
 @section('content')
 <div class="pagetitle">
-    <h1>Dashboard</h1>
+    <h1>Add Social Media</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Institution</a></li>
-            <li class="breadcrumb-item active">Dashboard</li>
+            <li class="breadcrumb-item active">Add Social Media</li>
         </ol>
     </nav>
 </div><!-- End Page Title -->
@@ -24,6 +24,7 @@
                 <option value="twitter">Twitter</option>
                 <option value="linkedin">Linkedin</option>
                 <option value="youtube">Youtube</option>
+                <option value="globe">Other</option>
             </select>
         </div>
         <div class="mb-3">

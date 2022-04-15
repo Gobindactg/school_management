@@ -95,9 +95,12 @@ Route::group(['prefix'=>'library'], function() {
 });
 
 // social, academy year, group controller
-
-Route::get('/social-media', [PartialController::class, 'add_social'])->name('social_media');
-Route::post('/add-social-media', [PartialController::class, 'add_social_icon'])->name('add_social_media');
+Route::group(['prefix'=>'social-media'], function(){
+  Route::get('/', [PartialController::class, 'add_social'])->name('social_media');
+  Route::post('/add-new', [PartialController::class, 'add_social_icon'])->name('add_social_media');
+  
+  Route::get('/manage', [PartialController::class, 'manage_social'])->name('manage_social_media');
+});
 
 // Authentication
 Auth::routes();
