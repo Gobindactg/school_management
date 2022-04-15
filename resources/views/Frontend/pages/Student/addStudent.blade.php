@@ -53,10 +53,9 @@
                         <label for="exampleInputEmail1" class="form-label text-primary">Group</label>
                         <select name="group" id="" class="form-control">
                             <option value="">-- Select Student Group --</option>
-                            <option value="a"> A </option>
-                            <option value="b">B</option>
-                            <option value="c">C</option>
-                            <option value="d">D</option>
+                            @foreach (App\Models\StudentGroup::class_group() as $group)   
+                            <option value="{{$group->name}}"> {{$group->name}} </option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="mb-3">

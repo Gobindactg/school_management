@@ -61,6 +61,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{route('add_group')}}">
+                        <i class="bi bi-circle"></i><span>Add Group Name</span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{route('manageStudent')}}">
                         <i class="bi bi-circle"></i><span>Promotion Student</span>
                     </a>
@@ -253,7 +258,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="components-accordion.html">
+                    <a href="{{route('social_manage')}}">
                         <i class="bi bi-circle"></i><span>Manage Social Media</span>
                     </a>
                 </li>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Student_info;
 use App\Models\student_mark;
 use App\Models\User;
+use App\Models\StudentGroup;
 use File;
 use Image;
 use Auth;
@@ -105,6 +106,20 @@ class StudentController extends Controller
             session()->flash('success', 'New Student Information Updated Succesfully !!');
             return redirect()->back();
           
+        }
+
+        public function add_group(){
+            return view('Frontend.partial.addgroup');
+        }
+        public function group_store(Request $request){
+            $user_id = Auth::id();
+            $group = new StudentGroup;
+            $group->name = $request->class_group;
+            $group->st_year= $request->st_year;
+            $group->user_id = $user_id;
+            $group->save();
+            session()->flash('success', 'Your Class Group Added Successfully!!');
+            return back();
         }
    
     }

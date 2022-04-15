@@ -25,4 +25,9 @@ class PartialController extends Controller
         return redirect()->route('social_media');
     }
     
+    public function social_manage(){
+        $id = Auth::id();
+        $social = social::orderBy('id', 'asc')->where('user_id', $id)->get();
+        return view('Frontend.partial.socialManage')->with('social', $social);
+    }
 }
