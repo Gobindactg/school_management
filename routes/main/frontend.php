@@ -101,7 +101,7 @@ Route::group(['prefix'=>'social-media'], function(){
   Route::get('/', [PartialController::class, 'add_social'])->name('social_media');
   Route::post('/add-new', [PartialController::class, 'add_social_icon'])->name('add_social_media');
   
-  Route::get('/manage', [PartialController::class, 'manage_social'])->name('manage_social_media');
+  Route::get('/manage', [PartialController::class, 'social_manage'])->name('manage_social_media');
 });
 
 // Authentication

@@ -258,7 +258,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('social_manage')}}">
+                    <a href="{{route('manage_social_media')}}">
                         <i class="bi bi-circle"></i><span>Manage Social Media</span>
                     </a>
                 </li>
