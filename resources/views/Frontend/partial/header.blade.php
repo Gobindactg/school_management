@@ -32,7 +32,7 @@
                 </a>
             </li><!-- End Search Icon-->
       
-            @foreach ( App\Models\social::social_media() as $social)
+            @foreach ( App\Models\Social::social_media() as $social)
             <!-- Start Social Media Icon-->
             <li class="nav-item dropdown icon_hover">
                 <a class="nav-link nav-icon" href="{{$social->media_link}}" data-bs-toggle="dropdown">
