@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\social;
+use App\Models\Social;
 use Auth;
 
 class PartialController extends Controller
