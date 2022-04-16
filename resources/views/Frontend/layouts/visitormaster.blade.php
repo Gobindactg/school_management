@@ -17,13 +17,13 @@
             background-image: url("{{ asset('sliderImage/background.png') }}");
             background-repeat: no-repeat;
             background-size: cover;
+            background-attachment: fixed;
         }
 
     </style>
 </head>
 
 <body class="hero_image">
-
     <!-- Start Header -->
     @include('Frontend.pages.Visitor.partial.header')
     <!-- End Header -->
@@ -52,10 +52,11 @@
     <!-- ======= End Footer ======= -->
     @include('Frontend.partial.js')
     <!-- Start Js -->
-    @yield('script')
+    @yield('script') 
 
     <!-- End Js -->
-    @include('Frontend.partial.scripts')
+     @include('Frontend.partial.scripts')
+   
 </body>
 
 </html>

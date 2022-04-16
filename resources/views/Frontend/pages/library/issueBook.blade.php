@@ -11,33 +11,39 @@
       </ol>
   </nav>
 </div><!-- End Page Title -->
-<div class="row">
+<div>
   <form>
-    <div class="mb-3">
-      <label for="library_card_no" class="form-label">Library Card No</label>
-      <input type="number" class="form-control" id="library_card_no" placeholder="eg: 000012345678">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="library_card_no" class="form-label">Library Card No</label>
+          <input type="number" class="form-control" id="library_card_no" placeholder="eg: 000012345678">
+        </div>
+        <div class="mb-3">
+          <label for="student_class" class="form-label">Student Class</label>
+          <input type="text" class="form-control" id="student_class" placeholder="eg: 5">
+        </div>
+        <div class="mb-3">
+          <label for="issue_date" class="form-label">Issue Date</label>
+          <input type="date" name="issue_date" class="form-control" id='issue_date' value="<?php echo date('Y-m-d'); ?>" disabled>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="student_roll" class="form-label">Student Roll</label>
+          <input type="text" class="form-control" id="student_roll" placeholder="eg: 56">
+        </div>
+        <div class="mb-3">
+          <label for="book_id" class="form-label">Book ID</label>
+          <input type="number" class="form-control" min="1" id="book_id" placeholder="eg: 452">
+        </div>
+        <div class="mb-3">
+          <label for="return_date" class="form-label">Return Date</label>
+          <input type="date" name="return_date" class="form-control" id='return_date'>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-    <div class="mb-3">
-      <label for="student_class" class="form-label">Student Class</label>
-      <input type="text" class="form-control" id="student_class" placeholder="eg: 5">
-    </div>
-    <div class="mb-3">
-      <label for="student_roll" class="form-label">Student Roll</label>
-      <input type="text" class="form-control" id="student_roll" placeholder="eg: 56">
-    </div>
-    <div class="mb-3">
-      <label for="book_id" class="form-label">Book ID</label>
-      <input type="text" class="form-control" id="book_id" placeholder="eg: 452">
-    </div>
-    <div class="mb-3">
-      <label for="book_name" class="form-label">Book Name</label>
-      <input type="text" class="form-control" id="book_name" placeholder="eg: অগ্নিবীণা">
-    </div>
-    <div class="mb-3">
-      <label for="book_category" class="form-label">Book category</label>
-      <input type="text" class="form-control" id="book_category" placeholder="eg: কাব্যগ্রন্থ">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 @endsection

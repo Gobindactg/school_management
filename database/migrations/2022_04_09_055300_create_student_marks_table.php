@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('student_marks', function (Blueprint $table) {
             $table->id();
-            $table->integer('roll');
+            $table->integer('st_roll');
             $table->string('name');
             $table->string('class');
-            $table->string('group');
+            $table->string('st_group');
+            $table->string('st_year');
             $table->integer('bangla')->default(0);
             $table->integer('english')->default(0);
             $table->integer('math')->default(0);
@@ -28,7 +29,7 @@ return new class extends Migration
             $table->integer('music')->default(0);
             $table->integer('expressive_art')->default(0);
             $table->integer('physical')->default(0);
-             $table->integer('user_id')->unique();
+            $table->integer('user_id');
             $table->integer('student_info_id');
             $table->timestamps();
         });

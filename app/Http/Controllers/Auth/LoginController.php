@@ -4,20 +4,16 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-// <<<<<<< HEAD
-// use Illuminate\Foundation\Auth\AuthenticatesUsers;
-// =======
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\VerifyRegistation;
 
-// >>>>>>> gobinda
 
 class LoginController extends Controller
 {
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Login Controller
     |--------------------------------------------------------------------------
@@ -28,31 +24,54 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+  use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-// <<<<<<< HEAD
-//     protected $redirectTo = RouteServiceProvider::HOME;
-// =======
-    // protected $redirectTo = RouteServiceProvider::HOME;
-// >>>>>>> gobinda
+  /**
+   * Where to redirect users after login.
+   *
+   * @var string
+   */
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+    $this->middleware('guest')->except('logout');
+  }
+
+  // login stystem
+
+  public function showLoginForm()
+  {
+    return view('Frontend.auth.login');
+  }
+  public function login(Request $request)
+  {
+    $this->validate($request, [
+      'email' => 'required|email',
+      'password' => 'required',
+    ]);
+    // find user by this email
+    $user = User::where('email', $request->email)->first();
+    if (!is_null($user)) {
+      //user login
+      if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+        //login now
+        return redirect()->route('index');
+      } else {
+        session()->flash('NotRegistered', 'Your Email Address or Password is not correct!! Please Try Again With Correct Information !! Or Reset Password');
+        return redirect()->route('login');
+      }
+    } else {
+      session()->flash('NotRegistered', 'Your are Not Complete Registation; Please Registation First');
+      return redirect()->route('register');
     }
-// <<<<<<< HEAD
-// =======
+  }
 
+<<<<<<< HEAD
     // login stystem
 
     public function showLoginForm()
@@ -72,7 +91,7 @@ class LoginController extends Controller
                     if(Auth::guard('web')->attempt(['email'=>$request->email, 'password' => $request->password], $request->remember))
                     {
                         //login now
-                        return redirect()->route('index');
+                        return redirect()->route('noipunno');
                     }else{
                             session()->flash('NotRegistered', 'Your Email Address or Password is not correct!! Please Try Again With Correct Information !! Or Reset Password');
                                     return redirect('/login');
@@ -88,4 +107,11 @@ class LoginController extends Controller
             return redirect()->route('login');
         }
 // >>>>>>> gobinda
+=======
+  public function user_logout()
+  {
+    Auth::guard('web')->logout();
+    return redirect()->route('login');
+  }
+>>>>>>> a422376adac50beb3dadb138a419272829d768be
 }

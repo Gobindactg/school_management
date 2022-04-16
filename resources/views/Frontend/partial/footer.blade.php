@@ -5,8 +5,9 @@
     <div class="credits">
         Designed & Developed by <a href="#">Gobinda Das & Mahabub Rashid Tonoy</a>
     </div>
-    <div class="messenger" data-bs-toggle="modal" data-bs-target="#myModal" type='button'>
+    <div class="messenger" data-bs-toggle="modal" data-bs-target="#myModal">
         <img src="{{ asset('Global/images/messenger.png') }}" alt="message" >
+
     </div>
 </footer><!-- End Footer -->
 @include('Frontend.partial.modal')

@@ -1,5 +1,5 @@
-@extends('Frontend.layouts.master')
-@include('Frontend.partial.css')
+@extends('Frontend.layouts.auth')
+@section('title', "Login")
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -61,6 +61,13 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                                <div class="mt-3">
+                                    @if (Route::has('register'))
+                                        Don't have an Account? <a class="m-0 p-0" href="{{ route('register') }}">
+                                            {{ __('Create New') }}
+                                        </a>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </form>

@@ -3,11 +3,11 @@
 
 @section('content')
 <div class="pagetitle">
-  <h1 class='mb-4'>Issue A New Book</h1>
+  <h1 class='mb-4'>Manage Library Cards</h1>
   <nav>
       <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Library</a></li>
-          <li class="breadcrumb-item active">Issue A New Book</li>
+          <li class="breadcrumb-item"><a href="{{route('library')}}">Library</a></li>
+          <li class="breadcrumb-item active">Manage Library Cards</li>
       </ol>
   </nav>
 </div><!-- End Page Title -->

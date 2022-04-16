@@ -1,9 +1,13 @@
 @extends('Frontend.layouts.master')
 @section('title', 'Marks')
+@section('meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
 @section('content')
-    <div class="container" style="padding: 0; margin:0;">
+
+    <div style="padding: 0; margin:0;">
         <div class="row bg-info" style="margin-bottom: 15px">
-            <div class="col-md-3 ">
+            <div class="col-md-4 ">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Select Class</option>
                     <option value="1">One</option>
@@ -13,7 +17,7 @@
                     <option value="5">Five</option>
                 </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Select Section</option>
                     <option value="1">A</option>
@@ -21,7 +25,7 @@
                     <option value="3">C</option>
                 </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Select Year</option>
                     <option value="1">2022</option>
@@ -29,420 +33,125 @@
                     <option value="3">2020</option>
                 </select>
             </div>
-            <div class="col-md-3">
-                <select class="form-select" aria-label="Default select example" id="subject">
-                    <option selected>Select Subject</option>
-                    <option value="bangla">Bangla</option>
-                    <option value="english">English</option>
-                    <option value="math">Math</option>
-                    <option value="science">Science</option>
-                    <option value="bob">BOB</option>
-                    <option value="religion">Religion</option>
-                </select>
-            </div>
+
         </div>
-        <!-- start Bangla-->
-        <div class="row hidden" id="bangla_mark">
-            <div class="col-md-12 card card-body " style="width: 32%; margin:5px">
-                <h3 class="text-primary"><strong>Enter Bangla Mark</strong> </h3>
-                <table class="table table-bordered border-primary">
-                    <tr class="text-center">
-                        <th>#</th>
+        <div class="scrollbar-thin scrollbar-x">
+            <table class="table table-bordered">
+
+                <thead class="thead-dark">
+                    <tr class="show">
                         <th>Roll</th>
-                        <th>Name</th>
-                        <th>Bangla Mark</th>
-                        <th>Action</th>
+                        <th><span style="display: inline-block; width: 200px;">Name</span></th>
+                        <th>Class</th>
+                        <th>Group</th>
+                        <th>Year</th>
+                        <th>Bangla</th>
+                        <th>English</th>
+                        <th>Math</th>
+                        <th>Science</th>
+                        <th>BOB</th>
+                        <th>Religion</th>
+                        <th>Music</th>
+                        <th>Expressive</th>
+                        <th>Physical</th>
                     </tr>
-                    <tr class="text-center">
-                        <td>#01</td>
-                        <td>01</td>
-                        <td>Noipunno</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#02</td>
-                        <td>02</td>
-                        <td>Noipunno</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#03</td>
-                        <td>03</td>
-                        <td>Noipunno</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#04</td>
-                        <td>04</td>
-                        <td>Noipunno</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                </thead>
+              
+                <tbody class="thead-light">
+                    @foreach ($marks as $mark)
+                        <tr class="toutput text-center table-info">
+                            <td>
+                                <div  onBlur="updateValue(this,'st_roll','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->st_roll }}</div>
+                            </td>
+                            <td class="text-left">
+                                <div onBlur="updateValue(this,'name','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->name }}</div>
+                            </td>
+                            <td>
+                                <div  onBlur="updateValue(this,'class','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->class }}</div>
+                            </td>
+                            <td>
+                                <div  onBlur="updateValue(this,'st_group','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->st_group }}</div>
+                            </td>
+                            <td>
+                                <div  onBlur="updateValue(this,'st_year','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->st_year }}</div>
+                            </td>
+                            <td>
+                                <div contenteditable="true" onBlur="updateValue(this,'bangla','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->bangla }}</div>
+                            </td>
+                            <td>
+                                <div contenteditable="true" onBlur="updateValue(this,'english','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->english }}</div>
+                            </td>
+                            <td>
+                                <div contenteditable="true" onBlur="updateValue(this,'math','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->math }}</div>
+                            </td>
+                            <td>
+                                <div contenteditable="true" onBlur="updateValue(this,'science','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->science }}</div>
+                            </td>
+                            <td>
+                                <div contenteditable="true" onBlur="updateValue(this,'bob','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->bob }}</div>
+                            </td>
+                            <td>
+                                <div contenteditable="true" onBlur="updateValue(this,'religion','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->religion }}</div>
+                            </td>
+                            <td>
+                                <div contenteditable="true" onBlur="updateValue(this,'music','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->music }}</div>
+                            </td>
+                            <td>
+                                <div contenteditable="true"
+                                    onBlur="updateValue(this,'expressive_art','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->expressive_art }}</div>
+                            </td>
+                            <td>
+                                <div contenteditable="true" onBlur="updateValue(this,'physical','{{ $mark->id }}')"
+                                    onClick="activate(this)">{{ $mark->physical }}</div>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+           
+            </table>
+
         </div>
-        <!-- end Bangla-->
-        <!-- start english-->
-        <div class="row hidden" id="english_mark">
-            <div class="col-md-12 card card-body " style="width: 32%; margin:5px">
-                <h3 class="text-primary"><strong>Enter English Mark</strong> </h3>
-                <table class="table table-bordered border-primary">
-                    <tr class="text-center">
-                        <th >#</th>
-                        <th>Roll</th>
-                        <th>Name</th>
-                        <th>Bangla Mark</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#01</td>
-                        <td>01</td>
-                        <td>Monir</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#02</td>
-                        <td>02</td>
-                        <td>Monir</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#03</td>
-                        <td>03</td>
-                        <td>Monir</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#04</td>
-                        <td>04</td>
-                        <td>Monir</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <!-- end English-->
 
-         <!-- start Math-->
-         <div class="row hidden" id="math_mark">
-            <div class="col-md-12 card card-body " style="width: 32%; margin:5px">
-                <h3 class="text-primary"><strong>Enter Math Mark</strong> </h3>
-                <table class="table table-bordered border-primary">
-                    <tr class="text-center">
-                        <th>#</th>
-                        <th>Roll</th>
-                        <th>Name</th>
-                        <th>Bangla Mark</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#01</td>
-                        <td>01</td>
-                        <td>Akash</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#02</td>
-                        <td>02</td>
-                        <td>Akash</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#03</td>
-                        <td>03</td>
-                        <td>Akash</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#04</td>
-                        <td>04</td>
-                        <td>Akash</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <!-- end math-->
+        <script>
+            function activate(element) {
+                //   alert('element');
+            }
 
-         <!-- start Science-->
-         <div class="row hidden" id="science_mark">
-            <div class="col-md-12 card card-body " style="width: 32%; margin:5px">
-                <h3 class="text-primary"><strong>Enter Science Mark</strong> </h3>
-                <table class="table table-bordered border-primary">
-                    <tr class="text-center">
-                        <th>#</th>
-                        <th>Roll</th>
-                        <th>Name</th>
-                        <th>Bangla Mark</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#01</td>
-                        <td>01</td>
-                        <td>Mita</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#02</td>
-                        <td>02</td>
-                        <td>Mita</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#03</td>
-                        <td>03</td>
-                        <td>Mita</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#04</td>
-                        <td>04</td>
-                        <td>Mita</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <!-- end Science-->
-
-         <!-- start english-->
-         <div class="row hidden" id="bob_mark">
-            <div class="col-md-12 card card-body " style="width: 32%; margin:5px">
-                <h3 class="text-primary"><strong>Enter Bangladesh And Global Study</strong> </h3>
-                <table class="table table-bordered border-primary">
-                    <tr class="text-center">
-                        <th>#</th>
-                        <th>Roll</th>
-                        <th>Name</th>
-                        <th>Bangla Mark</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#01</td>
-                        <td>01</td>
-                        <td>Aurpita</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#02</td>
-                        <td>02</td>
-                        <td>Aurpita</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#03</td>
-                        <td>03</td>
-                        <td>Aurpita</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#04</td>
-                        <td>04</td>
-                        <td>Aurpita</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <!-- end bob-->
-
-         <!-- start religion-->
-         <div class="row hidden" id="religion_mark">
-            <div class="col-md-12 card card-body " style="width: 32%; margin:5px">
-                <h3 class="text-primary"><strong>Enter Religion Mark</strong> </h3>
-                <table class="table table-bordered border-primary">
-                    <tr class="text-center">
-                        <th>#</th>
-                        <th>Roll</th>
-                        <th>Name</th>
-                        <th>Bangla Mark</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#01</td>
-                        <td>01</td>
-                        <td>Monika</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#02</td>
-                        <td>02</td>
-                        <td>Monika</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#03</td>
-                        <td>03</td>
-                        <td>Monika</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                    <tr class="text-center">
-                        <td>#04</td>
-                        <td>04</td>
-                        <td>Monika</td>
-                        <td><input type="number" class="form-control" name="bangla"></td>
-                        <td>
-                            <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <!-- end religion-->
-    </div>
-
-
-    <style>
-        .hidden {
-            display: none;
-        }
-
-    </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#subject").change(function() {
-                $subject_types = $("#subject").val();
-
-                if ($subject_types == "bangla") {
-                    $("#bangla_mark").removeClass('hidden');
-                    $("#english_mark").addClass('hidden');
-                    $("#math_mark").addClass('hidden');
-                    $("#science_mark").addClass('hidden');
-                    $("#bob_mark").addClass('hidden');
-                    $("#religion_mark").addClass('hidden');
-
-                } else if ($subject_types == "english") {
-                    $("#bangla_mark").addClass('hidden');
-                    $("#english_mark").removeClass('hidden');
-                    $("#math_mark").addClass('hidden');
-                    $("#science_mark").addClass('hidden');
-                    $("#bob_mark").addClass('hidden');
-                    $("#religion_mark").addClass('hidden');
-                }else if ($subject_types == "math") {
-                    $("#bangla_mark").addClass('hidden');
-                    $("#english_mark").addClass('hidden');
-                    $("#math_mark").removeClass('hidden');
-                    $("#science_mark").addClass('hidden');
-                    $("#bob_mark").addClass('hidden');
-                    $("#religion_mark").addClass('hidden');
-                }else if ($subject_types == "science") {
-                    $("#bangla_mark").addClass('hidden');
-                    $("#english_mark").addClass('hidden');
-                    $("#math_mark").addClass('hidden');
-                    $("#science_mark").removeClass('hidden');
-                    $("#bob_mark").addClass('hidden');
-                    $("#religion_mark").addClass('hidden');
-                }else if ($subject_types == "bob") {
-                    $("#bangla_mark").addClass('hidden');
-                    $("#english_mark").addClass('hidden');
-                    $("#math_mark").addClass('hidden');
-                    $("#science_mark").addClass('hidden');
-                    $("#bob_mark").removeClass('hidden');
-                    $("#religion_mark").addClass('hidden');
-                }else if ($subject_types == "religion") {
-                    $("#bangla_mark").addClass('hidden');
-                    $("#english_mark").addClass('hidden');
-                    $("#math_mark").addClass('hidden');
-                    $("#science_mark").addClass('hidden');
-                    $("#bob_mark").addClass('hidden');
-                    $("#religion_mark").removeClass('hidden');
-                }
-            });
-        });
-    </script>
-@endsection
+            function updateValue(element, column, id) {
+                var value = element.innerText
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: '{{ route('marks_store') }}',
+                    type: 'post',
+                    data: {
+                        value,
+                        column,
+                        id
+                    },
+                    success: function(success_message) {
+                        toastr.success(success_message);
+                    },
+                    error: function(xhr, ajaxOptions, error_message) {
+                        toastr.error('Please Insert Correct Information');
+                    }
+                })
+            }
+        </script>
+    @endsection

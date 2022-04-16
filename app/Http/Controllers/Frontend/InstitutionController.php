@@ -10,9 +10,9 @@ use App\Models\Division;
 use App\Models\District;
 use App\Models\Upazila;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use File;
 use Image;
-use Auth;
 
 class InstitutionController extends Controller
 {
@@ -35,7 +35,9 @@ class InstitutionController extends Controller
             'instution_name'   => 'required',
             'institution_address'   => 'required',
             'institution_emis'   => 'required',
-            'user_id'   => 'unique:users',
+            'division_id'   => 'required',
+            'district_id'   => 'required',
+            'upazila_id'   => 'required',
 
         ]);
         $user_id = Auth::id();
@@ -57,15 +59,17 @@ class InstitutionController extends Controller
 
             // productImage model insert single image
             if ($request->hasFile('institution_logo')) {
-                //   //insert that image
+                //insert that image
                 $image = $request->file('institution_logo');
-                $img = time() . '.' . $image->getClientOriginalExtension();
+                $img = $request->institution_emis."_".time() . '.' . $image->getClientOriginalExtension();
                 $location = public_path('institutionImage/' . $img);
                 Image::make($image)->save($location);
 
                 $institution->image = $img;
-                $institution->save();
             }
+
+            $institution->save();
+
             session()->flash('success', 'Institution Information Updated Succesfully !!');
             return redirect()->route('addInstitution');
         }

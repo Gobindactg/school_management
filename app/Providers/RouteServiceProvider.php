@@ -36,7 +36,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
 
             // Route::middleware('web')
-                // <<<<<<< HEAD
+               
                 //                 ->group(base_path('routes/main/backend.php'));
 
                 //             Route::middleware('web')
@@ -50,7 +50,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/main/backend.php'));
 
             Route::middleware('web')
-                // >>>>>>> gobinda
+               
                 ->group(base_path('routes/main/frontend.php'));
         });
     }

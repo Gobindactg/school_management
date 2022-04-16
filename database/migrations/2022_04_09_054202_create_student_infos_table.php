@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('student_infos', function (Blueprint $table) {
             $table->id();
-            $table->integer('roll');
+            $table->integer('st_roll');
             $table->string('name');
-             $table->string('class');
-            $table->string('group');
+            $table->string('class');
+            $table->string('st_group');
+            $table->string('st_year');
             $table->string('gender');
             $table->date('date_of_birth');
             $table->integer('birth_reg_number')->nullable();
@@ -28,8 +29,9 @@ return new class extends Migration
             $table->integer('mother_nid')->nullable();
             $table->text('address')->nullable();
             $table->integer('status')->default(0);
+            $table->integer('user_id');
             $table->string('image')->nullable();
-            $table->integer('user_id')->unique();
+            
             $table->timestamps();
         });
     }
