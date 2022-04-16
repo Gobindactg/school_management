@@ -23,8 +23,8 @@
       id="navbarCollapse"
     >
       <div class="navbar-nav font-weight-bold mx-auto py-0">
-        <a href="#" class="nav-item nav-link active">Home</a>
-        <a href="#" class="nav-item nav-link">About</a>
+        <a href="{{route('landing')}}" class="nav-item nav-link active">Home</a>
+        <a href="{{route('about')}}" class="nav-item nav-link">About</a>
         <a href="#" class="nav-item nav-link">Schools</a>
         <a href="#" class="nav-item nav-link">Contact</a>
       </div>
