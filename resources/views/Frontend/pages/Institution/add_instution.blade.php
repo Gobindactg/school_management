@@ -27,7 +27,7 @@
                 placeholder="Write Your Institution Address">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Institution EMIS</label>
+            <label for="institution_emis" class="form-label">Institution EMIS</label>
             <input type="number" class="form-control" id="institution_emis" name="institution_emis"
                 placeholder="Write Your Institution EMIS">
         </div>
@@ -36,7 +36,7 @@
 
             <div class="col-md-12">
                 <select name="division_id" id="division_id" class="w-100 py-1">
-                    <option value="">-- Select Your Division--</option>
+                    <option value="null">-- Select Your Division--</option>
                     @foreach ($division as $division)
                         <option value="{{ $division->id }}">{{ $division->name }}</option>
                     @endforeach
@@ -50,11 +50,10 @@
             </div>
         </div>
         <div class="row mb-3">
-            <label for="district_id" class="form-label">{{ __('District') }}</label>
+            <label for="district-area" class="form-label">{{ __('District') }}</label>
 
             <div class="col-md-12">
                 <select name="district_id" id="district-area" class="w-100 py-1">
-
                 </select>
 
                 @error('district_id')
@@ -65,11 +64,10 @@
             </div>
         </div>
         <div class="row mb-3">
-            <label for="district_id" class="form-label">{{ __('Upazila') }}</label>
+            <label for="upazila-area" class="form-label">{{ __('Upazila') }}</label>
 
             <div class="col-md-12">
                 <select name="upazila_id" id="upazila-area" class="w-100 py-1">
-
                 </select>
 
                 @error('district_id')
@@ -80,7 +78,7 @@
             </div>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Institution Logo</label>
+            <label for="institution_logo" class="form-label">Institution Logo</label>
             <input type="file" class="form-control" id="institution_logo" name="institution_logo"
                 placeholder="Write Your Institution EMIS">
         </div>

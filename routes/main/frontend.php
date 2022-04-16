@@ -73,7 +73,7 @@ Route::get('/result-show', [SearchController::class, 'search_result_show'])->nam
 Route::group(['middleware'=>'auth'], function() {
   Route::get('get-districts/{id}', function($id){
     return json_encode(App\Models\District::where('division_id', $id)->get());
-  });
+  })->name('get-districts');
   Route::get('get-upazilas/{id}', function($id){
     return json_encode(App\Models\Upazila::where('district_id', $id)->get());
   });
