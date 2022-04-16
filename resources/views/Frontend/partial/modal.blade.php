@@ -18,7 +18,7 @@
                   <input type="email" class="form-control" id="title" placeholder="Enter Title" name="title">
                 </div>
                 <div class="mb-3">
-                  <label for="pwd" class="form-label">Message Body</label>
+                  <label for="comment" class="form-label">Message Body</label>
                   <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Enter Your Text"></textarea>
                 </div>
                

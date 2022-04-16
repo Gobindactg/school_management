@@ -25,10 +25,13 @@ use App\Http\Controllers\Frontend\PartialController;
 
 
 Route::get('/', [PagesController::class, 'index'])->name('landing');
-Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
+
+Route::group(['middleware'=>'auth'], function() {
+  Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
+});
 
 //institution
-Route::group(['prefix'=>'institute'], function(){
+Route::group(['prefix'=>'institute','middleware'=>'auth'], function(){
   Route::get('/', [PagesController::class, 'index'])->name('index');
   Route::post('/institution-store', [InstitutionController::class, 'addInstution_store'])->name('institution_store');
   Route::get('/add_institution', [InstitutionController::class, 'add_institution'])->name('addInstitution');
@@ -39,7 +42,7 @@ Route::group(['prefix'=>'institute'], function(){
 
 
 //student
-Route::group(['prefix'=>'student'], function(){
+Route::group(['prefix'=>'student','middleware'=>'auth'], function(){
   Route::get('/add_student', [StudentController::class, 'add_student'])->name('add_student');
   Route::get('/add_group', [StudentController::class, 'add_group'])->name('add_group');
   Route::post('/add-group-store', [StudentController::class, 'group_store'])->name('group_store');
@@ -54,12 +57,12 @@ Route::group(['prefix'=>'student'], function(){
 
 
 // teacher
-Route::group(['prefix'=>'teacher'], function(){
+Route::group(['prefix'=>'teacher','middleware'=>'auth'], function(){
   Route::get('/addTeacher', [TeacherController::class, 'addTeacher'])->name('addTeacher');
   Route::get('/manageTeacher', [TeacherController::class, 'manageTeacher'])->name('manageTeacher');
 });
 // search result
-Route::group(['prefix'=>'search'], function(){
+Route::group(['prefix'=>'search','middleware'=>'auth'], function(){
 Route::get('/result', [SearchController::class, 'search_result'])->name('search.result');
 Route::get('/result-show', [SearchController::class, 'search_result_show'])->name('search.result.show');
 });
@@ -67,15 +70,17 @@ Route::get('/result-show', [SearchController::class, 'search_result_show'])->nam
 
 
 // API Route
-Route::get('get-districts/{id}', function($id){
-  return json_encode(App\Models\District::where('division_id', $id)->get());
-});
-Route::get('get-upazilas/{id}', function($id){
-  return json_encode(App\Models\Upazila::where('district_id', $id)->get());
-});
-
-Route::get('get-institution/{id}', function($id){
-  return json_encode(App\Models\Institution_info::where('upazila_id', $id)->get());
+Route::group(['middleware'=>'auth'], function() {
+  Route::get('get-districts/{id}', function($id){
+    return json_encode(App\Models\District::where('division_id', $id)->get());
+  });
+  Route::get('get-upazilas/{id}', function($id){
+    return json_encode(App\Models\Upazila::where('district_id', $id)->get());
+  });
+  
+  Route::get('get-institution/{id}', function($id){
+    return json_encode(App\Models\Institution_info::where('upazila_id', $id)->get());
+  });
 });
 
 
@@ -85,7 +90,7 @@ Route::get('/visitor/{id}', [SearchController::class, 'visitor'])->name('visitor
 
 
 // Library
-Route::group(['prefix'=>'library'], function() {
+Route::group(['prefix'=>'library','middleware'=>'auth'], function() {
   Route::get('/', [LibraryController::class, 'index'])->name('library');
   Route::get('/add_book', [LibraryController::class, 'add_book'])->name('add_book');
   Route::get('/manage_books', [LibraryController::class, 'manage_books'])->name('manage_books');
@@ -97,7 +102,7 @@ Route::group(['prefix'=>'library'], function() {
 });
 
 // social, academy year, group controller
-Route::group(['prefix'=>'social-media'], function(){
+Route::group(['prefix'=>'social-media','middleware'=>'auth'], function(){
   Route::get('/', [PartialController::class, 'add_social'])->name('social_media');
   Route::post('/add-new', [PartialController::class, 'add_social_icon'])->name('add_social_media');
   
