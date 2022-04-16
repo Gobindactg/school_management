@@ -10,7 +10,7 @@
 
             function(data) {
                 data = JSON.parse(data);
-                option2 = "<option>-- Select Your District--</option>"
+                option2 = "<option value='null'>-- Select Your District--</option>"
                 data.forEach(function(element) {
 
                     option += "<option value='" + element.id + "'>" + element.name + "</option>";
@@ -29,7 +29,7 @@
         $.get(`{{ url('get-upazilas') }}/${district}`,
             function(data) {
                 data1 = JSON.parse(data);
-                option2 = "<option>-- Select Your Upazila--</option>"
+                option2 = "<option value='null'>-- Select Your Upazila--</option>"
                 data1.forEach(function(element) {
                     option += "<option value='" + element.id + "'>" + element.name + "</option>";
                 })
