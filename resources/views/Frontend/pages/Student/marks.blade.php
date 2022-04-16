@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 
-    <div class="container" style="padding: 0; margin:0;">
+    <div style="padding: 0; margin:0;">
         <div class="row bg-info" style="margin-bottom: 15px">
             <div class="col-md-4 ">
                 <select class="form-select" aria-label="Default select example">
@@ -35,7 +35,7 @@
             </div>
 
         </div>
-        <div class="container scrollbar-thin scrollbar-x">
+        <div class="scrollbar-thin scrollbar-x">
             <table class="table table-bordered">
 
                 <thead class="thead-dark">

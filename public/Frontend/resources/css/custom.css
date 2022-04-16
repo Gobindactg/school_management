@@ -7,15 +7,15 @@
     background: rgba(255, 255, 255, 0.6);
     border-radius: 20%;
     border: 1px solid #ddd;
+    cursor: pointer;
 }
-.messenger img{
+.messenger img {
     padding: 5px;
     width: 100%;
 }
 
-
 .news_style {
-    background-color: #04293A;
+    background-color: #04293a;
 }
 
 .news_style h5 button {
@@ -23,11 +23,11 @@
 }
 
 .news_style h5 button:hover {
-    color: #FFC107
+    color: #ffc107;
 }
 
 .Developer {
-    background-color: #04293A;
+    background-color: #04293a;
     color: white;
     text-align: center;
 }
@@ -40,32 +40,33 @@
     border-radius: 50%;
     width: 150px;
     height: 150px;
-
 }
-.text_color li a{
-    color:green;
+.text_color li a {
+    color: green;
     font-family: tahoma;
     font-style: italic;
     font-size: 20px;
 }
-.text_color li a:hover{
-    color:white;
+.text_color li a:hover {
+    color: white;
     font-family: tahoma;
     font-style: italic;
     font-size: 20px;
-    background-color:rgb(126, 113, 113);
-    border-radius:40px;
+    background-color: rgb(126, 113, 113);
+    border-radius: 40px;
 }
-.hover a:hover{
+.hover a:hover {
     background-color: green;
 }
+
+/* :horizontal scrollbar style */
 .scrollbar-x {
     width: 100%;
     overflow-x: scroll;
 }
 .scrollbar-thin {
-    scrollbar-width: none;
-    scrollbar-color: #bccff3 transparent;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
     transition: all 0.3s linear;
 }
 .scrollbar-thin:hover {
@@ -77,7 +78,18 @@
     display: flex;
     justify-content: space-around;
 }
-.book_action a{
-    color: #04293A;
+.book_action a {
+    color: #04293a;
     cursor: pointer;
 }
+/* :horizontal scrollbar style end */
+
+/* Header social media icon */
+.icon_hover {
+  transition: all 0.2s ease-in-out;
+}
+.icon_hover a:hover {
+  color: #007bff;
+}
+/* Header social media icon end */
+

@@ -1,19 +1,26 @@
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <ul>
-            <h2 style="color:red;">Please fillup below information</h2>
+{{-- message for social media --}}
+@push('js')
+    @if ($errors->any())
+        <script>
             @foreach ($errors->all() as $error)
-                <p style="color:red;">{{ $error }}</p>
+                toastr.error("{{ $error }}");
             @endforeach
-        </ul>
-    </div>
-@endif
+        </script>
+    @endif
+@endpush
+
+
+
 <!-- display message for delete product data successfully -->
 @if (Session::has('success'))
-    <div class="alert ">
+@push('js')
+    <script>
+        toastr.success("{{ Session::get('success') }}");
+    </script>
+@endpush
+    {{-- <div class="alert ">
         <h3 class="text-success text-center">{{ Session::get('success') }}</h3>
-    </div>
+    </div> --}}
 @endif
 @if (Session::has('fail'))
     <div class="alert ">
