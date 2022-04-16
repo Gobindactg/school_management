@@ -34,7 +34,7 @@ class InstitutionController extends Controller
         $request->validate([
             'instution_name'   => 'required',
             'institution_address'   => 'required',
-            'institution_emis'   => 'required|unique:emis_number',
+            'institution_emis'   => 'required',
             'division_id'   => 'required',
             'district_id'   => 'required',
             'upazila_id'   => 'required',

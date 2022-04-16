@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('address');
             $table->string('emis_number');
             $table->string('image')->nullable();
-            $table->string('division')->nullable();
-            $table->string('district')->nullable();
-            $table->string('upazila')->nullable();
+            $table->string('division_id')->nullable();
+            $table->string('district_id')->nullable();
+            $table->string('upazila_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->timestamps();
         });
