@@ -26,13 +26,13 @@
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                 @endif
 
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                 @endif
             @else
@@ -199,13 +199,14 @@
 
                 <!-- start user Login section-->
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle nav-icon text-white" href="#" role="button" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
+                        {{-- {{ Auth::user()->name }} --}}
+                        <i class="fa fa-user-circle-o"></i>
                     </a>
 
 
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-end" style="min-width: 200px;" aria-labelledby="navbarDropdown">
                         <a id="navbarDropdown" class="nav-link " href="#" role="button" aria-haspopup="true"
                             aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
