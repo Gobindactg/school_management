@@ -54,7 +54,7 @@
 
             <div class="col-md-12">
                 <select name="district_id" id="district-area" class="w-100 py-1">
-
+                    <option>Select Division First</option>
                 </select>
 
                 @error('district_id')
@@ -69,7 +69,7 @@
 
             <div class="col-md-12">
                 <select name="upazila_id" id="upazila-area" class="w-100 py-1">
-
+                    <option>Select District First</option>
                 </select>
 
                 @error('district_id')
