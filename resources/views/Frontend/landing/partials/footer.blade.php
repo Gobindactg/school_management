@@ -59,7 +59,7 @@
             </div>
           </div>
           <div class="d-flex">
-            <h4 class="fa fa-phone-alt text-bright"></h4>
+            <h4 class="fa fa-phone text-bright"></h4>
             <div class="pl-3">
               <h5 class="text-white">Phone</h5>
               <p>+012 345 67890</p>
