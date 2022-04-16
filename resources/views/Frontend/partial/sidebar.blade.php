@@ -237,12 +237,12 @@
                 </li>
                 <li>
                     <a href="{{route('create_library_card')}}">
-                        <i class="bi bi-circle"></i><span>Create Library Card</span>
+                        <i class="bi bi-circle"></i><span>Requests for Library Card</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('manage_library_card')}}">
-                        <i class="bi bi-circle"></i><span>Manage Library Card</span>
+                        <i class="bi bi-circle"></i><span>Manage Library Cards</span>
                     </a>
                 </li>
             </ul>
