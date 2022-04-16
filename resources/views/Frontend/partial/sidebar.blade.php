@@ -100,7 +100,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="components-alerts.html">
+                    <a href="{{route('searchResult')}}">
                         <i class="bi bi-circle"></i><span>Single Result</span>
                     </a>
                 </li>
