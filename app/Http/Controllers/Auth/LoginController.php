@@ -64,7 +64,7 @@ class LoginController extends Controller
                     if(Auth::guard('web')->attempt(['email'=>$request->email, 'password' => $request->password], $request->remember))
                     {
                         //login now
-                        return redirect()->route('index');
+                        return redirect()->route('noipunno');
                     }else{
                             session()->flash('NotRegistered', 'Your Email Address or Password is not correct!! Please Try Again With Correct Information !! Or Reset Password');
                                     return redirect('/login');

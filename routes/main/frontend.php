@@ -49,6 +49,8 @@ Route::group(['prefix'=>'student'], function(){
   Route::get('/marks', [StudentController::class, 'marks'])->name('marks');
   Route::post('/marks-store', [StudentController::class, 'marks_store'])->name('marks_store');
   Route::get('/seatPlan', [StudentController::class, 'seatPlan'])->name('seatPlan');
+  Route::get('/search-single-result', [StudentController::class, 'search_result'])->name('searchResult');
+  Route::get('/singleResult/{id}', [StudentController::class, 'single_result'])->name('singleResult');
 });
 
 

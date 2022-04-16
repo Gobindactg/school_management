@@ -16,9 +16,9 @@
             @foreach ($institution as $institution)
             <tr>
                 <td>{{ $institution->name }}</td>
-                <td>{{ $institution->upazila }}</td>
-                <td>{{ $institution->district }}</td>
-                <td>{{ $institution->division }}</td>
+                <td>{{ $institution->upazila->name }}</td>
+                <td>{{ $institution->district->name }}</td>
+                <td>{{ $institution->division->name }}</td>
                 <td class="text-center hover"> <a href="{{ route('visitor', $institution->emis_number) }}" target="_blank" class="btn btn-primary btn-lg w-100 ">Go</a></td>
             </tr>
             @endforeach

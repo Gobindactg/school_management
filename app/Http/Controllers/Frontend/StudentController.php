@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student_info;
+use App\Models\Institution_info;
 use App\Models\student_mark;
 use App\Models\User;
 use App\Models\StudentGroup;
@@ -92,6 +93,7 @@ class StudentController extends Controller
                 $student->save();
             }
 
+          
             // add information student marks table
             $student_mark = new student_mark;
             $student_mark->user_id = Auth::id();
@@ -120,6 +122,18 @@ class StudentController extends Controller
             $group->save();
             session()->flash('success', 'Your Class Group Added Successfully!!');
             return back();
+        }
+
+        public function single_result($id){
+            $marks = student_mark::orderBy('id', 'desc')->where('id', $id)->get();
+            $institution = Institution_info::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
+            return view('Frontend.pages.Student.singleResult', compact('marks', 'institution'));
+           
+        }
+
+        public function search_result(){
+            $marks = student_mark::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
+            return view('Frontend.pages.Student.searchResult', compact('marks'));
         }
    
     }
