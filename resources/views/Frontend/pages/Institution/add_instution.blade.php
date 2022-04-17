@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ADD INSTITUTION INFORMATION</title>
+    <title>Add Institution Information | Noipunno Digital School</title>
     @include('Frontend.partial.css')
     <style>
         .body_img {
@@ -24,7 +24,7 @@
 @include('Frontend.partial.header')
 <div class="container py-3 card card-body mt-5" style="background-color: rgb(180, 182, 255)">
 
-<h1 class="text-center">Welcome Noipunno Digital School</h1>
+<h1 class="text-center">Welcome To Noipunno Digital School</h1>
 @include('Frontend.partial.message')
 <section class="section dashboard">
     <h2 class="text-primary text-center">Please Add Your Institution Information</h2>

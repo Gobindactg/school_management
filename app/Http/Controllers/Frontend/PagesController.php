@@ -16,7 +16,11 @@ class PagesController extends Controller
         if($institution->count() > 0) {
             return view('Frontend.pages.index')->with('institution', $institution);
         } else {
-            return redirect()->route('addInstitution');
+            return redirect()->route('getStarted'); //redirect get Started Page
         }
+    }
+
+    public function get_started() {
+        return view('Frontend.pages.Institution.getStarted');
     }
 }
