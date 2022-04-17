@@ -71,7 +71,7 @@ class InstitutionController extends Controller
             $institution->save();
 
             $thisUser = User::find($user_id);
-            $thisUser->user_lavel = '1';
+            $thisUser->user_lavel = '2';
             $thisUser->update();
 
 
