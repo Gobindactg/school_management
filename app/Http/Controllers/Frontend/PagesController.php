@@ -10,10 +10,6 @@ use App\Models\social;
 
 class PagesController extends Controller
 {
-    public function index(){
-      
-        return view('Frontend.landing.pages.index');
-    }
     public function noipunno(){
         $id = Auth::id();
         $institution2 = Institution_info::orderBy('id', 'desc')->where('user_id', $id)->get();

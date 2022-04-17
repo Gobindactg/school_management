@@ -3,7 +3,6 @@
 @section('content')
     <section class="section dashboard">
         <div class="row">
-
             <div class="col-md-11">
                 @guest
                     @if (Route::has('login'))
@@ -28,10 +27,12 @@
                                 {{ $institution->emis_number }}</strong></h4>
 
                 </div>
-                <div class="col-md-1">
-                    <img src="{{ asset('institutionImage/' . $institution->image) }}" class="card-img-top "
-                        alt="{{ $institution->name }}" style="width:100%;">
-                </div>
+                @if (!empty($institution->image))
+                    <div class="col-md-1">
+                        <img src="{{ asset('institutionImage/' . $institution->image) }}" class="card-img-top "
+                            alt="{{ $institution->name }}" style="width:100%;">
+                    </div>
+                @endif
                 @endforeach
             @endguest
         </div>

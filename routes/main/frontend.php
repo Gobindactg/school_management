@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Frontend\PagesController;
+use App\Http\Controllers\Landing\PagesController as LandingPagesController;
 use App\Http\Controllers\Frontend\InstitutionController;
 use App\Http\Controllers\Frontend\TeacherController;
 use App\Http\Controllers\Frontend\StudentController;
@@ -24,9 +25,11 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 
+// landing page route
+Route::get('/', [LandingPagesController::class, 'index'])->name('landing');
+Route::get('/about', [LandingPagesController::class, 'about'])->name('about');
 
-Route::get('/', [PagesController::class, 'index'])->name('landing');
-
+//dashboard
 Route::group(['middleware'=>'auth'], function() {
   Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
 });
