@@ -27,4 +27,7 @@ class Institution_info extends Model
     {
         return $this->belongsTo(Upazila::class);
     }
+
 }
+
+

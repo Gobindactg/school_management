@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\VerifyRegistation;
+use App\Models\Institution_info;
 
 
 class LoginController extends Controller
@@ -54,13 +55,21 @@ class LoginController extends Controller
       'email' => 'required|email',
       'password' => 'required',
     ]);
+    // if(!is_null($user)){
+    //   if($user->status == 1){
     // find user by this email
     $user = User::where('email', $request->email)->first();
     if (!is_null($user)) {
       //user login
       if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-        //login now
-        return redirect()->route('noipunno');
+       
+        $institution = Institution_info::where('user_id', $user->id)->get();
+        if (count($institution) > 0 ){
+          return redirect()->route('noipunno');// to redirect add instutition 
+        }else{
+          return redirect()->route('addInstitution');// to redirect add instutition 
+        }
+       
       } else {
         session()->flash('NotRegistered', 'Your Email Address or Password is not correct!! Please Try Again With Correct Information !! Or Reset Password');
         return redirect()->route('login');
@@ -74,6 +83,6 @@ class LoginController extends Controller
   public function user_logout()
   {
     Auth::guard('web')->logout();
-    return redirect()->route('login');
+    return redirect()->route('noipunno');
   }
 }
