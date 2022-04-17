@@ -28,7 +28,7 @@
         <a href="#" class="nav-item nav-link">Schools</a>
         <a href="#" class="nav-item nav-link">Contact</a>
       </div>
-      <a href="{{route('noipunno')}}" target="_blank" class="btn btn-primary px-4">Get Started</a>
+      <a href="{{route('noipunno')}}"  class="btn btn-primary px-4">Get Started</a>
     </div>
   </nav>
 </div>
