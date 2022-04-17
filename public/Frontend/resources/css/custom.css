@@ -74,6 +74,22 @@
     scrollbar-color: #394150 transparent;
 }
 
+/* scrollbar for chrome */
+.scrollbar-thin::-webkit-scrollbar {
+    height: 4px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 20px;
+    border: 0;
+}
+.scrollbar-thin:hover::-webkit-scrollbar-thumb {
+    background-color: #394150;
+}
+
 .book_action {
     display: flex;
     justify-content: space-around;
@@ -86,10 +102,9 @@
 
 /* Header social media icon */
 .icon_hover {
-  transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 .icon_hover a:hover {
-  color: #007bff;
+    color: #007bff;
 }
 /* Header social media icon end */
-
