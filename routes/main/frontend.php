@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\DivisionController;
 use App\Http\Controllers\Frontend\DistrictController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\PartialController;
+use App\Http\Controllers\Auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -116,3 +117,5 @@ Route::group(['prefix'=>'social-media','middleware'=>'auth'], function(){
 
 // Authentication
 Auth::routes();
+
+Route::post('/register', [RegisterController::class, 'create'])->name('registered');

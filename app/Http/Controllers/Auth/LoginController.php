@@ -60,7 +60,7 @@ class LoginController extends Controller
       //user login
       if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
         //login now
-        return redirect()->route('index');
+        return redirect()->route('noipunno');
       } else {
         session()->flash('NotRegistered', 'Your Email Address or Password is not correct!! Please Try Again With Correct Information !! Or Reset Password');
         return redirect()->route('login');
@@ -71,47 +71,9 @@ class LoginController extends Controller
     }
   }
 
-<<<<<<< HEAD
-    // login stystem
-
-    public function showLoginForm()
-    {
-        return view('Frontend.auth.login');
-    }
-    public function login(Request $request)
-    {
-        $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required', 
-        ]);
-        // find user by this email
-        $user = User::where('email', $request->email)->first();
-            if(!is_null($user)){
-                    //user login
-                    if(Auth::guard('web')->attempt(['email'=>$request->email, 'password' => $request->password], $request->remember))
-                    {
-                        //login now
-                        return redirect()->route('noipunno');
-                    }else{
-                            session()->flash('NotRegistered', 'Your Email Address or Password is not correct!! Please Try Again With Correct Information !! Or Reset Password');
-                                    return redirect('/login');
-                        }
-                    }else{
-                    session()->flash('NotRegistered', 'Your are Not Complete Registation; Please Registation First');
-                    return redirect('/register');
-                }
-        }
-
-        public function user_logout(){
-            Auth::guard('web')->logout();
-            return redirect()->route('login');
-        }
-// >>>>>>> gobinda
-=======
   public function user_logout()
   {
     Auth::guard('web')->logout();
     return redirect()->route('login');
   }
->>>>>>> a422376adac50beb3dadb138a419272829d768be
 }
