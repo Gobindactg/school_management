@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use File;
-use Image;
+use Intervention\Image\ImageManagerStatic as Image;
 class RegisterController extends Controller
 {
     /*
@@ -84,7 +84,7 @@ class RegisterController extends Controller
     //         }
     //     ]);
     // }
-    public function create(Request $request){
+    protected function create(Request $request){
 
         $user = new User;
         $user->name = $request->name;
@@ -94,15 +94,15 @@ class RegisterController extends Controller
         if ($request->hasFile('user_image')) {
             //insert that image
             $image = $request->file('user_image');
-            $img = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('Frontend/UserImage' . $img);
+            $img = "user_".time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('Frontend/UserImage/' . $img);
             Image::make($image)->save($location);
 
             $user->image = $img;
         }
             $user->save();
             session()->flash('success', 'Your Registation Complete Successfully !! Please Login');
-            return redirect('/login');
+            return redirect()->route('login');
       
     }
 }

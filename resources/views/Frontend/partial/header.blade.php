@@ -201,8 +201,7 @@
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle nav-icon text-white" href="#" role="button" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" v-pre>
-                        <img src="{{'Frontend/UserImage'. Auth::user()->image}}" alt="" style="width: 50px; border-radius:40px" >
-                        <img src="{{Auth::user()->name }}" alt="">
+                        <img src="{{'Frontend/UserImage/'. Auth::user()->image}}" alt="" style="width: 35px; border-radius:50%" >
                        
                     </a>
 
@@ -210,7 +209,7 @@
                     <div class="dropdown-menu dropdown-menu-end" style="min-width: 200px;" aria-labelledby="navbarDropdown">
                         <a id="navbarDropdown" class="nav-link " href="#" role="button" aria-haspopup="true"
                             aria-expanded="false" v-pre>
-                            Dahboard
+                            Dashboard
                         </a>
                         <a id="navbarDropdown" class="nav-link " href="#" role="button" aria-haspopup="true"
                             aria-expanded="false" v-pre>
