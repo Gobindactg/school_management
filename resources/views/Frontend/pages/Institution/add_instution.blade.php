@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ADD INSTITUTION INFORMATION</title>
+    @include('Frontend.partial.css')
     <style>
         .body_img {
             background-image: url("{{ asset('sliderImage/background.png') }}");
@@ -20,8 +21,8 @@
     </style>
 </head>
 <body class="body_img">
-<div class="container py-3 card card-body" style="background-color: rgb(180, 182, 255)">
-@include('Frontend.partial.css')
+@include('Frontend.partial.header')
+<div class="container py-3 card card-body mt-5" style="background-color: rgb(180, 182, 255)">
 
 <h1 class="text-center">Welcome Noipunno Digital School</h1>
 @include('Frontend.partial.message')
