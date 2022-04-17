@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Institution_info;
+use App\Models\User;
 use App\Models\social;
 
 class PagesController extends Controller
@@ -21,6 +22,12 @@ class PagesController extends Controller
     }
 
     public function get_started() {
-        return view('Frontend.pages.Institution.getStarted');
+        $id = Auth::id();
+        $userLavel = User::find($id)->user_lavel;
+        if($userLavel !== 1.0) {
+            return view('Frontend.pages.Institution.getStarted');
+        } else {
+            return redirect()->route('noipunno');
+        }
     }
 }

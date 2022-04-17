@@ -18,9 +18,15 @@ class InstitutionController extends Controller
 {
     public function add_institution()
     {
-        $division = Division::orderBy('priority', 'asc')->get();
-        $district = District::orderBy('id', 'asc')->get();
-        return view('Frontend.pages.Institution.add_instution')->with('district', $district)->with('division', $division);
+        $id = Auth::id();
+        $userLavel = User::find($id)->user_lavel;
+        if($userLavel !== 1.0) {
+            $division = Division::orderBy('priority', 'asc')->get();
+            $district = District::orderBy('id', 'asc')->get();
+            return view('Frontend.pages.Institution.add_instution')->with('district', $district)->with('division', $division);
+        } else {
+            return redirect()->route('noipunno');
+        }
     }
     public function manageInstitution()
     {
