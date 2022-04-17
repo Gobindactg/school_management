@@ -177,7 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        // third parti provider
+        // third party provider
         Intervention\Image\ImageServiceProvider::class,
 
     ],
