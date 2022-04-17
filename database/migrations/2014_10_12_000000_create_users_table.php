@@ -21,9 +21,23 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('image')->nullable();
+            $table->float('user_lavel')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
+
+        /**
+         * User Lavels
+         * 0 - Not Defined/Applied by Default while user create new account.
+         * 1 - Web Application Administrative/Super Users
+         * 2 - Institution Administrations (People Who Creates Institutions in this web application)
+         * 3 - Teachers
+         * 4 - Stuff
+         *  4.1 - Accountants
+         *  4.2 - Librarians
+         *  4.3 - Transportation Administrative
+         * 5 - Students
+        */
     }
 
     /**
