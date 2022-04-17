@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use File;
+use Image;
 class RegisterController extends Controller
 {
     /*
@@ -65,12 +67,42 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+    // protected function create(array $data)
+    // {
+    //     return User::create([
+    //         'name' => $data['name'],
+    //         'email' => $data['email'],
+    //         'password' => Hash::make($data['password']),
+    //         if ($request->hasFile('profile_image')) {
+    //             //   //insert that image
+    //             $image = $request->file('profile_image');
+    //             $img = time() . '.' . $image->getClientOriginalExtension();
+    //             $location = public_path('Frontend/studentImage/' . $img);
+    //             Image::make($image)->save($location);
+    //             $student->image = $img;
+    //             $student->save();
+    //         }
+    //     ]);
+    // }
+    public function create(Request $request){
+
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->institution_category = $request->category;
+        $user->password = Hash::make($request->password);
+        if ($request->hasFile('user_image')) {
+            //insert that image
+            $image = $request->file('user_image');
+            $img = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('Frontend/UserImage' . $img);
+            Image::make($image)->save($location);
+
+            $user->image = $img;
+        }
+            $user->save();
+            session()->flash('success', 'Your Registation Complete Successfully !! Please Login');
+            return redirect('/login');
+      
     }
 }

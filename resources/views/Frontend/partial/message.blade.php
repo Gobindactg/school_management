@@ -18,9 +18,9 @@
         toastr.success("{{ Session::get('success') }}");
     </script>
 @endpush
-    {{-- <div class="alert ">
+   <div class="alert ">
         <h3 class="text-success text-center">{{ Session::get('success') }}</h3>
-    </div> --}}
+    </div> 
 @endif
 @if (Session::has('fail'))
     <div class="alert ">

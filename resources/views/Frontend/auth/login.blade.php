@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
                 <div class="card-body">
+                    @include('Frontend.partial.message')
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
