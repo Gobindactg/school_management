@@ -71,7 +71,7 @@ class InstitutionController extends Controller
             $institution->save();
 
             session()->flash('success', 'Institution Information Updated Succesfully !!');
-            return redirect()->route('addInstitution');
+            return redirect()->route('noipunno');
         }
     }
     public function editInstitution($id)

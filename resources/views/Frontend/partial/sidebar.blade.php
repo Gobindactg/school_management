@@ -17,7 +17,7 @@
             </a>
             <ul id="instution" class="nav-content collapse {{ Request::is('institute/*') ? 'show' : '' }} button_color " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{route('addInstitution')}}">
+                    <a href="#">
                         <i class="bi bi-circle"></i><span>Add Instutition</span>
 
                     </a>

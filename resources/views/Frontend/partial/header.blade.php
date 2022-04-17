@@ -45,7 +45,7 @@
                 @foreach (App\Models\Social::social_media() as $social)
                     <!-- Start Social Media Icon-->
                     <li class="nav-item dropdown icon_hover">
-                        <a class="nav-link nav-icon" href="{{ $social->media_link }}">
+                        <a class="nav-link nav-icon" href="{{'https://'. $social->media_link }}">
                             <i class="fa fa-{{ $social->name }}" style="font-size: 30px"></i>
                         </a>
                     </li>

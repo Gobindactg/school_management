@@ -1,28 +1,16 @@
-{{-- @extends('Frontend.layouts.master')
+@extends('Frontend.layouts.master')
 @section('title', 'Add Institute')
-@section('content') --}}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ADD INSTITUTION INFORMATION</title>
-    <style>
-        .body_img {
-            background-image: url("{{ asset('sliderImage/background.png') }}");
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-    
-    </style>
-</head>
-<body class="body_img">
-<div class="container py-3 card card-body" style="background-color: rgb(180, 182, 255)">
-@include('Frontend.partial.css')
+@section('content')
 
+<div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Institution</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
 <h1 class="text-center">Welcome Noipunno Digital School</h1>
 @include('Frontend.partial.message')
 <section class="section dashboard">
@@ -100,10 +88,5 @@
         <button type="submit" class="btn btn-primary">Add Info</button>
     </form>
 </section>
-@include('Frontend.partial.js')
-@include('Frontend.partial.scripts')
-</div>
-    
-</body>
-</html>
-{{-- @endsection --}}
+
+@endsection

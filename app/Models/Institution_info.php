@@ -7,13 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Institution_info extends Model
 {
-<<<<<<< HEAD
-
-    use HasFactory;
-
-
-=======
->>>>>>> c379744ab9babc0f8b6d73a3caaa5acc2824708b
     public function parent()
     {
         return $this->belongsTo(Upazila::class);
@@ -31,13 +24,7 @@ class Institution_info extends Model
         return $this->belongsTo(District::class);
     }
     public function upazila()
-<<<<<<< HEAD
-        {
-            return $this->belongsTo(Upazila::class);
-        }
-=======
     {
         return $this->belongsTo(Upazila::class);
     }
->>>>>>> c379744ab9babc0f8b6d73a3caaa5acc2824708b
 }
