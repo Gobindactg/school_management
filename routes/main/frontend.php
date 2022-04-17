@@ -29,9 +29,11 @@ use App\Http\Controllers\Auth\RegisterController;
 Route::get('/', [LandingPagesController::class, 'index'])->name('landing');
 Route::get('/about', [LandingPagesController::class, 'about'])->name('about');
 
+
 //dashboard
 Route::group(['middleware'=>'auth'], function() {
   Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
+  Route::get('/getting_started', [PagesController::class, 'get_started'])->name('getStarted');
 });
 
 //institution

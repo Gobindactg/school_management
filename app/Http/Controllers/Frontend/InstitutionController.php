@@ -11,8 +11,8 @@ use App\Models\District;
 use App\Models\Upazila;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManagerStatic as Image;
 use File;
-use Image;
 
 class InstitutionController extends Controller
 {
@@ -69,6 +69,12 @@ class InstitutionController extends Controller
             }
 
             $institution->save();
+
+            $thisUser = User::find($user_id);
+            $thisUser->user_lavel = '1';
+            $thisUser->update();
+
+
 
             session()->flash('success', 'Institution Information Updated Succesfully !!');
             return redirect()->route('noipunno');
