@@ -19,8 +19,8 @@ class InstitutionController extends Controller
     public function add_institution()
     {
         $id = Auth::id();
-        $userLavel = User::find($id)->user_lavel;
-        if($userLavel !== 1.0) {
+        $userLavel = User::find($id)->user_level;
+        if($userLavel !== 2.0) {
             $division = Division::orderBy('priority', 'asc')->get();
             $district = District::orderBy('id', 'asc')->get();
             return view('Frontend.pages.Institution.add_instution')->with('district', $district)->with('division', $division);
@@ -77,7 +77,7 @@ class InstitutionController extends Controller
             $institution->save();
 
             $thisUser = User::find($user_id);
-            $thisUser->user_lavel = '2';
+            $thisUser->user_level = '2';
             $thisUser->update();
 
 

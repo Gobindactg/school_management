@@ -1,6 +1,6 @@
  
 <aside id="sidebar" class="sidebar sidebar_img ">
-
+{{-- {{Auth::user()->user_level}} --}}
     <ul class="sidebar-nav ul_hover " id="sidebar-nav">
 
         <li class="nav-item active">
