@@ -78,6 +78,7 @@ class InstitutionController extends Controller
 
             $thisUser = User::find($user_id);
             $thisUser->user_level = '2';
+            $thisUser->institution_id = $institution->id;
             $thisUser->update();
 
 

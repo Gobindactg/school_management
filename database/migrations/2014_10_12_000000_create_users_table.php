@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('institution_category');
+            $table->string('institution_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('image')->nullable();
@@ -27,7 +28,7 @@ return new class extends Migration
         });
 
         /**
-         * User Lavels
+         * User Levels
          * 0 - Not Defined/Applied by Default while user create new account.
          * 1 - Web Application Administrative/Super Users
          * 2 - Institution Administrations (People Who Creates Institutions in this web application)
