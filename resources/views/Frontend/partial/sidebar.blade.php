@@ -56,15 +56,16 @@
             </a>
             <ul id="student" class="nav-content collapse {{ Request::is('student/*') ? 'show' : '' }} " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="{{route('add_student')}}">
-                        <i class="bi bi-circle"></i><span>Add Student</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{route('add_group')}}">
                         <i class="bi bi-circle"></i><span>Add Group Name</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('add_student')}}">
+                        <i class="bi bi-circle"></i><span>Add Student</span>
+                    </a>
+                </li>
+               
                 <li>
                     <a href="{{route('manageStudent')}}">
                         <i class="bi bi-circle"></i><span>Promotion Student</span>

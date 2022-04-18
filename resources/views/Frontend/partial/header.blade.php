@@ -132,7 +132,7 @@
 
                     <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
                         <i class="bi bi-chat-left-text"></i>
-                        <span class="badge bg-success badge-number">3</span>
+                        <span class="badge bg-success badge-number"> {{App\Models\Message::unread_message()}}</span>
                     </a><!-- End Messages Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
@@ -143,52 +143,26 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-
-                        <li class="message-item">
-                            <a href="#">
-                                <img src="{{ asset('') }}Frontend/resources/img/messages-1.jpg" alt=""
-                                    class="rounded-circle">
-                                <div>
-                                    <h4>Maria Hudson</h4>
-                                    <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                    <p>4 hrs. ago</p>
-                                </div>
+                        @foreach (App\Models\Message::show_message() as $message)
+                        <li class="message-item hover_color">
+                            <a href="{{route('message_read', $message->id)}}" >
+                                    <img src="{{ asset('') }}Frontend/resources/img/messages-1.jpg" alt=""
+                                        class="rounded-circle">
+                                    <div>
+                                        <h4>{{$message->title}}</h4>
+                                        <p>{{$message->description}}</p>
+                                        <p>{{$message->updated_at}}</p>
+                                    </div>
                             </a>
+                            
                         </li>
+                        <hr class="dropdown-divider ">
+                            @endforeach
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-
-                        <li class="message-item">
-                            <a href="#">
-                                <img src="{{ asset('') }}Frontend/resources/img/messages-2.jpg" alt=""
-                                    class="rounded-circle">
-                                <div>
-                                    <h4>Anna Nelson</h4>
-                                    <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                    <p>6 hrs. ago</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li class="message-item">
-                            <a href="#">
-                                <img src="{{ asset('') }}Frontend/resources/img/messages-3.jpg" alt=""
-                                    class="rounded-circle">
-                                <div>
-                                    <h4>David Muldon</h4>
-                                    <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
-                                    <p>8 hrs. ago</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
+                        
+                       
                         <li class="dropdown-footer">
                             <a href="#">Show all messages</a>
                         </li>
