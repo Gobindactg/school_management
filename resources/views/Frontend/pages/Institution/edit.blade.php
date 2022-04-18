@@ -111,6 +111,7 @@
         </form>
     </section>
 @endsection
+@push('js')
 <script type="text/javascript">
     var loadFile = function(event) {
         var output = document.getElementById('output');
@@ -120,3 +121,4 @@
         }
     };
 </script>
+@endpush

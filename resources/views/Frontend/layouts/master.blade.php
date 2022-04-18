@@ -11,7 +11,7 @@
     @stack('css')
     <!-- =======End Css ======= -->
     <style>
-        body {
+        .body_img {
             background-image: url("{{ asset('sliderImage/background.png') }}");
             background-attachment: fixed;
             background-repeat: no-repeat;

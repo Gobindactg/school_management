@@ -117,6 +117,11 @@ Route::group(['prefix'=>'social-media','middleware'=>'auth'], function(){
   Route::get('/manage', [PartialController::class, 'social_manage'])->name('manage_social_media');
 });
 
+Route::group(['prefix'=>'message','middleware'=>'auth'], function(){
+  Route::post('/', [PartialController::class, 'message'])->name('message');
+  Route::get('/read/{id}', [PartialController::class, 'read_message'])->name('message_read');
+});
+
 // Authentication
 Auth::routes();
 

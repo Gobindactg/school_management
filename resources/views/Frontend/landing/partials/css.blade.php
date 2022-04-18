@@ -22,3 +22,8 @@
 
     <!-- Customized Stylesheet -->
     <link href="{{asset("Frontend/landing/res/css/style.min.css")}}" rel="stylesheet" />
+    <link href="{{asset("Frontend/landing/res/css/custom.css")}}" rel="stylesheet" />
+
+    <!-- Customized Stylesheet -->
+
+  

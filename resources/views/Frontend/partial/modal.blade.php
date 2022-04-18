@@ -12,15 +12,28 @@
   
         <!-- Modal body -->
         <div class="modal-body">
-            <form action="/action_page.php">
-                <div class="mb-3 mt-3">
-                  <label for="email" class="form-label">Message Title</label>
-                  <input type="email" class="form-control" id="title" placeholder="Enter Title" name="title">
+            <form action="{{route('message')}}" method="POST" enctype="multipart/form-data">
+              @csrf 
+              <div class="mb-3 mt-3">
+                  <label for="title" class="form-label"> Title</label>
+                  <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title">
                 </div>
                 <div class="mb-3">
-                  <label for="comment" class="form-label">Message Body</label>
-                  <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Enter Your Text"></textarea>
+                  <label for="description" class="form-label">Message Description</label>
+                  <textarea class="form-control" rows="5" id="description" name="description" placeholder="Enter Your Text"></textarea>
                 </div>
+                
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label text-primary">Student Image</label>
+                      <div class="row py-2">
+                          <div class="col-md-4">
+                              <div style="padding:5px 0px">
+                                  <img style="width:150px; height:150px;" id="output"/>
+                              </div>
+                              <input type="file" class="form-control" name="message_image" id="student_image" accept="image/*" onchange="loadFile(event)" >
+                          </div>
+                       </div> 
+              </div>
                
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
