@@ -129,49 +129,96 @@
              </ul>
          </li>
 
-         <li class="nav-item">
-             <a class="nav-link {{ Request::is('student/*') ? '' : 'collapsed' }}" data-bs-target="#result"
-                 data-bs-toggle="collapse" href="#">
-                 <i class='bx bxs-badge-check'></i><span>Result Management</span><i
-                     class="bi bi-chevron-down ms-auto"></i>
-             </a>
-             <ul id="result" class="nav-content collapse {{ Request::is('student/*') ? 'show' : '' }} "
-                 data-bs-parent="#sidebar-nav">
-                 <li>
-                     <a href="{{ route('admit') }}">
-                         <i class="bi bi-circle"></i><span>Manage Admit Card</span>
-                     </a>
-                 </li>
-                 <li>
-                     <a href="{{ route('seatPlan') }}">
-                         <i class="bi bi-circle"></i><span>Manage Seat Plan</span>
-                     </a>
-                 </li>
-                 <li>
-                     <a href="{{ route('marks') }}">
-                         <i class="bi bi-circle"></i><span>Manage Mark Entry</span>
-                     </a>
-                 </li>
-                 <li>
-                     <a href="{{ route('searchResult') }}">
-                         <i class="bi bi-circle"></i><span>Single Result</span>
-                     </a>
-                 </li>
-                 <li>
-                     <a href="components-alerts.html">
-                         <i class="bi bi-circle"></i><span>Short Publish Result</span>
-                     </a>
-                 </li>
-                 <li>
-                     <a href="components-alerts.html">
-                         <i class="bi bi-circle"></i><span>Total Student Result</span>
-                     </a>
-                 </li>
-                 <li>
-                     <a href="components-alerts.html">
-                         <i class="bi bi-circle"></i><span>Manage Tabulation Sheet</span>
-                     </a>
-                 </li>
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('teacher/*') ? '' : 'collapsed' }}" data-bs-target="#teacher" data-bs-toggle="collapse" href="#">
+                <i class='bx bxs-graduation'></i><span>Teacher Management</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="teacher" class="nav-content collapse {{ Request::is('teacher/*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('addTeacher')}}">
+                        <i class="bi bi-circle"></i><span>Add Teacher</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('manageTeacher')}}">
+                        <i class="bi bi-circle"></i><span>Management Teacher</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('student/*') ? '' : 'collapsed' }}" data-bs-target="#student" data-bs-toggle="collapse" href="#">
+                <i class='bx bxs-school'></i><span>School Management</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="student" class="nav-content collapse {{ Request::is('student/*') ? 'show' : '' }} " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('add_group')}}">
+                        <i class="bi bi-circle"></i><span>Add Group Name</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('add_student')}}">
+                        <i class="bi bi-circle"></i><span>Add Student</span>
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="{{route('manageStudent')}}">
+                        <i class="bi bi-circle"></i><span>Promotion Student</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('manageStudent')}}">
+                        <i class="bi bi-circle"></i><span>Management Student</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('student/*') ? '' : 'collapsed' }}" data-bs-target="#result" data-bs-toggle="collapse" href="#">
+                <i class='bx bxs-badge-check'></i><span>Result Management</span><i
+                    class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="result" class="nav-content collapse {{ Request::is('student/*') ? 'show' : '' }} " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="{{route('admit')}}">
+                        <i class="bi bi-circle"></i><span>Manage Admit Card</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('seatPlan')}}">
+                        <i class="bi bi-circle"></i><span>Manage Seat Plan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('marks')}}">
+                        <i class="bi bi-circle"></i><span>Manage Mark Entry</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('searchResult')}}">
+                        <i class="bi bi-circle"></i><span>Single Result</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-alerts.html">
+                        <i class="bi bi-circle"></i><span>Short Publish Result</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-alerts.html">
+                        <i class="bi bi-circle"></i><span>Total Student Result</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-alerts.html">
+                        <i class="bi bi-circle"></i><span>Manage Tabulation Sheet</span>
+                    </a>
+                </li>
 
 
                  <li>

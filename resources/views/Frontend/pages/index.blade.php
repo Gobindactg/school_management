@@ -28,9 +28,9 @@
 
                 </div>
                 @if (!empty($institution->image))
-                    <div class="col-md-1">
+                    <div class="col-md-1 text-center">
                         <img src="{{ asset('institutionImage/' . $institution->image) }}" class="card-img-top "
-                            alt="{{ $institution->name }}" style="width:100%;">
+                            alt="{{ $institution->name }}" style="width:100px;">
                     </div>
                 @endif
                 @endforeach
