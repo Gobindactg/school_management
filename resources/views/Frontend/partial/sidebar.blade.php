@@ -102,7 +102,8 @@
              <li class="nav-item">
                  <a class="nav-link {{ Request::is('student/*') ? '' : 'collapsed' }}" data-bs-target="#student"
                      data-bs-toggle="collapse" href="#">
-                     <i class='bx bxs-school'></i><span>School Management</span><i class="bi bi-chevron-down ms-auto"></i>
+                     <i class='bx bxs-school'></i><span>School Management</span><i
+                         class="bi bi-chevron-down ms-auto"></i>
                  </a>
                  <ul id="student" class="nav-content collapse {{ Request::is('student/*') ? 'show' : '' }} "
                      data-bs-parent="#sidebar-nav">
@@ -116,7 +117,6 @@
                              <i class="bi bi-circle"></i><span>Add Student</span>
                          </a>
                      </li>
-    
                      <li>
                          <a href="{{ route('manageStudent') }}">
                              <i class="bi bi-circle"></i><span>Promotion Student</span>
@@ -132,7 +132,7 @@
              <li class="nav-item">
                  <a class="nav-link {{ Request::is('student/*') ? '' : 'collapsed' }}" data-bs-target="#result"
                      data-bs-toggle="collapse" href="#">
-                     <i class='bx bxs-badge-check'></i><span>Result Management</span><i
+                     <i class='bx bxs-badge-check'></i><span>Exam Management</span><i
                          class="bi bi-chevron-down ms-auto"></i>
                  </a>
                  <ul id="result" class="nav-content collapse {{ Request::is('student/*') ? 'show' : '' }} "
@@ -172,8 +172,6 @@
                              <i class="bi bi-circle"></i><span>Manage Tabulation Sheet</span>
                          </a>
                      </li>
-    
-    
                      <li>
                          <a href="components-accordion.html">
                              <i class="bi bi-circle"></i><span>Manage Results</span>
@@ -215,25 +213,26 @@
                  </ul>
              </li>
              <li class="nav-item">
-                <a class="nav-link {{ Request::is('social-media/*') || Request::is('social-media') ? '' : 'collapsed' }}"
-                    data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-                    <i class='bx bxs-group'></i><span>Manage Social Media</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="components-nav"
-                    class="nav-content collapse {{ Request::is('social-media/*') || Request::is('social-media') ? 'show' : '' }}"
-                    data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="{{ route('social_media') }}">
-                            <i class="bi bi-circle"></i><span>Add Social Media</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('manage_social_media') }}">
-                            <i class="bi bi-circle"></i><span>Manage Social Media</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+                 <a class="nav-link {{ Request::is('social-media/*') || Request::is('social-media') ? '' : 'collapsed' }}"
+                     data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                     <i class='bx bxs-group'></i><span>Manage Social Media</span><i
+                         class="bi bi-chevron-down ms-auto"></i>
+                 </a>
+                 <ul id="components-nav"
+                     class="nav-content collapse {{ Request::is('social-media/*') || Request::is('social-media') ? 'show' : '' }}"
+                     data-bs-parent="#sidebar-nav">
+                     <li>
+                         <a href="{{ route('social_media') }}">
+                             <i class="bi bi-circle"></i><span>Add Social Media</span>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="{{ route('manage_social_media') }}">
+                             <i class="bi bi-circle"></i><span>Manage Social Media</span>
+                         </a>
+                     </li>
+                 </ul>
+             </li>
          @endif
 
          <li class="nav-item">
