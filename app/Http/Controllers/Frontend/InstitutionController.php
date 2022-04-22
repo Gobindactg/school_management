@@ -20,10 +20,12 @@ class InstitutionController extends Controller
     {
         $id = Auth::id();
         $userLavel = User::find($id)->user_level;
-        if($userLavel !== 2.0) {
+        if($userLavel === 0) {
             $division = Division::orderBy('priority', 'asc')->get();
             $district = District::orderBy('id', 'asc')->get();
-            return view('Frontend.pages.Institution.add_instution')->with('district', $district)->with('division', $division);
+            return view('Frontend.pages.Institution.add_instution')
+                        ->with('district', $district)
+                        ->with('division', $division);
         } else {
             return redirect()->route('noipunno');
         }

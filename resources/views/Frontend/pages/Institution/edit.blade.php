@@ -1,17 +1,17 @@
 @extends('Frontend.layouts.master')
 @section('content')
     <div class="pagetitle">
-        <h1>Dashboard</h1>
+        <h1>Edit Institute Information</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Institution</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item"><a href="{{route('noipunno')}}">Institution</a></li>
+                <li class="breadcrumb-item active">Edit Institute Information</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
     @include('Frontend.partial.message')
     <section class="section dashboard">
-        <h2 class="text-primary">Add Institution Information</h2>
+        <h2 class="text-primary">Edit Institution Information</h2>
 
         <form action="{{ route('update.institution', $institution->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -34,10 +34,10 @@
                 <label for="division_id" class="form-label">{{ __('Division') }}</label>
 
                 <div class="col-md-12">
-                    <select name="division_id" id="division_id" class="w-100 py-1" >
+                    <select name="division_id" id="division_id" class="w-100 py-1">
                         <option value="null">-- Select Your Division--</option>
                         @foreach ($division as $division)
-                            <option value="{{ $division->id }}">{{ $division->name }}</option>
+                            <option value="{{ $division->id }}" {{$institution->division_id === $division->id ? 'selected':''}}>{{ $division->name }}</option>
                         @endforeach
                     </select>
 

@@ -22,12 +22,12 @@ class PagesController extends Controller
     }
 
     public function get_started() {
-        $id = Auth::id();
-        $userLavel = User::find($id)->user_lavel;
-        if($userLavel !== 1.0) {
+        // $id = Auth::id();
+        // $userLavel = User::find($id)->user_lavel;
+        // if($userLavel !== 2.0) {
             return view('Frontend.pages.Institution.getStarted');
-        } else {
-            return redirect()->route('noipunno');
-        }
+        // } else {
+        //     return redirect()->route('noipunno');
+        // }
     }
 }
