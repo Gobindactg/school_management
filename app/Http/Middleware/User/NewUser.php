@@ -20,7 +20,7 @@ class NewUser
     {
         $user_id = Auth::id();
         $user_level = User::where('id', $user_id)->first();
-        if($user_level->user_level === 0) {
+        if($user_level->user_level === 0.00) {
             return $next($request);
         } else {
             return redirect()->route('noipunno');

@@ -15,10 +15,11 @@
 
         <form action="{{ route('update.institution', $institution->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" value="{{$institution->id}}" name="institution_id"/>
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Institution Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Write Institution Name" name="instution_name" value="{{ $institution->name }}">
+                <label for="institution_name" class="form-label">Institution Name</label>
+                <input type="text" class="form-control" id="institution_name"
+                    placeholder="Write Institution Name" name="institution_name" value="{{ $institution->name }}">
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Institution Address</label>
@@ -75,11 +76,6 @@
                         </span>
                     @enderror
                 </div>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Institution Logo</label>
-                <input type="file" class="form-control" id="institution_logo" name="institution_logo"
-                    placeholder="Write Your Institution EMIS">
             </div>
             <div class="row  ">
                 <div class="col-md-6 card card-body ">

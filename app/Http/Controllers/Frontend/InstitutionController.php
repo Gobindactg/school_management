@@ -20,15 +20,11 @@ class InstitutionController extends Controller
     {
         $id = Auth::id();
         $userLavel = User::find($id)->user_level;
-        if($userLavel === 0) {
-            $division = Division::orderBy('priority', 'asc')->get();
-            $district = District::orderBy('id', 'asc')->get();
-            return view('Frontend.pages.Institution.add_instution')
-                        ->with('district', $district)
-                        ->with('division', $division);
-        } else {
-            return redirect()->route('noipunno');
-        }
+        $division = Division::orderBy('priority', 'asc')->get();
+        $district = District::orderBy('id', 'asc')->get();
+        return view('Frontend.pages.Institution.add_instution')
+            ->with('district', $district)
+            ->with('division', $division);
     }
     public function manageInstitution()
     {
@@ -69,7 +65,7 @@ class InstitutionController extends Controller
             if ($request->hasFile('institution_logo')) {
                 //insert that image
                 $image = $request->file('institution_logo');
-                $img = $request->institution_emis."_".time() . '.' . $image->getClientOriginalExtension();
+                $img = $request->institution_emis . "_" . time() . '.' . $image->getClientOriginalExtension();
                 $location = public_path('institutionImage/' . $img);
                 Image::make($image)->save($location);
 
@@ -95,5 +91,39 @@ class InstitutionController extends Controller
         $division = Division::orderBy('priority', 'asc')->get();
         $district = District::orderBy('id', 'asc')->get();
         return view('Frontend.pages.Institution.edit')->with('institution', $institution)->with('division', $division)->with('district', $district);
+    }
+    public function update(Request $request)
+    {
+        $request->validate([
+            'institution_name' => 'required',
+            'institution_address' => 'required',
+            'institution_emis' => 'required',
+            'division_id' => 'required',
+            'district_id' => 'required',
+            'upazila_id' => 'required',
+        ]);
+        $institution = Institution_info::find($request->institution_id);
+        $institution->name = $request->institution_name;
+        $institution->address = $request->institution_address;
+        $institution->emis_number = $request->institution_emis;
+        $institution->division_id = $request->division_id;
+        $institution->district_id = $request->district_id;
+        $institution->upazila_id = $request->upazila_id;
+
+        // productImage model insert single image
+        if ($request->hasFile('institution_logo')) {
+            //insert that image
+            $image = $request->file('institution_logo');
+            $img = $request->institution_emis . "_" . time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('institutionImage/' . $img);
+            Image::make($image)->save($location);
+
+            $institution->image = $img;
+        }
+
+        $institution->save();
+        
+
+        return redirect()->route('noipunno');
     }
 }
