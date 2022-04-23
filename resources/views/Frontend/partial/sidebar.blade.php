@@ -130,12 +130,12 @@
                  </ul>
              </li>
              <li class="nav-item">
-                 <a class="nav-link {{ Request::is('student/*') ? '' : 'collapsed' }}" data-bs-target="#result"
+                 <a class="nav-link {{ Request::is('exam/*') ? '' : 'collapsed' }}" data-bs-target="#result"
                      data-bs-toggle="collapse" href="#">
                      <i class='bx bxs-badge-check'></i><span>Exam Management</span><i
                          class="bi bi-chevron-down ms-auto"></i>
                  </a>
-                 <ul id="result" class="nav-content collapse {{ Request::is('student/*') ? 'show' : '' }} "
+                 <ul id="result" class="nav-content collapse {{ Request::is('exam/*') ? 'show' : '' }} "
                      data-bs-parent="#sidebar-nav">
                      <li>
                          <a href="{{ route('admit') }}">
@@ -253,6 +253,8 @@
 
              </ul>
          </li>
+
+         @if (Auth::user()->user_level === 1.0)
          <li class="nav-item">
              <a class="nav-link {{ Request::is('search/*') ? '' : 'collapsed' }}" data-bs-target="#search_result"
                  data-bs-toggle="collapse" href="#">
@@ -267,6 +269,8 @@
                  </li>
              </ul>
          </li>
+         @endif
+
 
          {{-- library management system --}}
          @if (Auth::user()->user_level === 4.2)
