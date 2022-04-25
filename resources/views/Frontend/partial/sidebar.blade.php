@@ -1,5 +1,8 @@
  <aside id="sidebar" class="sidebar sidebar_img ">
      <ul class="sidebar-nav ul_hover " id="sidebar-nav">
+
+
+        {{-- web application administrations/super users --}}
          @if (Auth::user()->user_level === 1.0)
              <li class="nav-item">
                  <a class="nav-link {{ Request::is('institute/*') ? '' : 'collapsed' }}" data-bs-target="#instution"
@@ -66,7 +69,25 @@
                      <i class='bx bx-cog'></i><span>Settings</span>
                  </a>
              </li>
+
+             <li class="nav-item">
+                 <a class="nav-link {{ Request::is('search/*') ? '' : 'collapsed' }}" data-bs-target="#search_result"
+                     data-bs-toggle="collapse" href="#">
+                     <i class='bx bx-search-alt-2'></i><span>Search Result</span><i
+                         class="bi bi-chevron-down ms-auto"></i>
+                 </a>
+                 <ul id="search_result" class="nav-content collapse {{ Request::is('search/*') ? 'show' : '' }}"
+                     data-bs-parent="#sidebar-nav">
+                     <li>
+                         <a href="{{ route('search.result') }}">
+                             <i class="bi bi-circle"></i><span>Search Result</span>
+                         </a>
+                     </li>
+                 </ul>
+             </li>
          @endif
+
+        {{-- institution administrations --}}
          @if (Auth::user()->user_level === 2.0)
              <li class="nav-item active">
                  <a class="nav-link active" href="{{ route('noipunno') }}">
@@ -235,44 +256,72 @@
              </li>
          @endif
 
-         <li class="nav-item">
-             <a class="nav-link collapsed" data-bs-target="#user_management" data-bs-toggle="collapse" href="#">
-                 <i class='bx bx-user'></i><span>Manage Users</span><i class="bi bi-chevron-down ms-auto"></i>
-             </a>
-             <ul id="user_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                 <li>
-                     <a href="components-alerts.html">
-                         <i class="bi bi-circle"></i><span>User Dashboard</span>
-                     </a>
-                 </li>
-                 <li>
-                     <a href="components-accordion.html">
-                         <i class="bi bi-circle"></i><span>User Profile Update</span>
-                     </a>
-                 </li>
+        {{-- Teachers --}}
+         @if (Auth::user()->user_level === 3.0)
+             <li class="nav-item">
+                 <a class="nav-link collapsed" href="#">
+                     <i class="bi bi-grid "></i><span>Dashboard</span>
+                 </a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link collapsed" data-bs-target="#teacher_academic" data-bs-toggle="collapse" href="#">
+                     <i class='bx bxs-book-open'></i><span>Academic</span><i class="bi bi-chevron-down ms-auto"></i>
+                 </a>
+                 <ul id="teacher_academic" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                     <li>
+                         <a href="components-alerts.html">
+                             <i class="bi bi-circle"></i><span>Subjects</span>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="components-accordion.html">
+                             <i class="bi bi-circle"></i><span>Attendence</span>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="components-accordion.html">
+                             <i class="bi bi-circle"></i><span>Study Meterials</span>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="components-accordion.html">
+                             <i class="bi bi-circle"></i><span>Home Works</span>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="components-accordion.html">
+                             <i class="bi bi-circle"></i><span>Notice Board</span>
+                         </a>
+                     </li>
 
-             </ul>
-         </li>
+                 </ul>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link collapsed" data-bs-target="#teacher_lms" data-bs-toggle="collapse" href="#">
+                     <i class='bx bxs-videos'></i><span title="Learning Management System">LMS</span><i
+                         class="bi bi-chevron-down ms-auto"></i>
+                 </a>
+                 <ul id="teacher_lms" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                     <li>
+                         <a href="components-alerts.html">
+                             <i class="bi bi-circle"></i><span>Manage Live Classes</span>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="components-accordion.html">
+                             <i class="bi bi-circle"></i><span>Manage Playlists</span>
+                         </a>
+                     </li>
 
-         @if (Auth::user()->user_level === 1.0)
-         <li class="nav-item">
-             <a class="nav-link {{ Request::is('search/*') ? '' : 'collapsed' }}" data-bs-target="#search_result"
-                 data-bs-toggle="collapse" href="#">
-                 <i class='bx bx-search-alt-2'></i><span>Search Result</span><i class="bi bi-chevron-down ms-auto"></i>
-             </a>
-             <ul id="search_result" class="nav-content collapse {{ Request::is('search/*') ? 'show' : '' }}"
-                 data-bs-parent="#sidebar-nav">
-                 <li>
-                     <a href="{{ route('search.result') }}">
-                         <i class="bi bi-circle"></i><span>Search Result</span>
-                     </a>
-                 </li>
-             </ul>
-         </li>
+                 </ul>
+             </li>
          @endif
 
+         {{-- Accountants --}}
+         @if (Auth::user()->user_level === 4.1)
+         @endif
 
-         {{-- library management system --}}
+         {{-- library management administration/Librarians --}}
          @if (Auth::user()->user_level === 4.2)
              <li class="nav-item">
                  <a class="nav-link {{ Request::is('library/*') || Request::is('library') ? '' : 'collapsed' }}"
@@ -327,6 +376,29 @@
              </li>
          @endif
 
+         {{-- Transportation Administratives --}}
+         @if (Auth::user()->user_level === 4.3)
+         @endif
+
+         {{-- default section for all users --}}
+         <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#user_management" data-bs-toggle="collapse" href="#">
+                <i class='bx bx-user'></i><span>Manage Profile</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="user_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="components-alerts.html">
+                        <i class="bi bi-circle"></i><span>User Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="components-accordion.html">
+                        <i class="bi bi-circle"></i><span>User Profile Update</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
      </ul>
 
  </aside>
