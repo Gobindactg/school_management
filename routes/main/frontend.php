@@ -131,6 +131,11 @@ Route::group(['prefix' => 'library', 'middleware' => 'auth'], function () {
   Route::get('/manage_issued_books', [LibraryController::class, 'manage_issued_books'])->name('manage_issued_books');
   Route::get('/create_library_card', [LibraryController::class, 'create_library_card'])->name('create_library_card');
   Route::get('/manage_library_card', [LibraryController::class, 'manage_library_card'])->name('manage_library_card');
+
+
+  // storing routes
+  Route::post('/store_category', [LibraryController::class, 'store_category'])->name('store_category');
+
 });
 
 

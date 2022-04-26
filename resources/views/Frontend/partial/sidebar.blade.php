@@ -2,7 +2,7 @@
      <ul class="sidebar-nav ul_hover " id="sidebar-nav">
 
 
-        {{-- web application administrations/super users --}}
+         {{-- web application administrations/super users --}}
          @if (Auth::user()->user_level === 1.0)
              <li class="nav-item">
                  <a class="nav-link {{ Request::is('institute/*') ? '' : 'collapsed' }}" data-bs-target="#instution"
@@ -87,7 +87,7 @@
              </li>
          @endif
 
-        {{-- institution administrations --}}
+         {{-- institution administrations --}}
          @if (Auth::user()->user_level === 2.0)
              <li class="nav-item active">
                  <a class="nav-link active" href="{{ route('noipunno') }}">
@@ -256,7 +256,7 @@
              </li>
          @endif
 
-        {{-- Teachers --}}
+         {{-- Teachers --}}
          @if (Auth::user()->user_level === 3.0)
              <li class="nav-item">
                  <a class="nav-link collapsed" href="#">
@@ -324,19 +324,19 @@
          {{-- library management administration/Librarians --}}
          @if (Auth::user()->user_level === 4.2)
              <li class="nav-item">
-                 <a class="nav-link {{ Request::is('library/*') || Request::is('library') ? '' : 'collapsed' }}"
+                 <a class="nav-link" href="{{ route('noipunno') }}">
+                     <i class='bx bx-library'></i><span>Dashboard</span>
+                 </a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link"
                      data-bs-target="#library_management" data-bs-toggle="collapse" href="#">
                      <i class='bx bx-library'></i><span>Library Management</span><i
                          class="bi bi-chevron-down ms-auto"></i>
                  </a>
                  <ul id="library_management"
-                     class="nav-content collapse {{ Request::is('library/*') || Request::is('library') ? 'show' : '' }}"
+                     class="nav-content collapse show"
                      data-bs-parent="#sidebar-nav">
-                     <li>
-                         <a href="{{ route('library') }}">
-                             <i class="bi bi-circle"></i><span>Overview</span>
-                         </a>
-                     </li>
                      <li>
                          <a href="{{ route('add_book') }}">
                              <i class="bi bi-circle"></i><span>Add New Book(s)</span>
@@ -382,23 +382,23 @@
 
          {{-- default section for all users --}}
          <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#user_management" data-bs-toggle="collapse" href="#">
-                <i class='bx bx-user'></i><span>Manage Profile</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="user_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="components-alerts.html">
-                        <i class="bi bi-circle"></i><span>User Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="components-accordion.html">
-                        <i class="bi bi-circle"></i><span>User Profile Update</span>
-                    </a>
-                </li>
+             <a class="nav-link collapsed" data-bs-target="#user_management" data-bs-toggle="collapse" href="#">
+                 <i class='bx bx-user'></i><span>Manage Profile</span><i class="bi bi-chevron-down ms-auto"></i>
+             </a>
+             <ul id="user_management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                 <li>
+                     <a href="components-alerts.html">
+                         <i class="bi bi-circle"></i><span>User Dashboard</span>
+                     </a>
+                 </li>
+                 <li>
+                     <a href="components-accordion.html">
+                         <i class="bi bi-circle"></i><span>User Profile Update</span>
+                     </a>
+                 </li>
 
-            </ul>
-        </li>
+             </ul>
+         </li>
      </ul>
 
  </aside>
