@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\LibraryBookCategory;
+use Illuminate\Support\Facades\Auth;
+
 class LibraryController extends Controller
 {
     public function index() {
@@ -34,8 +37,12 @@ class LibraryController extends Controller
     public function manage_library_card() {
         return view('Frontend.pages.library.manageLibraryCard');
     }
-// <<<<<<< HEAD
-// }
-// =======
+
+
+    // library asset storing functions
+    public function store_category(Request $request) {
+        $request->validate([
+            
+        ]);
+    }
 }
-// >>>>>>> gobinda
