@@ -31,6 +31,8 @@ return new class extends Migration
             $table->integer('physical')->default(0);
             $table->integer('user_id');
             $table->integer('student_info_id');
+            $table->integer('institution_id');
+            $table->timestamps();
             $table->timestamps();
         });
     }

@@ -26,7 +26,13 @@
                     style="margin-top:20px;">
                     <h2 class="text-primary">Student Personal Information</h2>
                     @include('Frontend.partial.message')
-                    <hr>
+                    <hr>  <div class="mb-3">
+                        <!--                         
+                    <label for="exampleInputEmail1" class="form-label text-primary">Institution Name</label> -->
+                         @foreach(App\Models\Institution_info::institution() as $institutuion)
+                          <input type="hidden" class="form-control" name="institution_id" value="{{$institutuion->id}}">
+                          @endforeach
+                         </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label text-primary">Roll</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -41,12 +47,12 @@
                         <label for="exampleInputEmail1" class="form-label text-primary">Class</label>
                         <select name="class" id="" class="form-control">
                             <option value="">-- Select Student Class --</option>
-                            <option value="pre_primary"> Class Pre Primary </option>
-                            <option value="one">Class One</option>
-                            <option value="two">Class Two</option>
-                            <option value="three">Class Three</option>
-                            <option value="four">Class Four</option>
-                            <option value="five">Class Five</option>
+                            <option value="0"> Class Pre Primary </option>
+                            <option value="1">Class One</option>
+                            <option value="2">Class Two</option>
+                            <option value="3">Class Three</option>
+                            <option value="4">Class Four</option>
+                            <option value="5">Class Five</option>
                         </select>
                     </div>
                     <div class="mb-3">

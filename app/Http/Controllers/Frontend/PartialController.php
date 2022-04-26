@@ -63,7 +63,15 @@ class PartialController extends Controller
         $status = Message::find($id);
         $status->status = 2;
         $status->save();
+        $id = Auth::id();
+        $social = Message::orderBy('id', 'asc')->where('user_id', $id)->get();
         // session()->flash('success', 'Order completed status Changed..........');
-        return redirect()->route('noipunno');
+         return view('Frontend.partial.show_message')->with('social', $social);
+    }
+
+    public function show_message(){
+        $id = Auth::id();
+        $social = Message::orderBy('id', 'asc')->where('user_id', $id)->get();
+        return view('Frontend.partial.show_message')->with('social', $social);
     }
 }

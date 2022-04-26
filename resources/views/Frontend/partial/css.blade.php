@@ -23,5 +23,7 @@
 <link href="{{asset('Frontend/resources/css/style.css')}}" rel="stylesheet">
 <link href="{{asset('Frontend/resources/css/custom.css')}}" rel="stylesheet">
 
+
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.css"/>
+ 
  

@@ -132,7 +132,7 @@
 
                     <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
                         <i class="bi bi-chat-left-text"></i>
-                        <span class="badge bg-success badge-number"> {{App\Models\Message::unread_message()}}</span>
+                        <span class="badge bg-danger badge-number "> {{App\Models\Message::unread_message()}}</span>
                     </a><!-- End Messages Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
@@ -146,7 +146,7 @@
                         @foreach (App\Models\Message::show_message() as $message)
                         <li class="message-item hover_color">
                             <a href="{{route('message_read', $message->id)}}" >
-                                    <img src="{{ asset('') }}Frontend/resources/img/messages-1.jpg" alt=""
+                                    <img src="{{asset('Frontend/UserImage/'. Auth::user()->image)}}" alt="{{Auth::user()->name}}"
                                         class="rounded-circle">
                                     <div>
                                         <h4>{{$message->title}}</h4>
@@ -164,7 +164,7 @@
                         
                        
                         <li class="dropdown-footer">
-                            <a href="#">Show all messages</a>
+                            <a href="{{route('show_message')}}">Show all messages</a>
                         </li>
 
                     </ul><!-- End Messages Dropdown Items -->

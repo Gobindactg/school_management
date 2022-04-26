@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\LibraryBookCategory;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class LibraryController extends Controller
@@ -42,7 +43,19 @@ class LibraryController extends Controller
     // library asset storing functions
     public function store_category(Request $request) {
         $request->validate([
-            
+            "category_name" => "required",
+            "category_slug" => "required",
         ]);
+
+        $user_id = Auth::id();
+        
+
+        $LibraryBookCategory = new LibraryBookCategory;
+        $LibraryBookCategory->category = $request->category_name;
+        $LibraryBookCategory->category_slug = $request->category_slug;
+
+        $LibraryBookCategory->save();
+
+        return ;
     }
 }
