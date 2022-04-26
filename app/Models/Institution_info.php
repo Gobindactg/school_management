@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Institution_info extends Model
 {
@@ -27,7 +28,12 @@ class Institution_info extends Model
     {
         return $this->belongsTo(Upazila::class);
     }
+    public static function institution()
+    {
+        $institution = Institution_info::where('user_id', Auth::id())->get();
 
+            return $institution;
+    }
 }
 
 
