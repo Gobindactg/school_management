@@ -36,7 +36,7 @@
 
         </div>
         <div class="container scrollbar-thin scrollbar-x">
-          <table class="table table-bordered text-center">
+          {{-- <table class="table table-bordered text-center">
               <thead>
                   <tr>
                       <th>S.L</th>
@@ -60,7 +60,7 @@
                   </tr>
                   @endforeach
               </tbody>
-          </table>
+          </table> --}}
          
         </div>
 

@@ -25,10 +25,11 @@ class SearchController extends Controller
     {
     $division = Division::orderBy('priority', 'asc')->get();
      $search = $request->search;
-     $institution = Institution_info::orWhere('name', 'like', '%' . $search . '%')
-
+     $institution = Institution_info::orWhere('division_id', 'like', '%' . $search . '%')
+                                      ->orWhere('district_id', 'like', '%' . $search . '%')
+                                      ->orWhere('upazila_id', 'like', '%' . $search . '%')
      ->orderBy('id', 'desc')
-     ->paginate(4);
+     ->paginate(14);
      
        return view('Frontend.pages.Institution.searchresult2')->with('institution', $institution)->with('search', $search)->with('division', $division);
      }

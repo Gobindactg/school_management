@@ -60,6 +60,10 @@ Route::group(['prefix'=>'student','middleware'=>'auth'], function(){
   Route::get('/seatPlan', [StudentController::class, 'seatPlan'])->name('seatPlan');
   Route::get('/search-single-result', [StudentController::class, 'search_result'])->name('searchResult');
   Route::get('/singleResult/{id}', [StudentController::class, 'single_result'])->name('singleResult');
+  // search
+  Route::get('/search-student', [StudentController::class, 'search_student'])->name('search.student');
+  Route::get('/search-mark', [StudentController::class, 'search_mark'])->name('search.mark');
+  Route::get('/search-admit', [StudentController::class, 'search_admit'])->name('search.admit');
 });
 
 
@@ -73,6 +77,7 @@ Route::group(['prefix'=>'teacher','middleware'=>'auth'], function(){
 Route::group(['prefix'=>'search','middleware'=>'auth'], function(){
 Route::get('/result', [SearchController::class, 'search_result'])->name('search.result');
 Route::get('/result-show', [SearchController::class, 'search_result_show'])->name('search.result.show');
+Route::get('/result-show-division', [SearchController::class, 'search_result_division'])->name('search.result.division');
 });
 
 
@@ -120,6 +125,7 @@ Route::group(['prefix'=>'social-media','middleware'=>'auth'], function(){
 Route::group(['prefix'=>'message','middleware'=>'auth'], function(){
   Route::post('/', [PartialController::class, 'message'])->name('message');
   Route::get('/read/{id}', [PartialController::class, 'read_message'])->name('message_read');
+  Route::get('/show-all-message', [PartialController::class, 'show_message'])->name('show_message');
 });
 
 // Authentication
