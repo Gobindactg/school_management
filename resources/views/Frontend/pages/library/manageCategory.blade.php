@@ -16,17 +16,17 @@
         </nav>
     </div><!-- End Page Title -->
     <div>
-        <form method="POST" action="{{route('store_category')}}">
+        <form method="POST" action="{{route('library_store_category')}}">
           @csrf
             <div class="row">
                 <div class="mb-3 col-md-6">
                     <label for="category_name" class="form-label">Category Name</label>
-                    <input type="text" class="form-control" id="category_name" placeholder="Novel, Technology ect">
+                    <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Novel, Technology ect">
                 </div>
 
                 <div class="mb-3 col-md-6">
                     <label for="category_slug" class="form-label">Category slug</label>
-                    <input type="text" class="form-control" pattern="[a-zA-Z0-9_-]+" id="category_slug"
+                    <input type="text" class="form-control" pattern="[a-zA-Z0-9_-]+" id="category_slug" name="category_slug"
                         placeholder="only alphabets, numbers, - and _ allowed" >
                 </div>
             </div>
