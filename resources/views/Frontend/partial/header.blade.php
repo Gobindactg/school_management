@@ -173,20 +173,20 @@
 
                 <!-- start user Login section-->
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle nav-icon text-white" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="userNav" class="nav-link dropdown-toggle nav-icon text-white" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" >
                         <img src="{{asset('Frontend/UserImage/'. Auth::user()->image)}}" alt="" style="width: 35px; border-radius:50%" >
                        
                     </a>
 
 
-                    <div class="dropdown-menu dropdown-menu-end" style="min-width: 200px;" aria-labelledby="navbarDropdown">
-                        <a id="navbarDropdown" class="nav-link " href="#" role="button" aria-haspopup="true"
-                            aria-expanded="false" v-pre>
+                    <div class="dropdown-menu dropdown-menu-end" style="min-width: 200px;" aria-labelledby="userNav">
+                        <a id="userDashboard" class="nav-link " href="#" role="button" aria-haspopup="true"
+                            aria-expanded="false" >
                             Dashboard
                         </a>
-                        <a id="navbarDropdown" class="nav-link " href="#" role="button" aria-haspopup="true"
-                            aria-expanded="false" v-pre>
+                        <a id="userName" class="nav-link " href="#" role="button" aria-haspopup="true"
+                            aria-expanded="false" >
                             {{ Auth::user()->name }}
                         </a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

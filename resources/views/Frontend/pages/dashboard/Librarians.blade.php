@@ -22,7 +22,7 @@
       <div class="icon">
         <i class='bx bx-book-alt'></i>
       </div>
-      <a href="#" class="small-box-footer">More info <i class='bx bxs-right-arrow-circle'></i></a>
+      <a href="{{route('manage_books')}}" class="small-box-footer">Manage Books <i class='bx bxs-right-arrow-circle'></i></a>
     </div>
   </div>
 
@@ -36,7 +36,7 @@
       <div class="icon">
         <i class='bx bx-category'></i>
       </div>
-      <a href="#" class="small-box-footer">More info <i class='bx bxs-right-arrow-circle'></i></a>
+      <a href="{{route('manage_category')}}" class="small-box-footer">Manage Categories <i class='bx bxs-right-arrow-circle'></i></a>
     </div>
   </div>
 
@@ -50,7 +50,7 @@
       <div class="icon">
         <i class='bx bx-id-card'></i>
       </div>
-      <a href="#" class="small-box-footer text-dark">More info <i class='bx bxs-right-arrow-circle'></i></a>
+      <a href="{{route('manage_library_card')}}" class="small-box-footer text-dark">Manage Cards <i class='bx bxs-right-arrow-circle'></i></a>
     </div>
   </div>
 
@@ -59,12 +59,12 @@
     <div class="small-box bg-danger">
       <div class="inner">
         <h3>5</h3>
-        <p>Books Borrowed</p>
+        <p>Books Issued</p>
       </div>
       <div class="icon">
         <i class='bx bx-book-reader'></i>
       </div>
-      <a href="#" class="small-box-footer">More info <i class='bx bxs-right-arrow-circle'></i></a>
+      <a href="{{route('manage_issued_books')}}" class="small-box-footer">Manage Issued Books <i class='bx bxs-right-arrow-circle'></i></a>
     </div>
   </div>
 
@@ -120,7 +120,7 @@
             </tr>
           </tbody>
         </table>
-        <button type="button" class="btn btn-primary"><i style="font-size: 20px" class='bx bx-plus'></i>Add item</button>
+        <button type="button" class="btn btn-primary mt-3"><i style="font-size: 20px" class='bx bx-plus'></i>Add New Books</button>
       </div>
     </div>
     <div class="card">
@@ -138,7 +138,7 @@
           <li class="list-group-item">A fourth item</li>
           <li class="list-group-item">And a fifth one</li>
         </ul>
-        <button type="button" class="btn btn-primary"><i style="font-size: 20px" class='bx bx-plus'></i>Add Library Card</button>
+        <button type="button" class="btn btn-primary mt-3"><i style="font-size: 20px" class='bx bx-plus'></i>Create Library Card</button>
       </div>
     </div>
   </div>

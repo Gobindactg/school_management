@@ -13,9 +13,10 @@ class PagesController extends Controller
 {
     public function noipunno(){
         $id = Auth::id();
+        $user_level = User::find($id)->user_level;
         $institution = Institution_info::orderBy('id', 'desc')->where('user_id', $id)->get();
         if($institution->count() > 0) {
-            return view('Frontend.pages.index')->with('institution', $institution);
+            return view('Frontend.pages.index')->with('institution', $institution)->with('user_level', $user_level);
         } else {
             return redirect()->route('getStarted'); //redirect get Started Page
         }
@@ -24,7 +25,7 @@ class PagesController extends Controller
     public function get_started() {
         $id = Auth::id();
         $userLavel = User::find($id)->user_lavel;
-        if($userLavel !== 1.0) {
+        if($userLavel !== 2.0) {
             return view('Frontend.pages.Institution.getStarted');
         } else {
             return redirect()->route('noipunno');
