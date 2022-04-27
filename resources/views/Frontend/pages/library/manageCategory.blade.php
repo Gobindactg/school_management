@@ -10,30 +10,12 @@
         <h1 class='mb-4'>Manage Book Categories</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{route('noipunno')}}">Library</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('noipunno') }}">Library</a></li>
                 <li class="breadcrumb-item active">Manage Book Categories</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
-    <div>
-        <form method="POST" action="{{route('library_store_category')}}">
-          @csrf
-            <div class="row">
-                <div class="mb-3 col-md-6">
-                    <label for="category_name" class="form-label">Category Name</label>
-                    <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Novel, Technology ect">
-                </div>
 
-                <div class="mb-3 col-md-6">
-                    <label for="category_slug" class="form-label">Category slug</label>
-                    <input type="text" class="form-control" pattern="[a-zA-Z0-9_-]+" id="category_slug" name="category_slug"
-                        placeholder="only alphabets, numbers, - and _ allowed" >
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary"><i class='bx bxs-book-add'></i> Add New Category</button>
-        </form>
-    </div>
     <div class="mt-3 book_category_list">
         <h3>Categories</h3>
         <hr />
@@ -96,11 +78,33 @@
             </tr>
         </table>
     </div>
+    <div class="mt-5">
+        <h3>Add Categories</h3>
+        <hr />
+        <form method="POST" action="{{ route('library_store_category') }}">
+            @csrf
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="category_name" class="form-label">Category Name</label>
+                    <input type="text" class="form-control" id="category_name" name="category_name"
+                        placeholder="Novel, Technology ect">
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label for="category_slug" class="form-label">Category slug</label>
+                    <input type="text" class="form-control" pattern="[a-zA-Z0-9_-]+" id="category_slug"
+                        name="category_slug" placeholder="only alphabets, numbers, - and _ allowed">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary"><i class='bx bxs-book-add'></i> Add New Category</button>
+        </form>
+    </div>
 
 @endsection
 @push('js')
     <script>
-        $("#category_name").on('keyup', () => {
+        $("#category_name").on('keyup keypress blur change', () => {
             let cat = $("#category_name").val();
             let cat_slug = cat
                 .toLowerCase()
