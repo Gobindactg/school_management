@@ -48,14 +48,18 @@ class LibraryController extends Controller
         ]);
 
         $user_id = Auth::id();
+        $user = User::find($user_id);
         
 
+
         $LibraryBookCategory = new LibraryBookCategory;
+
+        $LibraryBookCategory->institution_id = $user->institution_id;
         $LibraryBookCategory->category = $request->category_name;
         $LibraryBookCategory->category_slug = $request->category_slug;
 
         $LibraryBookCategory->save();
 
-        return ;
+        return redirect()->back()->with('success', "Category added Successfully");
     }
 }
