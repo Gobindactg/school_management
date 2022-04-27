@@ -11,45 +11,57 @@ use Illuminate\Support\Facades\Auth;
 
 class LibraryController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('Frontend.pages.library.index');
     }
-    public function add_book() {
+    public function add_book()
+    {
         return view('Frontend.pages.library.addBooks');
-        
     }
-    public function manage_books() {
+    public function manage_books()
+    {
         return view('Frontend.pages.library.manageBooks');
-        
     }
-    public function manage_category() {
-        return view('Frontend.pages.library.manageCategory');
-        
+    public function manage_category()
+    {
+
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+
+        $LibraryBookCategory = LibraryBookCategory::where("institution_id", $user->institution_id)->get();
+
+        return view('Frontend.pages.library.manageCategory')->with('categories', $LibraryBookCategory);
     }
-    public function issue_book() {
+    public function issue_book()
+    {
         return view('Frontend.pages.library.issueBook');
     }
-    public function manage_issued_books() {
+    public function manage_issued_books()
+    {
         return view('Frontend.pages.library.manageIssuedBooks');
     }
-    public function create_library_card() {
+    public function create_library_card()
+    {
         return view('Frontend.pages.library.createLibraryCard');
     }
-    public function manage_library_card() {
+    public function manage_library_card()
+    {
         return view('Frontend.pages.library.manageLibraryCard');
     }
 
 
-    // library asset storing functions
-    public function store_category(Request $request) {
+    // library asset crud functions
+    public function store_category(Request $request)
+    {
         $request->validate([
             "category_name" => "required",
-            "category_slug" => "required",
+            "category_slug" => "required|unique:library_book_categories,category_slug",
         ]);
 
         $user_id = Auth::id();
         $user = User::find($user_id);
-        
+
 
 
         $LibraryBookCategory = new LibraryBookCategory;
@@ -60,6 +72,19 @@ class LibraryController extends Controller
 
         $LibraryBookCategory->save();
 
-        return redirect()->back()->with('success', "Category added Successfully");
+        session()->flash('success', 'Successfully Added New Category');
+
+        return redirect()->back();
+    }
+
+    public function delete_category(Request $request)
+    {
+        $request->validate([
+            "id" => "required"
+        ]);
+
+        LibraryBookCategory::find($request->id)->delete();
+
+        return "Successfully Deleted The Category!";
     }
 }
