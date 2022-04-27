@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\LibraryBookCategory;
+use App\Models\LibraryBooks;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,11 @@ class LibraryController extends Controller
     }
     public function add_book()
     {
-        return view('Frontend.pages.library.addBooks');
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+
+        $LibraryBookCategory = LibraryBookCategory::where("institution_id", $user->institution_id)->get();
+        return view('Frontend.pages.library.addBooks')->with('categories', $LibraryBookCategory);
     }
     public function manage_books()
     {
@@ -52,6 +57,33 @@ class LibraryController extends Controller
 
 
     // library asset crud functions
+    public function store_book(Request $request) {
+        $request->validate([
+            "book_name"=>"required",
+            "book_author"=>"required",
+            "book_quantity"=>"required",
+            "book_category"=>"required",
+        ]);
+
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+
+        $newBook = new LibraryBooks;
+
+        $newBook->insitittion_id = $user->institution_id;
+        $newBook->book_name = $request->book_name;
+        $newBook->author = $request->book_author;
+        $newBook->quantity = $request->book_quantity;
+        $newBook->category_id = $request->book_category;
+
+        $newBook->save();
+
+        session()->flash('success', 'Successfully Added New Book');
+
+        return redirect()->back();
+    }
+
+
     public function store_category(Request $request)
     {
         $request->validate([

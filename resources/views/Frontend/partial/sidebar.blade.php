@@ -325,7 +325,7 @@
          @if (Auth::user()->user_level === 4.2)
              <li class="nav-item">
                  <a class="nav-link" href="{{ route('noipunno') }}">
-                     <i class='bx bx-library'></i><span>Dashboard</span>
+                    <i class="bi bi-grid "></i><span>Dashboard</span>
                  </a>
              </li>
              <li class="nav-item">

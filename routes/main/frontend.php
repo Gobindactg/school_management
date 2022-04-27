@@ -146,6 +146,7 @@ Route::group(['prefix' => 'library', 'middleware' => 'auth'], function () {
 
 
   // storing routes
+  Route::post('/store_new_book', [LibraryController::class, 'store_book'])->name('store_book');
   Route::post('/store_category', [LibraryController::class, 'store_category'])->name('library_store_category');
   Route::post('/delete_category', [LibraryController::class, 'delete_category'])->name('library_delete_category');
 
