@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Frontend\PagesController;
 use App\Http\Controllers\Landing\PagesController as LandingPagesController;
 use App\Http\Controllers\Frontend\InstitutionController;
+use App\Http\Controllers\Frontend\SubjectController;
 use App\Http\Controllers\Frontend\TeacherController;
 use App\Http\Controllers\Frontend\StudentController;
 use App\Http\Controllers\Frontend\LibraryController;
@@ -86,6 +87,13 @@ Route::group(['prefix' => 'exam', 'middleware' => ['auth', 'institutionAdmin']],
 });
 
 
+//subject
+Route::group(['prefix'=>'subjects', 'middleware'=>['auth']], function() {
+  Route::get('/addSubject', [SubjectController::class, 'addSubject'])->name('addSubject');
+  Route::get('/manageSubject', [SubjectController::class, 'manageSubject'])->name('manageSubject');
+});
+
+
 
 // teacher
 Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'institutionAdmin']], function () {
@@ -134,7 +142,7 @@ Route::get('/visitor/{id}', [SearchController::class, 'visitor'])->name('visitor
 
 
 // Library
-Route::group(['prefix' => 'library', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'library', 'middleware' => ['auth', 'librarian']], function () {
   Route::get('/', [LibraryController::class, 'index'])->name('library');
   Route::get('/add_book', [LibraryController::class, 'add_book'])->name('add_book');
   Route::get('/manage_books', [LibraryController::class, 'manage_books'])->name('manage_books');
