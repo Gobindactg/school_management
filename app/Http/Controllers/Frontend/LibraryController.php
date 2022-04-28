@@ -26,7 +26,11 @@ class LibraryController extends Controller
     }
     public function manage_books()
     {
-        return view('Frontend.pages.library.manageBooks');
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+        $LibraryBooks = LibraryBooks::where("institution_id", $user->institution_id)->get();
+
+        return view('Frontend.pages.library.manageBooks')->with('books', $LibraryBooks);
     }
     public function manage_category()
     {
@@ -70,7 +74,7 @@ class LibraryController extends Controller
 
         $newBook = new LibraryBooks;
 
-        $newBook->insitittion_id = $user->institution_id;
+        $newBook->institution_id = $user->institution_id;
         $newBook->book_name = $request->book_name;
         $newBook->author = $request->book_author;
         $newBook->quantity = $request->book_quantity;
