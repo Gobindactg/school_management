@@ -2,143 +2,68 @@
 @section('title', 'Seat Plan')
 @section('content')
     <div class="container" style="padding: 0; margin:0;">
-        <div class="row bg-info" style="margin-bottom: 15px">
-            <div class="col-md-3 ">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Select Class</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                    <option value="4">Four</option>
-                    <option value="5">Five</option>
-                </select>
+                <div class="row">
+                        <div class="col-md-3">
+                            <form action="{{route('seatPlan')}}" method="get">
+                            <select class="form-select " name="class" id="class_admit">
+                                <option value="">--Select Class--</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                                <option value="4">Four</option>
+                                <option value="5">Five</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select " id="exampleFormControlSelect1" name="group">
+                             <option value="">-- Select Student Group --</option>
+                            @foreach (App\Models\StudentGroup::class_group() as $group)   
+                            <option value="{{$group->name}}"> {{$group->name}} </option>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select " id="exampleFormControlSelect1" name="year">
+                                <option selected value="">Select Year</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                           <input type="submit" value="Search" class="btn btn-info w-100">
+                           </form>
+                        </div>
+                    
+                </div>
             </div>
-            <div class="col-md-3">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Select Section</option>
-                    <option value="1">A</option>
-                    <option value="2">B</option>
-                    <option value="3">C</option>
-                </select>
-            </div>
-            <div class="col-md-3">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Select Year</option>
-                    <option value="1">2022</option>
-                    <option value="2">2021</option>
-                    <option value="3">2020</option>
-                </select>
-            </div>
-            <div class="col-md-3 bg-light">
-                <button href="" class="btn btn-info " style="width: 100px" type="submit">Print</button>
-            </div>
-        </div>
-    </div>
+   
 
-    <div class="row">
-
-        <div class="col-md-4 card card-body" style="width: 32%; margin:5px">
-            <p class="text-primary text-center" style="padding-top: 10px"><strong>SHAHEBDINOGOR GOVT. PRIMARY
-                    SCHOOL</strong></p>
-            <p class="text-center "> Aburhat, Jorargonj, Mirsarai, Chattogram </p>
-            <p class="text-primary text-center border" style="font-family: tahoma; font-style:italic"><strong>SEAT
-                    PLAN</strong></p>
-            <div class="row">
-                <div class="col-md-8" style="padding: 0 10px; margin:0">
-                    <p style="font-size: 12px"><strong>Name :</strong> Noipunno Das</p>
-                    <p style="font-size: 12px"><strong>Roll :</strong> 01</p>
-                    <p style="font-size: 12px"><strong>Class :</strong> Five</p>
+        <div class="row">
+         @foreach($marks as $mark)
+                <div class="bg-light" style="margin:5px; width:32%" >
+                    @foreach(App\Models\student_mark::institution() as $institution)
+                        <h6 class="text-primary text-center" style="padding-top: 10px"><strong>{{$institution->name}}</strong></h6>
+                        <p class="text-center "><strong> {{$institution->address}}, {{$institution->upazila->name}},{{$institution->district->name}}</strong></p>
+                        <p class="text-primary text-center border" style="font-family: tahoma; font-style:italic"><strong>SEAT PLAN</strong></p>
+                    @endforeach
+                        <div class="row">
+                            <div class="col-md-7" style="padding-left:10px  ; margin:0">
+                                <p style="font-size: 12px"><strong>Name :</strong> {{$mark->name}}</p>
+                                <p style="font-size: 12px"><strong>Roll :</strong> {{$mark->st_roll}}</p>
+                                <p style="font-size: 12px"><strong>Class :</strong> {{$mark->class}}</p>
+                            </div>
+                            <div class="col-md-5 " style="padding: 0 0px; margin:0">
+                            <p style="font-size: 12px"><strong>Group :</strong> {{$mark->st_group}}</p>
+                                <p style="font-size: 12px"><strong>Year :</strong> {{$mark->st_year}}</p>
+                            
+                            </div>
+                            <p style="font-size: 12px; padding-top:5px; padding-bottom:0px; padding-left:52%"><strong>Signature of Head</strong> </p>
+                        </div>
+                
                 </div>
-                <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 card card-body" style="width: 32%; margin:5px">
-            <p class="text-primary text-center" style="padding-top: 10px"><strong>SHAHEBDINOGOR GOVT. PRIMARY
-                    SCHOOL</strong></p>
-            <p class="text-center "> Aburhat, Jorargonj, Mirsarai, Chattogram </p>
-            <p class="text-primary text-center border" style="font-family: tahoma; font-style:italic"><strong>SEAT
-                    PLAN</strong></p>
-            <div class="row">
-                <div class="col-md-8" style="padding: 0 10px; margin:0">
-                    <p style="font-size: 12px"><strong>Name :</strong> Noipunno Das</p>
-                    <p style="font-size: 12px"><strong>Roll :</strong> 01</p>
-                    <p style="font-size: 12px"><strong>Class :</strong> Five</p>
-                </div>
-                <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 card card-body" style="width: 32% ; margin:5px">
-            <p class="text-primary text-center" style="padding-top: 10px"><strong>SHAHEBDINOGOR GOVT. PRIMARY
-                    SCHOOL</strong></p>
-            <p class="text-center "> Aburhat, Jorargonj, Mirsarai, Chattogram </p>
-            <p class="text-primary text-center border" style="font-family: tahoma; font-style:italic"><strong>SEAT
-                    PLAN</strong></p>
-            <div class="row">
-                <div class="col-md-8" style="padding: 0 10px; margin:0">
-                    <p style="font-size: 12px"><strong>Name :</strong> Noipunno Das</p>
-                    <p style="font-size: 12px"><strong>Roll :</strong> 01</p>
-                    <p style="font-size: 12px"><strong>Class :</strong> Five</p>
-                </div>
-                <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 card card-body" style="width: 32%; margin:5px">
-            <p class="text-primary text-center" style="padding-top: 10px"><strong>SHAHEBDINOGOR GOVT. PRIMARY
-                    SCHOOL</strong></p>
-            <p class="text-center "> Aburhat, Jorargonj, Mirsarai, Chattogram </p>
-            <p class="text-primary text-center border" style="font-family: tahoma; font-style:italic"><strong>SEAT
-                    PLAN</strong></p>
-            <div class="row">
-                <div class="col-md-8" style="padding: 0 10px; margin:0">
-                    <p style="font-size: 12px"><strong>Name :</strong> Noipunno Das</p>
-                    <p style="font-size: 12px"><strong>Roll :</strong> 01</p>
-                    <p style="font-size: 12px"><strong>Class :</strong> Five</p>
-                </div>
-                <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 card card-body" style="width: 32%; margin:5px">
-            <p class="text-primary text-center" style="padding-top: 10px"><strong>SHAHEBDINOGOR GOVT. PRIMARY
-                    SCHOOL</strong></p>
-            <p class="text-center "> Aburhat, Jorargonj, Mirsarai, Chattogram </p>
-            <p class="text-primary text-center border" style="font-family: tahoma; font-style:italic"><strong>SEAT
-                    PLAN</strong></p>
-            <div class="row">
-                <div class="col-md-8" style="padding: 0 10px; margin:0">
-                    <p style="font-size: 12px"><strong>Name :</strong> Noipunno Das</p>
-                    <p style="font-size: 12px"><strong>Roll :</strong> 01</p>
-                    <p style="font-size: 12px"><strong>Class :</strong> Five</p>
-                </div>
-                <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 card card-body" style="width: 32%; margin:5px">
-            <p class="text-primary text-center" style="padding-top: 10px"><strong>SHAHEBDINOGOR GOVT. PRIMARY
-                    SCHOOL</strong></p>
-            <p class="text-center "> Aburhat, Jorargonj, Mirsarai, Chattogram </p>
-            <p class="text-primary text-center border" style="font-family: tahoma; font-style:italic"><strong>SEAT
-                    PLAN</strong></p>
-            <div class="row">
-                <div class="col-md-8" style="padding: 0 10px; margin:0">
-                    <p style="font-size: 12px"><strong>Name :</strong> Noipunno Das</p>
-                    <p style="font-size: 12px"><strong>Roll :</strong> 01</p>
-                    <p style="font-size: 12px"><strong>Class :</strong> Five</p>
-                </div>
-                <div class="col-md-4 " style="padding: 0 0px; margin:0">
-                    <img src="{{ asset('Frontend/resources/img/profile-img.jpg') }}" alt="" style="width: 100px; margin-rigt:20px">
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
-    </div>
+    
 @endsection
