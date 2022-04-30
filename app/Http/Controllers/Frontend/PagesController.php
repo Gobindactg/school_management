@@ -26,10 +26,11 @@ class PagesController extends Controller
     public function get_started()
     {
         $id = Auth::id();
-        $userLavel = User::find($id)->user_lavel;
-        if ($userLavel !== 2.0) {
+        $userLevel = User::find($id)->user_lavel;
+        if ($userLevel !== 2.0) {
             return view('Frontend.pages.Institution.getStarted');
-        } else {
+        }
+        else {
             return redirect()->route('noipunno');
         }
     }
@@ -49,5 +50,23 @@ class PagesController extends Controller
         $institutions = Institution_info::orWhere('name', 'like', '%' . $request->school_query . '%')->get(["id", "name", "address", "emis_number", "image"]);
 
         return $institutions;
+    }
+
+    public function apply_job(Request $request) {
+        $request->validate([
+            'institution_id'=>'required',
+            'role'=>'required',
+        ]);
+        
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+        $user->user_level = 0.1;
+        $user->institution_id = $request->institution_id;
+        $user->save();
+        return redirect()->route('pending');
+    }
+
+    public function pending() {
+        return view('Frontend.pages.Institution.pending');
     }
 }
