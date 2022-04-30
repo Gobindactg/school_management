@@ -26,7 +26,7 @@ use App\Http\Controllers\Auth\RegisterController;
 */
 
 //testing route, will delete later
-Route::get('/test', function() {
+Route::get('/test', function () {
   return view('Frontend.pages.Institution.test');
 });
 
@@ -44,8 +44,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/getting_started', [PagesController::class, 'get_started'])->name('getStarted');
     Route::get('/join', [PagesController::class, 'join_institution'])->name('join_institution');
 
+    
     Route::post('/institution_list', [PagesController::class, 'institution_list'])->name('institution_list');
+    Route::post('/apply_job', [PagesController::class, 'apply_job'])->name('apply_job');
   });
+
+  Route::get('/pending', [PagesController::class, 'pending'])->name('pending')->middleware('pendingUser');
 });
 
 //institution

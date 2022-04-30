@@ -40,13 +40,13 @@
         <div class="mt-4 d-none" id="institution_form">
             <h2 class="m-0">Joining Form</h2>
             <hr />
-            <img id="form_institution_image" src="http://127.0.0.1:8000/institutionImage/549819_1650695415.jpg" alt="shksc"
+            <img id="form_institution_image" alt="shksc"
                 style="width: 150px; max-height: 150px; float: right;" />
             <p class="fs-3" id="form_institution_name"></p>
             <p>EMIS: <span id="form_institution_emis"></span></p>
             <p>Address: <span id="form_institution_address"></span></p>
             <div style="clear:both"></div>
-            <form>
+            <form method="POST" action="{{route('apply_job')}}">
                 @csrf
                 <input type="hidden" name="institution_id" id="institution_id" />
                 <label for="role">Role: </label>
