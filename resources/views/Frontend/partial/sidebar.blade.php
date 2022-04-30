@@ -96,7 +96,7 @@
                  </a>
              </li><!-- End Dashboard Nav -->
              <li class="nav-item">
-                 <a class="nav-link" href="{{ route('edit.institution', Auth::user()->institution_id) }}">
+                 <a class="nav-link" href="{{ route('edit.institution')}}">
                      <i class='bx bxs-school'></i><span>Manage Institution Info</span>
                  </a>
              </li>
