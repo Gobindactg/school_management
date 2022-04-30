@@ -85,9 +85,13 @@ class InstitutionController extends Controller
             return redirect()->route('noipunno');
         }
     }
-    public function editInstitution($id)
+    public function editInstitution()
     {
-        $institution = Institution_info::find($id);
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+
+
+        $institution = Institution_info::find($user->institution_id);
         $division = Division::orderBy('priority', 'asc')->get();
         $district = District::orderBy('id', 'asc')->get();
         return view('Frontend.pages.Institution.edit')->with('institution', $institution)->with('division', $division)->with('district', $district);

@@ -31,4 +31,8 @@ class PagesController extends Controller
             return redirect()->route('noipunno');
         }
     }
+    
+    public function join_institution() {
+        return view('Frontend.pages.Institution.joinInstitution');
+    }
 }

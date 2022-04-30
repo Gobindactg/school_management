@@ -27,11 +27,7 @@
 <h1 class="text-center">Welcome To Noipunno Digital School</h1>
 @include('Frontend.partial.message')
 <section class="section dashboard">
-    <h2 class="text-white text-center">Please Tell Us, What You Want To Do?</h2>
-    <div class='d-flex my-5'>
-      <a href="{{route('addInstitution')}}" class="btn btn-lg btn-primary ms-auto me-5">Add A New Institution</a>
-      <a href="{{route('join_institution')}}" class="btn btn-lg btn-success me-auto">Join Existing Institution</a>
-    </div>
+  
 </section>
 @include('Frontend.partial.js')
 @include('Frontend.partial.scripts')
