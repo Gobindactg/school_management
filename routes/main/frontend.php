@@ -25,6 +25,11 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
+//testing route, will delete later
+Route::get('/test', function() {
+  return view('Frontend.pages.Institution.test');
+});
+
 
 // landing page route
 Route::get('/', [LandingPagesController::class, 'index'])->name('landing');
@@ -34,8 +39,13 @@ Route::get('/about', [LandingPagesController::class, 'about'])->name('about');
 //dashboard
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
-  Route::get('/getting_started', [PagesController::class, 'get_started'])->name('getStarted')->middleware('newUser');
-  Route::get('/join', [PagesController::class, 'join_institution'])->name('join_institution')->middleware('newUser');
+
+  Route::group(['middleware' => 'newUser'], function () {
+    Route::get('/getting_started', [PagesController::class, 'get_started'])->name('getStarted');
+    Route::get('/join', [PagesController::class, 'join_institution'])->name('join_institution');
+
+    Route::post('/institution_list', [PagesController::class, 'institution_list'])->name('institution_list');
+  });
 });
 
 //institution

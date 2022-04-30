@@ -11,28 +11,43 @@ use App\Models\social;
 
 class PagesController extends Controller
 {
-    public function noipunno(){
+    public function noipunno()
+    {
         $id = Auth::id();
         $user_level = User::find($id)->user_level;
         $institution = Institution_info::orderBy('id', 'desc')->where('user_id', $id)->get();
-        if($institution->count() > 0) {
+        if ($institution->count() > 0) {
             return view('Frontend.pages.index')->with('institution', $institution)->with('user_level', $user_level);
         } else {
             return redirect()->route('getStarted'); //redirect get Started Page
         }
     }
 
-    public function get_started() {
+    public function get_started()
+    {
         $id = Auth::id();
         $userLavel = User::find($id)->user_lavel;
-        if($userLavel !== 2.0) {
+        if ($userLavel !== 2.0) {
             return view('Frontend.pages.Institution.getStarted');
         } else {
             return redirect()->route('noipunno');
         }
     }
-    
-    public function join_institution() {
-        return view('Frontend.pages.Institution.joinInstitution');
+
+    public function join_institution()
+    {
+        $id = Auth::id();
+        $user = User::find($id);
+        return view('Frontend.pages.Institution.joinInstitution')->with('user', $user);
+    }
+
+    public function institution_list(Request $request)
+    {
+        $request->validate([
+            'school_query' => 'required'
+        ]);
+        $institutions = Institution_info::orWhere('name', 'like', '%' . $request->school_query . '%')->get(["id", "name", "address", "emis_number", "image"]);
+
+        return $institutions;
     }
 }
