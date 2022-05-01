@@ -33,7 +33,6 @@ return new class extends Migration
             $table->integer('student_info_id');
             $table->integer('institution_id');
             $table->timestamps();
-            $table->timestamps();
         });
     }
 
