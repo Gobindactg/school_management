@@ -40,6 +40,7 @@ Route::get('/about', [LandingPagesController::class, 'about'])->name('about');
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
 
+  //route for new User
   Route::group(['middleware' => 'newUser'], function () {
     Route::get('/getting_started', [PagesController::class, 'get_started'])->name('getStarted');
     Route::get('/join', [PagesController::class, 'join_institution'])->name('join_institution');
@@ -54,10 +55,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 //institution
 Route::group(['prefix' => 'institute', 'middleware' => 'auth'], function () {
-
-
-  // Route::get('/', [PagesController::class, 'index'])->name('index');
-
 
   // this routes can be access by the new users
   Route::group(['middleware' => 'newUser'], function () {
