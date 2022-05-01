@@ -96,9 +96,29 @@
                  </a>
              </li><!-- End Dashboard Nav -->
              <li class="nav-item">
-                 <a class="nav-link" href="{{ route('edit.institution', Auth::user()->institution_id) }}">
+                 <a class="nav-link" href="{{ route('edit.institution')}}">
                      <i class='bx bxs-school'></i><span>Manage Institution Info</span>
                  </a>
+             </li>
+             <li class="nav-item">
+                 <a class="nav-link {{ Request::is('subject/*') ? '' : 'collapsed' }}" data-bs-target="#subject"
+                     data-bs-toggle="collapse" href="#">
+                     <i class='bx bxs-book'></i><span>Subject Management</span><i
+                         class="bi bi-chevron-down ms-auto"></i>
+                 </a>
+                 <ul id="subject" class="nav-content collapse {{ Request::is('subject/*') ? 'show' : '' }}"
+                     data-bs-parent="#sidebar-nav">
+                     <li>
+                         <a href="{{ route('addSubject') }}">
+                             <i class="bi bi-circle"></i><span>Add Subject</span>
+                         </a>
+                     </li>
+                     <li>
+                         <a href="{{ route('manageSubject') }}">
+                             <i class="bi bi-circle"></i><span>Manage Subjects</span>
+                         </a>
+                     </li>
+                 </ul>
              </li>
              <li class="nav-item">
                  <a class="nav-link {{ Request::is('teacher/*') ? '' : 'collapsed' }}" data-bs-target="#teacher"
@@ -325,7 +345,7 @@
          @if (Auth::user()->user_level === 4.2)
              <li class="nav-item">
                  <a class="nav-link" href="{{ route('noipunno') }}">
-                     <i class='bx bx-library'></i><span>Dashboard</span>
+                    <i class="bi bi-grid "></i><span>Dashboard</span>
                  </a>
              </li>
              <li class="nav-item">

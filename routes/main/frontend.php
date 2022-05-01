@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Frontend\PagesController;
 use App\Http\Controllers\Landing\PagesController as LandingPagesController;
 use App\Http\Controllers\Frontend\InstitutionController;
+use App\Http\Controllers\Frontend\SubjectController;
 use App\Http\Controllers\Frontend\TeacherController;
 use App\Http\Controllers\Frontend\StudentController;
 use App\Http\Controllers\Frontend\LibraryController;
@@ -24,6 +25,11 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
+//testing route, will delete later
+Route::get('/test', function () {
+  return view('Frontend.pages.Institution.test');
+});
+
 
 // landing page route
 Route::get('/', [LandingPagesController::class, 'index'])->name('landing');
@@ -33,7 +39,17 @@ Route::get('/about', [LandingPagesController::class, 'about'])->name('about');
 //dashboard
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
-  Route::get('/getting_started', [PagesController::class, 'get_started'])->name('getStarted')->middleware('newUser');
+
+  Route::group(['middleware' => 'newUser'], function () {
+    Route::get('/getting_started', [PagesController::class, 'get_started'])->name('getStarted');
+    Route::get('/join', [PagesController::class, 'join_institution'])->name('join_institution');
+
+    
+    Route::post('/institution_list', [PagesController::class, 'institution_list'])->name('institution_list');
+    Route::post('/apply_job', [PagesController::class, 'apply_job'])->name('apply_job');
+  });
+
+  Route::get('/pending', [PagesController::class, 'pending'])->name('pending')->middleware('pendingUser');
 });
 
 //institution
@@ -51,7 +67,7 @@ Route::group(['prefix' => 'institute', 'middleware' => 'auth'], function () {
 
   // for Institution Administrations
   Route::group(['middleware' => 'institutionAdmin'], function () {
-    Route::get('/manage/{id}', [InstitutionController::class, 'editInstitution'])->name('edit.institution');
+    Route::get('/manage', [InstitutionController::class, 'editInstitution'])->name('edit.institution');
     Route::post('/update-institution/{id}', [InstitutionController::class, 'update'])->name('update.institution');
   });
 
@@ -82,7 +98,13 @@ Route::group(['prefix' => 'exam', 'middleware' => ['auth', 'institutionAdmin']],
   Route::get('/search-student', [StudentController::class, 'search_student'])->name('search.student');
   Route::get('/search-mark', [StudentController::class, 'search_mark'])->name('search.mark');
   Route::get('/search-admit', [StudentController::class, 'search_admit'])->name('search.admit');
+});
 
+
+//subject
+Route::group(['prefix' => 'subjects', 'middleware' => ['auth']], function () {
+  Route::get('/addSubject', [SubjectController::class, 'addSubject'])->name('addSubject');
+  Route::get('/manageSubject', [SubjectController::class, 'manageSubject'])->name('manageSubject');
 });
 
 
@@ -94,14 +116,10 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'institutionAdmin'
 });
 
 // search result
-Route::group(['prefix'=>'search','middleware'=>'auth'], function(){
-Route::get('/result', [SearchController::class, 'search_result'])->name('search.result');
-Route::get('/result-show', [SearchController::class, 'search_result_show'])->name('search.result.show');
-Route::get('/result-show-division', [SearchController::class, 'search_result_division'])->name('search.result.division');
-});
 Route::group(['prefix' => 'search', 'middleware' => ['auth', 'sysAdmin']], function () {
   Route::get('/result', [SearchController::class, 'search_result'])->name('search.result');
   Route::get('/result-show', [SearchController::class, 'search_result_show'])->name('search.result.show');
+  Route::get('/result-show-division', [SearchController::class, 'search_result_division'])->name('search.result.division');
 });
 
 // social, academy year, group controller
@@ -110,7 +128,6 @@ Route::group(['prefix' => 'social-media', 'middleware' => ['auth', 'institutionA
   Route::post('/add-new', [PartialController::class, 'add_social_icon'])->name('add_social_media');
 
   Route::get('/manage', [PartialController::class, 'social_manage'])->name('manage_social_media');
-
 });
 
 
@@ -134,7 +151,7 @@ Route::get('/visitor/{id}', [SearchController::class, 'visitor'])->name('visitor
 
 
 // Library
-Route::group(['prefix' => 'library', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'library', 'middleware' => ['auth', 'librarian']], function () {
   Route::get('/', [LibraryController::class, 'index'])->name('library');
   Route::get('/add_book', [LibraryController::class, 'add_book'])->name('add_book');
   Route::get('/manage_books', [LibraryController::class, 'manage_books'])->name('manage_books');
@@ -146,8 +163,9 @@ Route::group(['prefix' => 'library', 'middleware' => 'auth'], function () {
 
 
   // storing routes
-  Route::post('/store_category', [LibraryController::class, 'store_category'])->name('store_category');
-
+  Route::post('/store_new_book', [LibraryController::class, 'store_book'])->name('store_book');
+  Route::post('/store_category', [LibraryController::class, 'store_category'])->name('library_store_category');
+  Route::post('/delete_category', [LibraryController::class, 'delete_category'])->name('library_delete_category');
 });
 
 

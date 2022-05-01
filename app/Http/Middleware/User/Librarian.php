@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-class NewUser
+class Librarian
 {
     /**
      * Handle an incoming request.
@@ -20,10 +20,9 @@ class NewUser
     {
         $user_id = Auth::id();
         $user_level = User::where('id', $user_id)->first();
-        if($user_level->user_level === 0.00) {
+        if($user_level->user_level === 4.2) {
             return $next($request);
-        }
-        else {
+        } else {
             return redirect()->route('noipunno');
         }
     }
