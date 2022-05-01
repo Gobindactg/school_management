@@ -96,7 +96,7 @@
                  </a>
              </li><!-- End Dashboard Nav -->
              <li class="nav-item">
-                 <a class="nav-link" href="{{ route('edit.institution')}}">
+                 <a class="nav-link" href="{{ route('edit.institution') }}">
                      <i class='bx bxs-school'></i><span>Manage Institution Info</span>
                  </a>
              </li>
@@ -123,14 +123,19 @@
              <li class="nav-item">
                  <a class="nav-link {{ Request::is('teacher/*') ? '' : 'collapsed' }}" data-bs-target="#teacher"
                      data-bs-toggle="collapse" href="#">
-                     <i class='bx bxs-graduation'></i><span>Teacher Management</span><i
-                         class="bi bi-chevron-down ms-auto"></i>
+                     <i class='bx bxs-graduation'></i><span>Manage Teachers
+                         {{-- @if (count(Apply_job::where('institution_id', Auth::user()->institution_id)) > 0)
+                             <i class="fa fa-dot-circle-o text-success ml-1"></i>
+                         @endif --}}
+                     </span><i class="bi bi-chevron-down ms-auto"></i>
                  </a>
                  <ul id="teacher" class="nav-content collapse {{ Request::is('teacher/*') ? 'show' : '' }}"
                      data-bs-parent="#sidebar-nav">
                      <li>
                          <a href="{{ route('addTeacher') }}">
-                             <i class="bi bi-circle"></i><span>Add Teacher</span>
+                             <i class="bi bi-circle"></i><span>Add Teacher
+                                 {{-- <span class="badge bg-success badge-number">4</span> --}}
+                             </span>
                          </a>
                      </li>
                      <li>
@@ -159,10 +164,10 @@
                          </a>
                      </li>
                      <li>
-                        <a href="{{ route('manage_routine') }}">
-                            <i class="bi bi-circle"></i><span>Manage Routine</span>
-                        </a>
-                    </li>
+                         <a href="{{ route('manage_routine') }}">
+                             <i class="bi bi-circle"></i><span>Manage Routine</span>
+                         </a>
+                     </li>
                      <li>
                          <a href="{{ route('manageStudent') }}">
                              <i class="bi bi-circle"></i><span>Promotion Student</span>
@@ -199,11 +204,11 @@
                          </a>
                      </li>
                      <li>
-                        <a href="{{ route('searchResult') }}">
-                            <i class="bi bi-circle"></i><span>Single Result</span>
-                        </a>
-                    </li>
-                    <li>
+                         <a href="{{ route('searchResult') }}">
+                             <i class="bi bi-circle"></i><span>Single Result</span>
+                         </a>
+                     </li>
+                     <li>
                      <li>
                          <a href="components-alerts.html">
                              <i class="bi bi-circle"></i><span>Short Publish Result</span>
@@ -351,18 +356,15 @@
          @if (Auth::user()->user_level === 4.2)
              <li class="nav-item">
                  <a class="nav-link" href="{{ route('noipunno') }}">
-                    <i class="bi bi-grid "></i><span>Dashboard</span>
+                     <i class="bi bi-grid "></i><span>Dashboard</span>
                  </a>
              </li>
              <li class="nav-item">
-                 <a class="nav-link"
-                     data-bs-target="#library_management" data-bs-toggle="collapse" href="#">
+                 <a class="nav-link" data-bs-target="#library_management" data-bs-toggle="collapse" href="#">
                      <i class='bx bx-library'></i><span>Library Management</span><i
                          class="bi bi-chevron-down ms-auto"></i>
                  </a>
-                 <ul id="library_management"
-                     class="nav-content collapse show"
-                     data-bs-parent="#sidebar-nav">
+                 <ul id="library_management" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
                      <li>
                          <a href="{{ route('add_book') }}">
                              <i class="bi bi-circle"></i><span>Add New Book(s)</span>

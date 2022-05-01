@@ -57,12 +57,20 @@ class PagesController extends Controller
         $request->validate([
             'institution_id'=>'required',
             'role'=>'required',
+            'educational_qualifications'=>'required',
+            'subject'=>'required',
+            'address'=>'required',
         ]);
+
+        if($request->role === 'teacher') {
+            $request->validate([
+                "position" => "required"
+            ]);
+        }
         
         $user_id = Auth::id();
         $user = User::find($user_id);
         $user->user_level = 0.1;
-        // $user->institution_id = $request->institution_id;
         $user->save();
 
         $job = new Apply_job;

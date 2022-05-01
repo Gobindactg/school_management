@@ -28,6 +28,11 @@
         @include('Frontend.partial.message')
         <section class="section dashboard">
             <hr />
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="bg-danger text-white p-3">{{ $error }}</div>
+                @endforeach
+            @endif
             <label for="institution_name" class="form-label mt-3">Find Institution</label>
             <div class="input-group">
                 <input type="text" name="school_query" id="institution_name"
@@ -40,27 +45,49 @@
         <div class="mt-4 d-none" id="institution_form">
             <h2 class="m-0">Joining Form</h2>
             <hr />
-            <img id="form_institution_image" alt="shksc"
-                style="width: 150px; max-height: 150px; float: right;" />
+            <img id="form_institution_image" alt="shksc" style="width: 150px; max-height: 150px; float: right;" />
             <p class="fs-3" id="form_institution_name"></p>
             <p>EMIS: <span id="form_institution_emis"></span></p>
             <p>Address: <span id="form_institution_address"></span></p>
             <div style="clear:both"></div>
-            <form method="POST" action="{{route('apply_job')}}">
+            <form method="POST" action="{{ route('apply_job') }}">
                 @csrf
                 <input type="hidden" name="institution_id" id="institution_id" />
                 <label for="role">Role: </label>
-                <select id="role" name="role" class="form-control" required>
+                <select id="role" name="role" class="form-control" onchange="moreOption(this.value)" >
                     <option value="">Select Role:</option>
                     <option value="teacher">Teacher</option>
                     <option value="accountant">Accountant</option>
                     <option value="librarian">Librarian</option>
                     <option value="transportation_administrative">Transportation Administrative</option>
                 </select>
+                <div class="d-none" id="position_container">
+                    <label for="position" class="mt-3">Post: </label>
+                    <select id="position" name="position" class="form-control">
+                        <option value="">Select Post:</option>
+                        <option value="principal">Principal</option>
+                        <option value="assistant_principal">Assistant Principal</option>
+                        <option value="assistant_professor">Professor</option>
+                        <option value="professor">Assistant Professor</option>
+                        <option value="lecturer">Lecturer</option>
+                        <option value="assistant_teacher">Assistant Teacher</option>
+                    </select>
+                </div>
                 <hr />
                 <h3>Personal Information:</h3>
-                <p>Name: <strong>{{$user->name}}</strong></p>
-                <p>Email: <strong>{{$user->email}}</strong></p>
+                <p>Name: <strong>{{ $user->name }}</strong></p>
+                <p>Email: <strong>{{ $user->email }}</strong></p>
+
+                <label for="edu_qualifications">Educational Qualifications:</label>
+                <input type="text" class="form-control" name="educational_qualifications" id="edu_qualifications" placeholder="Example: Msc in Physics, BBA in Accounting" />
+
+                <label for="subject" class="mt-3">Subject:</label>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Example: Bangla, Math ect" />
+
+                <label for="address" class="mt-3">Address:</label>
+                <textarea type="text" class="form-control" name="address" id="address" placeholder="Example: 21 Gulshan Avenue, Dhaka"></textarea>
+
+                
                 <button class="btn btn-success mt-3" type="submit">Apply</button>
             </form>
             <p class="text-sm mt-3">By clicking "Apply", you agree to the terms and conditions.</p>
@@ -133,9 +160,17 @@
             $("#form_institution_name").text(name);
             $("#form_institution_address").text(address);
             $("#form_institution_emis").text(emis);
-            $("#form_institution_image").attr('src', `{{asset('institutionImage')}}/${image}`);
+            $("#form_institution_image").attr('src', `{{ asset('institutionImage') }}/${image}`);
             $("#form_institution_image").attr('alt', name);
 
+        }
+
+        function moreOption(val) {
+            if (val === "teacher") {
+                $("#position_container").removeClass("d-none");
+            } else {
+                $("#position_container").addClass("d-none");
+            }
         }
     </script>
 

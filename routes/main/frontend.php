@@ -116,6 +116,10 @@ Route::group(['prefix' => 'subjects', 'middleware' => ['auth']], function () {
 Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'institutionAdmin']], function () {
   Route::get('/addTeacher', [TeacherController::class, 'addTeacher'])->name('addTeacher');
   Route::get('/manageTeacher', [TeacherController::class, 'manageTeacher'])->name('manageTeacher');
+  
+  
+  Route::post('/approveTeacher', [TeacherController::class, 'approveTeacher'])->name('approveTeacher');
+  Route::post('/removeTeacher', [TeacherController::class, 'removeTeacher'])->name('removeTeacher');
 });
 
 // search result
