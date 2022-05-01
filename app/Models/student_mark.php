@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Auth;
+
 class student_mark extends Model
 
 {
@@ -20,6 +21,12 @@ class student_mark extends Model
    
             return $institution;
   }
-
+    public function routine(){
+        return $this->belongsTo(Routine::class);
+    }
+     public static function user(){
+        $routine = User::where('user_id', Auth::id())->get();
+        return $routine;
+    }
 
 }

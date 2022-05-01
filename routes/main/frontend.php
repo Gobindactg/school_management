@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\DivisionController;
 use App\Http\Controllers\Frontend\DistrictController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\PartialController;
+use App\Http\Controllers\Frontend\RoutineController;
 use App\Http\Controllers\Auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +82,11 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'institutionAdmin'
   Route::post('/student_store', [StudentController::class, 'studentAdd'])->name('student_info_store');
   Route::get('/manageStudent', [StudentController::class, 'manageStudent'])->name('manageStudent');
   Route::get('/singleResult/{id}', [StudentController::class, 'single_result'])->name('singleResult');
+
+    // routine controller
+    Route::get('/manage-routine', [RoutineController::class, 'manage_routine'])->name('manage_routine');
+    Route::post('/manage-store', [RoutineController::class, 'routine_store'])->name('routine_store');
+  
 });
 
 //exams
