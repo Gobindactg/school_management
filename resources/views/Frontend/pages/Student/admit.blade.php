@@ -40,7 +40,7 @@
        
             <button href="" class="btn btn-info " style="width: 100px" type="submit" >Print</button>
             @foreach($marks as $mark )
-        <div class="col-md-12 card card-body"> 
+        <div class="col-md-12 card card-body">
             
                 @foreach(App\Models\student_mark::institution() as $institution)
                 <h2 class="text-primary text-center" style="padding-top: 10px"><strong>{{$institution->name}}</strong></h2>

@@ -4,7 +4,7 @@
     <div class="container" style="padding: 0; margin:0;">
                 <div class="row">
                         <div class="col-md-3">
-                            <form action="{{route('seatPlan')}}" method="get">
+                            <form action="{{route('search.seatplan')}}" method="get">
                             <select class="form-select " name="class" id="class_admit">
                                 <option value="">--Select Class--</option>
                                 <option value="1">One</option>

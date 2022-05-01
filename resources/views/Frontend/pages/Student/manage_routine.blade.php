@@ -2,7 +2,7 @@
 @section('title', 'Admit')
 @section('content')
       <div class="container card card-body pt-3 scrollbar scrollbar-x">
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -103,7 +103,7 @@
 
         <h3>Manage Rotine </h3><hr>
         @include('Frontend.partial.message')
-         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal"  style="width:170px;">Add New Routine</button>
+         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal1"  style="width:170px;">Add New Routine</button>
       
       <table class="table table-bordered my-2  ">
         <thead>
