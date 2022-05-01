@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\DivisionController;
 use App\Http\Controllers\Frontend\DistrictController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\PartialController;
+use App\Http\Controllers\Frontend\RoutineController;
 use App\Http\Controllers\Auth\RegisterController;
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::get('/about', [LandingPagesController::class, 'about'])->name('about');
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
 
+  //route for new User
   Route::group(['middleware' => 'newUser'], function () {
     Route::get('/getting_started', [PagesController::class, 'get_started'])->name('getStarted');
     Route::get('/join', [PagesController::class, 'join_institution'])->name('join_institution');
@@ -54,10 +56,6 @@ Route::group(['middleware' => 'auth'], function () {
 
 //institution
 Route::group(['prefix' => 'institute', 'middleware' => 'auth'], function () {
-
-
-  // Route::get('/', [PagesController::class, 'index'])->name('index');
-
 
   // this routes can be access by the new users
   Route::group(['middleware' => 'newUser'], function () {
@@ -84,6 +82,11 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'institutionAdmin'
   Route::post('/student_store', [StudentController::class, 'studentAdd'])->name('student_info_store');
   Route::get('/manageStudent', [StudentController::class, 'manageStudent'])->name('manageStudent');
   Route::get('/singleResult/{id}', [StudentController::class, 'single_result'])->name('singleResult');
+
+    // routine controller
+    Route::get('/manage-routine', [RoutineController::class, 'manage_routine'])->name('manage_routine');
+    Route::post('/manage-store', [RoutineController::class, 'routine_store'])->name('routine_store');
+  
 });
 
 //exams

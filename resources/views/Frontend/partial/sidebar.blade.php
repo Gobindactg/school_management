@@ -159,6 +159,11 @@
                          </a>
                      </li>
                      <li>
+                        <a href="{{ route('manage_routine') }}">
+                            <i class="bi bi-circle"></i><span>Manage Routine</span>
+                        </a>
+                    </li>
+                     <li>
                          <a href="{{ route('manageStudent') }}">
                              <i class="bi bi-circle"></i><span>Promotion Student</span>
                          </a>
@@ -194,10 +199,11 @@
                          </a>
                      </li>
                      <li>
-                         <a href="{{ route('searchResult') }}">
-                             <i class="bi bi-circle"></i><span>Single Result</span>
-                         </a>
-                     </li>
+                        <a href="{{ route('searchResult') }}">
+                            <i class="bi bi-circle"></i><span>Single Result</span>
+                        </a>
+                    </li>
+                    <li>
                      <li>
                          <a href="components-alerts.html">
                              <i class="bi bi-circle"></i><span>Short Publish Result</span>

@@ -6,7 +6,7 @@
                         <div class="col-md-3">
                             <form action="{{route('search.admit')}}" method="get">
                             <select class="form-select " name="class" id="class_admit">
-                                <option value="null">--Select Class--</option>
+                                <option value="">--Select Class--</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
@@ -111,12 +111,7 @@
 <script>
 
     $(document).ready(function(){
-             
-             $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+        
         $("#class_admit").change(function(){
             var class_admit = $("#class_admit").val();
            

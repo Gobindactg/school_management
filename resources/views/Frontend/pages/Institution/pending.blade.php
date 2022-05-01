@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hold On | Noipunno Digital School</title>
+    <title>Thank You For Applying!! | Noipunno Digital School</title>
     @include('Frontend.partial.css')
     <style>
         .body_img {
