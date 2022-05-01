@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class Institution_info extends Model
 {

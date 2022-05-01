@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('institution_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('image')->nullable();
+            $table->string('image')->default("default.png");
             $table->float('user_level')->default(0);
             $table->rememberToken();
             $table->timestamps();
