@@ -25,6 +25,8 @@ php .env.copy
 composer install
 npm i
 php artisan key:generate
+php artisan migrate
+php artisan location:push
 
 ```
 

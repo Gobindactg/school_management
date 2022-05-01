@@ -15,8 +15,8 @@ class MarksSeeder extends Seeder
      */
     public function run()
     {
-        student_mark::factory()
-            ->count(30)
-            ->create();
+        // student_mark::factory()
+        //     ->count(30)
+        //     ->create();
     }
 }
