@@ -22,9 +22,9 @@ This is a internship project for [Serve Human Foundation](https://servehumanfoun
 
 ### Download/Clone project source code
 
-Step 1: Start MySQL server and create a new database.
-Step 2: run this command `php .env.copy` then open .env file from root folder.
-Step 3: Find this lines and update with appropriate data
+Step 1: Start MySQL server and create a new database.</br>
+Step 2: run this command `php .env.copy` then open .env file from root folder.</br>
+Step 3: Find this lines and update with appropriate data</br>
 
 ```
 DB_CONNECTION=mysql
