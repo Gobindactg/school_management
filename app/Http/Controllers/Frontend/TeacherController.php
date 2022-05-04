@@ -21,10 +21,10 @@ class TeacherController extends Controller
             ->where('status', 'pending')
             ->where('institution_id', $user->institution_id)
             ->get();
-        
+
         $teachers = [];
-        foreach($jobs as $job) {
-            $user= User::find($job->user_id);
+        foreach ($jobs as $job) {
+            $user = User::find($job->user_id);
             array_push($teachers, $user);
         }
         return view('Frontend.pages.Teacher.addTeacher')
@@ -36,17 +36,25 @@ class TeacherController extends Controller
         $teachers = User::select("*")
             ->where('institution_id', $institution_id)
             ->where('user_level', "3.00")->get();
+
+        foreach ($teachers as $teacher) {
+            $teacher->post = Jobs::select("job_post")
+                                ->where('user_id', $teacher->id)
+                                ->first()
+                                ->job_post;
+        }
         return view('Frontend.pages.Teacher.manageTeacher')->with("teachers", $teachers);
     }
 
 
 
     // crud functions
-    public function approveTeacher(Request $request) {
+    public function approveTeacher(Request $request)
+    {
         $request->validate([
-            'user_id'=>'required'
+            'user_id' => 'required'
         ]);
-        
+
         $user = User::find($request->user_id);
         $institution_id = User::find(Auth::id())->institution_id;
         $user->institution_id = $institution_id;
@@ -60,11 +68,12 @@ class TeacherController extends Controller
         session()->flash('success', "$user->name has been added to your institution as Teacher");
         return back();
     }
-    public function removeTeacher(Request $request) {
+    public function removeTeacher(Request $request)
+    {
         $request->validate([
-            'user_id'=>'required'
+            'user_id' => 'required'
         ]);
-        
+
         $user = User::find($request->user_id);
         $user->user_level = 0;
         $user->save();
