@@ -83,6 +83,6 @@ class LoginController extends Controller
   public function user_logout()
   {
     Auth::guard('web')->logout();
-    return redirect()->route('noipunno');
+    return redirect()->route('landing');
   }
 }
