@@ -2,17 +2,17 @@
 @section('title', 'Manage Teachers')
 @section('content')
     <div class="pagetitle">
-        <h1>Dashboard</h1>
+        <h1>Manage Teachers</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Institution</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item"><a href="{{route('noipunno')}}">Manage Teachers</a></li>
+                <li class="breadcrumb-item active">Manage Teachers</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
 
     <section class="section dashboard">
-        <h2 class="text-primary ">Manage Teacher</h2>
+        <h2 class="text-primary ">Manage Teachers</h2>
         @if (count($teachers) > 0)
             <table class="table table-bordered">
                 <tr>
@@ -28,18 +28,22 @@
                     <tr>
                         <td>1</td>
                         <td>{{ $teacher->name }}</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="text-capitalize">{{ $teacher->post }}</td>
+                        <td>{{ $teacher->edu_qualifications }}</td>
+                        <td>{{ $teacher->subject }}</td>
+                        <td>{{ $teacher->address }}</td>
                         <td>
-                            <a href="#" class="btn btn-danger"><i class='bx bxs-trash'></i></a>
+                            <form method="POST" action="{{route('removeTeacher')}}">
+                                @csrf
+                                <input type="hidden" value="{{ $teacher->id }}" name="user_id"/>
+                                <button type="submit" class="btn btn-danger"><i class='bx bxs-trash'></i></button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
             </table>
         @else
-            <p style="text-center bg-dark text-white p-3">Nothing To Show</p>
+            <p class="fs-3 text-center">Nothing To Show</p>
         @endif
     </section>
 @endsection
