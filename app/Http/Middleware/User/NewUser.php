@@ -24,7 +24,7 @@ class NewUser
             return $next($request);
         }
         else {
-            return redirect()->route('noipunno');
+            return redirect()->route('landing');
         }
     }
 }

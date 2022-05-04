@@ -53,7 +53,7 @@
             <form method="POST" action="{{ route('apply_job') }}">
                 @csrf
                 <input type="hidden" name="institution_id" id="institution_id" />
-                <label for="role">Role: </label>
+                <label for="role">Select Role: </label>
                 <select id="role" name="role" class="form-control" onchange="moreOption(this.value)" >
                     <option value="">Select Role:</option>
                     <option value="teacher">Teacher</option>
@@ -62,8 +62,8 @@
                     <option value="transportation_administrative">Transportation Administrative</option>
                 </select>
                 <div class="d-none" id="position_container">
-                    <label for="position" class="mt-3">Post: </label>
-                    <select id="position" name="position" class="form-control">
+                    <label for="position" class="mt-3">Select Post: </label>
+                    <select id="position" name="job_post" class="form-control">
                         <option value="">Select Post:</option>
                         <option value="principal">Principal</option>
                         <option value="assistant_principal">Assistant Principal</option>

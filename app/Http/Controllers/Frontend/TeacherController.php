@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Apply_job;
+use App\Models\Jobs;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +16,8 @@ class TeacherController extends Controller
         $user_id = Auth::id();
         $user = User::find($user_id);
 
-        $jobs = Apply_job::select("*")
-            ->where('job_post', 'teacher')
+        $jobs = Jobs::select("*")
+            ->where('job_role', 'teacher')
             ->where('institution_id', $user->institution_id)
             ->get();
         
@@ -52,7 +52,7 @@ class TeacherController extends Controller
         $user->user_level = 3;
         $user->save();
 
-        $job = Apply_job::where("user_id", $request->user_id);
+        $job = Jobs::where("user_id", $request->user_id);
         $job->delete();
 
         session()->flash('success', "$user->name has been added to your institution as Teacher");
@@ -67,7 +67,7 @@ class TeacherController extends Controller
         $user->user_level = 0;
         $user->save();
 
-        $job = Apply_job::where("user_id", $request->user_id);
+        $job = Jobs::where("user_id", $request->user_id);
         $job->delete();
 
         session()->flash('success_deleted', "$user->name has been deleted");
