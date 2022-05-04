@@ -18,6 +18,7 @@ class TeacherController extends Controller
 
         $jobs = Jobs::select("*")
             ->where('job_role', 'teacher')
+            ->where('status', 'pending')
             ->where('institution_id', $user->institution_id)
             ->get();
         
@@ -52,8 +53,9 @@ class TeacherController extends Controller
         $user->user_level = 3;
         $user->save();
 
-        $job = Jobs::where("user_id", $request->user_id);
-        $job->delete();
+        $job = Jobs::where("user_id", $request->user_id)->first();
+        $job->status = "approved";
+        $job->save();
 
         session()->flash('success', "$user->name has been added to your institution as Teacher");
         return back();

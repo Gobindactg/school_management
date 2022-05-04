@@ -33,14 +33,7 @@ class PagesController extends Controller
     {
         $id = Auth::id();
         $userLevel = User::find($id)->user_level;
-        dd('test');
-        if ($userLevel === 0.0) {
-            return view('Frontend.pages.Institution.getStarted');
-        } elseif ($userLevel === 0.10) {
-            return redirect()->route('pending');
-        } else {
-            return redirect()->route('noipunno');
-        }
+        return view('Frontend.pages.Institution.getStarted');
     }
 
     public function join_institution()
