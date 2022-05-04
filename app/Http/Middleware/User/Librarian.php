@@ -23,7 +23,7 @@ class Librarian
         if($user_level->user_level === 4.2) {
             return $next($request);
         } else {
-            return redirect()->route('noipunno');
+            return redirect()->route('landing');
         }
     }
 }

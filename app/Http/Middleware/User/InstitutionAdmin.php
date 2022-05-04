@@ -23,7 +23,7 @@ class InstitutionAdmin
         if($user_level->user_level === 2.0) {
             return $next($request);
         } else {
-            return redirect()->route('noipunno');
+            return redirect()->route('landing');
         }
     }
 }

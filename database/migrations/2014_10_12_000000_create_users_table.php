@@ -25,12 +25,17 @@ return new class extends Migration
             $table->float('user_level')->default(0);
             $table->rememberToken();
             $table->timestamps();
+
+            //things that will be added later
+            $table->string('edu_qualifications')->nullable();
+            $table->string('subject')->nullable();
+            $table->longText('address')->nullable();
         });
 
         /**
          * User Levels
          * 0 - Not Defined/Applied by Default while user create new account.
-         *  0.1 - Users who applied in any instituions as Teachers or Stuff.
+         *  0.1 - Users who applied in any instituions as Teachers or Stuff but not approved yet.
          * 1 - Web Application Administrative/Super Users
          * 2 - Institution Administrations (People Who Creates Institutions in this web application)
          * 3 - Teachers

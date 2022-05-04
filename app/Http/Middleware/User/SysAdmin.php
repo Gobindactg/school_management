@@ -23,7 +23,7 @@ class SysAdmin
         if($user_level->user_level === 1.0) {
             return $next($request);
         } else {
-            return redirect()->route('noipunno');
+            return redirect()->route('landing');
         }
     }
 }

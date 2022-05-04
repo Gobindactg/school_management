@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Institution_info;
-use App\Models\Apply_job;
+use App\Models\Jobs;
 use App\Models\User;
 use App\Models\social;
 
@@ -17,21 +17,28 @@ class PagesController extends Controller
         $id = Auth::id();
         $user_level = User::find($id)->user_level;
         $institution = Institution_info::orderBy('id', 'desc')->where('user_id', $id)->get();
-        if ($institution->count() > 0) {
+        if ($user_level >= 1) {
             return view('Frontend.pages.index')->with('institution', $institution)->with('user_level', $user_level);
         } else {
-            return redirect()->route('getStarted'); //redirect get Started Page
+            if ($user_level === 0.0) {
+                return redirect()->route('getStarted'); //redirect get Started Page
+            } else if ($user_level === 0.10) {
+                return redirect()->route('pending'); //redirect pending Page
+            } else {
+            }
         }
     }
 
     public function get_started()
     {
         $id = Auth::id();
-        $userLevel = User::find($id)->user_lavel;
-        if ($userLevel !== 2.0) {
+        $userLevel = User::find($id)->user_level;
+        dd('test');
+        if ($userLevel === 0.0) {
             return view('Frontend.pages.Institution.getStarted');
-        }
-        else {
+        } elseif ($userLevel === 0.10) {
+            return redirect()->route('pending');
+        } else {
             return redirect()->route('noipunno');
         }
     }
@@ -53,36 +60,42 @@ class PagesController extends Controller
         return $institutions;
     }
 
-    public function apply_job(Request $request) {
+    public function apply_job(Request $request)
+    {
         $request->validate([
-            'institution_id'=>'required',
-            'role'=>'required',
-            'educational_qualifications'=>'required',
-            'subject'=>'required',
-            'address'=>'required',
+            'institution_id' => 'required',
+            'role' => 'required',
+            'educational_qualifications' => 'required',
+            'subject' => 'required',
+            'address' => 'required',
         ]);
 
-        if($request->role === 'teacher') {
+        $job = new Jobs;
+        if ($request->role === 'teacher') {
             $request->validate([
-                "position" => "required"
+                "job_post" => "required"
             ]);
+            $job->job_post = $request->job_post;
         }
-        
+
         $user_id = Auth::id();
         $user = User::find($user_id);
         $user->user_level = 0.1;
+        $user->edu_qualifications = $request->educational_qualifications;
+        $user->subject = $request->subject;
+        $user->address = $request->address;
         $user->save();
 
-        $job = new Apply_job;
         $job->user_id = $user_id;
         $job->institution_id = $request->institution_id;
-        $job->job_post = $request->role;
+        $job->job_role = $request->role;
         $job->save();
 
         return redirect()->route('pending');
     }
 
-    public function pending() {
+    public function pending()
+    {
         return view('Frontend.pages.Institution.pending');
     }
 }

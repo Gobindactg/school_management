@@ -18,7 +18,9 @@
                 <tr class="bg-dark">
                     <td class="text-white" style="width: 60px;">Image</td>
                     <td class="text-white">Name</td>
-                    <td class="text-white">Email</td>
+                    <td class="text-white">Educational Qualifications</td>
+                    <td class="text-white">Subject</td>
+                    <td class="text-white">Address</td>
                     <td class="text-white text-center">Action</td>
                 </tr>
                 @foreach ($teachers as $teacher)
@@ -27,8 +29,13 @@
                             <img src="{{ asset('Frontend/UserImage/' . $teacher->image) }}"
                                 style="width: 50px; max-height: 50px;" />
                         </td>
-                        <td>{{ $teacher->name }}</td>
-                        <td>{{ $teacher->email }}</td>
+                        <td>
+                            {{ $teacher->name }}<br/>
+                            <span class="text-sm text-secondary">( {{ $teacher->email }} )</span>
+                        </td>
+                        <td>{{ $teacher->edu_qualifications }}</td>
+                        <td>{{ $teacher->subject }}</td>
+                        <td>{{ $teacher->address }}</td>
                         <td class="text-center">
                             <form method="POST" action="{{ route('approveTeacher') }}" class="d-inline-block">
                                 @csrf
