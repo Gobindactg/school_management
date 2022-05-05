@@ -4,16 +4,16 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Student_info;
+use App\Models\student_info;
 use App\Models\Institution_info;
 use App\Models\student_mark;
 use App\Models\Routine;
 use App\Models\User;
 use App\Models\StudentGroup;
+use Illuminate\Support\Facades\Auth;
 
 use File;
-use Image;
-use Auth;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class StudentController extends Controller
 {
