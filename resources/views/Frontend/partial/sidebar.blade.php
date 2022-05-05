@@ -1,3 +1,16 @@
+ <?php
+ use App\Models\User;
+ use App\Models\Jobs;
+ 
+ $id = Auth::id();
+ $institution_id = User::find($id)->institution_id;
+ $teachers = Jobs::select('*')
+     ->where('institution_id', $institution_id)
+     ->where('job_role', 'teacher')
+     ->where('status', 'pending')
+     ->get();
+ $teachersCount = count($teachers);
+ ?>
  <aside id="sidebar" class="sidebar sidebar_img ">
      <ul class="sidebar-nav ul_hover " id="sidebar-nav">
 
@@ -124,9 +137,9 @@
                  <a class="nav-link {{ Request::is('teacher/*') ? '' : 'collapsed' }}" data-bs-target="#teacher"
                      data-bs-toggle="collapse" href="#">
                      <i class='bx bxs-graduation'></i><span>Manage Teachers
-                         {{-- @if (count(Apply_job::where('institution_id', Auth::user()->institution_id)) > 0)
+                         @if ($teachersCount > 0)
                              <i class="fa fa-dot-circle-o text-success ml-1"></i>
-                         @endif --}}
+                         @endif
                      </span><i class="bi bi-chevron-down ms-auto"></i>
                  </a>
                  <ul id="teacher" class="nav-content collapse {{ Request::is('teacher/*') ? 'show' : '' }}"
@@ -134,7 +147,9 @@
                      <li>
                          <a href="{{ route('addTeacher') }}">
                              <i class="bi bi-circle"></i><span>Add Teacher
-                                 {{-- <span class="badge bg-success badge-number">4</span> --}}
+                                 @if ($teachersCount > 0)
+                                     <span class="badge bg-success badge-number">{{$teachersCount}}</span>
+                                 @endif
                              </span>
                          </a>
                      </li>
