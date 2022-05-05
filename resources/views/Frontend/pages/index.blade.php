@@ -27,5 +27,5 @@
 
 
 @else
-    {{ $user_level }} {{-- this will be remove later --}}
+    Unknown User:{{ $user_level }} / You Proberbly A Sus! {{-- this will be remove later --}}
 @endif
