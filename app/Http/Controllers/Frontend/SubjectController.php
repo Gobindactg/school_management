@@ -20,7 +20,7 @@ class SubjectController extends Controller
             ->where("institution_id", User::find(Auth::id())->institution_id)
             ->get();
         return view('Frontend.pages.Subject.manageSubject')
-                ->with("subjects", $subjects);
+            ->with("subjects", $subjects);
     }
 
 
@@ -38,6 +38,18 @@ class SubjectController extends Controller
         $subject->save();
 
         session()->flash('success', "Subject Has Been Added into Database.");
+        return back();
+    }
+
+    public function deleteSubject(Request $request)
+    {
+        $request->validate([
+            "subject_id" => "required"
+        ]);
+
+        Subject::find($request->subject_id)->delete();
+
+        session()->flash('success', "Subject Has Been Deleted From Database.");
         return back();
     }
 }

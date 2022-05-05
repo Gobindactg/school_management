@@ -144,12 +144,12 @@
 
                         </textarea>
                     </div>
-                   
+                    <button type="submit" class="btn btn-primary">Add Info</button>
                 </div>
                
             </div>
 
-            <button type="submit" class="btn btn-primary">Add Info</button>
+            
         </form>
     </section>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="

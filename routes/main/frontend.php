@@ -111,6 +111,7 @@ Route::group(['prefix' => 'subjects', 'middleware' => ['auth']], function () {
 
 
   Route::post('/addSubject', [SubjectController::class, 'saveSubject'])->name('saveSubject');
+  Route::post('/deleteSubject', [SubjectController::class, 'deleteSubject'])->name('deleteSubject');
 });
 
 

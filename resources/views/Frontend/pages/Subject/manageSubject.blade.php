@@ -27,9 +27,13 @@
                 <td>{{$subject->subject_name}}</td>
                 <td>{{$subject->class}}</td>
                 <td>
-                    <a href="#" class="text-dark" title="Delete Subject">
-                        <i class='bx bxs-trash fs-5' ></i>
-                    </a>
+                    <form method="POST" action="{{route('deleteSubject')}}">
+                        @csrf
+                        <input type="hidden" value="{{$subject->id}}" name="subject_id" />
+                        <button type="submit" class="text-dark bg-transparent border-0" title="Delete Subject">
+                            <i class='bx bxs-trash fs-5' ></i>
+                        </button>
+                    </form>
                 </td>
             </tr>
             @endforeach
