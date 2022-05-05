@@ -108,6 +108,9 @@ Route::group(['prefix' => 'exam', 'middleware' => ['auth', 'institutionAdmin']],
 Route::group(['prefix' => 'subjects', 'middleware' => ['auth']], function () {
   Route::get('/addSubject', [SubjectController::class, 'addSubject'])->name('addSubject');
   Route::get('/manageSubject', [SubjectController::class, 'manageSubject'])->name('manageSubject');
+
+
+  Route::post('/addSubject', [SubjectController::class, 'saveSubject'])->name('saveSubject');
 });
 
 
