@@ -97,10 +97,13 @@ Route::group(['prefix' => 'exam', 'middleware' => ['auth', 'institutionAdmin']],
   Route::post('/marks-store', [StudentController::class, 'marks_store'])->name('marks_store');
   Route::get('/search-single-result', [StudentController::class, 'search_result'])->name('searchResult');
   Route::get('/singleResult/{id}', [StudentController::class, 'single_result'])->name('singleResult');
+
   // search
   Route::get('/search-student', [StudentController::class, 'search_student'])->name('search.student');
   Route::get('/search-mark', [StudentController::class, 'search_mark'])->name('search.mark');
-  Route::get('/search-admit', [StudentController::class, 'search_admit'])->name('search.admit');
+
+  
+  Route::post('/search-admit', [StudentController::class, 'search_admit'])->name('search.admit');
 });
 
 

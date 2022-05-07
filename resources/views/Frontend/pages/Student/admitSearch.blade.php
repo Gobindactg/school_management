@@ -2,7 +2,6 @@
 @section('title', 'Admit')
 @section('content')
     <div class="container my-2">
-        {{$errors}}
         <form action="{{ route('search.admit') }}" method="get">
             <div class="row">
                 <div class="col-md-3">
