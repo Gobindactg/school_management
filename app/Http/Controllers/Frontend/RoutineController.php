@@ -44,4 +44,11 @@ class RoutineController extends Controller
         session()->flash('success', 'Your Routine Added Successfully !!');
         return redirect()->back();
     }
+
+     public function routine_delete($id){
+            $routine_del = Routine::find($id);
+            $routine_del->delete();
+            session()->flash('delete', 'Your Routine Deleted Successfully');
+            return back();
+    }
 }
