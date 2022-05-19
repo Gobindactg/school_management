@@ -86,7 +86,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'institutionAdmin'
     // routine controller
     Route::get('/manage-routine', [RoutineController::class, 'manage_routine'])->name('manage_routine');
     Route::post('/manage-store', [RoutineController::class, 'routine_store'])->name('routine_store');
-  
+    Route::get('/routine/delete/{id}', [RoutineController::class, 'routine_delete'])->name('routine_delete');
 });
 
 //exams
@@ -162,6 +162,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 // visitor route
 Route::get('/visitor/{id}', [SearchController::class, 'visitor'])->name('visitor');
+Route::get('/search-seatplan', [SearchController::class, 'search_seatplan'])->name('search.seatplan');
 
 
 // Library
