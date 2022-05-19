@@ -34,17 +34,17 @@
                           @endforeach
                          </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Roll</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Roll <span style="color:red"> *</span></label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="Write Student Roll" name="student_roll">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Student Name</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Student Name <span style="color:red"> *</span></label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="Write Student name" name="student_name">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Class</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Class <span style="color:red"> *</span></label>
                         <select name="class" id="" class="form-control">
                             <option value="">-- Select Student Class --</option>
                             <option value="0"> Class Pre Primary </option>
@@ -56,7 +56,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Group</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Group <span style="color:red"> *</span></label>
                         <select name="group" id="" class="form-control">
                             <option value="">-- Select Student Group --</option>
                             @foreach (App\Models\StudentGroup::class_group() as $group)   
@@ -65,7 +65,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Accademic Year</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Accademic Year <span style="color:red"> *</span></label>
                         <select name="st_year" id="" class="form-control">
                             <option value="">-- Select Accademic Year --</option>
                             <option value="2022"> 2022 </option>
@@ -74,7 +74,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Gender</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Gender <span style="color:red"> *</span></label>
                         <select name="gender" id="" class="form-control">
                             <option value="">-- Select Student Gender --</option>
                             <option value="male"> Male </option>
@@ -83,19 +83,19 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Date Of Birth</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Date Of Birth <span style="color:black">(Optional)</span></label>
                         <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="Write Student Birth" name="student_birth">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label text-primary">Student Birth Registation
-                            Number</label>
+                            Number <span style="color:black">(Optional)</span></label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="Write Student Birth Registation Number" name="student_birth_number">
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Student Image</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Student Image <span style="color:black">(Optional)</span></label>
                             <div class="row py-2">
                                 <div class="col-md-4">
                                     <div style="padding:5px 0px">
@@ -116,29 +116,29 @@
                     <h2 class="text-primary ">Guardian Information</h2>
                     <hr>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Father Name</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Father Name <span style="color:red"> *</span></label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="Write Student Father Name" name="f_name">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Mother Name</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Mother Name <span style="color:red"> *</span></label>
                         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="Write Student Mother Name" name="m_name">
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Father NID</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Father NID <span style="color:black">(Optional)</span></label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="Write Father NID Number" name="f_nid">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label text-primary">Mother NID</label>
+                        <label for="exampleInputEmail1" class="form-label text-primary">Mother NID <span style="color:black">(Optional)</span></label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                             placeholder="Write Mother NID Number" name="m_nid">
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label text-primary">Address</label>
+                        <label for="exampleInputPassword1" class="form-label text-primary">Address <span style="color:black">(Optional)</span></label>
 
                         <textarea cols="30" rows="6" class="form-control" name="st_address" placeholder="Write  Address"></textarea>
 

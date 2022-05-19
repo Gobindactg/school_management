@@ -174,7 +174,7 @@ class StudentController extends Controller
 			$student->save();
 		}
 
-
+                $student->save();
 		// add information student marks table
 		$student_mark = new student_mark;
 		$student_mark->user_id = Auth::id();

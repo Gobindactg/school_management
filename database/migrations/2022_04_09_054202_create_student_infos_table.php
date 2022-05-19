@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('st_group');
             $table->string('st_year');
             $table->string('gender');
-            $table->date('date_of_birth');
+            $table->date('date_of_birth')->nullable();
             $table->integer('birth_reg_number')->nullable();
             $table->string('father_name');
             $table->string('mother_name');
