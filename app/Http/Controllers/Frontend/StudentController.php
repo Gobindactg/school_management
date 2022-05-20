@@ -31,11 +31,11 @@ class StudentController extends Controller
 		$group = $request->group;
 		$year = $request->year;
 		$add_routine = $request->add_routine;
+		$exam = $request->exam;
 
 
 		if (empty($add_routine)) {
 			if (!empty($class) && empty($group) && empty($year)) {
-
 				$marks = student_mark::Where('class', 'like', '%' . $class . '%')
 					->Where('user_id', $user_id)
 					->orderBy('id', 'desc')
@@ -80,6 +80,7 @@ class StudentController extends Controller
 					->Where('user_id', $user_id)
 					->orderBy('id', 'asc')
 					->get();
+
 				return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'routine'));
 			}
 			if (!empty($class) && !empty($group) && empty($year)) {
@@ -369,6 +370,10 @@ class StudentController extends Controller
 		}
 	}
 
+	public function publish_result()
+	{
+		return view('Frontend.pages.Student.shortResult');
+	}
 	// use for add filtering
 
 

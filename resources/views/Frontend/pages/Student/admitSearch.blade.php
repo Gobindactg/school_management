@@ -7,7 +7,7 @@
 
 <div class="container my-2">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <form action="{{route('search.admit')}}" method="get">
 
                 <select class="form-select " name="class" id="class_admit">
@@ -19,7 +19,7 @@
                     <option value="5">Five</option>
                 </select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <select class="form-select " id="exampleFormControlSelect1" name="group">
                 <option value="">-- Select Student Group --</option>
                 @foreach (App\Models\StudentGroup::class_group() as $group)
@@ -27,7 +27,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <select class="form-select " id="exampleFormControlSelect1" name="year">
                 <option selected value="">Select Year</option>
                 <option value="2022">2022</option>
@@ -35,13 +35,21 @@
                 <option value="2020">2020</option>
             </select>
         </div>
-        <div class="col-md-2 text-center bg-light pt-2">
+        <div class="col-md-4">
+            <select name="examName" id="" class="form-control">
+                <option value="">-- Select Exam Name --</option>
+                <option value="First Terminal Exam"> First Terminal Exam</option>
+                <option value="Second Terminal Exam">Second Terminal Exam</option>
+                <option value="aannual examination">Annual Exam</option>
+            </select>
+        </div>
+        <div class="col-md-4 text-center bg-light pt-2 px-2">
             <input type="checkbox" id="add_routine" name="add_routine" value="add" class="form-check-input">
             <label class="form-check-label" for="flexCheckDefault">
                 Add Routine
             </label>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-4">
             <input type="submit" value="Search" class="btn btn-info w-100">
             </form>
         </div>
@@ -57,6 +65,11 @@
     <h2 class="text-primary text-center" style="padding-top: 10px"><strong>{{$institution->name}}</strong></h2>
     <h4 class="text-center "><strong> {{$institution->address}}, {{$institution->upazila->name}},{{$institution->district->name}}, {{$institution->division->name}} </strong></h4>
     <h2 class="text-primary text-center border" style="font-family: tahoma; font-style:italic"><strong>ADMIT CARD</strong></h2>
+    <h2 class="text-primary text-center border text-uppercase"><strong>
+            @php if(isset($_GET['examName']))
+            echo $_GET['examName'];
+            @endphp
+        </strong></h2>
     @endforeach
 
     <div class="row">
@@ -69,6 +82,7 @@
             <p style="font-size: 18px"><strong>Roll :</strong> {{$mark->st_roll}}</p>
             <p style="font-size: 18px"><strong>Class :</strong> {{$mark->class}}</p>
             <p style="font-size: 18px"><strong>Year :</strong> {{$mark->st_year}}</p>
+
         </div>
         <div class="col-md-3 text-center">
             <img src="{{asset('Frontend/resources/img/profile-img.jpg')}}" alt="" style="width: 100px; padding-top:10px">
@@ -78,7 +92,7 @@
     if (isset($_GET['add_routine'])) {
     $add_routine = $_GET['add_routine'];
     @endphp
-    <h2 class="text-primary text-center border"><strong>EXAM SCHEDULE</strong></h2>
+    <h2 class="text-primary text-center border text-uppercase"><strong> EXAM SCHEDULE </strong></h2>
     <div class="row">
         <div class="col-md-6">
             <table class="table table-bordered">
