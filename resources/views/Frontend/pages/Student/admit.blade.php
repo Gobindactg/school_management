@@ -31,7 +31,11 @@
                                 <option value="2020">2020</option>
                             </select>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2 text-center">
+                            <label for="" class="form-check-label">Add Routine</label>
+                            <input type="checkbox" id="add_subject" name="add_routine" value="add_routine" style="font-size:20px">
+                        </div>
+                        <div class="col-md-1">
                            <input type="submit" value="Search" class="btn btn-info w-100">
                            </form>
                         </div>

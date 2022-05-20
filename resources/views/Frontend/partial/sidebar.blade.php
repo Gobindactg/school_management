@@ -204,7 +204,7 @@
                  <ul id="result" class="nav-content collapse {{ Request::is('exam/*') ? 'show' : '' }} "
                      data-bs-parent="#sidebar-nav">
                      <li>
-                         <a href="{{ route('admit') }}">
+                         <a href="{{ route('search.admit') }}">
                              <i class="bi bi-circle"></i><span>Manage Admit Card</span>
                          </a>
                      </li>

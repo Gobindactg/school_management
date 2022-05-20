@@ -21,49 +21,107 @@ class StudentController extends Controller
 	{
 		return view('Frontend.pages.Student.addStudent');
 	}
-	public function admit(Request $request)
+
+	// search admit with routine
+
+	public function search_admit(Request $request)
 	{
 		$user_id = Auth::id();
 		$class = $request->class;
 		$group = $request->group;
 		$year = $request->year;
+		$add_routine = $request->add_routine;
 
-		if (!empty($class) && empty($group) && empty($year)) {
 
-			$marks = student_mark::Where('class', 'like', '%' . $class . '%')
-				->Where('user_id', $user_id)
-				->orderBy('id', 'ASC')
-				->paginate(14);
+		if (empty($add_routine)) {
+			if (!empty($class) && empty($group) && empty($year)) {
 
-			return view('Frontend.pages.Student.admit', compact('marks', 'admit', 'class', 'group'));
-		}
-		if (!empty($class) && !empty($group) && empty($year)) {
+				$marks = student_mark::Where('class', 'like', '%' . $class . '%')
+					->Where('user_id', $user_id)
+					->orderBy('id', 'desc')
+					->get();
 
-			$marks = student_mark::Where('class', 'like', '%' . $class . '%')
-				->Where('st_group', 'like', '%' . $group . '%')
-				->Where('user_id', $user_id)
-				->orderBy('id', 'ASC')
-				->paginate(14);
-			return view('Frontend.pages.Student.admit', compact('marks', 'class', 'group'));
-		}
-		if (!empty($class) && !empty($group) && !empty($year)) {
-			$routine = Routine::where('user_id', Auth::id())->where('class', $class);
-			$marks = student_mark::Where('class', 'like', '%' . $class . '%')
-				->Where('st_group', 'like', '%' . $group . '%')
-				->Where('st_year', 'like', '%' . $year . '%')
-				->Where('user_id', $user_id)
-				->orderBy('id', 'ASC')
-				->paginate(14);
-			return view('Frontend.pages.Student.admit', compact('marks', 'class', 'group', 'year'));
-		}
-		if (empty($class) && empty($group) && empty($year)) {
+				return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'add_routine'));
+			}
+			if (!empty($class) && !empty($group) && empty($year)) {
 
-			$marks = student_mark::Where('user_id', $user_id)
-				->orderBy('st_roll', 'ASC')
-				->paginate(14);
-			return view('Frontend.pages.Student.admit', compact('marks', 'group', 'year'));
+				$marks = student_mark::Where('class', 'like', '%' . $class . '%')
+					->Where('st_group', 'like', '%' . $group . '%')
+					->Where('user_id', $user_id)
+					->orderBy('id', 'desc')
+					->paginate(14);
+				return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group'));
+			}
+			if (!empty($class) && !empty($group) && !empty($year)) {
+
+				$marks = student_mark::Where('class', 'like', '%' . $class . '%')
+					->Where('st_group', 'like', '%' . $group . '%')
+					->Where('st_year', 'like', '%' . $year . '%')
+					->Where('user_id', $user_id)
+					->orderBy('id', 'desc')
+					->paginate(14);
+				return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'year'));
+			}
+			if (empty($class) && empty($group) && empty($year)) {
+
+				$marks = student_mark::Where('user_id', $user_id)
+					->orderBy('id', 'desc')
+					->paginate(14);
+				return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'year'));
+			}
+		} else {
+			if (!empty($class) && empty($group) && empty($year)) {
+
+				$marks = student_mark::Where('class', 'like', '%' . $class . '%')
+					->Where('user_id', $user_id)
+					->orderBy('id', 'desc')
+					->get();
+				$routine = Routine::Where('class', $class)
+					->Where('user_id', $user_id)
+					->orderBy('id', 'asc')
+					->get();
+				return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'routine'));
+			}
+			if (!empty($class) && !empty($group) && empty($year)) {
+				$routine = Routine::Where('class', 'like', '%' . $class . '%')
+					->Where('user_id', $user_id)
+					->orderBy('id', 'desc')
+					->paginate(14);
+				$marks = student_mark::Where('class', 'like', '%' . $class . '%')
+					->Where('st_group', 'like', '%' . $group . '%')
+					->Where('user_id', $user_id)
+					->orderBy('id', 'desc')
+					->paginate(14);
+				return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'routine'));
+			}
+			if (!empty($class) && !empty($group) && !empty($year)) {
+				$routine = Routine::Where('class', 'like', '%' . $class . '%')
+					->Where('user_id', $user_id)
+					->orderBy('id', 'desc')
+					->paginate(14);
+				$marks = student_mark::Where('class', 'like', '%' . $class . '%')
+					->Where('st_group', 'like', '%' . $group . '%')
+					->Where('st_year', 'like', '%' . $year . '%')
+					->Where('user_id', $user_id)
+					->orderBy('id', 'desc')
+					->paginate(14);
+				return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'year', 'routine'));
+			}
+			if (empty($class) && empty($group) && empty($year)) {
+				$routine = Routine::Where('class', 'like', '%' . $class . '%')
+					->Where('user_id', $user_id)
+					->orderBy('id', 'desc')
+					->paginate(14);
+				$marks = student_mark::Where('user_id', $user_id)
+					->orderBy('id', 'desc')
+					->paginate(14);
+				return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'year', 'routine'));
+			}
 		}
 	}
+
+
+
 
 	public function manageStudent()
 	{
@@ -174,7 +232,7 @@ class StudentController extends Controller
 			$student->save();
 		}
 
-                $student->save();
+		$student->save();
 		// add information student marks table
 		$student_mark = new student_mark;
 		$student_mark->user_id = Auth::id();
@@ -313,64 +371,6 @@ class StudentController extends Controller
 
 	// use for add filtering
 
-  public function search_admit(Request $request)
-        {
-                $user_id = Auth::id();
-                $class = $request->class;
-                $group = $request->group;
-                $year = $request->year;
-
-                if(!empty($class) && empty($group) && empty($year)){
-                       
-                        $marks= student_mark::Where('class', 'like', '%' . $class . '%')
-                                            ->Where('user_id', $user_id)
-                                            ->orderBy('id', 'desc')
-                                            ->get();
-                         $routine = Routine::Where('class', $class)
-                                            ->Where('user_id', $user_id)
-                                            ->orderBy('id', 'asc')
-                                            ->get();
-                        return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'routine'));
-                }
-                if(!empty($class) && !empty($group) && empty($year)){
-                     $routine = Routine::Where('class', 'like', '%' . $class . '%')
-                                            ->Where('user_id', $user_id)
-                                            ->orderBy('id', 'desc')
-                                            ->paginate(14);
-                        $marks= student_mark::Where('class', 'like', '%' . $class . '%')
-                                            ->Where('st_group', 'like', '%' . $group . '%')
-                                            ->Where('user_id', $user_id)
-                                ->orderBy('id', 'desc')
-                                ->paginate(14);
-                        return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'routine'));
-                }
-                if(!empty($class) && !empty($group) && !empty($year)){
-                     $routine = Routine::Where('class', 'like', '%' . $class . '%')
-                                            ->Where('user_id', $user_id)
-                                            ->orderBy('id', 'desc')
-                                            ->paginate(14);
-                        $marks= student_mark::Where('class', 'like', '%' . $class . '%')
-                                            ->Where('st_group', 'like', '%' . $group . '%')
-                                            ->Where('st_year', 'like', '%' . $year . '%')
-                                            ->Where('user_id', $user_id)
-                                ->orderBy('id', 'desc')
-                                ->paginate(14);
-                        return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'year', 'routine'));
-                }
-                if(empty($class) && empty($group) && empty($year)){
-                     $routine = Routine::Where('class', 'like', '%' . $class . '%')
-                                            ->Where('user_id', $user_id)
-                                            ->orderBy('id', 'desc')
-                                            ->paginate(14);
-                        $marks= student_mark::Where('user_id', $user_id)
-                                ->orderBy('id', 'desc')
-                                ->paginate(14);
-                        return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'year', 'routine'));
-                }
-
-
-        }
-        
 
 
 
@@ -403,4 +403,50 @@ class StudentController extends Controller
 	// 	return $items;
 	// 	// return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'year', 'routine'));
 	// }
+
+	public function admit(Request $request)
+	{
+		// 	$user_id = Auth::id();
+		// 	$class = $request->class;
+		// 	$group = $request->group;
+		// 	$year = $request->year;
+		// 	$add_routine = $request->add_routine;
+
+
+		// 	if (!empty($class) && empty($group) && empty($year)) {
+
+		// 		$marks = student_mark::Where('class', 'like', '%' . $class . '%')
+		// 			->Where('user_id', $user_id)
+		// 			->orderBy('id', 'ASC')
+		// 			->paginate(14);
+
+		// 		return view('Frontend.pages.Student.admit', compact('marks', 'admit', 'class', 'group'));
+		// 	}
+		// 	if (!empty($class) && !empty($group) && empty($year)) {
+
+		// 		$marks = student_mark::Where('class', 'like', '%' . $class . '%')
+		// 			->Where('st_group', 'like', '%' . $group . '%')
+		// 			->Where('user_id', $user_id)
+		// 			->orderBy('id', 'ASC')
+		// 			->paginate(14);
+		// 		return view('Frontend.pages.Student.admit', compact('marks', 'class', 'group'));
+		// 	}
+		// 	if (!empty($class) && !empty($group) && !empty($year)) {
+		// 		$routine = Routine::where('user_id', Auth::id())->where('class', $class);
+		// 		$marks = student_mark::Where('class', 'like', '%' . $class . '%')
+		// 			->Where('st_group', 'like', '%' . $group . '%')
+		// 			->Where('st_year', 'like', '%' . $year . '%')
+		// 			->Where('user_id', $user_id)
+		// 			->orderBy('id', 'ASC')
+		// 			->paginate(14);
+		// 		return view('Frontend.pages.Student.admit', compact('marks', 'class', 'group', 'year'));
+		// 	}
+		// 	if (empty($class) && empty($group) && empty($year)) {
+
+		// 		$marks = student_mark::Where('user_id', $user_id)
+		// 			->orderBy('st_roll', 'ASC')
+		// 			->paginate(14);
+		// 		return view('Frontend.pages.Student.admit', compact('marks', 'group', 'year'));
+		// 	}
+	}
 }

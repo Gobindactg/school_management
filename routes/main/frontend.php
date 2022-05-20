@@ -103,7 +103,7 @@ Route::group(['prefix' => 'exam', 'middleware' => ['auth', 'institutionAdmin']],
   Route::get('/search-mark', [StudentController::class, 'search_mark'])->name('search.mark');
 
   
-  Route::post('/search-admit', [StudentController::class, 'search_admit'])->name('search.admit');
+  Route::get('/search-admit', [StudentController::class, 'search_admit'])->name('search.admit');
 });
 
 
