@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('st_group');
             $table->string('st_year');
             $table->string('gender');
+            $table->string('religion');
             $table->date('date_of_birth')->nullable();
             $table->integer('birth_reg_number')->nullable();
             $table->string('father_name');
@@ -31,7 +32,7 @@ return new class extends Migration
             $table->integer('status')->default(0);
             $table->integer('user_id');
             $table->string('image')->nullable();
-            
+
             $table->timestamps();
         });
     }

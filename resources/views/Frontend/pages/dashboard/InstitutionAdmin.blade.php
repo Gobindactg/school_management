@@ -80,18 +80,94 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8">
-            <canvas id="lineChart"></canvas>
+    <div class="row bg-dark pt-3 ">
+        <div class="col-md-8 scrollbar-x ">
+            <table class="table table-bordered">
+                <thead>
+                    <tr class="text-center bg-success">
+                        <th>Class</th>
+                        <th>Total Student</th>
+                        <th>Male</th>
+                        <th>Female</th>
+                        <th>Islam</th>
+                        <th>Hindu</th>
+                        <th>Buddist</th>
+                        <th>Khristan</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center" style="font-size:19px">
+                    <tr class="bg-info">
+                        <td>One</td>
+                        <td>{{App\Models\student_info::totalStudentOne()}}</td>
+                        <td>{{App\Models\student_info::maleOne()}}</td>
+                        <td>{{App\Models\student_info::femaleOne()}}</td>
+                        <td>{{App\Models\student_info::hinduOne()}}</td>
+                        <td>{{App\Models\student_info::islamOne()}}</td>
+                        <td>{{App\Models\student_info::buddistOne()}}</td>
+                        <td>{{App\Models\student_info::kristanOne()}}</td>
+                    </tr>
+                    <tr class="bg-primary">
+                        <td>Two</td>
+                        <td>{{App\Models\student_info::totalStudentTwo()}}</td>
+                        <td>{{App\Models\student_info::maleTwo()}}</td>
+                        <td>{{App\Models\student_info::femaleTwo()}}</td>
+                        <td>{{App\Models\student_info::hindutwo()}}</td>
+                        <td>{{App\Models\student_info::islamtwo()}}</td>
+                        <td>{{App\Models\student_info::buddisttwo()}}</td>
+                        <td>{{App\Models\student_info::kristantwo()}}</td>
+                    </tr>
+                    <tr class="bg-info">
+                        <td>Three</td>
+                        <td>{{App\Models\student_info::totalStudentThree()}}</td>
+                        <td>{{App\Models\student_info::maleThree()}}</td>
+                        <td>{{App\Models\student_info::femaleThree()}}</td>
+                        <td>{{App\Models\student_info::hinduThree()}}</td>
+                        <td>{{App\Models\student_info::islamThree()}}</td>
+                        <td>{{App\Models\student_info::buddistThree()}}</td>
+                        <td>{{App\Models\student_info::kristanThree()}}</td>
+                    </tr>
+                    <tr class="bg-primary">
+                        <td>Four</td>
+                        <td>{{App\Models\student_info::totalStudentFour()}}</td>
+                        <td>{{App\Models\student_info::maleFour()}}</td>
+                        <td>{{App\Models\student_info::femaleFour()}}</td>
+                        <td>{{App\Models\student_info::hinduFour()}}</td>
+                        <td>{{App\Models\student_info::islamFour()}}</td>
+                        <td>{{App\Models\student_info::buddistFour()}}</td>
+                        <td>{{App\Models\student_info::kristanFour()}}</td>
+                    </tr>
+                    <tr class="bg-info">
+                        <td>Five</td>
+                        <td>{{App\Models\student_info::totalStudentFive()}}</td>
+                        <td>{{App\Models\student_info::maleFive()}}</td>
+                        <td>{{App\Models\student_info::femaleFive()}}</td>
+                        <td>{{App\Models\student_info::hinduFive()}}</td>
+                        <td>{{App\Models\student_info::islamFive()}}</td>
+                        <td>{{App\Models\student_info::buddistFive()}}</td>
+                        <td>{{App\Models\student_info::kristanFive()}}</td>
+                    </tr>
+                    <tr class="bg-success font-weight:900">
+                        <td>Total Student</td>
+                        <td>{{App\Models\student_info::totalStudent()}}</td>
+                        <td>{{App\Models\student_info::totalMale()}}</td>
+                        <td>{{App\Models\student_info::totalFemale()}}</td>
+                        <td>{{App\Models\student_info::totalHindu()}}</td>
+                        <td>{{App\Models\student_info::totalIslam()}}</td>
+                        <td>{{App\Models\student_info::totalBuddist()}}</td>
+                        <td>{{App\Models\student_info::totalKristan()}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="col-md-4 ">
+            <canvas id="doughnutChart"></canvas>
             <span class="invisible" id="classFive">{{App\Models\student_info::totalStudentFive()}}</span>
             <span class="invisible" id="classFour">{{App\Models\student_info::totalStudentFour()}}</span>
             <span class="invisible" id="classThree">{{App\Models\student_info::totalStudentThree()}}</span>
             <span class="invisible" id="classTwo">{{App\Models\student_info::totalStudentTwo()}}</span>
             <span class="invisible" id="classOne">{{App\Models\student_info::totalStudentOne()}}</span>
-            <h3 id="showMark"></h3>
-        </div>
-        <div class="col-md-4">
-            <canvas id="doughnutChart"></canvas>
         </div>
 
     </div>
@@ -314,6 +390,5 @@
     </div>
 
 </section>
-
 
 @endsection

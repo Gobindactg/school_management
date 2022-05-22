@@ -213,6 +213,7 @@ class StudentController extends Controller
 		$student->st_group = $request->group;
 		$student->st_year = $request->st_year;
 		$student->gender = $request->gender;
+		$student->religion = $request->religion;
 		$student->date_of_birth = $request->student_birth;
 		$student->birth_reg_number = $request->student_birth_number;
 		$student->father_name = $request->f_name;
