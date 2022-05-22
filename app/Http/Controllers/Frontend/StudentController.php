@@ -266,11 +266,20 @@ class StudentController extends Controller
 		return back();
 	}
 
-	public function single_result($id)
+	public function single_result(Request $request, $id)
 	{
+		$class = $request->class;
+		$group = $request->group;
+		$year = $request->year;
 		$marks = student_mark::orderBy('id', 'desc')->where('id', $id)->get();
 		$institution = Institution_info::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
-		return view('Frontend.pages.Student.singleResult', compact('marks', 'institution'));
+		$maxMark = student_mark::Where('class', $class)->orderBy('bangla', 'desc')->take(1)->get();
+		$maxMarkE = student_mark::Where('class', $class)->orderBy('english', 'desc')->take(1)->get();
+		$maxMarkM = student_mark::Where('class', $class)->orderBy('math', 'desc')->take(1)->get();
+		$maxMarkS = student_mark::Where('class', $class)->orderBy('science', 'desc')->take(1)->get();
+		$maxMarkB = student_mark::Where('class', $class)->orderBy('bob', 'desc')->take(1)->get();
+		$maxMarkR = student_mark::Where('class', $class)->orderBy('religion', 'desc')->take(1)->get();
+		return view('Frontend.pages.Student.singleResult', compact('marks', 'institution', 'maxMark', 'maxMarkE', 'maxMarkM', 'maxMarkS', 'maxMarkB', 'maxMarkR'));
 	}
 
 	public function search_result(Request $request)

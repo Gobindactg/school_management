@@ -83,6 +83,12 @@
     <div class="row">
         <div class="col-md-8">
             <canvas id="lineChart"></canvas>
+            <span class="invisible" id="classFive">{{App\Models\student_info::totalStudentFive()}}</span>
+            <span class="invisible" id="classFour">{{App\Models\student_info::totalStudentFour()}}</span>
+            <span class="invisible" id="classThree">{{App\Models\student_info::totalStudentThree()}}</span>
+            <span class="invisible" id="classTwo">{{App\Models\student_info::totalStudentTwo()}}</span>
+            <span class="invisible" id="classOne">{{App\Models\student_info::totalStudentOne()}}</span>
+            <h3 id="showMark"></h3>
         </div>
         <div class="col-md-4">
             <canvas id="doughnutChart"></canvas>
@@ -308,4 +314,6 @@
     </div>
 
 </section>
+
+
 @endsection

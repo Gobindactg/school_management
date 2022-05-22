@@ -26,5 +26,29 @@ class student_info extends Model
         $totalClass = student_info::where('user_id', Auth::id())->distinct()->count('class');
         return $totalClass;
     }
-   
+    public static function totalStudentFive()
+    {
+        $totalStudentFive = student_info::where('user_id', Auth::id())->where('class', 5)->count('class');
+        return $totalStudentFive;
+    }
+    public static function totalStudentFour()
+    {
+        $totalStudentFour = student_info::where('user_id', Auth::id())->where('class', 4)->count('class');
+        return $totalStudentFour;
+    }
+    public static function totalStudentThree()
+    {
+        $totalStudentThree = student_info::where('user_id', Auth::id())->where('class', 3)->count('class');
+        return $totalStudentThree;
+    }
+    public static function totalStudentTwo()
+    {
+        $totalStudentTwo = student_info::where('user_id', Auth::id())->where('class', 2)->count('class');
+        return $totalStudentTwo;
+    }
+    public static function totalStudentOne()
+    {
+        $totalStudentOne = student_info::where('user_id', Auth::id())->where('class', 1)->count('class');
+        return $totalStudentOne;
+    }
 }

@@ -56,14 +56,23 @@
     });
 
     //doughnut
+
+
+
     if ($("#doughnutChart")[0]) {
+        var five = Number(document.getElementById('classFive').innerHTML);
+        var four = Number(document.getElementById('classFour').innerHTML);
+        var three = Number(document.getElementById('classThree').innerHTML);
+        var two = Number(document.getElementById('classTwo').innerHTML);
+        var one = Number(document.getElementById('classOne').innerHTML);
+
         var ctxD = document.getElementById("doughnutChart").getContext('2d');
         var myLineChart = new Chart(ctxD, {
             type: 'doughnut',
             data: {
                 labels: ["Class One", "Class Two", "Class Three", "Class Four", "Class Five"],
                 datasets: [{
-                    data: [200, 150, 100, 80, 120],
+                    data: [five, four, three, two, one],
                     backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
                     hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
                 }]
@@ -103,8 +112,5 @@
     }
 
 
-  // use data table
- 
-
-
+    // use data table
 </script>
