@@ -404,6 +404,14 @@ class StudentController extends Controller
 
 		return view('Frontend.pages.Student.shortResult', compact('resultPublished', 'mark'));
 	}
+
+	public function tabulation(Request $request)
+	{
+		$user_id = Auth::id();
+		$add = $request->add;
+		$result = student_mark::where('user_id', $user_id)->get();
+		return view('Frontend.pages.Student.tabulationSheet', compact('result', 'add'));
+	}
 	// use for add filtering
 
 

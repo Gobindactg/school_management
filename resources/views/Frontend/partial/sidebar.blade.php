@@ -218,7 +218,7 @@
                      </a>
                  </li>
                  <li>
-                     <a href="components-alerts.html">
+                     <a href="{{route('tabulation')}}">
                          <i class="bi bi-circle"></i><span>Manage Tabulation Sheet</span>
                      </a>
                  </li>

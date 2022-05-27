@@ -83,6 +83,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'institutionAdmin'
   Route::get('/manageStudent', [StudentController::class, 'manageStudent'])->name('manageStudent');
   Route::get('/student/delete/{id}', [StudentController::class, 'student_delete'])->name('studentDelete');
   Route::get('/singleResult/{id}', [StudentController::class, 'single_result'])->name('singleResult');
+  Route::get('/tabulation', [StudentController::class, 'tabulation'])->name('tabulation');
 
   // routine controller
   Route::get('/manage-routine', [RoutineController::class, 'manage_routine'])->name('manage_routine');

@@ -1,4 +1,4 @@
-<footer id="footer" class="footer">
+<footer id="footer" class="footer fixed-bottom">
     <div class="copyright">
         &copy; Copyright <strong><span>Noipunno Digital School</span></strong>. All Rights Reserved
     </div>
@@ -6,7 +6,7 @@
         Designed & Developed by <a href="#">Gobinda Das & Mahabub Rashid Tonoy</a>
     </div>
     <div class="messenger" data-bs-toggle="modal" data-bs-target="#myModal">
-        <img src="{{ asset('Global/images/messenger.png') }}" alt="message" >
+        <img src="{{ asset('Global/images/messenger.png') }}" alt="message">
 
     </div>
 </footer><!-- End Footer -->

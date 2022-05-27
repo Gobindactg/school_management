@@ -3,17 +3,7 @@
 @section('meta')
 <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
 @endsection
-@php
-$connection = mysqli_connect('localhost','root','','school_management');
 
-if(!$connection){
-die("Database Not connected". mysqli_error());
-}
-$sql = "SELECT MAX(bangla) AS banglas FROM student_marks";
-$query_result = mysqli_query($connection, $sql);
-
-
-@endphp
 <style>
     .bg_image {
         background-image: url("{{ asset('ResultImage/mark4.jpg') }}");
