@@ -11,6 +11,7 @@ use App\Models\Routine;
 use App\Models\User;
 use App\Models\StudentGroup;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 use File;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -126,7 +127,21 @@ class StudentController extends Controller
 
 	public function manageStudent()
 	{
-		return view('Frontend.pages.Student.manageStudent');
+		$id = Auth::id();
+		$totalStudent = student_info::orderBy('class', 'asc')->where('user_id', $id)->get();
+		return view('Frontend.pages.Student.manageStudent', compact('totalStudent'));
+	}
+
+	public function student_delete($id)
+	{
+		// to delete student info data
+		$student_del = student_info::find($id);
+		$student_del->delete();
+		// to delete student mark info data
+		$st_mark_del = student_mark::where('student_info_id', $id);
+		$st_mark_del->delete();
+		session()->flash('delete', 'Your Routine Deleted Successfully');
+		return back();
 	}
 	public function marks()
 	{
@@ -382,7 +397,12 @@ class StudentController extends Controller
 
 	public function publish_result()
 	{
-		return view('Frontend.pages.Student.shortResult');
+		$user_id = Auth::id();
+		$resultPublished = student_mark::where('user_id', $user_id)->get();
+		$mark = student_mark::where('user_id', $user_id)->sum(student_mark::raw('bangla + english'));
+
+
+		return view('Frontend.pages.Student.shortResult', compact('resultPublished', 'mark'));
 	}
 	// use for add filtering
 

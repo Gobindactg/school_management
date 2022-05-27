@@ -161,7 +161,7 @@
 
 
         </div>
-        <div class="col-md-4 ">
+        <div class="col-md-4">
             <canvas id="doughnutChart"></canvas>
             <span class="invisible" id="classFive">{{App\Models\student_info::totalStudentFive()}}</span>
             <span class="invisible" id="classFour">{{App\Models\student_info::totalStudentFour()}}</span>

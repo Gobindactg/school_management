@@ -14,50 +14,22 @@ $query_result = mysqli_query($connection, $sql);
 
 
 @endphp
+<style>
+    .bg_image {
+        background-image: url("{{ asset('ResultImage/mark4.jpg') }}");
+        background-repeat: no-repeat;
+        background-size: cover;
 
+    }
+</style>
 @section('content')
-<div class="container my-2">
-    <!-- <div class="row">
-                    
-                        <div class="col-md-3">
-                            <form action="{{route('searchResult')}}" method="get">
-                            <select class="form-select " id="exampleFormControlSelect1" name="class">
-                                <option selected value="">--Select Class--</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                                <option value="4">Four</option>
-                                <option value="5">Five</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-select " id="exampleFormControlSelect1" name="group">
-                             <option value="">-- Select Student Group --</option>
-                            @foreach (App\Models\StudentGroup::class_group() as $group)   
-                            <option value="{{$group->name}}"> {{$group->name}} </option>
-                            @endforeach
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <select class="form-select " id="exampleFormControlSelect1" name="year">
-                                <option selected value="">Select Year</option>
-                                <option value="2022">2022</option>
-                                <option value="2021">2021</option>
-                                <option value="2020">2020</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                           <input type="submit" value="Search" class="btn btn-info w-100">
-                           </form>
-                        </div>
-                    
-                </div>
-            </div> -->
-    <a href="#" class="btn btn-primary btn-sm">Print</a>
-    <div class="container scrollbar-thin scrollbar-x">
+<div class="container my-2  ">
+    <!-- <a href="#" class="btn btn-primary btn-sm">Print</a> -->
+    <button onclick="window.print()">Print</button>
+    <div class="container scrollbar bg_image" style="width: 27cm; height:36cm; padding-left:2.3cm; padding-right:2.2cm; padding-top:2cm; margin-bottom:9cm;">
         <div class="row">
             @foreach ($marks as $marks)
-            <div class="col-md-12 card card-body py-2">
+            <div class="col-md-12  py-2">
                 @foreach (App\Models\Institution_info::institution() as $institution)
                 <h3 class="text-center">{{ $institution->name }}</h3>
                 <p class="text-center">{{ $institution->address }}</p>
@@ -85,9 +57,9 @@ $query_result = mysqli_query($connection, $sql);
                     </div>
 
                     @endforeach
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr class="text-center">
+                    <table class="table " style="border:2px solid black">
+                        <thead style="border:2px solid black">
+                            <tr class="text-center" style="border:2px solid black">
                                 <th>S.L</th>
                                 <th>Subject Name</th>
                                 <th>Total Mark</th>
@@ -97,8 +69,8 @@ $query_result = mysqli_query($connection, $sql);
                                 <th> GPA</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="text-center">
+                        <tbody style="border:2px solid black">
+                            <tr class="text-center" style="border:2px solid black">
                                 <td>01</td>
                                 <td>Bangla</td>
                                 <td>100</td>
@@ -516,7 +488,7 @@ $query_result = mysqli_query($connection, $sql);
 
                         </tbody>
                     </table>
-                    <div class="row " style="padding-top:30px">
+                    <div class="row " style="padding-top:15%;">
                         <div class="col-md-6 text-center">
                             <br>
                             Signature Class Teacher

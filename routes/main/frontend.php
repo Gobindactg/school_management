@@ -81,6 +81,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'institutionAdmin'
   Route::post('/add-group-store', [StudentController::class, 'group_store'])->name('group_store');
   Route::post('/student_store', [StudentController::class, 'studentAdd'])->name('student_info_store');
   Route::get('/manageStudent', [StudentController::class, 'manageStudent'])->name('manageStudent');
+  Route::get('/student/delete/{id}', [StudentController::class, 'student_delete'])->name('studentDelete');
   Route::get('/singleResult/{id}', [StudentController::class, 'single_result'])->name('singleResult');
 
   // routine controller

@@ -9,6 +9,7 @@
     border: 1px solid #ddd;
     cursor: pointer;
 }
+
 .messenger img {
     padding: 5px;
     width: 100%;
@@ -41,12 +42,14 @@
     width: 150px;
     height: 150px;
 }
+
 .text_color li a {
     color: green;
     font-family: tahoma;
     font-style: italic;
     font-size: 20px;
 }
+
 .text_color li a:hover {
     color: white;
     font-family: tahoma;
@@ -55,6 +58,7 @@
     background-color: rgb(126, 113, 113);
     border-radius: 40px;
 }
+
 .hover a:hover {
     background-color: green;
 }
@@ -64,11 +68,13 @@
     width: 100%;
     overflow-x: scroll;
 }
+
 .scrollbar-thin {
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
     transition: all 0.3s linear;
 }
+
 .scrollbar-thin:hover {
     scrollbar-width: thin;
     scrollbar-color: #394150 transparent;
@@ -78,14 +84,17 @@
 .scrollbar-thin::-webkit-scrollbar {
     height: 4px;
 }
+
 .scrollbar-thin::-webkit-scrollbar-track {
     background: transparent;
 }
+
 .scrollbar-thin::-webkit-scrollbar-thumb {
     background-color: transparent;
     border-radius: 20px;
     border: 0;
 }
+
 .scrollbar-thin:hover::-webkit-scrollbar-thumb {
     background-color: #394150;
 }
@@ -94,17 +103,22 @@
     display: flex;
     justify-content: space-around;
 }
+
 .book_action a {
     color: #04293a;
     cursor: pointer;
 }
+
 /* :horizontal scrollbar style end */
 
 /* Header social media icon */
 .icon_hover {
     transition: all 0.2s ease-in-out;
 }
+
 .icon_hover a:hover {
     color: #007bff;
 }
+
 /* Header social media icon end */
+/* marksheet background */
