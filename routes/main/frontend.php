@@ -46,7 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/getting_started', [PagesController::class, 'get_started'])->name('getStarted');
     Route::get('/join', [PagesController::class, 'join_institution'])->name('join_institution');
 
-    
+
     Route::post('/institution_list', [PagesController::class, 'institution_list'])->name('institution_list');
     Route::post('/apply_job', [PagesController::class, 'apply_job'])->name('apply_job');
   });
@@ -83,10 +83,10 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'institutionAdmin'
   Route::get('/manageStudent', [StudentController::class, 'manageStudent'])->name('manageStudent');
   Route::get('/singleResult/{id}', [StudentController::class, 'single_result'])->name('singleResult');
 
-    // routine controller
-    Route::get('/manage-routine', [RoutineController::class, 'manage_routine'])->name('manage_routine');
-    Route::post('/manage-store', [RoutineController::class, 'routine_store'])->name('routine_store');
-  
+  // routine controller
+  Route::get('/manage-routine', [RoutineController::class, 'manage_routine'])->name('manage_routine');
+  Route::post('/manage-store', [RoutineController::class, 'routine_store'])->name('routine_store');
+  Route::get('/routine/delete/{id}', [RoutineController::class, 'routine_delete'])->name('routine_delete');
 });
 
 //exams
@@ -102,8 +102,10 @@ Route::group(['prefix' => 'exam', 'middleware' => ['auth', 'institutionAdmin']],
   Route::get('/search-student', [StudentController::class, 'search_student'])->name('search.student');
   Route::get('/search-mark', [StudentController::class, 'search_mark'])->name('search.mark');
 
-  
-  Route::post('/search-admit', [StudentController::class, 'search_admit'])->name('search.admit');
+  Route::get('/search-admit', [StudentController::class, 'search_admit'])->name('search.admit');
+
+  // short result
+  Route::get('/publish-result', [StudentController::class, 'publish_result'])->name('publishResult');
 });
 
 
@@ -123,8 +125,8 @@ Route::group(['prefix' => 'subjects', 'middleware' => ['auth']], function () {
 Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'institutionAdmin']], function () {
   Route::get('/addTeacher', [TeacherController::class, 'addTeacher'])->name('addTeacher');
   Route::get('/manageTeacher', [TeacherController::class, 'manageTeacher'])->name('manageTeacher');
-  
-  
+
+
   Route::post('/approveTeacher', [TeacherController::class, 'approveTeacher'])->name('approveTeacher');
   Route::post('/removeTeacher', [TeacherController::class, 'removeTeacher'])->name('removeTeacher');
 });
@@ -162,6 +164,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 // visitor route
 Route::get('/visitor/{id}', [SearchController::class, 'visitor'])->name('visitor');
+Route::get('/search-seatplan', [SearchController::class, 'search_seatplan'])->name('search.seatplan');
 
 
 // Library

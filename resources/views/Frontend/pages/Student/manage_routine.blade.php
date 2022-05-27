@@ -1,13 +1,14 @@
 @extends('Frontend.layouts.master')
 @section('title', 'Admit')
 @section('content')
+
       <div class="container card card-body pt-3 scrollbar scrollbar-x">
-        <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal" id="routine" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">New Routine Entry</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <button type="button" class="close text-danger" data-bs-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -90,10 +91,9 @@
                     <label for="message-text" class="col-form-label">Time</label>
                     <input type="text" class="form-control" name="time">
                   </div>
-                  <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+             
                 </form>
               </div>
             
@@ -103,8 +103,8 @@
 
         <h3>Manage Rotine </h3><hr>
         @include('Frontend.partial.message')
-         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal1"  style="width:170px;">Add New Routine</button>
-      
+    <button type="button" class="btn btn-primary btn-sm"  data-bs-toggle="modal" data-bs-target="#routine" style="width:170px;">Add New Routine</button>
+
       <table class="table table-bordered my-2  ">
         <thead>
           <tr class="bg-info text-center">
@@ -133,12 +133,42 @@
             <td>{{$routine->exam_date}}</td>
             <td>{{$routine->exam_time}}</td>
             <td>
-              <a href="#" class="btn btn-primary btn-sm">Edit</a>
-              <a href="#" class="btn btn-danger btn-sm">Delete</a>
+               <button type="submit" class="btn btn-primary btn-sm invisibile"  data-bs-toggle="modal" data-bs-target="#updateroutine" >Edit</button>
+              <!-- <a href="#" class="btn btn-primary btn-sm">Edit</a> -->
+              <a href="{{route('routine_delete', $routine->id)}}" class="btn btn-danger btn-sm">Delete</a>
+              <!-- <a href="#deleteRoutine" data-bs-toggle="modal" class="btn btn-danger btn-sm">Delete</a> -->
             </td>
           </tr>
           @endforeach
         </tbody>
       </table>
       </div>
+
+
+      <!-- update routine -->
+
+             <!-- <div class="modal" id="deleteRoutine" role="dialog"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Are You Sure To Delete?</h5>
+                                <button type="button" class="close text-danger" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span> 
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                          
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div> -->
+
+      
+
+                          <!-- The Modal -->
+           
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
 @endsection

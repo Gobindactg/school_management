@@ -56,15 +56,24 @@
     });
 
     //doughnut
+
+
+
     if ($("#doughnutChart")[0]) {
+        var five = Number(document.getElementById('classFive').innerHTML);
+        var four = Number(document.getElementById('classFour').innerHTML);
+        var three = Number(document.getElementById('classThree').innerHTML);
+        var two = Number(document.getElementById('classTwo').innerHTML);
+        var one = Number(document.getElementById('classOne').innerHTML);
+
         var ctxD = document.getElementById("doughnutChart").getContext('2d');
         var myLineChart = new Chart(ctxD, {
             type: 'doughnut',
             data: {
                 labels: ["Class One", "Class Two", "Class Three", "Class Four", "Class Five"],
                 datasets: [{
-                    data: [200, 150, 100, 80, 120],
-                    backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+                    data: [one, two, three, four, five],
+                    backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#2028A9", "#3FAE69"],
                     hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
                 }]
             },
@@ -75,36 +84,6 @@
     }
 
 
-    if ($("#lineChart")[0]) {
-        //line
-        var ctxL = document.getElementById("lineChart").getContext('2d');
-        var myLineChart = new Chart(ctxL, {
-            type: 'line',
-            data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July", "August", "Septembar",
-                    "Octobar", "November", "December"
-                ],
-                datasets: [{
-                    label: "Total Student Add Per Month",
-                    data: [0, 30, 50, 46, 60, 75, 90, 100, 85, 70, 77, 84],
-                    backgroundColor: [
-                        '#FFC107',
-                    ],
-                    borderColor: [
-                        'rgba(200, 99, 132, .7)',
-                    ],
-                    borderWidth: 2
-                }, ]
-            },
-            options: {
-                responsive: true
-            }
-        });
-    }
 
-
-  // use data table
- 
-
-
+    // use data table
 </script>
