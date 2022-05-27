@@ -81,38 +81,34 @@ $query_result = mysqli_query($connection, $sql);
                                     @endforeach
                                 </td>
                                 <td>
-                                    @if($marks->bangla >= 80)
-                                    A+
-                                    @elseif($marks->bangla >= 70)
-                                    A
-                                    @elseif($marks->bangla >= 60)
-                                    A-
-                                    @elseif($marks->bangla >= 50)
-                                    B
-                                    @elseif($marks->bangla >= 40)
-                                    C
-                                    @elseif($marks->bangla >= 33)
-                                    D
-                                    @else
-                                    F
-                                    @endif
+                                    @php
+                                    if($marks->bangla >= 80){
+                                    echo 'A+';
+                                    $gpa1 = 5;}
+                                    elseif($marks->bangla >= 70){
+                                    echo 'A';
+                                    $gpa1 = 4;}
+                                    elseif($marks->bangla >= 60){
+                                    echo 'A-';
+                                    $gpa1 = 3.5;}
+                                    elseif($marks->bangla >= 50){
+                                    echo 'B';
+                                    $gpa1 = 3;}
+                                    elseif($marks->bangla >= 40){
+                                    echo 'C';
+                                    $gpa1 = 2;}
+                                    elseif($marks->bangla >= 33){
+                                    echo 'D';
+                                    $gpa1 = 1;}
+                                    else{
+                                    echo 'F';
+                                    $gpa1 = 0;};
+                                    @endphp
                                 </td>
                                 <td id="gpa1">
-                                    @if($marks->bangla >= 80)
-                                    5.00
-                                    @elseif($marks->bangla >= 70)
-                                    4.00
-                                    @elseif($marks->bangla >= 60)
-                                    3.50
-                                    @elseif($marks->bangla >= 50)
-                                    3.00
-                                    @elseif($marks->bangla >= 40)
-                                    2.00
-                                    @elseif($marks->bangla >= 33)
-                                    1.00
-                                    @else
-                                    0.00
-                                    @endif
+                                    @php
+                                    echo $gpa1;
+                                    @endphp
                                 </td>
 
                             </tr>
@@ -127,38 +123,34 @@ $query_result = mysqli_query($connection, $sql);
                                     @endforeach
                                 </td>
                                 <td>
-                                    @if($marks->english >= 80)
-                                    A+
-                                    @elseif($marks->english >= 70)
-                                    A
-                                    @elseif($marks->english >= 60)
-                                    A-
-                                    @elseif($marks->english >= 50)
-                                    B
-                                    @elseif($marks->english >= 40)
-                                    C
-                                    @elseif($marks->english >= 33)
-                                    D
-                                    @else
-                                    F
-                                    @endif
+                                    @php
+                                    if($marks->english >= 80){
+                                    echo 'A+';
+                                    $gpa2 = 5;}
+                                    elseif($marks->english >= 70){
+                                    echo 'A';
+                                    $gpa2 = 4;}
+                                    elseif($marks->english >= 60){
+                                    echo 'A-';
+                                    $gpa2 = 3.5;}
+                                    elseif($marks->english >= 50){
+                                    echo 'B';
+                                    $gpa2 = 3;}
+                                    elseif($marks->english >= 40){
+                                    echo 'C';
+                                    $gpa2 = 2;}
+                                    elseif($marks->english >= 33){
+                                    echo 'D';
+                                    $gpa2 = 1;}
+                                    else{
+                                    echo 'F';
+                                    $gpa2 = 0;};
+                                    @endphp
                                 </td>
                                 <td id="gpa2">
-                                    @if($marks->english >= 80)
-                                    5.00
-                                    @elseif($marks->english >= 70)
-                                    4.00
-                                    @elseif($marks->english >= 60)
-                                    3.50
-                                    @elseif($marks->english >= 50)
-                                    3.00
-                                    @elseif($marks->english >= 40)
-                                    2.00
-                                    @elseif($marks->english >= 33)
-                                    1.00
-                                    @else
-                                    0.00
-                                    @endif
+                                    @php
+                                    echo $gpa2;
+                                    @endphp
                                 </td>
                             </tr>
                             <tr class="text-center">
@@ -172,38 +164,34 @@ $query_result = mysqli_query($connection, $sql);
                                     @endforeach
                                 </td>
                                 <td>
-                                    @if($marks->math >= 80)
-                                    A+
-                                    @elseif($marks->math >= 70)
-                                    A
-                                    @elseif($marks->math >= 60)
-                                    A-
-                                    @elseif($marks->math >= 50)
-                                    B
-                                    @elseif($marks->math >= 40)
-                                    C
-                                    @elseif($marks->math >= 33)
-                                    D
-                                    @else
-                                    F
-                                    @endif
+                                    @php
+                                    if($marks->math >= 80){
+                                    echo 'A+';
+                                    $gpa3 = 5;}
+                                    elseif($marks->math >= 70){
+                                    echo 'A';
+                                    $gpa3 = 4;}
+                                    elseif($marks->math >= 60){
+                                    echo 'A-';
+                                    $gpa3 = 3.5;}
+                                    elseif($marks->math >= 50){
+                                    echo 'B';
+                                    $gpa3 = 3;}
+                                    elseif($marks->math >= 40){
+                                    echo 'C';
+                                    $gpa3 = 2;}
+                                    elseif($marks->math >= 33){
+                                    echo 'D';
+                                    $gpa3 = 1;}
+                                    else{
+                                    echo 'F';
+                                    $gpa3 = 0;};
+                                    @endphp
                                 </td>
                                 <td id="gpa3">
-                                    @if($marks->math >= 80)
-                                    5.00
-                                    @elseif($marks->math >= 70)
-                                    4.00
-                                    @elseif($marks->math >= 60)
-                                    3.50
-                                    @elseif($marks->math >= 50)
-                                    3.00
-                                    @elseif($marks->math >= 40)
-                                    2.00
-                                    @elseif($marks->math >= 33)
-                                    1.00
-                                    @else
-                                    0.00
-                                    @endif
+                                    @php
+                                    echo $gpa3;
+                                    @endphp
                                 </td>
                             </tr>
                             <tr class="text-center">
@@ -217,38 +205,35 @@ $query_result = mysqli_query($connection, $sql);
                                     @endforeach
                                 </td>
                                 <td>
-                                    @if($marks->science >= 80)
-                                    A+
-                                    @elseif($marks->science >= 70)
-                                    A
-                                    @elseif($marks->science >= 60)
-                                    A-
-                                    @elseif($marks->science >= 50)
-                                    B
-                                    @elseif($marks->science >= 40)
-                                    C
-                                    @elseif($marks->science >= 33)
-                                    D
-                                    @else
-                                    F
-                                    @endif
+                                    @php
+                                    if($marks->science >= 80){
+                                    echo 'A+';
+                                    $gpa4 = 5;}
+                                    elseif($marks->science >= 70){
+                                    echo 'A';
+                                    $gpa4 = 4;}
+                                    elseif($marks->science >= 60){
+                                    echo 'A-';
+                                    $gpa4 = 3.5;}
+                                    elseif($marks->science >= 50){
+                                    echo 'B';
+                                    $gpa4 = 3;}
+                                    elseif($marks->science >= 40){
+                                    echo 'C';
+                                    $gpa4 = 2;}
+                                    elseif($marks->science >= 33){
+                                    echo 'D';
+                                    $gpa4 = 1;}
+                                    else{
+                                    echo 'F';
+                                    $gpa4 = 0;};
+                                    @endphp
                                 </td>
                                 <td id="gpa4">
-                                    @if($marks->science >= 80)
-                                    5.00
-                                    @elseif($marks->science >= 70)
-                                    4.00
-                                    @elseif($marks->science >= 60)
-                                    3.50
-                                    @elseif($marks->science >= 50)
-                                    3.00
-                                    @elseif($marks->science >= 40)
-                                    2.00
-                                    @elseif($marks->science >= 33)
-                                    1.00
-                                    @else
-                                    0.00
-                                    @endif
+                                    @php
+                                    echo $gpa4;
+                                    @endphp
+
                                 </td>
                             </tr>
                             <tr class="text-center">
@@ -262,38 +247,34 @@ $query_result = mysqli_query($connection, $sql);
                                     @endforeach
                                 </td>
                                 <td>
-                                    @if($marks->bob >= 80)
-                                    A+
-                                    @elseif($marks->bob >= 70)
-                                    A
-                                    @elseif($marks->bob >= 60)
-                                    A-
-                                    @elseif($marks->bob >= 50)
-                                    B
-                                    @elseif($marks->bob >= 40)
-                                    C
-                                    @elseif($marks->bob >= 33)
-                                    D
-                                    @else
-                                    F
-                                    @endif
+                                    @php
+                                    if($marks->bob >= 80){
+                                    echo 'A+';
+                                    $gpa5 = 5;}
+                                    elseif($marks->bob >= 70){
+                                    echo 'A';
+                                    $gpa5 = 4;}
+                                    elseif($marks->bob >= 60){
+                                    echo 'A-';
+                                    $gpa5 = 3.5;}
+                                    elseif($marks->bob >= 50){
+                                    echo 'B';
+                                    $gpa5 = 3;}
+                                    elseif($marks->bob >= 40){
+                                    echo 'C';
+                                    $gpa5 = 2;}
+                                    elseif($marks->bob >= 33){
+                                    echo 'D';
+                                    $gpa5 = 1;}
+                                    else{
+                                    echo 'F';
+                                    $gpa5 = 0;};
+                                    @endphp
                                 </td>
                                 <td id="gpa5">
-                                    @if($marks->bob >= 80)
-                                    5.00
-                                    @elseif($marks->bob >= 70)
-                                    4.00
-                                    @elseif($marks->bob >= 60)
-                                    3.50
-                                    @elseif($marks->bob >= 50)
-                                    3.00
-                                    @elseif($marks->bob >= 40)
-                                    2.00
-                                    @elseif($marks->bob >= 33)
-                                    1.00
-                                    @else
-                                    0.00
-                                    @endif
+                                    @php
+                                    echo $gpa5;
+                                    @endphp
                                 </td>
                             </tr>
                             <tr class="text-center">
@@ -307,38 +288,34 @@ $query_result = mysqli_query($connection, $sql);
                                     @endforeach
                                 </td>
                                 <td>
-                                    @if($marks->religion >= 80)
-                                    A+
-                                    @elseif($marks->religion >= 70)
-                                    A
-                                    @elseif($marks->religion >= 60)
-                                    A-
-                                    @elseif($marks->religion >= 50)
-                                    B
-                                    @elseif($marks->religion >= 40)
-                                    C
-                                    @elseif($marks->religion >= 33)
-                                    D
-                                    @else
-                                    F
-                                    @endif
+                                    @php
+                                    if($marks->religion >= 80){
+                                    echo 'A+';
+                                    $gpa6 = 5;}
+                                    elseif($marks->religion >= 70){
+                                    echo 'A';
+                                    $gpa6 = 4;}
+                                    elseif($marks->religion >= 60){
+                                    echo 'A-';
+                                    $gpa6 = 3.5;}
+                                    elseif($marks->religion >= 50){
+                                    echo 'B';
+                                    $gpa6 = 3;}
+                                    elseif($marks->religion >= 40){
+                                    echo 'C';
+                                    $gpa6 = 2;}
+                                    elseif($marks->religion >= 33){
+                                    echo 'D';
+                                    $gpa6 = 1;}
+                                    else{
+                                    echo 'F';
+                                    $gpa6 = 0;};
+                                    @endphp
                                 </td>
                                 <td id="gpa6">
-                                    @if($marks->religion >= 80)
-                                    5.00
-                                    @elseif($marks->religion >= 70)
-                                    4.00
-                                    @elseif($marks->religion >= 60)
-                                    3.50
-                                    @elseif($marks->religion >= 50)
-                                    3.00
-                                    @elseif($marks->religion >= 40)
-                                    2.00
-                                    @elseif($marks->religion >= 33)
-                                    1.00
-                                    @else
-                                    0.00
-                                    @endif
+                                    @php
+                                    echo $gpa6;
+                                    @endphp
                                 </td>
                             </tr>
                             @php if (isset($_GET['add_subject'])) { @endphp
@@ -352,38 +329,34 @@ $query_result = mysqli_query($connection, $sql);
                                 <td>{{$marks->music}}</td>
                                 <td>{{$marks->music}}</td>
                                 <td>
-                                    @if($marks->music >= 80)
-                                    A+
-                                    @elseif($marks->music >= 70)
-                                    A
-                                    @elseif($marks->music >= 60)
-                                    A-
-                                    @elseif($marks->music >= 50)
-                                    B
-                                    @elseif($marks->music >= 40)
-                                    C
-                                    @elseif($marks->music >= 33)
-                                    D
-                                    @else
-                                    F
-                                    @endif
+                                    @php
+                                    if($marks->music >= 80){
+                                    echo 'A+';
+                                    $gpa7 = 5;}
+                                    elseif($marks->music >= 70){
+                                    echo 'A';
+                                    $gpa7 = 4;}
+                                    elseif($marks->music >= 60){
+                                    echo 'A-';
+                                    $gpa7 = 3.5;}
+                                    elseif($marks->music >= 50){
+                                    echo 'B';
+                                    $gpa7 = 3;}
+                                    elseif($marks->music >= 40){
+                                    echo 'C';
+                                    $gpa7 = 2;}
+                                    elseif($marks->music >= 33){
+                                    echo 'D';
+                                    $gpa7 = 1;}
+                                    else{
+                                    echo 'F';
+                                    $gpa7 = 0;};
+                                    @endphp
                                 </td>
                                 <td id="gpa7">
-                                    @if($marks->music >= 80)
-                                    5.00
-                                    @elseif($marks->music >= 70)
-                                    4.00
-                                    @elseif($marks->music >= 60)
-                                    3.50
-                                    @elseif($marks->music >= 50)
-                                    3.00
-                                    @elseif($marks->music >= 40)
-                                    2.00
-                                    @elseif($marks->music >= 33)
-                                    1.00
-                                    @else
-                                    0.00
-                                    @endif
+                                    @php
+                                    echo $gpa7;
+                                    @endphp
                                 </td>
                             </tr>
                             <tr class="text-center">
@@ -393,38 +366,34 @@ $query_result = mysqli_query($connection, $sql);
                                 <td>{{$marks->expressive_art}}</td>
                                 <td>{{$marks->expressive_art}}</td>
                                 <td>
-                                    @if($marks->expressive_art >= 80)
-                                    A+
-                                    @elseif($marks->expressive_art >= 70)
-                                    A
-                                    @elseif($marks->expressive_art >= 60)
-                                    A-
-                                    @elseif($marks->expressive_art >= 50)
-                                    B
-                                    @elseif($marks->expressive_art >= 40)
-                                    C
-                                    @elseif($marks->expressive_art >= 33)
-                                    D
-                                    @else
-                                    F
-                                    @endif
+                                    @php
+                                    if($marks->expressive_art >= 80){
+                                    echo 'A+';
+                                    $gpa8 = 5;}
+                                    elseif($marks->expressive_art >= 70){
+                                    echo 'A';
+                                    $gpa8 = 4;}
+                                    elseif($marks->expressive_art >= 60){
+                                    echo 'A-';
+                                    $gpa8 = 3.5;}
+                                    elseif($marks->expressive_art >= 50){
+                                    echo 'B';
+                                    $gpa8 = 3;}
+                                    elseif($marks->expressive_art >= 40){
+                                    echo 'C';
+                                    $gpa8 = 2;}
+                                    elseif($marks->expressive_art >= 33){
+                                    echo 'D';
+                                    $gpa8 = 1;}
+                                    else{
+                                    echo 'F';
+                                    $gpa8 = 0;};
+                                    @endphp
                                 </td>
                                 <td id="gpa8">
-                                    @if($marks->expressive_art >= 80)
-                                    5.00
-                                    @elseif($marks->expressive_art >= 70)
-                                    4.00
-                                    @elseif($marks->expressive_art >= 60)
-                                    3.50
-                                    @elseif($marks->expressive_art >= 50)
-                                    3.00
-                                    @elseif($marks->expressive_art >= 40)
-                                    2.00
-                                    @elseif($marks->expressive_art >= 33)
-                                    1.00
-                                    @else
-                                    0.00
-                                    @endif
+                                    @php
+                                    echo $gpa8;
+                                    @endphp
                                 </td>
                             </tr>
                             <tr class="text-center">
@@ -434,39 +403,34 @@ $query_result = mysqli_query($connection, $sql);
                                 <td id="marks">{{$marks->physical}}</td>
                                 <td>{{$marks->physical}}</td>
                                 <td>
-                                    @if($marks->physical >= 80)
-                                    A+
-                                    @elseif($marks->physical >= 70)
-                                    A
-                                    @elseif($marks->physical >= 60)
-                                    A-
-                                    @elseif($marks->physical >= 50)
-                                    B
-                                    @elseif($marks->physical >= 40)
-                                    C
-                                    @elseif($marks->physical >= 33)
-                                    D
-                                    @else
-                                    F
-                                    @endif
+                                    @php
+                                    if($marks->physical >= 80){
+                                    echo 'A+';
+                                    $gpa9 = 5;}
+                                    elseif($marks->physical >= 70){
+                                    echo 'A';
+                                    $gpa9 = 4;}
+                                    elseif($marks->physical >= 60){
+                                    echo 'A-';
+                                    $gpa9 = 3.5;}
+                                    elseif($marks->physical >= 50){
+                                    echo 'B';
+                                    $gpa9 = 3;}
+                                    elseif($marks->physical >= 40){
+                                    echo 'C';
+                                    $gpa9 = 2;}
+                                    elseif($marks->physical >= 33){
+                                    echo 'D';
+                                    $gpa9 = 1;}
+                                    else{
+                                    echo 'F';
+                                    $gpa9 = 0;};
+                                    @endphp
                                 </td>
                                 <td id="gpa9">
-                                    @if($marks->physical >= 80)
-                                    5.00
-                                    @elseif($marks->physical >= 70)
-                                    4.00
-                                    @elseif($marks->physical >= 60)
-                                    3.50
-                                    @elseif($marks->physical >= 50)
-                                    3.00
-                                    @elseif($marks->physical >= 40)
-                                    2.00
-                                    @elseif($marks->physical >= 33)
-                                    1.00
-                                    @else
-                                    0.00
-                                    @endif
-
+                                    @php
+                                    echo $gpa9;
+                                    @endphp
                                 </td>
                             </tr>
                             @php
@@ -477,12 +441,53 @@ $query_result = mysqli_query($connection, $sql);
                             </tr>
                             <tr class="text-center">
                                 <td colspan="1">Obtain Mark</td>
-                                <td>{{$marks->bangla + $marks->english + $marks->math + $marks->science + $marks->bob + $marks->religion + $marks->music + $marks->expressive_art + $marks->physical  }}</td>
+                                <td>
+                                    @php if (isset($_GET['add_subject']))
+                                    $total = $marks->bangla + $marks->english + $marks->math + $marks->science + $marks->bob + $marks->religion + $marks->music + $marks->expressive_art + $marks->physical ;
+                                    else
+                                    $total = $marks->bangla + $marks->english + $marks->math + $marks->science + $marks->bob + $marks->religion;
+                                    echo $total;
+                                    @endphp
+                                </td>
                                 <td colspan="1">Obtain GPA</td>
                                 <td id="gpa">
+
+                                    @php if (isset($_GET['add_subject'])){
+                                    $total_gpa = $gpa1 + $gpa2 +$gpa3 + $gpa4 + $gpa5 + $gpa6 + $gpa7 + $gpa8 + $gpa9;
+                                    $average_gpa = $total_gpa/9;
+                                    echo round($average_gpa, 2);}
+                                    else{
+                                    $total_gpa = $gpa1 + $gpa2 +$gpa3 + $gpa4 + $gpa5 + $gpa6;
+                                    $average_gpa = $total_gpa/6;
+                                    echo round($average_gpa,2);}
+                                    @endphp
                                 </td>
                                 <td colspan="1">Obtain Grade</td>
-                                <td id="grade"></td>
+                                <td id="grade">
+                                    @php
+                                    if($average_gpa >= 5){
+                                    echo 'A+';
+                                    }
+                                    elseif($average_gpa >= 4){
+                                    echo 'A';
+                                    }
+                                    elseif($average_gpa >= 3.5){
+                                    echo 'A-';
+                                    }
+                                    elseif($average_gpa >= 3){
+                                    echo 'B';
+                                    }
+                                    elseif($average_gpa >= 2){
+                                    echo 'C';
+                                    }
+                                    elseif($average_gpa >= 1){
+                                    echo 'D';
+                                    }
+                                    else{
+                                    echo 'F';
+                                    };
+                                    @endphp
+                                </td>
                                 <td><strong>Merit : 2nd</strong></td>
                             </tr>
 
@@ -508,51 +513,5 @@ $query_result = mysqli_query($connection, $sql);
     </div>
 
 
-    <script>
-        // create gpa
-        var gpa1 = Number(document.getElementById('gpa1').innerHTML);
-        var gpa2 = Number(document.getElementById('gpa2').innerHTML);
-        var gpa3 = Number(document.getElementById('gpa3').innerHTML);
-        var gpa4 = Number(document.getElementById('gpa4').innerHTML);
-        var gpa5 = Number(document.getElementById('gpa5').innerHTML);
-        var gpa6 = Number(document.getElementById('gpa6').innerHTML);
 
-        if (gpa1 <= 0) {
-            var average_gpa = 0.00;
-        } else if (gpa2 <= 0) {
-            var average_gpa = 0.00;
-        } else if (gpa3 <= 0) {
-            var average_gpa = 0.00;
-        } else if (gpa4 <= 0) {
-            var average_gpa = 0.00;
-        } else if (gpa5 <= 0) {
-            var average_gpa = 0.00;
-        } else if (gpa6 <= 0) {
-            var average_gpa = 0.00;
-        } else {
-            var average_gpa = (gpa1 + gpa2 + gpa3 + gpa4 + gpa5 + gpa6) / 6;
-        }
-
-        //    var p = document.getElementById('marks1').value;
-
-
-        document.getElementById('gpa').innerHTML = average_gpa.toFixed(2);
-
-        // create grade
-        if (average_gpa >= 5) {
-            document.getElementById('grade').innerHTML = "A+";
-        } else if (average_gpa >= 4) {
-            document.getElementById('grade').innerHTML = "A";
-        } else if (average_gpa >= 3.50) {
-            document.getElementById('grade').innerHTML = "A-";
-        } else if (average_gpa >= 3) {
-            document.getElementById('grade').innerHTML = "B";
-        } else if (average_gpa >= 2) {
-            document.getElementById('grade').innerHTML = "C";
-        } else if (average_gpa >= 1) {
-            document.getElementById('grade').innerHTML = "D";
-        } else {
-            document.getElementById('grade').innerHTML = "F";
-        }
-    </script>
     @endsection
