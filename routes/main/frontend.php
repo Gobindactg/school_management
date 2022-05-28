@@ -8,6 +8,7 @@ use App\Http\Controllers\Frontend\InstitutionController;
 use App\Http\Controllers\Frontend\SubjectController;
 use App\Http\Controllers\Frontend\TeacherController;
 use App\Http\Controllers\Frontend\StudentController;
+use App\Http\Controllers\Frontend\ClassController;
 use App\Http\Controllers\Frontend\LibraryController;
 use App\Http\Controllers\Frontend\DivisionController;
 use App\Http\Controllers\Frontend\DistrictController;
@@ -108,6 +109,17 @@ Route::group(['prefix' => 'exam', 'middleware' => ['auth', 'institutionAdmin']],
 
   // short result
   Route::get('/publish-result', [StudentController::class, 'publish_result'])->name('publishResult');
+});
+
+
+//classes
+Route::group(['prefix' => 'classes', 'middleware' => ['auth']], function () {
+  // Route::get('/addClass', [ClassController::class, 'addClass'])->name('addClass');
+  Route::get('/manageClass', [ClassController::class, 'manageClass'])->name('manageClass');
+
+
+  Route::post('/addClass', [ClassController::class, 'addClass'])->name('addClass');
+  Route::post('/deleteClass', [ClassController::class, 'deleteClass'])->name('deleteClass');
 });
 
 
