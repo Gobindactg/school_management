@@ -12,7 +12,8 @@
     <!-- =======End Css ======= -->
     <style>
         .body_img {
-            background-image: url("{{ asset('sliderImage/background.png') }}");
+            background-image:   linear-gradient(rgba(255,255,255, 0.4), rgba(255,255,255, 0.4)),
+                                url("{{ asset('sliderImage/background.png') }}");
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-size: cover;

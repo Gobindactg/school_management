@@ -108,6 +108,11 @@
              </a>
          </li>
          <li class="nav-item">
+             <a class="nav-link" href="{{ route('manageClass') }}">
+                <i class='bx bx-chalkboard'></i><span>Class Management</span>
+             </a>
+         </li>
+         <li class="nav-item">
              <a class="nav-link {{ Request::is('subject/*') ? '' : 'collapsed' }}" data-bs-target="#subject" data-bs-toggle="collapse" href="#">
                  <i class='bx bxs-book'></i><span>Subject Management</span><i class="bi bi-chevron-down ms-auto"></i>
              </a>
