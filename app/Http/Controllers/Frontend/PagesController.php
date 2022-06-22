@@ -9,6 +9,7 @@ use App\Models\Institution_info;
 use App\Models\Jobs;
 use App\Models\User;
 use App\Models\social;
+use App\Models\student_mark;
 
 class PagesController extends Controller
 {
@@ -17,8 +18,9 @@ class PagesController extends Controller
         $id = Auth::id();
         $user_level = User::find($id)->user_level;
         $institution = Institution_info::orderBy('id', 'desc')->where('user_id', $id)->get();
+
         if ($user_level >= 1) {
-            return view('Frontend.pages.index')->with('institution', $institution)->with('user_level', $user_level);
+            return view('Frontend.pages.index', compact('institution', 'user_level'));
         } else {
             if ($user_level === 0.0) {
                 return redirect()->route('getStarted'); //redirect get Started Page
@@ -90,5 +92,10 @@ class PagesController extends Controller
     public function pending()
     {
         return view('Frontend.pages.Institution.pending');
+    }
+
+    public function userdashboard()
+    {
+        return view('Frontend.pages.dashboard.userdashboard');
     }
 }

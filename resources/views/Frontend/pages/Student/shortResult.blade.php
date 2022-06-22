@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <form action="{{route('search.admit')}}" method="get">
+            <form action="{{route('shortResult')}}" method="get">
 
                 <select class="form-select " name="class" id="class_admit">
                     <option value="">--Select Class--</option>
@@ -37,7 +37,7 @@
                 <option value="">-- Select Exam Name --</option>
                 <option value="First Terminal Exam"> First Terminal Exam</option>
                 <option value="Second Terminal Exam">Second Terminal Exam</option>
-                <option value="aannual examination">Annual Exam</option>
+                <option value="annual examination">Annual Exam</option>
             </select>
         </div>
 

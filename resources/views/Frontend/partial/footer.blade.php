@@ -1,4 +1,4 @@
-<footer id="footer" class="footer fixed-bottom">
+<footer id="footer" class="footer " style=" bottom:0px; background-color:lightslategrey; height:70px">
     <div class="copyright">
         &copy; Copyright <strong><span>Noipunno Digital School</span></strong>. All Rights Reserved
     </div>

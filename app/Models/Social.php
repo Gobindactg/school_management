@@ -15,4 +15,9 @@ class Social extends Model
    
             return $social_media;
     }
+
+    public static function social(){
+        $social = Message::orderBy('id', 'desc')->where('user_id', Auth::id());
+        return $social;
+    }
 }

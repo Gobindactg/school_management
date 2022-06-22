@@ -1,7 +1,7 @@
 .messenger {
     position: fixed;
-    bottom: 30px;
-    right: 50px;
+    bottom: 10%;
+    right: 70px;
     height: 60px;
     width: 60px;
     background: rgba(255, 255, 255, 0.6);

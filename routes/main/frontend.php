@@ -41,6 +41,7 @@ Route::get('/about', [LandingPagesController::class, 'about'])->name('about');
 Route::group(['middleware' => 'auth'], function () {
   Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
 
+  Route::get('/userdashboard', [PagesController::class, 'userdashboard'])->name('userdashboard');
   //route for new User
   Route::group(['middleware' => 'newUser'], function () {
     Route::get('/getting_started', [PagesController::class, 'get_started'])->name('getStarted');
@@ -49,6 +50,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/institution_list', [PagesController::class, 'institution_list'])->name('institution_list');
     Route::post('/apply_job', [PagesController::class, 'apply_job'])->name('apply_job');
+
+    //user dashboard
+
   });
 
   Route::get('/pending', [PagesController::class, 'pending'])->name('pending')->middleware('pendingUser');
@@ -84,6 +88,8 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'institutionAdmin'
   Route::get('/student/delete/{id}', [StudentController::class, 'student_delete'])->name('studentDelete');
   Route::get('/singleResult/{id}', [StudentController::class, 'single_result'])->name('singleResult');
   Route::get('/tabulation', [StudentController::class, 'tabulation'])->name('tabulation');
+  Route::get('/short-result', [StudentController::class, 'shortResult'])->name('shortResult');
+  Route::get('/searchTabulation', [StudentController::class, 'searchTabulation'])->name('searchTabulation');
 
   // routine controller
   Route::get('/manage-routine', [RoutineController::class, 'manage_routine'])->name('manage_routine');

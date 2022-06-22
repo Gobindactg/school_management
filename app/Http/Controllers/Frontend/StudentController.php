@@ -340,19 +340,7 @@ class StudentController extends Controller
 				->paginate(14);
 			return view('Frontend.pages.Student.searchResult', compact('marks', 'class', 'group', 'year', 'institution'));
 		}
-
-
-
-
-
-
-
-
-		//     $marks = student_mark::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
-		//     $institution = Institution_info::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
-		//     return view('Frontend.pages.Student.singleResult', compact('marks', 'institution'));
 	}
-
 
 
 	// create mark entry student search
@@ -405,6 +393,50 @@ class StudentController extends Controller
 		return view('Frontend.pages.Student.shortResult', compact('resultPublished', 'mark'));
 	}
 
+
+
+	// search short result
+
+	public function shortResult(Request $request)
+	{
+		$user_id = Auth::id();
+		$class = $request->class;
+		$group = $request->group;
+		$year = $request->year;
+
+		if (!empty($class) && empty($group) && empty($year)) {
+			$resultPublished = student_mark::Where('class', 'like', '%' . $class . '%')
+				->Where('user_id', $user_id)
+				->orderBy('id', 'desc')
+				->paginate(14);
+			return view('Frontend.pages.Student.shortResult', compact('resultPublished', 'class', 'group'));
+		}
+		if (!empty($class) && !empty($group) && empty($year)) {
+			$resultPublished = student_mark::Where('class', 'like', '%' . $class . '%')
+				->Where('st_group', 'like', '%' . $group . '%')
+				->Where('user_id', $user_id)
+				->orderBy('id', 'desc')
+				->paginate(14);
+			return view('Frontend.pages.Student.shortResult', compact('resultPublished', 'class', 'group'));
+		}
+		if (!empty($class) && !empty($group) && !empty($year)) {
+			$resultPublished = student_mark::Where('class', 'like', '%' . $class . '%')
+				->Where('st_group', 'like', '%' . $group . '%')
+				->Where('st_year', 'like', '%' . $year . '%')
+				->Where('user_id', $user_id)
+				->orderBy('id', 'desc')
+				->paginate(14);
+			return view('Frontend.pages.Student.shortResult', compact('resultPublished', 'class', 'group', 'year'));
+		}
+		if (empty($class) && empty($group) && empty($year)) {
+			$resultPublished = student_mark::Where('user_id', $user_id)
+				->orderBy('id', 'desc')
+				->paginate(14);
+			return view('Frontend.pages.Student.shortResult', compact('resultPublished', 'class', 'group', 'year'));
+		}
+	}
+
+	// tabulation
 	public function tabulation(Request $request)
 	{
 		$user_id = Auth::id();
@@ -412,6 +444,48 @@ class StudentController extends Controller
 		$result = student_mark::where('user_id', $user_id)->get();
 		return view('Frontend.pages.Student.tabulationSheet', compact('result', 'add'));
 	}
+	// search tabulation sheet
+
+	public function searchTabulation(Request $request)
+	{
+		$user_id = Auth::id();
+		$class = $request->class;
+		$group = $request->group;
+		$year = $request->year;
+		$add = $request->add;
+
+		if (!empty($class) && empty($group) && empty($year)) {
+			$result = student_mark::Where('class', 'like', '%' . $class . '%')
+				->Where('user_id', $user_id)
+				->orderBy('id', 'desc')
+				->paginate(14);
+			return view('Frontend.pages.Student.tabulationSheet', compact('result', 'class', 'group', 'add'));
+		}
+		if (!empty($class) && !empty($group) && empty($year)) {
+			$result = student_mark::Where('class', 'like', '%' . $class . '%')
+				->Where('st_group', 'like', '%' . $group . '%')
+				->Where('user_id', $user_id)
+				->orderBy('id', 'desc')
+				->paginate(14);
+			return view('Frontend.pages.Student.tabulationSheet', compact('result', 'class', 'group', 'add'));
+		}
+		if (!empty($class) && !empty($group) && !empty($year)) {
+			$result = student_mark::Where('class', 'like', '%' . $class . '%')
+				->Where('st_group', 'like', '%' . $group . '%')
+				->Where('st_year', 'like', '%' . $year . '%')
+				->Where('user_id', $user_id)
+				->orderBy('id', 'desc')
+				->paginate(14);
+			return view('Frontend.pages.Student.tabulationSheet', compact('result', 'class', 'group', 'year', 'add'));
+		}
+		if (empty($class) && empty($group) && empty($year)) {
+			$result = student_mark::Where('user_id', $user_id)
+				->orderBy('id', 'desc')
+				->paginate(14);
+			return view('Frontend.pages.Student.tabulationSheet', compact('result', 'class', 'group', 'year', 'add'));
+		}
+	}
+
 	// use for add filtering
 
 
