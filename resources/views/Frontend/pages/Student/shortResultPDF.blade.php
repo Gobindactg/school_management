@@ -1,11 +1,11 @@
 @extends('Frontend.layouts.master')
-@section('title', 'Published Result')
+@section('title', 'Published Result Print')
 @section('content')
 
 <div class="container">
     <div class="row">
         <div class="col-md-2">
-            <form action="{{route('shortResult')}}" method="get">
+            <form action="{{route('shortResultPDF')}}" method="get" target="_blank">
 
                 <select class="form-select " name="class" id="class_admit">
                     <option value="">--Select Class--</option>
@@ -32,7 +32,7 @@
                 <option value="2020">2020</option>
             </select>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
             <select name="examName" id="" class="form-control">
                 <option value="">-- Select Exam Name --</option>
                 <option value="First Terminal Exam"> First Terminal Exam</option>
@@ -47,11 +47,8 @@
             </label>
         </div>
         <div class="col-md-1">
-            <input type="submit" value="Search" class="btn btn-info ">
+            <input type="submit" value="Print" class="btn btn-info w-100">
             </form>
-        </div>
-        <div class="col-md-1">
-            <a href="{{route('shortResultShow')}}" class="btn btn-info">Print</a>
         </div>
 
     </div>

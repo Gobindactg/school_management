@@ -9,7 +9,9 @@ use App\Models\Institution_info;
 use App\Models\Jobs;
 use App\Models\User;
 use App\Models\social;
+use App\Models\Routine;
 use App\Models\student_mark;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PagesController extends Controller
 {
@@ -20,10 +22,10 @@ class PagesController extends Controller
         $institution = Institution_info::orderBy('id', 'desc')->where('user_id', $id)->get();
 
         if ($user_level >= 1) {
-            return view('Frontend.pages.index', compact('institution', 'user_level'));
+            return view('Frontend.index', compact('institution', 'user_level'));
         } else {
             if ($user_level === 0.0) {
-                return redirect()->route('getStarted'); //redirect get Started Page
+                return redirect()->route('addInstitution'); //redirect get Started Page
             } else if ($user_level === 0.10) {
                 return redirect()->route('pending'); //redirect pending Page
             } else {
@@ -97,5 +99,114 @@ class PagesController extends Controller
     public function userdashboard()
     {
         return view('Frontend.pages.dashboard.userdashboard');
+    }
+
+
+
+
+
+    public function admitPDF(Request $request)
+    {
+        $user_id = Auth::id();
+        $class = $request->class;
+        $group = $request->group;
+        $year = $request->year;
+        $add_routine = $request->add_routine;
+        $exam = $request->exam;
+
+
+        if (empty($add_routine)) {
+            if (!empty($class) && empty($group) && empty($year)) {
+                $marks = student_mark::Where('class', 'like', '%' . $class . '%')
+                    ->Where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->get();
+
+                $pdf = PDF::loadView('Frontend.pages.Student.admitPDF', compact('marks', 'class', 'group', 'add_routine'));
+                return $pdf->stream('AdmitCard.pdf');
+            }
+            if (!empty($class) && !empty($group) && empty($year)) {
+
+                $marks = student_mark::Where('class', 'like', '%' . $class . '%')
+                    ->Where('st_group', 'like', '%' . $group . '%')
+                    ->Where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->paginate(14);
+                $pdf = PDF::loadView('Frontend.pages.Student.admitPDF', compact('marks', 'class', 'group'));
+                return $pdf->stream('AdmitCard.pdf');
+            }
+            if (!empty($class) && !empty($group) && !empty($year)) {
+
+                $marks = student_mark::Where('class', 'like', '%' . $class . '%')
+                    ->Where('st_group', 'like', '%' . $group . '%')
+                    ->Where('st_year', 'like', '%' . $year . '%')
+                    ->Where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->paginate(14);
+                $pdf = PDF::loadView('Frontend.pages.Student.admitPDF', compact('marks', 'class', 'group', 'year'));
+                return $pdf->stream('AdmitCard.pdf');
+            }
+            if (empty($class) && empty($group) && empty($year)) {
+
+                $marks = student_mark::Where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->paginate(14);
+                $pdf = PDF::loadView('Frontend.pages.Student.admitPDF', compact('marks', 'class', 'group', 'year'));
+                return $pdf->stream('AdmitCard.pdf');
+            }
+        } else {
+            if (!empty($class) && empty($group) && empty($year)) {
+
+                $marks = student_mark::Where('class', 'like', '%' . $class . '%')
+                    ->Where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->get();
+                $routine = Routine::Where('class', $class)
+                    ->Where('user_id', $user_id)
+                    ->orderBy('id', 'asc')
+                    ->get();
+
+                $pdf = PDF::loadView('Frontend.pages.Student.admitPDF', compact('marks', 'class', 'group', 'routine'));
+                return $pdf->stream('AdmitCard.pdf');
+            }
+            if (!empty($class) && !empty($group) && empty($year)) {
+                $routine = Routine::Where('class', 'like', '%' . $class . '%')
+                    ->Where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->paginate(14);
+                $marks = student_mark::Where('class', 'like', '%' . $class . '%')
+                    ->Where('st_group', 'like', '%' . $group . '%')
+                    ->Where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->paginate(14);
+                $pdf = PDF::loadView('Frontend.pages.Student.admitPDF', compact('marks', 'class', 'group', 'routine'));
+                return $pdf->stream('AdmitCard.pdf');
+            }
+            if (!empty($class) && !empty($group) && !empty($year)) {
+                $routine = Routine::Where('class', 'like', '%' . $class . '%')
+                    ->Where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->paginate(14);
+                $marks = student_mark::Where('class', 'like', '%' . $class . '%')
+                    ->Where('st_group', 'like', '%' . $group . '%')
+                    ->Where('st_year', 'like', '%' . $year . '%')
+                    ->Where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->paginate(14);
+                $pdf = PDF::loadView('Frontend.pages.Student.admitPDF', compact('marks', 'class', 'group', 'year', 'routine'));
+                return $pdf->stream('AdmitCard.pdf');
+            }
+            if (empty($class) && empty($group) && empty($year)) {
+                $routine = Routine::Where('class', 'like', '%' . $class . '%')
+                    ->Where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->paginate(14);
+                $marks = student_mark::Where('user_id', $user_id)
+                    ->orderBy('id', 'desc')
+                    ->paginate(14);
+                $pdf = PDF::loadView('Frontend.pages.Student.admitPDF', compact('marks', 'class', 'group', 'year', 'routine'));
+                return $pdf->stream('AdmitCard.pdf');
+            }
+        }
     }
 }

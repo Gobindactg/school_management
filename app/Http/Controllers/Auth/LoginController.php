@@ -67,7 +67,7 @@ class LoginController extends Controller
         if (count($institution) > 0 ){
           return redirect()->route('noipunno');// to redirect add instutition 
         }else{
-          return redirect()->route('getStarted');// to redirect get Started Page
+          return redirect()->route('addInstitution');// to redirect get Started Page
         }
        
       } else {

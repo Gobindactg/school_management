@@ -15,6 +15,7 @@ use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\PartialController;
 use App\Http\Controllers\Frontend\RoutineController;
 use App\Http\Controllers\Auth\RegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('/noipunno', [PagesController::class, 'noipunno'])->name('noipunno');
 
   Route::get('/userdashboard', [PagesController::class, 'userdashboard'])->name('userdashboard');
+  
   //route for new User
   Route::group(['middleware' => 'newUser'], function () {
     Route::get('/getting_started', [PagesController::class, 'get_started'])->name('getStarted');
@@ -80,16 +82,30 @@ Route::group(['prefix' => 'institute', 'middleware' => 'auth'], function () {
 
 //student
 Route::group(['prefix' => 'student', 'middleware' => ['auth', 'institutionAdmin']], function () {
+  Route::post('/add-group-store', [StudentController::class, 'group_store'])->name('group_store');
+
   Route::get('/add_student', [StudentController::class, 'add_student'])->name('add_student');
   Route::get('/add_group', [StudentController::class, 'add_group'])->name('add_group');
-  Route::post('/add-group-store', [StudentController::class, 'group_store'])->name('group_store');
   Route::post('/student_store', [StudentController::class, 'studentAdd'])->name('student_info_store');
   Route::get('/manageStudent', [StudentController::class, 'manageStudent'])->name('manageStudent');
   Route::get('/student/delete/{id}', [StudentController::class, 'student_delete'])->name('studentDelete');
+
   Route::get('/singleResult/{id}', [StudentController::class, 'single_result'])->name('singleResult');
-  Route::get('/tabulation', [StudentController::class, 'tabulation'])->name('tabulation');
+  Route::get('/singleResultPDF/{id}', [StudentController::class, 'single_resultPDF'])->name('singleResultPDF');
+
+
+
   Route::get('/short-result', [StudentController::class, 'shortResult'])->name('shortResult');
+  Route::get('/shortResult', [StudentController::class, 'shortResultShow'])->name('shortResultShow');
+  Route::get('/shortResultPDF', [StudentController::class, 'shortResultPDF'])->name('shortResultPDF');
+
+  Route::get('/tabulation', [StudentController::class, 'tabulation'])->name('tabulation');
   Route::get('/searchTabulation', [StudentController::class, 'searchTabulation'])->name('searchTabulation');
+  Route::get('/tabulationPrintShow', [StudentController::class, 'tabulationPrintShow'])->name('tabulationPrintShow');
+  Route::get('/tabulationPDF', [StudentController::class, 'tabulationPDF'])->name('tabulationPDF');
+  Route::get('/tabulationPDF2', [StudentController::class, 'tabulationPDF2'])->name('tabulationPDF2');
+
+  Route::get('/admitPDF', [PagesController::class, 'admitPDF'])->name('admitPDF');
 
   // routine controller
   Route::get('/manage-routine', [RoutineController::class, 'manage_routine'])->name('manage_routine');
@@ -104,7 +120,6 @@ Route::group(['prefix' => 'exam', 'middleware' => ['auth', 'institutionAdmin']],
   Route::get('/marks', [StudentController::class, 'marks'])->name('marks');
   Route::post('/marks-store', [StudentController::class, 'marks_store'])->name('marks_store');
   Route::get('/search-single-result', [StudentController::class, 'search_result'])->name('searchResult');
-  Route::get('/singleResult/{id}', [StudentController::class, 'single_result'])->name('singleResult');
 
   // search
   Route::get('/search-student', [StudentController::class, 'search_student'])->name('search.student');
@@ -173,6 +188,7 @@ Route::group(['middleware' => 'auth'], function () {
 // visitor route
 Route::get('/visitor/{id}', [SearchController::class, 'visitor'])->name('visitor');
 Route::get('/search-seatplan', [SearchController::class, 'search_seatplan'])->name('search.seatplan');
+Route::get('/seatPlanPDF', [SearchController::class, 'seatPlanPDF'])->name('seatPlanPDF');
 
 
 // Library

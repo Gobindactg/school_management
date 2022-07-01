@@ -11,6 +11,8 @@ use App\Models\Routine;
 use App\Models\User;
 use App\Models\StudentGroup;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 use DB;
 
 use File;
@@ -149,7 +151,6 @@ class StudentController extends Controller
 		$marks = student_mark::orderBy('id', 'desc')->where('user_id', $id)->get();
 		return view('Frontend.pages.Student.marks')->with('marks', $marks);
 	}
-
 	public function marks_store(Request $request)
 	{
 		$validation = $request->validate([
@@ -205,6 +206,12 @@ class StudentController extends Controller
 
 		return view('Frontend.pages.Student.seatPlan');
 	}
+
+
+	// Print seatPlan
+
+
+
 
 	public function studentAdd(Request $request)
 	{
@@ -296,6 +303,23 @@ class StudentController extends Controller
 		$maxMarkB = student_mark::Where('class', $class)->orderBy('bob', 'desc')->take(1)->get();
 		$maxMarkR = student_mark::Where('class', $class)->orderBy('religion', 'desc')->take(1)->get();
 		return view('Frontend.pages.Student.singleResult', compact('marks', 'institution', 'maxMark', 'maxMarkE', 'maxMarkM', 'maxMarkS', 'maxMarkB', 'maxMarkR'));
+	}
+	//  start single result PDF
+	public function single_resultPDF(Request $request, $id)
+	{
+		$class = $request->class;
+		$group = $request->group;
+		$year = $request->year;
+		$marks = student_mark::orderBy('id', 'desc')->where('id', $id)->get();
+		$institution = Institution_info::orderBy('id', 'desc')->where('user_id', Auth::id())->get();
+		$maxMark = student_mark::Where('class', $class)->orderBy('bangla', 'desc')->take(1)->get();
+		$maxMarkE = student_mark::Where('class', $class)->orderBy('english', 'desc')->take(1)->get();
+		$maxMarkM = student_mark::Where('class', $class)->orderBy('math', 'desc')->take(1)->get();
+		$maxMarkS = student_mark::Where('class', $class)->orderBy('science', 'desc')->take(1)->get();
+		$maxMarkB = student_mark::Where('class', $class)->orderBy('bob', 'desc')->take(1)->get();
+		$maxMarkR = student_mark::Where('class', $class)->orderBy('religion', 'desc')->take(1)->get();
+		$pdf = PDF::loadView('Frontend.pages.Student.singleResultPDF', compact('marks', 'institution', 'maxMark', 'maxMarkE', 'maxMarkM', 'maxMarkS', 'maxMarkB', 'maxMarkR'));
+		return $pdf->stream('MarkSheet.pdf');
 	}
 
 	public function search_result(Request $request)
@@ -435,13 +459,52 @@ class StudentController extends Controller
 			return view('Frontend.pages.Student.shortResult', compact('resultPublished', 'class', 'group', 'year'));
 		}
 	}
+	// short result Print
+
+	public function shortResultShow(Request $request)
+	{
+		$user_id = Auth::id();
+		$class = $request->class;
+		$group = $request->group;
+		$year = $request->year;
+
+		$resultPublished = student_mark::orderBy('id', 'asc')
+			->Where('class', 'like', '%' . $class . '%')
+			->Where('class', 'like', '%' . $group . '%')
+			->Where('class', 'like', '%' . $year . '%')
+			->Where('user_id', $user_id)
+			->orderBy('id', 'asc')
+			->paginate(14);
+		return view('Frontend.pages.Student.shortResultPDF', compact('resultPublished', 'class', 'group', 'year'));
+	}
+
+	//  short result Print
+	// short result Print
+
+	public function shortResultPDF(Request $request)
+	{
+		$user_id = Auth::id();
+		$class = $request->class;
+		$group = $request->group;
+		$year = $request->year;
+		$resultPublished = student_mark::orderBy('id', 'asc')
+			->Where('class', 'like', '%' . $class . '%')
+			->Where('st_group', 'like', '%' . $group . '%')
+			->Where('st_year', 'like', '%' . $year . '%')
+			->Where('user_id', $user_id)
+			->orderBy('id', 'asc')
+			->paginate(14);
+		$pdf = PDF::loadView('Frontend.pages.Student.shortResultPrintPDF', compact('resultPublished', 'class', 'group', 'year'));
+		return $pdf->stream('PublishedResult.pdf');
+	}
+
 
 	// tabulation
 	public function tabulation(Request $request)
 	{
 		$user_id = Auth::id();
 		$add = $request->add;
-		$result = student_mark::where('user_id', $user_id)->get();
+		$result = student_mark::where('user_id', $user_id)->paginate(10);
 		return view('Frontend.pages.Student.tabulationSheet', compact('result', 'add'));
 	}
 	// search tabulation sheet
@@ -453,117 +516,91 @@ class StudentController extends Controller
 		$group = $request->group;
 		$year = $request->year;
 		$add = $request->add;
-
-		if (!empty($class) && empty($group) && empty($year)) {
-			$result = student_mark::Where('class', 'like', '%' . $class . '%')
-				->Where('user_id', $user_id)
-				->orderBy('id', 'desc')
-				->paginate(14);
-			return view('Frontend.pages.Student.tabulationSheet', compact('result', 'class', 'group', 'add'));
-		}
-		if (!empty($class) && !empty($group) && empty($year)) {
-			$result = student_mark::Where('class', 'like', '%' . $class . '%')
-				->Where('st_group', 'like', '%' . $group . '%')
-				->Where('user_id', $user_id)
-				->orderBy('id', 'desc')
-				->paginate(14);
-			return view('Frontend.pages.Student.tabulationSheet', compact('result', 'class', 'group', 'add'));
-		}
-		if (!empty($class) && !empty($group) && !empty($year)) {
-			$result = student_mark::Where('class', 'like', '%' . $class . '%')
-				->Where('st_group', 'like', '%' . $group . '%')
-				->Where('st_year', 'like', '%' . $year . '%')
-				->Where('user_id', $user_id)
-				->orderBy('id', 'desc')
-				->paginate(14);
-			return view('Frontend.pages.Student.tabulationSheet', compact('result', 'class', 'group', 'year', 'add'));
-		}
-		if (empty($class) && empty($group) && empty($year)) {
-			$result = student_mark::Where('user_id', $user_id)
-				->orderBy('id', 'desc')
-				->paginate(14);
-			return view('Frontend.pages.Student.tabulationSheet', compact('result', 'class', 'group', 'year', 'add'));
-		}
+		$result = student_mark::orderBy('id', 'desc')
+			->Where('class', 'like', '%' . $class . '%')
+			->Where('st_group', 'like', '%' . $group . '%')
+			->Where('st_year', 'like', '%' . $year . '%')
+			->Where('user_id', $user_id)
+			->paginate(3);
+		return view('Frontend.pages.Student.tabulationSheet', compact('result', 'class', 'group', 'year', 'add'));
 	}
 
-	// use for add filtering
+	//  tabulatin Print section
 
-
-
-
-
-
-	// public function search_admit(Request $request)
-	// {
-	// 	$user_id = Auth::id();
-	// 	$class = $request->className !== 'null' ? $request->className : "";
-	// 	$group = $request->group !== 'null' ? $request->group : "";
-	// 	$year = $request->year !== 'null' ? $request->year : "";
-
-	// 	$routine = Routine::Where('class', 'like', '%' . $class . '%')
-	// 		->Where('user_id', $user_id)
-	// 		->orderBy('id', 'desc')
-	// 		->paginate(14);
-	// 	$marks = student_mark::Where('class', 'like', '%' . $class . '%')
-	// 		->Where('st_group', 'like', '%' . $group . '%')
-	// 		->Where('st_year', 'like', '%' . $year . '%')
-	// 		->Where('user_id', $user_id)
-	// 		->orderBy('id', 'desc')
-	// 		->paginate(14);
-	// 	$items = [
-	// 		'class'=>$class,
-	// 		'group'=>$group,
-	// 		'year'=>$year,
-	// 		'marks'=>$marks,
-	// 		'routine'=>$routine,
-	// 	];
-	// 	return $items;
-	// 	// return view('Frontend.pages.Student.admitSearch', compact('marks', 'class', 'group', 'year', 'routine'));
-	// }
-
-	public function admit(Request $request)
+	public function tabulationPrintShow(Request $request)
 	{
-		// 	$user_id = Auth::id();
-		// 	$class = $request->class;
-		// 	$group = $request->group;
-		// 	$year = $request->year;
-		// 	$add_routine = $request->add_routine;
+		$user_id = Auth::id();
+		$class = $request->class;
+		$group = $request->group;
+		$year = $request->year;
+		$add = $request->add;
+		$result = student_mark::orderBy('id', 'desc')
+			->Where('class', 'like', '%' . $class . '%')
+			->Where('st_group', 'like', '%' . $group . '%')
+			->Where('st_year', 'like', '%' . $year . '%')
+			->Where('user_id', $user_id)
+			->get();
+		return view('Frontend.pages.Student.tabulationPrint', compact('result', 'class', 'group', 'year', 'add'));
+	}
 
+	// start tabulation PDF
+	public function tabulationPDF(Request $request)
+	{
+		$user_id = Auth::id();
+		$class = $request->class;
+		$group = $request->group;
+		$year = $request->year;
+		$add = $request->add;
 
-		// 	if (!empty($class) && empty($group) && empty($year)) {
+		$result = student_mark::orderBy('id', 'desc')
+			->Where('class', 'like', '%' . $class . '%')
+			->Where('st_group', 'like', '%' . $group . '%')
+			->Where('st_year', 'like', '%' . $year . '%')
+			->Where('user_id', $user_id)
+			->get();
+		$pdf = PDF::loadView('Frontend.pages.Student.tabulationPDF', compact('result', 'class', 'group', 'add'))->setPaper('a4', 'landscape');
+		return $pdf->stream('tabulationSheet.pdf');
+	}
 
-		// 		$marks = student_mark::Where('class', 'like', '%' . $class . '%')
-		// 			->Where('user_id', $user_id)
-		// 			->orderBy('id', 'ASC')
-		// 			->paginate(14);
+	public function tabulationPDF2(Request $request)
+	{
+		$user_id = Auth::id();
+		$class = $request->class;
+		$group = $request->group;
+		$year = $request->year;
+		$add = $request->add;
+		$totalStudent = $request->Tstudent;
+		$tPass = $request->tPass;
+		$tFail = $request->tFail;
+		$result = student_mark::orderBy('id', 'desc')
+			->Where('class', 'like', '%' . $class . '%')
+			->Where('st_group', 'like', '%' . $group . '%')
+			->Where('st_year', 'like', '%' . $year . '%')
+			->Where('user_id', $user_id)
+			->get();
+		$fileName = 'Student_List.pdf';
+		$mpdf = new \Mpdf\Mpdf([
+			'format' => 'A4',
+			'orientation' => 'L',
+			'margin_left' => 10,
+			'margin_top' => 16,
+			'margin_right' => 10,
+			'margin_bottom' => 13,
+			'margin_header' => 5,
+			'margin_footer' => 5,
+		]);
 
-		// 		return view('Frontend.pages.Student.admit', compact('marks', 'admit', 'class', 'group'));
-		// 	}
-		// 	if (!empty($class) && !empty($group) && empty($year)) {
+		$html = \View::make('Frontend.pages.Student.tabulationPDF', compact('result', 'class', 'group', 'add', 'totalStudent', 'tPass', 'tFail'));
+		$html = $html->render();
 
-		// 		$marks = student_mark::Where('class', 'like', '%' . $class . '%')
-		// 			->Where('st_group', 'like', '%' . $group . '%')
-		// 			->Where('user_id', $user_id)
-		// 			->orderBy('id', 'ASC')
-		// 			->paginate(14);
-		// 		return view('Frontend.pages.Student.admit', compact('marks', 'class', 'group'));
-		// 	}
-		// 	if (!empty($class) && !empty($group) && !empty($year)) {
-		// 		$routine = Routine::where('user_id', Auth::id())->where('class', $class);
-		// 		$marks = student_mark::Where('class', 'like', '%' . $class . '%')
-		// 			->Where('st_group', 'like', '%' . $group . '%')
-		// 			->Where('st_year', 'like', '%' . $year . '%')
-		// 			->Where('user_id', $user_id)
-		// 			->orderBy('id', 'ASC')
-		// 			->paginate(14);
-		// 		return view('Frontend.pages.Student.admit', compact('marks', 'class', 'group', 'year'));
-		// 	}
-		// 	if (empty($class) && empty($group) && empty($year)) {
+		$mpdf->SetHeader('Publish Result | Printed By {DATE j-m-Y} | Page Number {PAGENO}');
 
-		// 		$marks = student_mark::Where('user_id', $user_id)
-		// 			->orderBy('st_roll', 'ASC')
-		// 			->paginate(14);
-		// 		return view('Frontend.pages.Student.admit', compact('marks', 'group', 'year'));
-		// 	}
+		// $mpdf->SetWatermarkText('Noipunno digital');
+		$mpdf->showWatermarkText = true;
+		$mpdf->watermark_font = 'Smooch';
+
+		$mpdf->WriteHTML($html);
+
+		$mpdf->Output($fileName, 'I');
 	}
 }

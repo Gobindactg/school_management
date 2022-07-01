@@ -6,9 +6,9 @@
 
 <style>
     .bg_image {
-        background-image: url("{{ asset('ResultImage/mark4.jpg') }}");
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: cover;background-image: url("{{ asset('ResultImage/mark4.jpg') }}");
+        
 
     }
 </style>

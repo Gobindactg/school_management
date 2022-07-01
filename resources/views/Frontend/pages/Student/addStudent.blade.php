@@ -113,7 +113,7 @@
                 </div>
 
 
-                <a id="section3" class="btn btn-info" href="#section2">NEXT</a>
+                <a id="section3" class="btn btn-info" href="#section3">NEXT</a>
             </div>
 
 

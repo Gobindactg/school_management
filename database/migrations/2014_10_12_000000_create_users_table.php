@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('image')->default("default.png");
             $table->float('user_level')->default(0);
+            $table->string('ip_address')->nullable();
+            $table->string('user_status')->nullable();
             $table->rememberToken();
             $table->timestamps();
 

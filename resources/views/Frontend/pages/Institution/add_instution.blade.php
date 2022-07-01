@@ -98,7 +98,7 @@
                 placeholder="Write Your Institution EMIS">
         </div>
 
-        <button type="submit" class="btn btn-primary">Add Info</button>
+        <button type="submit" class="btn btn-primary">Submit Information</button>
     </form>
 </section>
 @include('Frontend.partial.js')

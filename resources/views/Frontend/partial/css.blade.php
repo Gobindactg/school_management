@@ -13,7 +13,7 @@
 <link href="{{asset('Frontend/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
 <link href="{{asset('Frontend/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
 <link href="{{asset('Frontend/vendor/simple-datatables/style.css')}}" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Template Main CSS File -->
@@ -24,6 +24,4 @@
 <link href="{{asset('Frontend/resources/css/custom.css')}}" rel="stylesheet">
 
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.css"/>
- 
- 
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.css" />

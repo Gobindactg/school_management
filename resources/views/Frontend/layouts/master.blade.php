@@ -5,7 +5,7 @@
     @include('Frontend.partial.meta')
     @yield('meta')
     <title>@yield('title')</title>
-    
+
     <!-- =======Start Css ======= -->
     @include('Frontend.partial.css')
     @stack('css')
@@ -18,7 +18,6 @@
             background-size: cover;
             background-position: center;
         }
-
     </style>
 
 </head>

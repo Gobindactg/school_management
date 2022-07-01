@@ -8,7 +8,7 @@
 <div class="container my-2">
     <div class="row">
         <div class="col-md-4">
-            <form action="{{route('search.admit')}}" method="get">
+            <form action="{{route('admitPDF')}}" method=" get" target="_blank">
 
                 <select class="form-select " name="class" id="class_admit">
                     <option value="">--Select Class--</option>
@@ -40,7 +40,7 @@
                 <option value="">-- Select Exam Name --</option>
                 <option value="First Terminal Exam"> First Terminal Exam</option>
                 <option value="Second Terminal Exam">Second Terminal Exam</option>
-                <option value="aannual examination">Annual Exam</option>
+                <option value="Annual examination">Annual Exam</option>
             </select>
         </div>
         <div class="col-md-4 text-center bg-light pt-2 px-2">
@@ -50,14 +50,14 @@
             </label>
         </div>
         <div class="col-md-4">
-            <input type="submit" value="Search" class="btn btn-info w-100">
+            <input type="submit" value="Print" class="btn btn-info w-100">
             </form>
         </div>
 
     </div>
 </div>
 
-<button href="" class="btn btn-info " style="width: 100px" type="submit">Print</button>
+
 @foreach($marks as $mark )
 <div class="col-md-12 card card-body">
 

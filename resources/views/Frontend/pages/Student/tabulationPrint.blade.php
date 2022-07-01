@@ -3,8 +3,6 @@
 @section('meta')
 <!-- <meta name="csrf-token" content="{{ csrf_token() }}"> -->
 @endsection
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
     .t_border,
     th,
@@ -34,7 +32,7 @@
 @section('content')
 <div class="row " style="background-color:white;margin-bottom:10px">
     <div class="col-md-2" style="padding-top:14px">
-        <form action="{{route('searchTabulation')}}" method="get">
+        <form action="{{route('tabulationPDF2')}}" method="get" target="_blank">
 
             <select class="form-select " name="class" id="class_admit">
                 <option value="">--Select Class--</option>
@@ -61,7 +59,7 @@
             <option value="2020">2020</option>
         </select>
     </div>
-    <div class="col-md-2" style="padding-top:14px">
+    <div class="col-md-3" style="padding-top:14px">
         <select name="examName" id="" class="form-control">
             <option value="">-- Select Exam Name --</option>
             <option value="First Terminal Exam"> First Terminal Exam</option>
@@ -76,8 +74,11 @@
         </label>
     </div>
 
-    <div class="col-md-2" style="padding-top:14px">
-        <input type="submit" value="Search" class="btn btn-info "><a href="{{route('tabulationPrintShow')}}" class="btn btn-info" style="margin-left: 2px;">Print</a>
+    <div class="col-md-1 w-100" style="padding-top:14px">
+        <input type="hidden" value="" id="total_Student" name="Tstudent">
+        <input type="hidden" value="" id="tPass" name="tPass">
+        <input type="hidden" value="" id="tFail" name="tFail">
+        <input type="submit" value="Print" class="btn btn-info ">
         </form>
     </div>
 
@@ -137,6 +138,8 @@
                 </tr>
             </thead>
         </table>
+
+
         @if($add)
         <div class="scrollbar scrollbar-x ">
             <table class="table text-center " id="resultBody">
@@ -333,7 +336,7 @@
 
                             if(isset($_GET['add'])){
                             if($bangla < 33 or $english < 33 or $math < 33 or $science < 33 or $bob < 33 or $religion < 33 or $music < 33 or $expressive < 33 or $physical < 33){ $averageGpa=0; } else{$totalGpa=$gpaB + $gpaE + $gpaM + $gpaS + $gpaBo + $gpaR + $gpaMu + $gpaEx + $gpaPh; $averageGpa=$totalGpa / 9; } } else{if($bangla < 33 or $english < 33 or $math < 33 or $science < 33 or $bob < 33 or $religion < 33){ $averageGpa=0; }else{$totalGpa=$gpaB + $gpaE + $gpaM + $gpaS + $gpaBo + $gpaR ; $averageGpa=$totalGpa / 6; } } echo round($averageGpa, 2); @endphp </td>
-                        <td class="status"> @php
+                        <td>@php
                             if($averageGpa <= 0) echo '<span style="color:red;">Fail</span>' ; else echo '<span style="color:green; font-size:18px">Promoted</span>' ; @endphp <span class="status2 invisible">@php if($averageGpa <= 0) echo 'Fail' ; else echo 'Promoted' ; @endphp</span>
                         </td>
                     </tr>
@@ -531,9 +534,10 @@
 
                             if(isset($_GET['add'])){
                             if($bangla < 33 or $english < 33 or $math < 33 or $science < 33 or $bob < 33 or $religion < 33 or $music < 33 or $expressive < 33 or $physical < 33){ $averageGpa=0; } else{$totalGpa=$gpaB + $gpaE + $gpaM + $gpaS + $gpaBo + $gpaR + $gpaMu + $gpaEx + $gpaPh; $averageGpa=$totalGpa / 9; } } else{if($bangla < 33 or $english < 33 or $math < 33 or $science < 33 or $bob < 33 or $religion < 33){ $averageGpa=0; }else{$totalGpa=$gpaB + $gpaE + $gpaM + $gpaS + $gpaBo + $gpaR ; $averageGpa=$totalGpa / 6; } } echo round($averageGpa, 2); @endphp </td>
-                        <td class="status"> @php
-                            if($averageGpa <= 0) echo '<span style="color:red;">Fail</span>' ; else echo '<span style="color:green; font-size:18px">Promoted</span>' ; @endphp</td>
-                                <span class="status2 invisible">@php if($averageGpa <= 0) echo 'Fail' ; else echo 'Promoted' ; @endphp</span>
+                        <td>
+                            @php
+                            if($averageGpa <= 0) echo '<span style="color:red;">Fail</span>' ; else echo '<span style="color:green; font-size:18px">Promoted</span>' ; @endphp <span class="status2 invisible">@php if($averageGpa <= 0) echo 'Fail' ; else echo 'Promoted' ; @endphp</span>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -541,17 +545,13 @@
         </div>
         @endif
     </div>
-
     @endforeach
-    <div class="d-flex justify-content-left pagination ">
-        {!! $result->links() !!}
-
-    </div>
 
     <script type="text/javascript">
         window.onload = function() {
             var table = document.getElementById("resultBody");
             var totalStudents = table.querySelectorAll("tbody tr").length;
+            document.getElementById('total_Student').value = totalStudents;
             document.getElementById('totalStudent').innerHTML = totalStudents;
         }
 
@@ -569,6 +569,8 @@
         var Pass = getOccurrence(items, 'Promoted');
         var Fail = getOccurrence(items, 'Fail');
         document.getElementById('promoted').innerHTML = Pass;
+        document.getElementById('tPass').value = Pass;
         document.getElementById('fail').innerHTML = Fail;
+        document.getElementById('tFail').value = Fail;
     </script>
     @endsection
